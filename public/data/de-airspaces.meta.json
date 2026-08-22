@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-08-21T17:49:10.591Z",
+  "source": "ED_Airspace_StrokedBorders_2026-07-09_2026-08-06_revision.xml+ED_AirportHeliport_2026-07-09_2026-08-06_revision.xml+ED_Runway_2026-07-09_2026-08-06_revision.xml (+4 more)",
+  "sourceSha256": "1433825b9451cfd35471462b76a3e3ca8946945fc06daaf95f1f7447e7fac6b3",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "airspaceCount": 755,
+  "skippedNoBoundary": 812,
+  "skippedNoType": 746,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 1071,
+  "multiComponentAirspaces": 163,
+  "counts": {
+    "A": 39,
+    "ATZ": 4,
+    "CTA": 240,
+    "CTR": 69,
+    "D": 106,
+    "DLG-ATS": 49,
+    "R": 150,
+    "RMZ": 31,
+    "SIV": 11,
+    "TMZ": 56
+  },
+  "bbox": [
+    5.866,
+    47.27,
+    15.043,
+    55.115
+  ]
+}

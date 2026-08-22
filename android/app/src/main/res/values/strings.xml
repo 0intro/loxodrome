@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Loxodrome</string>
+    <string name="title_activity_main">Loxodrome</string>
+    <string name="package_name">fr.loxodrome.app</string>
+    <string name="custom_url_scheme">fr.loxodrome.app</string>
+</resources>

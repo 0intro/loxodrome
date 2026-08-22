@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-08-21T17:51:02.715Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 06-Aug-2026-A/2026-08-06-AIRAC",
+  "sourceSha256": "6f7c28303842b256c58c2fae49168a7f27ac43b8bd79649fffc354838b29e5fa",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "airspaceCount": 171,
+  "sectionCounts": {
+    "ENR 2.1": 10,
+    "ENR 2.2": 30,
+    "ENR 5.1": 28,
+    "ENR 5.2": 81,
+    "ENR 5.5": 22
+  },
+  "tables": 9,
+  "limitsSwapped": 0,
+  "classStacks": 0,
+  "withRadio": 0,
+  "pointCircles": 0,
+  "pointOnly": 42,
+  "firRings": 0,
+  "borderStitched": 28,
+  "borderChords": 0,
+  "skippedTypes": {
+    "AREA REPRESENTED BY": 1,
+    "NO GEOMETRY": 33,
+    "NO NAME": 6
+  },
+  "counts": {
+    "ACTIVITY": 22,
+    "ATZ": 21,
+    "CTA": 10,
+    "D": 106,
+    "R": 3,
+    "RMZ": 9
+  },
+  "bbox": [
+    17.615,
+    41.133,
+    23,
+    46.184
+  ]
+}

@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AIXM-Snapshot created="2026-03-23T19:09:15.593+01:00" origin="Sia-France" version="4.5" effective="2026-05-14T00:00:00.000+02:00">
+    <Ase>
+        <AseUid mid="1001">
+            <codeType>TMA</codeType>
+            <codeId>LFXX1</codeId>
+        </AseUid>
+        <txtName>PARIS TEST</txtName>
+        <codeClass>D</codeClass>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>115</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+        <Att>
+            <codeWorkHr>H24</codeWorkHr>
+        </Att>
+        <txtRmk>Test airspace#second line</txtRmk>
+    </Ase>
+    <Ase>
+        <AseUid mid="1002">
+            <codeType>CTR</codeType>
+            <codeId>LFXX2</codeId>
+        </AseUid>
+        <txtName>NORTH TEST</txtName>
+        <codeClass>D</codeClass>
+        <codeDistVerUpper>ALT</codeDistVerUpper>
+        <valDistVerUpper>2500</valDistVerUpper>
+        <uomDistVerUpper>FT</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1003">
+            <codeType>D</codeType>
+            <codeId>LFXX3</codeId>
+        </AseUid>
+        <txtName>DANGER TEST</txtName>
+        <Att>
+            <codeWorkHr>HX</codeWorkHr>
+            <txtRmkWorkHr>Active on NOTAM#see AIP</txtRmkWorkHr>
+        </Att>
+    </Ase>
+    <Ase>
+        <AseUid mid="1004">
+            <codeType>P</codeType>
+            <codeId>LFXX4</codeId>
+        </AseUid>
+        <txtName>PROHIBITED TEST</txtName>
+    </Ase>
+    <Ase>
+        <AseUid mid="1005">
+            <codeType>R</codeType>
+            <codeId>LFXX5</codeId>
+        </AseUid>
+        <txtName>NO BOUNDARY TEST</txtName>
+    </Ase>
+    <Ase>
+        <AseUid mid="1009">
+            <codeType>D-OTHER</codeType>
+            <codeId>LFXX9</codeId>
+        </AseUid>
+        <txtName>ACTIVITY ZONE TEST</txtName>
+    </Ase>
+    <Ase>
+        <AseUid mid="1006">
+            <codeType>FIR</codeType>
+            <codeId>LFXXFIR</codeId>
+        </AseUid>
+        <txtName>FIR TEST</txtName>
+        <codeClass>G</codeClass>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>195</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+        <Att>
+            <codeWorkHr>H24</codeWorkHr>
+        </Att>
+        <txtRmk>Flight information region test</txtRmk>
+    </Ase>
+    <Ase>
+        <AseUid mid="1007">
+            <codeType>RAS</codeType>
+            <codeId>LFXXFS</codeId>
+        </AseUid>
+        <txtName>INFO TEST</txtName>
+        <txtLocalType>FLIGHT INFORMATION SECTOR</txtLocalType>
+    </Ase>
+    <Ase>
+        <AseUid mid="1008">
+            <codeType>RAS</codeType>
+            <codeId>LFXXFS1</codeId>
+        </AseUid>
+        <txtName>INFO TEST 1</txtName>
+        <txtLocalType>FLIGHT INFORMATION SECTOR</txtLocalType>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>115</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1011">
+            <codeType>RAS</codeType>
+            <codeId>LFXXFS2</codeId>
+        </AseUid>
+        <txtName>INFO TEST 2</txtName>
+        <txtLocalType>FLIGHT INFORMATION SECTOR</txtLocalType>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>115</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1010">
+            <codeType>RAS</codeType>
+            <codeId>LFXXFBZ</codeId>
+        </AseUid>
+        <txtName>FBZ TEST</txtName>
+        <txtLocalType>FBZ</txtLocalType>
+    </Ase>
+    <Ase>
+        <AseUid mid="1012">
+            <codeType>RAS</codeType>
+            <codeId>LFFFFSN</codeId>
+        </AseUid>
+        <txtName>AAA NORD</txtName>
+        <txtLocalType>FLIGHT INFORMATION SECTOR</txtLocalType>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>115</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1013">
+            <codeType>D-OTHER</codeType>
+            <codeId>LFXXLTA</codeId>
+        </AseUid>
+        <txtName>LTA FRANCE TEST</txtName>
+        <txtLocalType>LTA</txtLocalType>
+        <codeClass>D</codeClass>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>195</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>STD</codeDistVerLower>
+        <valDistVerLower>115</valDistVerLower>
+        <uomDistVerLower>FL</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1014">
+            <codeType>TMA</codeType>
+            <codeId>LFXXB</codeId>
+        </AseUid>
+        <txtName>BASE TMA</txtName>
+        <codeClass>D</codeClass>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>115</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>ALT</codeDistVerLower>
+        <valDistVerLower>2000</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1015">
+            <codeType>TMA</codeType>
+            <codeId>LFXXB.20</codeId>
+        </AseUid>
+        <txtName>BASE TMA.20</txtName>
+        <codeClass>E</codeClass>
+        <codeDistVerUpper>ALT</codeDistVerUpper>
+        <valDistVerUpper>2000</valDistVerUpper>
+        <uomDistVerUpper>FT</uomDistVerUpper>
+        <codeDistVerLower>ALT</codeDistVerLower>
+        <valDistVerLower>1000</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Ase>
+        <AseUid mid="1016">
+            <codeType>FIR</codeType>
+            <codeId>LFXXFIR.20</codeId>
+        </AseUid>
+        <txtName>FIR TEST.20</txtName>
+        <codeClass>G</codeClass>
+        <codeDistVerUpper>STD</codeDistVerUpper>
+        <valDistVerUpper>195</valDistVerUpper>
+        <uomDistVerUpper>FL</uomDistVerUpper>
+        <codeDistVerLower>HEI</codeDistVerLower>
+        <valDistVerLower>0</valDistVerLower>
+        <uomDistVerLower>FT</uomDistVerLower>
+    </Ase>
+    <Abd>
+        <AbdUid mid="2001">
+            <AseUid mid="1001">
+                <codeType>TMA</codeType>
+                <codeId>LFXX1</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>485000.00N</geoLat>
+            <geoLong>0023000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>485000.00N</geoLat>
+            <geoLong>0024000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>484000.00N</geoLat>
+            <geoLong>0024000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>484000.00N</geoLat>
+            <geoLong>0023000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2002">
+            <AseUid mid="1002">
+                <codeType>CTR</codeType>
+                <codeId>LFXX2</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>472000.00N</geoLat>
+            <geoLong>0010000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>472000.00N</geoLat>
+            <geoLong>0011000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>CWA</codeType>
+            <geoLat>471000.00N</geoLat>
+            <geoLong>0010500.00E</geoLong>
+            <geoLatArc>471500.00N</geoLatArc>
+            <geoLongArc>0010500.00E</geoLongArc>
+            <valRadiusArc>5</valRadiusArc>
+            <uomRadiusArc>NM</uomRadiusArc>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2003">
+            <AseUid mid="1003">
+                <codeType>D</codeType>
+                <codeId>LFXX3</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>460000.00N</geoLat>
+            <geoLong>0050000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>460000.00N</geoLat>
+            <geoLong>0051000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>CCA</codeType>
+            <geoLat>455000.00N</geoLat>
+            <geoLong>0050500.00E</geoLong>
+            <geoLatArc>455500.00N</geoLatArc>
+            <geoLongArc>0050500.00E</geoLongArc>
+            <valRadiusArc>6</valRadiusArc>
+            <uomRadiusArc>NM</uomRadiusArc>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2004">
+            <AseUid mid="1004">
+                <codeType>P</codeType>
+                <codeId>LFXX4</codeId>
+            </AseUid>
+        </AbdUid>
+        <Circle>
+            <geoLatCen>434210.00N</geoLatCen>
+            <geoLongCen>0052347.00E</geoLongCen>
+            <valRadius>3</valRadius>
+            <uomRadius>KM</uomRadius>
+        </Circle>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2005">
+            <AseUid mid="1006">
+                <codeType>FIR</codeType>
+                <codeId>LFXXFIR</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>490000.00N</geoLat>
+            <geoLong>0000000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>490000.00N</geoLat>
+            <geoLong>0080000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>460000.00N</geoLat>
+            <geoLong>0080000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>460000.00N</geoLat>
+            <geoLong>0000000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2006">
+            <AseUid mid="1008">
+                <codeType>RAS</codeType>
+                <codeId>LFXXFS1</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>480000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>480000.00N</geoLat>
+            <geoLong>0031000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>475000.00N</geoLat>
+            <geoLong>0031000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>475000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2008">
+            <AseUid mid="1011">
+                <codeType>RAS</codeType>
+                <codeId>LFXXFS2</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>475000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>475000.00N</geoLat>
+            <geoLong>0031000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>474000.00N</geoLat>
+            <geoLong>0031000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>474000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2007">
+            <AseUid mid="1010">
+                <codeType>RAS</codeType>
+                <codeId>LFXXFBZ</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>440000.00N</geoLat>
+            <geoLong>0060000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>440000.00N</geoLat>
+            <geoLong>0061000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>435000.00N</geoLat>
+            <geoLong>0061000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>435000.00N</geoLat>
+            <geoLong>0060000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2009">
+            <AseUid mid="1012">
+                <codeType>RAS</codeType>
+                <codeId>LFFFFSN</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>490000.00N</geoLat>
+            <geoLong>0040000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>490000.00N</geoLat>
+            <geoLong>0041000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>485000.00N</geoLat>
+            <geoLong>0041000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>485000.00N</geoLat>
+            <geoLong>0040000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2010">
+            <AseUid mid="1013">
+                <codeType>D-OTHER</codeType>
+                <codeId>LFXXLTA</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>470000.00N</geoLat>
+            <geoLong>0060000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>470000.00N</geoLat>
+            <geoLong>0070000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>465000.00N</geoLat>
+            <geoLong>0070000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>465000.00N</geoLat>
+            <geoLong>0060000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <Abd>
+        <AbdUid mid="2011">
+            <AseUid mid="1014">
+                <codeType>TMA</codeType>
+                <codeId>LFXXB</codeId>
+            </AseUid>
+        </AbdUid>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>455000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>455000.00N</geoLat>
+            <geoLong>0040000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>450000.00N</geoLat>
+            <geoLong>0040000.00E</geoLong>
+        </Avx>
+        <Avx>
+            <codeType>GRC</codeType>
+            <geoLat>450000.00N</geoLat>
+            <geoLong>0030000.00E</geoLong>
+        </Avx>
+    </Abd>
+    <!-- Same-extent twin: the class E slab under LFXXB borrows the base's
+         extent (buildRing follows the AseUidSameExtent hop). Its ".20" name
+         suffix is stripped from the emitted row. -->
+    <Adg>
+        <AdgUid mid="6001">
+            <AseUid mid="1015">
+                <codeType>TMA</codeType>
+                <codeId>LFXXB.20</codeId>
+            </AseUid>
+        </AdgUid>
+        <AseUidSameExtent mid="1014">
+            <codeType>TMA</codeType>
+            <codeId>LFXXB</codeId>
+        </AseUidSameExtent>
+    </Adg>
+    <!-- FIR twin: same-extent, but the FIR family is excluded from the
+         borrow (identical rings would collapse the firarcs classification),
+         so this row is skipped for want of a boundary. -->
+    <Adg>
+        <AdgUid mid="6002">
+            <AseUid mid="1016">
+                <codeType>FIR</codeType>
+                <codeId>LFXXFIR.20</codeId>
+            </AseUid>
+        </AdgUid>
+        <AseUidSameExtent mid="1006">
+            <codeType>FIR</codeType>
+            <codeId>LFXXFIR</codeId>
+        </AseUidSameExtent>
+    </Adg>
+    <Sae>
+        <SaeUid mid="4001">
+            <SerUid mid="3001">
+                <UniUid mid="3501">
+                    <txtName>PARIS APPROCHE</txtName>
+                </UniUid>
+                <codeType>APP</codeType>
+            </SerUid>
+            <AseUid mid="1001">
+                <codeType>TMA</codeType>
+                <codeId>LFXX1</codeId>
+            </AseUid>
+        </SaeUid>
+    </Sae>
+    <Sae>
+        <SaeUid mid="4002">
+            <SerUid mid="3002">
+                <UniUid mid="3502">
+                    <txtName>XXX INFORMATION</txtName>
+                </UniUid>
+                <codeType>FIS</codeType>
+            </SerUid>
+            <AseUid mid="1007">
+                <codeType>RAS</codeType>
+                <codeId>LFXXFS</codeId>
+            </AseUid>
+        </SaeUid>
+    </Sae>
+    <Fqy>
+        <FqyUid mid="5001">
+            <SerUid mid="3001"/>
+            <valFreqTrans>121.500</valFreqTrans>
+        </FqyUid>
+        <uomFreq>MHZ</uomFreq>
+        <Cdl>
+            <txtCallSign>Paris Approche</txtCallSign>
+            <codeLang>FR</codeLang>
+        </Cdl>
+        <Cdl>
+            <txtCallSign>Paris Approach</txtCallSign>
+            <codeLang>EN</codeLang>
+        </Cdl>
+    </Fqy>
+    <Fqy>
+        <FqyUid mid="5002">
+            <SerUid mid="3001"/>
+            <valFreqTrans>118.150</valFreqTrans>
+        </FqyUid>
+        <uomFreq>MHZ</uomFreq>
+        <Cdl>
+            <txtCallSign>Paris Approche</txtCallSign>
+            <codeLang>FR</codeLang>
+        </Cdl>
+        <Cdl>
+            <txtCallSign>Paris Approach</txtCallSign>
+            <codeLang>EN</codeLang>
+        </Cdl>
+    </Fqy>
+    <Fqy>
+        <FqyUid mid="5003">
+            <SerUid mid="3002"/>
+            <valFreqTrans>120.000</valFreqTrans>
+        </FqyUid>
+        <uomFreq>MHZ</uomFreq>
+        <Cdl>
+            <txtCallSign>XXX Information</txtCallSign>
+            <codeLang>FR</codeLang>
+        </Cdl>
+    </Fqy>
+    <Fqy>
+        <FqyUid mid="5004">
+            <SerUid mid="3002"/>
+            <valFreqTrans>121.000</valFreqTrans>
+        </FqyUid>
+        <uomFreq>MHZ</uomFreq>
+        <Cdl>
+            <txtCallSign>XXX Information</txtCallSign>
+            <codeLang>FR</codeLang>
+        </Cdl>
+    </Fqy>
+    <Fqy>
+        <FqyUid mid="5005">
+            <SerUid mid="3002"/>
+            <valFreqTrans>122.000</valFreqTrans>
+        </FqyUid>
+        <uomFreq>MHZ</uomFreq>
+        <Cdl>
+            <txtCallSign>XXX Information</txtCallSign>
+            <codeLang>FR</codeLang>
+        </Cdl>
+    </Fqy>
+</AIXM-Snapshot>

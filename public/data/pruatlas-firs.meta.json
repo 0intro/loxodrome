@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-08-21T17:49:06.857Z",
+  "airspaceCount": 268,
+  "source": {
+    "url": "https://raw.githubusercontent.com/euctrl-pru/pruatlas/master/inst/extdata/ir-524.geojson",
+    "sha256": "d8f6fe52e2038d7c5538402576d8c12f2659a4719468847d5ba340ba9b53a0a1",
+    "count": 262,
+    "cycle": 524
+  }
+}

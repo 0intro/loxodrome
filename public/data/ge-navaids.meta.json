@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-21T17:51:06.746Z",
+  "source": "UG_AIP_DS_FULL_20260709_AIRAC.xml",
+  "sourceSha256": "7845429a1707bcacb7aea4a29feb2ab90b76bb8564af526e41e36603a21f85fa",
+  "effective": "2026-07-09T00:00:00.000Z",
+  "navaidCount": 98,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 49,
+  "counts": {
+    "DME": 5,
+    "ILS-DME": 5,
+    "NDB": 3,
+    "VFR_REPORTING_POINT": 39,
+    "VOR-DME": 2,
+    "WAYPOINT": 44
+  },
+  "bbox": [
+    39.985,
+    41.134,
+    46.75,
+    42.99
+  ]
+}

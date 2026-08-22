@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-08-21T17:49:08.479Z",
+  "source": "EG_AIP_DS_FULL_20260806.xml",
+  "sourceSha256": "2429dedf17e0f6dc4857686d7d037191775e0e66861a0ec20aa2de97664f7500",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "airspaceCount": 2351,
+  "skippedNoBoundary": 3,
+  "skippedNoType": 49,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 414,
+  "multiComponentAirspaces": 0,
+  "counts": {
+    "ATZ": 145,
+    "CTA": 379,
+    "CTR": 34,
+    "D": 885,
+    "FIR": 3,
+    "P": 2,
+    "R": 862,
+    "RMZ": 4,
+    "TMA": 33,
+    "TMZ": 3,
+    "UIR": 1
+  },
+  "bbox": [
+    -30,
+    45,
+    5,
+    61
+  ],
+  "bboxes": [
+    [
+      -30,
+      45,
+      -30,
+      61
+    ],
+    [
+      -15,
+      45,
+      5,
+      61
+    ]
+  ]
+}

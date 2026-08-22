@@ -1,0 +1,156 @@
+name: Rebuild the offline AIP document packs
+
+# Assembles the offline AIP document packs (cmd/aipdocs) and uploads them to
+# their own R2 bucket, where the app downloads them whole, or reads one PDF
+# out of one, through the chart worker's archive route (docs/offline-maps.md).
+#
+# This is the job that keeps the SIA out of the loop: it fetches the 656
+# Atlas VAC plates and the supplements in force ONCE per build, for everyone,
+# instead of every install fetching them for itself. So it is deliberately
+# unhurried, cached, and it uploads only when the bytes actually changed.
+#
+# It also measures where each VAC panel sits on the ground (cmd/vacgeo,
+# docs/fr-vacgeo.md) and commits that, since this is the job that already
+# holds the plates: a separate workflow would fetch the same 195 MB again.
+# That commit is site content, so this workflow IS in deploy.yml's
+# workflow_run list; a push made with the default GITHUB_TOKEN starts no
+# workflow, so without it the dataset would sit in the branch unpublished.
+
+on:
+  schedule:
+    # Thursday with the other refreshes, in its own slot. The VAC set only
+    # changes at an AIRAC boundary and the supplement set a few files at a
+    # time, so most runs upload nothing at all.
+    - cron: '45 5 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  packs:
+    runs-on: ubuntu-latest
+    # A cold VAC build pulls about 195 MB from the SIA at six connections;
+    # a warm one is a few files.
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The PDF cache is what makes this polite. A supplement's URL is
+      # stable, so a weekly run re-fetches only what the SIA has added; the
+      # plates are cached per AIRAC cycle, so only a cycle boundary refetches
+      # them. The key carries the datasets' own hash so a rebuilt dataset
+      # (new supplements, a new cycle) rolls the cache forward instead of
+      # serving stale bytes.
+      - name: Restore the PDF cache
+        uses: actions/cache@v4
+        with:
+          path: local/aipdocs-cache
+          key: aipdocs-${{ hashFiles('public/data/fr-adcharts*.json', 'public/data/fr-supaip.json') }}
+          restore-keys: aipdocs-
+
+      - name: Build the packs
+        run: |
+          set -euo pipefail
+          # Both AIRAC slots for the plates: -target auto adds the
+          # pre-release pack when, and only when, fr-adcharts.next.json
+          # exists, that file's presence being the evidence the SIA
+          # pre-release tree is up and its membership index was read.
+          go run ./cmd/aipdocs -set vac -target auto
+          go run ./cmd/aipdocs -set sup -lang fr
+          go run ./cmd/aipdocs -set sup -lang en
+          ls -l local/aipdocs
+
+      # The georeference is measured from the plates the pack build just
+      # fetched, so the dataset and the pack are the same cycle by
+      # construction. An unchanged cycle rebuilds byte-identically (the
+      # fits iterate in sorted order and generatedAt lives in the meta), so
+      # the porcelain gate below really is a change test.
+      - name: Measure the VAC panels
+        run: |
+          set -euo pipefail
+          go run ./cmd/vacgeo -target auto
+
+      - name: Commit the georeference
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- 'public/data/fr-vacgeo*.json' ':(exclude)public/data/fr-vacgeo*.meta.json')" ]; then
+            echo "No panel changes."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add public/data/fr-vacgeo*.json public/data/fr-vacgeo*.meta.json
+          git commit -m "update the French VAC panel georeference"
+          n=0
+          until git push; do
+            n=$((n+1))
+            if [ "$n" -ge 3 ]; then echo "push failed after $n attempts"; exit 1; fi
+            git pull --rebase
+          done
+
+      # Uploaded over the S3 API rather than `wrangler r2 object`, so the
+      # credential can be an R2 token scoped to ONE bucket. R2 scopes a token
+      # to a bucket and not to a prefix within one, which is also why the
+      # packs have their own bucket: sharing the chart bucket would give this
+      # weekly job write access to 30 GB of archives that took days to build.
+      # The AWS CLI is preinstalled on ubuntu-latest.
+      - name: Upload the changed packs
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BUCKET: ${{ vars.AIPDOCS_R2_BUCKET }}
+        run: |
+          set -euo pipefail
+          # A pack is byte-deterministic for a given input (internal/docpack),
+          # so comparing hashes is a real change test: uploading regardless
+          # would roll the ETag every week and tell every user an update was
+          # waiting for a pack identical to the one they hold.
+          for pack in local/aipdocs/*.pack; do
+            name=$(basename "$pack")
+            local_sum=$(sha256sum "$pack" | cut -d' ' -f1)
+            remote_sum=$(cat "local/aipdocs-cache/uploaded/$name.sha256" 2>/dev/null || true)
+            if [ "$local_sum" = "$remote_sum" ]; then
+              echo "$name unchanged"
+              continue
+            fi
+            echo "uploading $name"
+            # --checksum-algorithm CRC32: R2 rejects the CRC64NVME the AWS CLI
+            # now defaults to.
+            aws s3 cp "$pack" "s3://$BUCKET/$name" \
+              --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" \
+              --content-type application/octet-stream \
+              --checksum-algorithm CRC32 --only-show-errors
+            mkdir -p local/aipdocs-cache/uploaded
+            echo "$local_sum" > "local/aipdocs-cache/uploaded/$name.sha256"
+          done
+
+      # Retiring the pre-release once the current slot has caught up with it,
+      # the same rule internal/aip/writers.go pruneSupersededNext applies to
+      # the datasets: a stale fr-vac-next.pack left in the bucket would be
+      # offered as a pre-release of a cycle already in force. Conservative in
+      # the same way: anything unreadable leaves the object alone, since
+      # losing a pre-release that might still be live is worse than keeping a
+      # dead one.
+      - name: Retire a superseded pre-release pack
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BUCKET: ${{ vars.AIPDOCS_R2_BUCKET }}
+        run: |
+          set -euo pipefail
+          if [ ! -f local/aipdocs/fr-vac-next.pack ] && [ -f local/aipdocs/fr-vac.pack ]; then
+            # No pre-release was built this run: if the bucket still holds
+            # one, it belongs to a cycle this build has reached.
+            aws s3 rm "s3://$BUCKET/fr-vac-next.pack" \
+              --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" || true
+            rm -f local/aipdocs-cache/uploaded/fr-vac-next.pack.sha256
+          fi

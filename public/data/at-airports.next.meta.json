@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-08-21T17:49:16.408Z",
+  "source": "Austro Control 20260903LuftraumAT_2026-07-22_0807453.kml",
+  "sourceSha256": "4c0864fd3ed549b8723d5fcba1e24a99bb5c0ea1d8bb151f8f01e10c6283eebc",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "ahpCount": 196,
+  "heliportCount": 141,
+  "militaryCount": 4,
+  "elevCount": 55,
+  "counts": {
+    "heliport": 141,
+    "large_airport": 6,
+    "medium_airport": 4,
+    "small_airport": 45
+  },
+  "bbox": [
+    9.578,
+    46.522,
+    16.959,
+    48.923
+  ]
+}

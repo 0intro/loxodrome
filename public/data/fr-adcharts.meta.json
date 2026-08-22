@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-08-21T17:50:17.444Z",
+  "effective": "2026-08-06",
+  "source": {
+    "site": "https://www.sia.aviation-civile.gouv.fr",
+    "menu": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_06_AUG_2026/FRANCE/AIRAC-2026-08-06/html/eAIP/FR-menu-fr-FR.html",
+    "vacIndex": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_06_AUG_2026/Atlas-VAC/Javascript/AeroArraysVac.js",
+    "vacHIndex": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_06_AUG_2026/Atlas-VAC/Javascript/AeroArraysVach.js"
+  },
+  "aerodromes": 134,
+  "charts": 3077,
+  "vacAerodromes": 419,
+  "vacHeliports": 237,
+  "byFamily": {
+    "ADC": 138,
+    "AMG": 15,
+    "AMSR": 10,
+    "AOC": 85,
+    "APDC": 93,
+    "ARC": 20,
+    "ATS": 1,
+    "COM": 24,
+    "DATA": 1099,
+    "DEP": 1,
+    "ENV": 8,
+    "GMC": 67,
+    "IAC": 657,
+    "MIA": 53,
+    "MVA": 11,
+    "PATC": 31,
+    "SID": 584,
+    "STAR": 168,
+    "TEXT": 12
+  },
+  "pagesFetched": 143,
+  "emptyPages": 9,
+  "parserVersion": 2
+}

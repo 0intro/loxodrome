@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-08-21T17:49:10.970Z",
+  "source": "ED_Airspace_StrokedBorders_2026-07-09_2026-08-06_revision.xml+ED_AirportHeliport_2026-07-09_2026-08-06_revision.xml+ED_Runway_2026-07-09_2026-08-06_revision.xml (+4 more)",
+  "sourceSha256": "1433825b9451cfd35471462b76a3e3ca8946945fc06daaf95f1f7447e7fac6b3",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "aerodromeCount": 1571,
+  "heliportCount": 452,
+  "skippedNotes": 0,
+  "counts": {
+    "email": 209,
+    "fax": 273,
+    "kind": 1568,
+    "operator": 761,
+    "phone": 758,
+    "usage": 784,
+    "web": 173
+  }
+}

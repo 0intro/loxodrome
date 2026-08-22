@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-21T17:49:08.796Z",
+  "source": "EG_AIP_DS_FULL_20260806.xml",
+  "sourceSha256": "2429dedf17e0f6dc4857686d7d037191775e0e66861a0ec20aa2de97664f7500",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "navaidCount": 1703,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 414,
+  "counts": {
+    "DME": 80,
+    "ILS-DME": 45,
+    "LOC": 3,
+    "NDB": 61,
+    "VFR_REPORTING_POINT": 407,
+    "VOR": 1,
+    "VOR-DME": 44,
+    "WAYPOINT": 1062
+  },
+  "bbox": [
+    -15,
+    45,
+    5,
+    61
+  ]
+}

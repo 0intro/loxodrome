@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-08-21T17:49:09.593Z",
+  "source": "EG_OBS_DS_AREA1_FULL_20260806.xml",
+  "sourceSha256": "5d01e818f262afb26b988f695726e1e0e131374b5d1d7e00358da1846b0bb508",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "obstacleCount": 10503,
+  "litCount": 2004,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "bridge": 21,
+    "building": 214,
+    "cable": 85,
+    "chimney": 92,
+    "crane": 584,
+    "derrick": 97,
+    "other": 1,
+    "powerplant": 6,
+    "tower": 315,
+    "windturbine": 9088
+  },
+  "bbox": [
+    -7.901,
+    49.251,
+    5.032,
+    60.857
+  ]
+}

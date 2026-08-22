@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-08-21T17:49:14.251Z",
+  "source": "AIXM4.5_all_FR_OM_2026-09-03.xml",
+  "sourceSha256": "2dd28ad4555fd7943d44fcdb387837784976e492cdb0bb02093d1b7a5e70b41c",
+  "effective": "2026-09-03T00:00:00.000+02:00",
+  "airspaceCount": 4145,
+  "skippedNoBoundary": 158,
+  "skippedNoClassify": 0,
+  "sameExtentCount": 81,
+  "withRadio": 657,
+  "siaSectorMappedCount": 242,
+  "siaSectorInjectCount": 6,
+  "siaTMASectorCount": 190,
+  "counts": {
+    "ACTIVITY": 2140,
+    "BALLOON": 5,
+    "CTA": 80,
+    "CTR": 116,
+    "D": 129,
+    "DLG-ATS": 114,
+    "FBZ": 109,
+    "FIC": 8,
+    "FIR": 10,
+    "FRA": 9,
+    "GLIDER": 1,
+    "LTA": 19,
+    "OCA": 3,
+    "P": 115,
+    "PARACHUTE": 1,
+    "PARAGLIDER": 13,
+    "R": 627,
+    "RMZ": 23,
+    "SIV": 102,
+    "TMA": 454,
+    "TMZ": 7,
+    "TMZ-RMZ": 1,
+    "TOWING": 5,
+    "TRA": 45,
+    "UIR": 4,
+    "UTA": 5
+  },
+  "bbox": [
+    -157,
+    -44.574,
+    170.5,
+    53
+  ],
+  "bboxes": [
+    [
+      -157,
+      -30,
+      -137.795,
+      3.5
+    ],
+    [
+      -120,
+      -30,
+      -120,
+      3.5
+    ],
+    [
+      -65,
+      2.34,
+      -35,
+      22.3
+    ],
+    [
+      -62.417,
+      44.666,
+      -51,
+      53
+    ],
+    [
+      -8.75,
+      39,
+      10.7,
+      51.117
+    ],
+    [
+      40,
+      -30,
+      57,
+      -10
+    ],
+    [
+      67.432,
+      -44.574,
+      67.456,
+      -44.556
+    ],
+    [
+      161.25,
+      -24.005,
+      170.5,
+      -14
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SiaExport Date="2026-03-23T19:16:46.480+01:00" Origine="Sia-France" Version="5">
+    <Situation>
+        <FrequenceS>
+            <Frequence pk="9001" lk="[LF][XX][FIS XXX Information][120.000]">
+                <Service pk="9000" lk="[LF][XX][FIS XXX Information]" />
+                <Frequence>120.000</Frequence>
+                <HorCode>H24</HorCode>
+                <Remarque>Information/Radar SIV 1</Remarque>
+            </Frequence>
+            <Frequence pk="9002" lk="[LF][XX][FIS XXX Information][121.000]">
+                <Service pk="9000" lk="[LF][XX][FIS XXX Information]" />
+                <Frequence>121.000</Frequence>
+                <HorCode>H24</HorCode>
+                <Remarque>Information/Radar SIV 2</Remarque>
+            </Frequence>
+            <Frequence pk="9003" lk="[LF][XX][FIS XXX Information][122.000]">
+                <Service pk="9000" lk="[LF][XX][FIS XXX Information]" />
+                <Frequence>122.000</Frequence>
+                <HorCode>H24</HorCode>
+                <Remarque>Information/Radar SIV 1 et/and 2</Remarque>
+            </Frequence>
+            <Frequence pk="9004" lk="[LF][AA][FIS AAA Information][119.000]">
+                <Service pk="9010" lk="[LF][AA][FIS AAA Information]" />
+                <Frequence>119.000</Frequence>
+                <HorCode>H24</HorCode>
+                <SecteurSituation>NORD</SecteurSituation>
+                <Remarque>Radio non garanti sous 1500 ft AMSL dans AAA INFO NORD.</Remarque>
+            </Frequence>
+        </FrequenceS>
+    </Situation>
+</SiaExport>

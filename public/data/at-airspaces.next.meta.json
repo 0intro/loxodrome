@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-08-21T17:49:16.335Z",
+  "source": "Austro Control 20260903LuftraumAT_2026-07-22_0807453.kml",
+  "sourceSha256": "4c0864fd3ed549b8723d5fcba1e24a99bb5c0ea1d8bb151f8f01e10c6283eebc",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "airspaceCount": 255,
+  "skippedNoBoundary": 0,
+  "skippedNoType": 0,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "multiComponentAirspaces": 0,
+  "counts": {
+    "ATZ": 3,
+    "CTA": 13,
+    "CTR": 8,
+    "D": 8,
+    "GLIDER": 3,
+    "PARAGLIDER": 45,
+    "R": 17,
+    "RMZ": 2,
+    "TMA": 102,
+    "TMZ": 3,
+    "TRA": 38,
+    "TSA": 13
+  },
+  "bbox": [
+    9.53,
+    46.372,
+    17.161,
+    49.021
+  ],
+  "placemarks": 255,
+  "multiFootprint": 0,
+  "unparsedLimits": null,
+  "folderCounts": {
+    "0101_Restricted_areas": 8,
+    "0102_Control_areas": 13,
+    "0103_Terminal_control_areas": 90,
+    "0104_Control_zones": 6,
+    "0105_Radio_mandatory_zones": 2,
+    "0106_Transponder_mandatory_zones": 3,
+    "0107_Temporary_reserved_areas": 28,
+    "0201_Danger_areas": 8,
+    "0202_Restricted_areas_military": 9,
+    "0203_Military_terminal_control_areas": 12,
+    "0204_Military_control_zones": 2,
+    "0205_Military_aerodrome_traffic_zones": 3,
+    "0206_Military_temporary_reserved_areas": 10,
+    "0207_Military_training_areas": 13,
+    "Gliding_areas": 3,
+    "Hang_gliding_and_para_gliding_areas": 45
+  }
+}

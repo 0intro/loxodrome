@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-08-21T17:51:06.748Z",
+  "source": "UG_AIP_DS_FULL_20260709_AIRAC.xml",
+  "sourceSha256": "7845429a1707bcacb7aea4a29feb2ab90b76bb8564af526e41e36603a21f85fa",
+  "effective": "2026-07-09T00:00:00.000Z",
+  "aerodromeCount": 7,
+  "heliportCount": 0,
+  "skippedNotes": 15,
+  "counts": {
+    "altimeterCheck": 7,
+    "email": 14,
+    "fax": 4,
+    "operator": 8,
+    "phone": 14,
+    "powerSupply": 4,
+    "web": 6,
+    "windIndicator": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-08-21T17:49:15.872Z",
+  "source": "Austro Control 20260709LuftraumAT_2026-05-26_1105212.kmz",
+  "sourceSha256": "0b52f89d42ac930260d277bc69a08ddf5c8adcc8339f7a0bf8205d6e625b9b3b",
+  "effective": "2026-07-09T00:00:00.000Z",
+  "navaidCount": 163,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 7,
+    "NDB": 10,
+    "VFR_REPORTING_POINT": 137,
+    "VOR-DME": 9
+  },
+  "bbox": [
+    10.964,
+    46.547,
+    17.068,
+    48.579
+  ]
+}

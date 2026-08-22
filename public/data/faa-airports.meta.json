@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-08-21T19:30:25.240Z",
+  "source": "FAA AIS US_Airport + Runways",
+  "sourceSha256": "1f8a7ef79f98f27b631f998366850c3809aac55e0fbefcce2ff2e5f9ab6186c9",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "ahpCount": 19559,
+  "runwayCount": 23401,
+  "militaryCount": 322,
+  "jointCount": 24,
+  "privateCount": 14266,
+  "icaoCount": 2861,
+  "skippedNoGeo": 0,
+  "unknownStatus": [],
+  "counts": {
+    "balloonport": 12,
+    "closed": 330,
+    "heliport": 5656,
+    "large_airport": 507,
+    "medium_airport": 3105,
+    "seaplane_base": 555,
+    "small_airport": 9394
+  },
+  "bbox": [
+    -177.382,
+    -14.332,
+    174.114,
+    76.534
+  ],
+  "bboxes": [
+    [
+      -177.382,
+      17.492,
+      -62.974,
+      76.534
+    ],
+    [
+      -170.712,
+      -14.332,
+      -169.423,
+      -14.184
+    ],
+    [
+      -162.067,
+      1.986,
+      -157.349,
+      5.884
+    ],
+    [
+      -14.394,
+      -7.97,
+      -14.393,
+      -7.969
+    ],
+    [
+      72.412,
+      -7.314,
+      72.413,
+      -7.313
+    ],
+    [
+      134.15,
+      5.356,
+      171.917,
+      19.283
+    ],
+    [
+      173.175,
+      52.712,
+      174.114,
+      52.833
+    ]
+  ]
+}

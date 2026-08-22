@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-21T17:50:45.233Z",
+  "source": "LE_Amdt_A_2026_07_AIP_DS_FULL_EnRoute.xml",
+  "sourceSha256": "80cb1249985dfb16cbcca9735177952bfbeb5c46547b19073372c413a7e85469",
+  "effective": "",
+  "navaidCount": 1294,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 130,
+  "counts": {
+    "DME": 6,
+    "ILS": 1,
+    "ILS-DME": 64,
+    "NDB": 42,
+    "TACAN": 15,
+    "VOR-DME": 83,
+    "VORTAC": 2,
+    "WAYPOINT": 1081
+  },
+  "bbox": [
+    -25,
+    19.595,
+    4.667,
+    45
+  ]
+}

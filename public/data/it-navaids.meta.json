@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-21T17:51:07.720Z",
+  "source": "open flightmaps OFMX LI",
+  "sourceSha256": "fdadc95e3863b729deb907bfdaa7d723cc9e8ab104039c9002b64d790bec5de6",
+  "effective": "2026-08-16T00:00:00.000Z",
+  "navaidCount": 602,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 2,
+    "NDB": 15,
+    "TACAN": 8,
+    "VFR_REPORTING_POINT": 517,
+    "VOR-DME": 53,
+    "VORTAC": 7
+  },
+  "bbox": [
+    7.071,
+    35.5,
+    18.447,
+    46.643
+  ]
+}

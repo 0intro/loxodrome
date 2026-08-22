@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-08-21T17:51:07.715Z",
+  "source": "open flightmaps OFMX LI",
+  "sourceSha256": "fdadc95e3863b729deb907bfdaa7d723cc9e8ab104039c9002b64d790bec5de6",
+  "effective": "2026-08-16T00:00:00.000Z",
+  "zoneCount": 327,
+  "skippedNoGeo": 0,
+  "counts": {
+    "NATURE": 327
+  },
+  "bbox": [
+    6.95,
+    37.116,
+    17.799,
+    46.594
+  ]
+}

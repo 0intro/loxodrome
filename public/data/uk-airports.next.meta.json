@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-21T17:49:10.965Z",
+  "source": "EG_AIP_DS_FULL_20260903.xml",
+  "sourceSha256": "0a2435097576dc1fda0ff36292e75ca7a3be0ad8daf0d928f0a86125dfc08bb4",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "ahpCount": 121,
+  "runwayCount": 230,
+  "militaryCount": 0,
+  "radioCount": 228,
+  "transitionAltCount": 93,
+  "counts": {
+    "heliport": 5,
+    "large_airport": 12,
+    "medium_airport": 52,
+    "small_airport": 52
+  },
+  "bbox": [
+    -7.652,
+    49.207,
+    1.283,
+    60.193
+  ]
+}

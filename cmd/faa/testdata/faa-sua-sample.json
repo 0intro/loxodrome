@@ -1,0 +1,71 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "R-2305",
+        "NAME": "RESTRICTED 2305",
+        "TYPE_CODE": "R",
+        "CLASS": "",
+        "ICAO_ID": "",
+        "UPPER_DESC": "FL200",
+        "UPPER_VAL": 200,
+        "UPPER_UOM": "FL",
+        "UPPER_CODE": "STD",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-115.0,35.0],[-114.0,35.0],[-114.0,36.0],[-115.0,36.0],[-115.0,35.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "DESERT MOA",
+        "NAME": "DESERT MOA",
+        "TYPE_CODE": "MOA",
+        "CLASS": "",
+        "ICAO_ID": "",
+        "UPPER_DESC": "18000 FT MSL",
+        "UPPER_VAL": 18000,
+        "UPPER_UOM": "FT",
+        "UPPER_CODE": "MSL",
+        "LOWER_DESC": "300 FT AGL",
+        "LOWER_VAL": 300,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "AGL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-116.0,34.0],[-115.0,34.0],[-115.0,35.0],[-116.0,35.0],[-116.0,34.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "W-470",
+        "NAME": "WARNING 470",
+        "TYPE_CODE": "W",
+        "CLASS": "",
+        "ICAO_ID": "",
+        "UPPER_DESC": "UNLIMITED",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "UNLTD",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-76.0,36.0],[-75.0,36.0],[-75.0,37.0],[-76.0,37.0],[-76.0,36.0]]]
+      }
+    }
+  ]
+}

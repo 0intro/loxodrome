@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-08-21T17:51:01.137Z",
+  "source": "AirNav Ireland eAIP AIRAC_JULY_2026/26-07-09-AIRAC",
+  "sourceSha256": "1c3ef332d23a8eb6990df1c61a865fd85eca5307746cfaf06cdf9e0447e8802d",
+  "effective": "2026-07-09T00:00:00.000Z",
+  "airspaceCount": 67,
+  "sectionCounts": {
+    "ENR 2.1": 32,
+    "ENR 2.2": 6,
+    "ENR 5.1": 25,
+    "ENR 5.2": 3,
+    "ENR 5.5": 5
+  },
+  "tables": 16,
+  "limitsSwapped": 43,
+  "classStacks": 2,
+  "withRadio": 32,
+  "pointCircles": 0,
+  "pointOnly": 120,
+  "firRings": 0,
+  "borderStitched": 0,
+  "borderChords": 0,
+  "skippedTypes": {
+    "NO GEOMETRY": 3
+  },
+  "counts": {
+    "ACTIVITY": 5,
+    "CTA": 35,
+    "D": 8,
+    "FIR": 3,
+    "P": 5,
+    "R": 11
+  },
+  "bbox": [
+    -15,
+    48.5,
+    -5.5,
+    57
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-08-21T17:49:10.854Z",
+  "source": "ED_Airspace_StrokedBorders_2026-07-09_2026-08-06_revision.xml+ED_AirportHeliport_2026-07-09_2026-08-06_revision.xml+ED_Runway_2026-07-09_2026-08-06_revision.xml (+4 more)",
+  "sourceSha256": "1433825b9451cfd35471462b76a3e3ca8946945fc06daaf95f1f7447e7fac6b3",
+  "effective": "2026-08-06T00:00:00.000Z",
+  "ahpCount": 1571,
+  "runwayCount": 850,
+  "militaryCount": 7,
+  "radioCount": 749,
+  "transitionAltCount": 62,
+  "counts": {
+    "closed": 3,
+    "heliport": 452,
+    "large_airport": 21,
+    "medium_airport": 55,
+    "small_airport": 1040
+  },
+  "bbox": [
+    6.044,
+    47.421,
+    14.97,
+    55.199
+  ]
+}

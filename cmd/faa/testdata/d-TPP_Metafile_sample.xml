@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<digital_tpp cycle="2607" from_edate="0901Z  07/09/26" to_edate="0901Z  08/06/26">
+  <state_code ID="NY" state_fullname="NEW YORK">
+    <city_name ID="NEW YORK" volume="NE-1">
+      <airport_name ID="JOHN F KENNEDY INTL" military="N" apt_ident="JFK" icao_ident="KJFK" alnum="610">
+        <record>
+          <chartseq>10100</chartseq>
+          <chart_code>MIN</chart_code>
+          <chart_name>TAKEOFF MINIMUMS</chart_name>
+          <useraction />
+          <pdf_name>NE2TO.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection>L</bvsection>
+          <bvpage />
+          <procuid />
+          <two_colored>N</two_colored>
+          <civil />
+          <faanfd18 />
+          <copter />
+          <amdtnum />
+          <amdtdate />
+        </record>
+        <record>
+          <chartseq>30000</chartseq>
+          <chart_code>STR</chart_code>
+          <chart_name>CAMRN FIVE</chart_name>
+          <useraction />
+          <pdf_name>00610CAMRN.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection>Z</bvsection>
+          <bvpage>6</bvpage>
+          <procuid>2848</procuid>
+          <two_colored>N</two_colored>
+          <civil>C</civil>
+          <faanfd18>SIE.CAMRN5</faanfd18>
+          <copter>N</copter>
+          <amdtnum />
+          <amdtdate />
+        </record>
+        <record>
+          <chartseq>50750</chartseq>
+          <chart_code>IAP</chart_code>
+          <chart_name>ILS OR LOC RWY 04L</chart_name>
+          <useraction />
+          <pdf_name>00610IL4L.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection />
+          <bvpage>230</bvpage>
+          <procuid>2830</procuid>
+          <two_colored>N</two_colored>
+          <civil>C</civil>
+          <faanfd18 />
+          <copter />
+          <amdtnum>11E</amdtnum>
+          <amdtdate>12/29/2022</amdtdate>
+        </record>
+        <record>
+          <chartseq>70000</chartseq>
+          <chart_code>APD</chart_code>
+          <chart_name>AIRPORT DIAGRAM</chart_name>
+          <useraction>C</useraction>
+          <pdf_name>00610AD.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection />
+          <bvpage>255</bvpage>
+          <procuid>2844</procuid>
+          <two_colored>Y</two_colored>
+          <civil>C</civil>
+          <faanfd18 />
+          <copter />
+          <amdtnum />
+          <amdtdate />
+        </record>
+        <record>
+          <chartseq>90100</chartseq>
+          <chart_code>DP</chart_code>
+          <chart_name>DEEZZ SIX (RNAV)</chart_name>
+          <useraction />
+          <pdf_name>00610DEEZZ.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection />
+          <bvpage>256</bvpage>
+          <procuid>31763</procuid>
+          <two_colored>N</two_colored>
+          <civil>C</civil>
+          <faanfd18>DEEZZ6.DEEZZ</faanfd18>
+          <copter>N</copter>
+          <amdtnum />
+          <amdtdate />
+        </record>
+      </airport_name>
+    </city_name>
+    <city_name ID="TEST CITY" volume="NE-1">
+      <airport_name ID="SOUTH ALABAMA RGNL AT BILL BENTON FLD" military="N" apt_ident="79J" icao_ident="" alnum="6524">
+        <record>
+          <chartseq>10100</chartseq>
+          <chart_code>MIN</chart_code>
+          <chart_name>TAKEOFF MINIMUMS</chart_name>
+          <useraction />
+          <pdf_name>SE4TO.PDF</pdf_name>
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection>L</bvsection>
+          <bvpage />
+          <procuid />
+          <two_colored>N</two_colored>
+          <civil />
+          <faanfd18 />
+          <copter />
+          <amdtnum />
+          <amdtdate />
+        </record>
+      </airport_name>
+      <airport_name ID="JOHN F KENNEDY INTL" military="N" apt_ident="TST" icao_ident="KTST" alnum="610">
+        <record>
+          <chartseq>10100</chartseq>
+          <chart_code>MIN</chart_code>
+          <chart_name>TAKEOFF MINIMUMS</chart_name>
+          <useraction />
+          <pdf_name />
+          <cn_flg>N</cn_flg>
+          <cnsection />
+          <cnpage />
+          <bvsection>L</bvsection>
+          <bvpage />
+          <procuid />
+          <two_colored>N</two_colored>
+          <civil />
+          <faanfd18 />
+          <copter />
+          <amdtnum />
+          <amdtdate />
+        </record>
+      </airport_name>
+    </city_name>
+  </state_code>
+</digital_tpp>
