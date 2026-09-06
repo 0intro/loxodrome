@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AIXM-Snapshot version="4.5" effective="2026-05-14T00:00:00+02:00" origin="Sia-France">
+
+	<!--
+	  Aerodrome present in OurAirports — the AIXM record should override
+	  name/coords/elevation/iata/runways, preserve OurAirports' "large_airport"
+	  type, and set access=cap from the OTHER usage limitation.
+	-->
+	<Ahp>
+		<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+		<txtName>PARIS CHARLES DE GAULLE</txtName>
+		<codeIcao>LFPG</codeIcao>
+		<codeIata>CDG</codeIata>
+		<codeType>AD</codeType>
+		<geoLat>490035.09N</geoLat>
+		<geoLong>0023252.15E</geoLong>
+		<valElev>392</valElev>
+		<txtNameCitySer>PARIS</txtNameCitySer>
+		<valTransitionAlt>5000</valTransitionAlt>
+		<uomTransitionAlt>FT</uomTransitionAlt>
+	</Ahp>
+	<Rwy>
+		<RwyUid mid="101">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+			<txtDesig>09L/27R</txtDesig>
+		</RwyUid>
+		<valLen>4200</valLen>
+		<valWid>45</valWid>
+		<uomDimRwy>M</uomDimRwy>
+		<codeComposition>CONC+ASPH</codeComposition>
+	</Rwy>
+	<Rdd>
+		<RddUid mid="102">
+			<RdnUid mid="103">
+				<RwyUid mid="101">
+					<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+					<txtDesig>09L/27R</txtDesig>
+				</RwyUid>
+				<txtDesig>09L</txtDesig>
+			</RdnUid>
+			<codeType>LDA</codeType>
+		</RddUid>
+		<valDist>4200</valDist>
+		<uomDist>M</uomDist>
+	</Rdd>
+	<Rdd>
+		<RddUid mid="104">
+			<RdnUid mid="105">
+				<RwyUid mid="101">
+					<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+					<txtDesig>09L/27R</txtDesig>
+				</RwyUid>
+				<txtDesig>27R</txtDesig>
+			</RdnUid>
+			<codeType>TORA</codeType>
+		</RddUid>
+		<valDist>4200</valDist>
+		<uomDist>M</uomDist>
+	</Rdd>
+	<Rls>
+		<RlsUid mid="106">
+			<RdnUid mid="103">
+				<RwyUid mid="101">
+					<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+					<txtDesig>09L/27R</txtDesig>
+				</RwyUid>
+				<txtDesig>09L</txtDesig>
+			</RdnUid>
+			<codePsn>EDGE</codePsn>
+		</RlsUid>
+		<codeColour>WHI</codeColour>
+		<codeIntst>LIH</codeIntst>
+	</Rls>
+	<Rls>
+		<RlsUid mid="108">
+			<RdnUid mid="103">
+				<RwyUid mid="101">
+					<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+					<txtDesig>09L/27R</txtDesig>
+				</RwyUid>
+				<txtDesig>09L</txtDesig>
+			</RdnUid>
+			<codePsn>THR</codePsn>
+		</RlsUid>
+		<codeColour>GRN</codeColour>
+	</Rls>
+	<Rda>
+		<RdaUid mid="109">
+			<RdnUid mid="103">
+				<RwyUid mid="101">
+					<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+					<txtDesig>09L/27R</txtDesig>
+				</RwyUid>
+				<txtDesig>09L</txtDesig>
+			</RdnUid>
+			<codeType>A</codeType>
+		</RdaUid>
+		<valLen>900</valLen>
+		<uomLen>M</uomLen>
+		<codeIntst>LIH</codeIntst>
+	</Rda>
+	<Rdn>
+		<RdnUid mid="103">
+			<RwyUid mid="101">
+				<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+				<txtDesig>09L/27R</txtDesig>
+			</RwyUid>
+			<txtDesig>09L</txtDesig>
+		</RdnUid>
+		<codeTypeVasis>PAPI</codeTypeVasis>
+		<codePsnVasis>LEFT</codePsnVasis>
+	</Rdn>
+	<Ahu>
+		<AhuUid mid="107">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+		</AhuUid>
+		<UsageLimitation>
+			<codeUsageLimitation>OTHER</codeUsageLimitation>
+			<UsageCondition>
+				<FlightClass>
+					<codeType>OAT</codeType>
+					<codeRule>IV</codeRule>
+					<codePurpose>OTHER</codePurpose>
+				</FlightClass>
+			</UsageCondition>
+		</UsageLimitation>
+		<UsageLimitation>
+			<codeUsageLimitation>PERMIT</codeUsageLimitation>
+			<UsageCondition>
+				<FlightClass>
+					<codeType>GAT</codeType>
+					<codeRule>IV</codeRule>
+					<codePurpose>S</codePurpose>
+				</FlightClass>
+			</UsageCondition>
+		</UsageLimitation>
+	</Ahu>
+
+	<!--
+	  Military aerodrome (PERMIT + STATE) absent from OurAirports — appended
+	  as a new row, type derived from the runway length (1500 m → medium).
+	  Surface in feet to exercise the FT branch of lengthToFeet.
+	-->
+	<Ahp>
+		<AhpUid mid="200"><codeId>LFXM</codeId></AhpUid>
+		<txtName>EXAMPLE MIL</txtName>
+		<codeIcao>LFXM</codeIcao>
+		<codeType>AD</codeType>
+		<geoLat>470325.00N</geoLat>
+		<geoLong>0023820.00E</geoLong>
+		<valElev>578</valElev>
+		<txtNameCitySer>SOMEWHERE</txtNameCitySer>
+		<!-- 0 placeholder (the fictive NTTT publishes one): must be dropped. -->
+		<valTransitionAlt>0</valTransitionAlt>
+		<uomTransitionAlt>FT</uomTransitionAlt>
+	</Ahp>
+	<Rwy>
+		<RwyUid mid="201">
+			<AhpUid mid="200"><codeId>LFXM</codeId></AhpUid>
+			<txtDesig>06/24</txtDesig>
+		</RwyUid>
+		<valLen>4921</valLen>
+		<valWid>148</valWid>
+		<uomDimRwy>FT</uomDimRwy>
+		<codeComposition>ASPH</codeComposition>
+	</Rwy>
+	<Ahu>
+		<AhuUid mid="202">
+			<AhpUid mid="200"><codeId>LFXM</codeId></AhpUid>
+		</AhuUid>
+		<UsageLimitation>
+			<codeUsageLimitation>PERMIT</codeUsageLimitation>
+			<UsageCondition>
+				<FlightClass>
+					<codeType>OAT</codeType>
+					<codeRule>IV</codeRule>
+					<codeStatus>STATE</codeStatus>
+					<codePurpose>OTHER</codePurpose>
+				</FlightClass>
+			</UsageCondition>
+		</UsageLimitation>
+	</Ahu>
+
+	<!--
+	  Civilian aerodrome restricted to private use ("usage restreint", LFFG):
+	  GAT FlightClass with codePurpose=P. Should resolve to access=restricted,
+	  not military, and vfr-only (no IFR).
+	-->
+	<Ahp>
+		<AhpUid mid="400"><codeId>LFFG</codeId></AhpUid>
+		<txtName>LA FERTE GAUCHER</txtName>
+		<codeIcao>LFFG</codeIcao>
+		<codeType>AD</codeType>
+		<geoLat>484523.00N</geoLat>
+		<geoLong>0031536.00E</geoLong>
+		<valElev>512</valElev>
+		<txtNameCitySer>LA FERTE GAUCHER</txtNameCitySer>
+	</Ahp>
+	<Rwy>
+		<RwyUid mid="401">
+			<AhpUid mid="400"><codeId>LFFG</codeId></AhpUid>
+			<txtDesig>12/30</txtDesig>
+		</RwyUid>
+		<valLen>760</valLen>
+		<valWid>10</valWid>
+		<uomDimRwy>M</uomDimRwy>
+		<codeComposition>GRASS</codeComposition>
+	</Rwy>
+	<Ahu>
+		<AhuUid mid="402">
+			<AhpUid mid="400"><codeId>LFFG</codeId></AhpUid>
+		</AhuUid>
+		<UsageLimitation>
+			<codeUsageLimitation>OTHER</codeUsageLimitation>
+			<UsageCondition>
+				<FlightClass>
+					<codeType>GAT</codeType>
+					<codeRule>V</codeRule>
+					<codePurpose>P</codePurpose>
+				</FlightClass>
+			</UsageCondition>
+		</UsageLimitation>
+	</Ahu>
+
+	<!--
+	  Hospital heliport with no ICAO location indicator, the shape 252 of the
+	  SIA's 275 heliports take: it must be emitted under its own codeId.
+	-->
+	<Ahp>
+		<AhpUid mid="300"><codeId>LF075</codeId></AhpUid>
+		<txtName>CRETEIL CENTRE HOSPITALIER HENRI MONDOR</txtName>
+		<codeType>HP</codeType>
+		<geoLat>484755.53N</geoLat>
+		<geoLong>0022712.54E</geoLong>
+		<valElev>160</valElev>
+		<uomDistVer>FT</uomDistVer>
+	</Ahp>
+
+	<!--
+	  Decommissioned field: the SIA files these under codeType LS, with no
+	  ICAO code and a "(CLOSED)" name marker. Emitted as type closed.
+	-->
+	<Ahp>
+		<AhpUid mid="400"><codeId>LF43</codeId></AhpUid>
+		<txtName>REIMS CHAMPAGNE (CLOSED)</txtName>
+		<codeType>LS</codeType>
+		<geoLat>491836.00N</geoLat>
+		<geoLong>0040145.00E</geoLong>
+	</Ahp>
+
+	<!--
+	  Fictive AFS-addressing pseudo-aerodrome (a FIR/ACC centre): it has an ICAO
+	  code and a (placeholder Atlantic) coordinate that parse fine, but
+	  txtDescrRefPt marks it as fictive, so the decoder must skip it. Without the
+	  filter it would emit as a bogus small_airport.
+	-->
+	<Ahp>
+		<AhpUid mid="500"><codeId>LFFF</codeId></AhpUid>
+		<txtName>PARIS FIC/ACC/UAC/CCER</txtName>
+		<codeIcao>LFFF</codeIcao>
+		<codeType>LS</codeType>
+		<txtDescrRefPt>Fictive airport only used for AFS</txtDescrRefPt>
+		<geoLat>445923.0001N</geoLat>
+		<geoLong>0083223.0030W</geoLong>
+		<valElev>0</valElev>
+	</Ahp>
+
+	<!--
+	  Radio services. LFPG gets a kept TWR + ATIS and a curated-out PAR
+	  (military approach radar); LFFG gets an "OTHER" auto-information service
+	  that must surface as A/A. Each <Sah> links an aerodrome to a service mid;
+	  each <Fqy> carries the frequency for that mid plus FR/EN call signs.
+	-->
+	<Sah>
+		<SahUid mid="600">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+			<SerUid mid="1000">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>TWR</codeType>
+			</SerUid>
+		</SahUid>
+	</Sah>
+	<Sah>
+		<SahUid mid="601">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+			<SerUid mid="1010">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>ATIS</codeType>
+			</SerUid>
+		</SahUid>
+	</Sah>
+	<Sah>
+		<SahUid mid="602">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+			<SerUid mid="1020">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>PAR</codeType>
+			</SerUid>
+		</SahUid>
+	</Sah>
+	<Sah>
+		<SahUid mid="603">
+			<AhpUid mid="400"><codeId>LFFG</codeId></AhpUid>
+			<SerUid mid="1030">
+				<UniUid mid="1031"><txtName>LFFG LA FERTE GAUCHER</txtName></UniUid>
+				<codeType>OTHER</codeType>
+			</SerUid>
+		</SahUid>
+	</Sah>
+	<Sah>
+		<SahUid mid="604">
+			<AhpUid mid="100"><codeId>LFPG</codeId></AhpUid>
+			<SerUid mid="1040">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>TWR</codeType>
+			</SerUid>
+		</SahUid>
+	</Sah>
+	<Fqy>
+		<FqyUid mid="700">
+			<SerUid mid="1000">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>TWR</codeType>
+			</SerUid>
+			<valFreqTrans>119.250</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>DE GAULLE TOUR</txtCallSign><codeLang>FR</codeLang></Cdl>
+		<Cdl><txtCallSign>DE GAULLE TOWER</txtCallSign><codeLang>EN</codeLang></Cdl>
+	</Fqy>
+	<Fqy>
+		<FqyUid mid="701">
+			<SerUid mid="1000">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>TWR</codeType>
+			</SerUid>
+			<valFreqTrans>0</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>DE GAULLE TOUR</txtCallSign><codeLang>FR</codeLang></Cdl>
+	</Fqy>
+	<Fqy>
+		<FqyUid mid="710">
+			<SerUid mid="1010">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>ATIS</codeType>
+			</SerUid>
+			<valFreqTrans>127.115</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>DE GAULLE ATIS</txtCallSign><codeLang>FR</codeLang></Cdl>
+	</Fqy>
+	<Fqy>
+		<FqyUid mid="720">
+			<SerUid mid="1020">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>PAR</codeType>
+			</SerUid>
+			<valFreqTrans>123.300</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>DE GAULLE PRECISION</txtCallSign><codeLang>FR</codeLang></Cdl>
+	</Fqy>
+	<Fqy>
+		<FqyUid mid="730">
+			<SerUid mid="1030">
+				<UniUid mid="1031"><txtName>LFFG LA FERTE GAUCHER</txtName></UniUid>
+				<codeType>OTHER</codeType>
+			</SerUid>
+			<valFreqTrans>123.500</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>LA FERTE - .</txtCallSign><codeLang>FR</codeLang></Cdl>
+	</Fqy>
+	<Fqy>
+		<FqyUid mid="740">
+			<SerUid mid="1040">
+				<UniUid mid="1001"><txtName>LFPG PARIS</txtName></UniUid>
+				<codeType>TWR</codeType>
+			</SerUid>
+			<valFreqTrans>121.700</valFreqTrans>
+		</FqyUid>
+		<Cdl><txtCallSign>DE GAULLE - SOL</txtCallSign><codeLang>FR</codeLang></Cdl>
+	</Fqy>
+
+</AIXM-Snapshot>

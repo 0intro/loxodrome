@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-09-06T17:07:53.076Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026",
+  "sourceSha256": "1bc81f91895ee9b8916ade5d8c32a34dfb2ab54012dc1dc86a4b8bbad36ff4c0",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "airspaceCount": 107,
+  "sectionCounts": {
+    "ENR 2.1": 44,
+    "ENR 2.2": 14,
+    "ENR 5.1": 35,
+    "ENR 5.2": 27,
+    "ENR 5.5": 12
+  },
+  "tables": 31,
+  "limitsSwapped": 20,
+  "classStacks": 0,
+  "withRadio": 19,
+  "pointCircles": 0,
+  "pointOnly": 0,
+  "firRings": 0,
+  "borderStitched": 49,
+  "borderChords": 0,
+  "skippedTypes": {
+    "BRATISLAVA CTA (BRATISLAVA": 1,
+    "BRATISLAVA CTA SECTOR": 53,
+    "BRATISLAVA FIS SECTOR": 1,
+    "NO GEOMETRY": 28,
+    "SECTOR FIS EAST": 4,
+    "SECTOR FIS WEST": 4,
+    "SOUTH EAST EUROPE": 20
+  },
+  "counts": {
+    "ACTIVITY": 12,
+    "ATZ": 6,
+    "CTA": 5,
+    "CTR": 1,
+    "D": 3,
+    "P": 3,
+    "R": 30,
+    "RMZ": 1,
+    "TMA": 20,
+    "TRA": 17,
+    "TSA": 9
+  },
+  "bbox": [
+    16.762,
+    47.75,
+    22.567,
+    49.612
+  ]
+}

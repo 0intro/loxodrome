@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "source": "sample.aixm.xml",
+  "sourceSha256": "704f5420ea33600bb927a748736f193014c9543d9bea9f7a19f0d10f04ec5827",
+  "effective": "2026-05-14T00:00:00.000+02:00",
+  "airspaceCount": 12,
+  "skippedNoBoundary": 4,
+  "skippedNoClassify": 0,
+  "sameExtentCount": 1,
+  "withRadio": 3,
+  "siaSectorMappedCount": 0,
+  "siaSectorInjectCount": 0,
+  "siaTMASectorCount": 0,
+  "counts": {
+    "CTR": 1,
+    "D": 1,
+    "FBZ": 1,
+    "FIC": 1,
+    "FIR": 1,
+    "LTA": 1,
+    "P": 1,
+    "SIV": 2,
+    "TMA": 3
+  },
+  "bbox": [
+    0,
+    43.675,
+    8,
+    49.07
+  ]
+}

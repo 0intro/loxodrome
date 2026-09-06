@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-09-06T17:06:55.171Z",
+  "source": "Austro Control LO_OBS_DS_AREA1_20260904_2026-08-21_1408623.zip",
+  "sourceSha256": "5477782c5e64a61fbb92397f16ff54b82c0c8c5900a3e175043904f26ed57308",
+  "effective": "2026-09-04T00:00:00.000Z",
+  "obstacleCount": 2812,
+  "litCount": 779,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 858,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "antenna": 1727,
+    "bridge": 2,
+    "building": 36,
+    "cable": 602,
+    "chimney": 31,
+    "crane": 6,
+    "mast": 42,
+    "other": 1,
+    "pylon": 70,
+    "silo": 1,
+    "tower": 16,
+    "windturbine": 278
+  },
+  "bbox": [
+    9.568,
+    46.417,
+    17.072,
+    48.953
+  ]
+}

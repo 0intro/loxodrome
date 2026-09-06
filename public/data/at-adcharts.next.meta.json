@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-06T17:07:09.046Z",
+  "source": "Austro Control eAIP https://eaip.austrocontrol.at/lo/261001",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "261001",
+  "base": "https://eaip.austrocontrol.at/lo/261001/",
+  "aerodromes": 55,
+  "heliports": 17,
+  "withCharts": 25,
+  "charts": 173,
+  "byFamily": {
+    "ADC": 22,
+    "AOC": 17,
+    "APDC": 2,
+    "ATCSMAC": 8,
+    "GMC": 2,
+    "IAC": 49,
+    "PATC": 7,
+    "SID": 29,
+    "STAR": 14,
+    "VAC": 23
+  },
+  "unknownChartNumbers": []
+}

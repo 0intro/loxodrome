@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-09-06T17:09:52.273Z",
+  "source": "Swiss_Obstacle_2026-09-06_004131.aixm.xml",
+  "sourceSha256": "f004afe23b86459800772ded848b762c26d6ade00069f50b2d2e22ba39e73e5c",
+  "effective": "2026-09-06T00:00:00.000Z",
+  "obstacleCount": 15641,
+  "litCount": 1248,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 9350,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "bridge": 46,
+    "building": 968,
+    "cable": 9304,
+    "chimney": 145,
+    "crane": 606,
+    "other": 1715,
+    "pylon": 2786,
+    "windturbine": 71
+  },
+  "bbox": [
+    5.984,
+    45.828,
+    10.485,
+    47.794
+  ]
+}

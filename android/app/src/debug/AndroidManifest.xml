@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEBUG-ONLY manifest overlay: permits cleartext HTTP to the
+     developer machine's loopback (adb reverse) so a debug APK can talk
+     to a local `wrangler dev` account-api (docs/android.md, the
+     on-device e2e recipe). The merger applies this to DEBUG builds
+     alone; the release manifest carries no networkSecurityConfig and
+     keeps the platform default (no cleartext anywhere). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application android:networkSecurityConfig="@xml/network_security_config_debug" />
+</manifest>

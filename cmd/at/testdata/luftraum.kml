@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Trimmed from the Austro Control Luftraumstruktur KMZ: one placemark
+     per feature kind, with the real folder ids, ExtendedData schemas and
+     extruded-prism geometry, and small rings. -->
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Legende</name>
+<Folder id="Lufträume_Österreich">
+<name>Lufträume Österreich</name>
+<Folder id="01_Zivile_Lufträume">
+<name>Zivile Lufträume</name>
+<Folder id="0101_Restricted_areas">
+<name>Restricted areas (R)</name>
+<Placemark id="LOR1">
+<name>SEIBERSDORF</name>
+<visibility>0</visibility>
+<snippet>LOR1</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Restricted area (R)</h2><p>Infos zur Restricted area (R):<br /><p><p><span class="headline">Name</span><br />
+SEIBERSDORF
+</p><p><span class="headline">Upper Limit</span><br />
+1500 FT AMSL
+</p><p><span class="headline">Lower Limit</span><br />
+GND
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOR1</SimpleData><SimpleData name="Lower Limit">GND</SimpleData><SimpleData name="Name">SEIBERSDORF</SimpleData><SimpleData name="Upper Limit">1500 FT AMSL</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.5,47.97,0.0 16.52,47.97,0.0 16.52,47.99,0.0 16.5,47.99,0.0 16.5,47.97,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.5,47.97,0.0 16.52,47.97,0.0 16.52,47.97,457.2 16.5,47.97,457.2 16.5,47.97,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.52,47.97,0.0 16.52,47.99,0.0 16.52,47.99,457.2 16.52,47.97,457.2 16.52,47.97,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.52,47.99,0.0 16.5,47.99,0.0 16.5,47.99,457.2 16.52,47.99,457.2 16.52,47.99,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.5,47.99,0.0 16.5,47.97,0.0 16.5,47.97,457.2 16.5,47.99,457.2 16.5,47.99,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.5,47.97,457.2 16.5,47.99,457.2 16.52,47.99,457.2 16.52,47.97,457.2 16.5,47.97,457.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+</Folder>
+<Folder id="0103_Terminal_control_areas">
+<name>Terminal control areas (TMA)</name>
+<Folder id="TMA_LOWW">
+<name>LOWW</name>
+<Folder id="LOWW6">
+<name>LOWW 6</name>
+<Placemark id="Luftraumklasse_C">
+<name>Luftraumklasse C</name>
+<visibility>0</visibility>
+<snippet>Luftraumklasse_C</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Terminal control area (TMA)</h2><p>Infos zur Terminal control area (TMA):<br /><p><p><span class="headline">Name</span><br />
+LOWW 6 - Luftraumklasse C
+</p><p><span class="headline">Upper Limit</span><br />
+FL 245
+</p><p><span class="headline">Lower Limit</span><br />
+6500 FT
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOWW6</SimpleData><SimpleData name="Lower Limit">6500 FT</SimpleData><SimpleData name="Name">LOWW 6</SimpleData><SimpleData name="Upper Limit">FL 245</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,1981.2 16.32,48.1,1981.2 16.32,48.120000000000005,1981.2 16.3,48.120000000000005,1981.2 16.3,48.1,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,1981.2 16.32,48.1,1981.2 16.32,48.1,7315.2 16.3,48.1,7315.2 16.3,48.1,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.32,48.1,1981.2 16.32,48.120000000000005,1981.2 16.32,48.120000000000005,7315.2 16.32,48.1,7315.2 16.32,48.1,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.32,48.120000000000005,1981.2 16.3,48.120000000000005,1981.2 16.3,48.120000000000005,7315.2 16.32,48.120000000000005,7315.2 16.32,48.120000000000005,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.120000000000005,1981.2 16.3,48.1,1981.2 16.3,48.1,7315.2 16.3,48.120000000000005,7315.2 16.3,48.120000000000005,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,7315.2 16.3,48.120000000000005,7315.2 16.32,48.120000000000005,7315.2 16.32,48.1,7315.2 16.3,48.1,7315.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+<Placemark id="Luftraumklasse_E">
+<name>Luftraumklasse E</name>
+<visibility>0</visibility>
+<snippet>Luftraumklasse_E</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Terminal control area (TMA)</h2><p>Infos zur Terminal control area (TMA):<br /><p><p><span class="headline">Name</span><br />
+LOWW 6 - Luftraumklasse E
+</p><p><span class="headline">Upper Limit</span><br />
+6500 FT
+</p><p><span class="headline">Lower Limit</span><br />
+3500 FT AMSL but at least 1000 FT AGL
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOWW6</SimpleData><SimpleData name="Lower Limit">3500 FT AMSL but at least 1000 FT AGL</SimpleData><SimpleData name="Name">LOWW 6</SimpleData><SimpleData name="Upper Limit">6500 FT</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,1066.8 16.32,48.1,1066.8 16.32,48.120000000000005,1066.8 16.3,48.120000000000005,1066.8 16.3,48.1,1066.8</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,1066.8 16.32,48.1,1066.8 16.32,48.1,1981.2 16.3,48.1,1981.2 16.3,48.1,1066.8</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.32,48.1,1066.8 16.32,48.120000000000005,1066.8 16.32,48.120000000000005,1981.2 16.32,48.1,1981.2 16.32,48.1,1066.8</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.32,48.120000000000005,1066.8 16.3,48.120000000000005,1066.8 16.3,48.120000000000005,1981.2 16.32,48.120000000000005,1981.2 16.32,48.120000000000005,1066.8</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.120000000000005,1066.8 16.3,48.1,1066.8 16.3,48.1,1981.2 16.3,48.120000000000005,1981.2 16.3,48.120000000000005,1066.8</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>16.3,48.1,1981.2 16.3,48.120000000000005,1981.2 16.32,48.120000000000005,1981.2 16.32,48.1,1981.2 16.3,48.1,1981.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+</Folder>
+</Folder>
+</Folder>
+</Folder>
+<Folder id="02_Militärische_Lufträume">
+<name>Militärische Lufträume</name>
+<Folder id="0207_Military_training_areas">
+<name>Military training areas (MTA)</name>
+<Placemark id="LOTRAHSH">
+<name>HOCHSCHWAB-HOCH</name>
+<visibility>0</visibility>
+<snippet>LOTRAHSH</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Military training area (MTA)</h2><p>Infos zur Military training area (MTA):<br /><p><p><span class="headline">Name</span><br />
+HOCHSCHWAB-HOCH
+</p><p><span class="headline">Upper Limit</span><br />
+FL 265
+</p><p><span class="headline">Lower Limit</span><br />
+FL 125
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOTRAHSH</SimpleData><SimpleData name="Lower Limit">FL 125</SimpleData><SimpleData name="Name">HOCHSCHWAB-HOCH</SimpleData><SimpleData name="Upper Limit">FL 265</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.1,47.6,3810.0 15.12,47.6,3810.0 15.12,47.620000000000005,3810.0 15.1,47.620000000000005,3810.0 15.1,47.6,3810.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.1,47.6,3810.0 15.12,47.6,3810.0 15.12,47.6,8077.2 15.1,47.6,8077.2 15.1,47.6,3810.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.12,47.6,3810.0 15.12,47.620000000000005,3810.0 15.12,47.620000000000005,8077.2 15.12,47.6,8077.2 15.12,47.6,3810.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.12,47.620000000000005,3810.0 15.1,47.620000000000005,3810.0 15.1,47.620000000000005,8077.2 15.12,47.620000000000005,8077.2 15.12,47.620000000000005,3810.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.1,47.620000000000005,3810.0 15.1,47.6,3810.0 15.1,47.6,8077.2 15.1,47.620000000000005,8077.2 15.1,47.620000000000005,3810.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>15.1,47.6,8077.2 15.1,47.620000000000005,8077.2 15.12,47.620000000000005,8077.2 15.12,47.6,8077.2 15.1,47.6,8077.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+</Folder>
+</Folder>
+<Folder id="03_Luftsportgebiete">
+<name>Luftsportgebiete</name>
+<Folder id="Parachute_jumping_areas">
+<name>Parachute jumping areas</name>
+</Folder>
+<Folder id="Hang_gliding_and_para_gliding_areas">
+<name>Hang gliding and para gliding areas</name>
+<Placemark id="LOHPGACHE1">
+<name>ACHENSEE 1</name>
+<visibility>0</visibility>
+<snippet>LOHPGACHE1</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Hang gliding and para gliding area</h2><p>Infos zur Hang gliding and para gliding area:<br /><p><p><span class="headline">Name</span><br />
+ACHENSEE 1
+</p><p><span class="headline">Upper Limit</span><br />
+9500 FT AMSL
+</p><p><span class="headline">Lower Limit</span><br />
+GND
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOHPGACHE1</SimpleData><SimpleData name="Lower Limit">GND</SimpleData><SimpleData name="Name">ACHENSEE 1</SimpleData><SimpleData name="Upper Limit">9500 FT AMSL</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.7,47.4,0.0 11.719999999999999,47.4,0.0 11.719999999999999,47.42,0.0 11.7,47.42,0.0 11.7,47.4,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.7,47.4,0.0 11.719999999999999,47.4,0.0 11.719999999999999,47.4,2895.6 11.7,47.4,2895.6 11.7,47.4,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.719999999999999,47.4,0.0 11.719999999999999,47.42,0.0 11.719999999999999,47.42,2895.6 11.719999999999999,47.4,2895.6 11.719999999999999,47.4,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.719999999999999,47.42,0.0 11.7,47.42,0.0 11.7,47.42,2895.6 11.719999999999999,47.42,2895.6 11.719999999999999,47.42,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.7,47.42,0.0 11.7,47.4,0.0 11.7,47.4,2895.6 11.7,47.42,2895.6 11.7,47.42,0.0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>11.7,47.4,2895.6 11.7,47.42,2895.6 11.719999999999999,47.42,2895.6 11.719999999999999,47.4,2895.6 11.7,47.4,2895.6</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+</Folder>
+</Folder>
+<Folder id="04_ATC_Surveillance_Minimum_Altitudes">
+<name>ATC Surveillance Minimum Altitudes</name>
+<Folder id="Enroute">
+<name>Enroute</name>
+<Placemark id="LOS901">
+<name>LOS901</name>
+<visibility>0</visibility>
+<snippet>LOS901</snippet>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>ATC Surveillance Minimum Altitude</h2><p>Infos zur ATC Surveillance Minimum Altitude:<br /><p><p><span class="headline">Upper Limit</span><br />
+4200 FT
+</p><p><span class="headline">Lower Limit</span><br />
+4200 FT
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airspaces"><SimpleData name="IDENT">LOS901</SimpleData><SimpleData name="Lower Limit">4200 FT</SimpleData><SimpleData name="Upper Limit">4200 FT</SimpleData></SchemaData></ExtendedData>
+<MultiGeometry>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.0,47.0,1280.2 14.02,47.0,1280.2 14.02,47.02,1280.2 14.0,47.02,1280.2 14.0,47.0,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.0,47.0,1280.2 14.02,47.0,1280.2 14.02,47.0,1280.2 14.0,47.0,1280.2 14.0,47.0,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.02,47.0,1280.2 14.02,47.02,1280.2 14.02,47.02,1280.2 14.02,47.0,1280.2 14.02,47.0,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.02,47.02,1280.2 14.0,47.02,1280.2 14.0,47.02,1280.2 14.02,47.02,1280.2 14.02,47.02,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.0,47.02,1280.2 14.0,47.0,1280.2 14.0,47.0,1280.2 14.0,47.02,1280.2 14.0,47.02,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<Polygon><outerBoundaryIs><LinearRing><coordinates>14.0,47.0,1280.2 14.0,47.02,1280.2 14.02,47.02,1280.2 14.02,47.0,1280.2 14.0,47.0,1280.2</coordinates></LinearRing></outerBoundaryIs></Polygon>
+</MultiGeometry>
+</Placemark>
+</Folder>
+</Folder>
+<Folder id="05_Airports">
+<name>Airports</name>
+<Placemark id="LOWG">
+<name>LOWG</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Airport</h2><p>Infos zur Airport:<br /><p><p><span class="headline">Identifier</span><br />
+LOWG
+</p><p><span class="headline">Name</span><br />
+Graz
+</p><p><span class="headline">Höhe (FT)</span><br />
+1120
+</p><p><span class="headline">Länge der längsten befestigten bzw. unbefestigten Piste (M)</span><br />
+3000
+</p><p><span class="headline">Frequenz</span><br />
+118.200
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airports"><SimpleData name="CODE">LOWG</SimpleData><SimpleData name="ELEVATION">341.45</SimpleData><SimpleData name="FREQUENCY">118.200</SimpleData><SimpleData name="NAME">Graz</SimpleData><SimpleData name="RWYLENGTH">3000</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>15.439050361,46.993163028,0.0</coordinates></Point>
+</Placemark>
+<Placemark id="LOXZ">
+<name>LOXZ</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Airport</h2><p>Infos zur Airport:<br /><p><p><span class="headline">Identifier</span><br />
+LOXZ
+</p><p><span class="headline">Name</span><br />
+Zeltweg MIL
+</p><p><span class="headline">Höhe (FT)</span><br />
+2264
+</p><p><span class="headline">Länge der längsten befestigten bzw. unbefestigten Piste (M)</span><br />
+2750
+</p><p><span class="headline">Frequenz</span><br />
+122.100
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Airports"><SimpleData name="CODE">LOXZ</SimpleData><SimpleData name="ELEVATION">2264</SimpleData><SimpleData name="FREQUENCY">122.100</SimpleData><SimpleData name="NAME">Zeltweg MIL</SimpleData><SimpleData name="RWYLENGTH">2750</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>14.745833333,47.203722222,0.0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder id="06_Heliports">
+<name>Heliports</name>
+<Placemark id="LOAE">
+<name>LOAE</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>Heliport</h2><p>Infos zur Heliport:<br /><p><p><span class="headline">Identifier</span><br />
+LOAE
+</p><p><span class="headline">Name</span><br />
+Eisenstadt LKH
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Heliports"><SimpleData name="IDENT">LOAE</SimpleData><SimpleData name="NAM">Eisenstadt LKH</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>16.527777778,47.847222222,0.0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder id="07_Navaids">
+<name>Navaids</name>
+<Folder id="NDB">
+<name>NDB</name>
+<Placemark id="GBG">
+<name>Gleichenberg</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>NDB</h2><p>Infos zur NDB:<br /><p><p><span class="headline">Identifier</span><br />
+GBG
+</p><p><span class="headline">Name</span><br />
+Gleichenberg
+</p><p><span class="headline">Frequency</span><br />
+426KHZ
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Navaids"><SimpleData name="frequency">426KHZ</SimpleData><SimpleData name="CODEID">GBG</SimpleData><SimpleData name="TXTNAME">Gleichenberg</SimpleData><SimpleData name="VALFREQ">426</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>15.905555556,46.878611111,0.0</coordinates></Point>
+</Placemark>
+</Folder>
+<Folder id="VOR/DME">
+<name>VOR/DME</name>
+<Placemark id="FMD">
+<name>Fischamend</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>VOR/DME</h2><p>Infos zur VOR/DME:<br /><p><p><span class="headline">Identifier</span><br />
+FMD
+</p><p><span class="headline">Name</span><br />
+Fischamend
+</p><p><span class="headline">Frequency</span><br />
+110.4MHZ
+</p><p><span class="headline">Channel</span><br />
+41X
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_Navaids"><SimpleData name="frequency">110.4MHZ</SimpleData><SimpleData name="channel">41X</SimpleData><SimpleData name="CODEID">FMD</SimpleData><SimpleData name="DME_TXTNAME">Fischamend</SimpleData><SimpleData name="FREQUENCY">110.4</SimpleData><SimpleData name="IDENT">FMD</SimpleData><SimpleData name="VOR_TXTNAME">Fischamend</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>16.629263972,48.1051125,0.0</coordinates></Point>
+</Placemark>
+</Folder>
+</Folder>
+<Folder id="08_VFR_Reporting_Points">
+<name>VFR Reporting Points</name>
+<Folder id="LOWW">
+<name>LOWW</name>
+<Placemark id="DT">
+<name>DONAUTURM</name>
+<description><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml"><h2>VFR Reporting Point</h2><p>Infos zur VFR Reporting Point:<br /><p><p><span class="headline">Name</span><br />
+DONAUTURM
+</p><p><span class="headline">Identifier</span><br />
+DT
+</p></p></p></html>]]></description>
+<ExtendedData><SchemaData schemaUrl="#kml_schema_ft_VFR_Reporting_Points"><SimpleData name="IDENT">DT</SimpleData><SimpleData name="NAM">DONAUTURM</SimpleData></SchemaData></ExtendedData>
+<Point><coordinates>16.397222222,48.2375,0.0</coordinates></Point>
+</Placemark>
+</Folder>
+</Folder>
+</Folder>
+</Document>
+</kml>

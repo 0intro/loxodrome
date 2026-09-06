@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-09-06T17:09:53.592Z",
+  "source": "open flightmaps OFMX LI",
+  "sourceSha256": "8982e1333d014f689c296986cdd49dd5580420455abf59889e86595d17a705d3",
+  "effective": "2026-09-05T00:00:00.000Z",
+  "airspaceCount": 1302,
+  "skippedType": 22,
+  "skippedNoGeo": 2,
+  "natureRows": 327,
+  "borderStitched": 32,
+  "borderChords": 15,
+  "arcChords": 3,
+  "counts": {
+    "ACTIVITY": 212,
+    "ATZ": 95,
+    "CBA": 2,
+    "CTA": 112,
+    "CTR": 112,
+    "D": 232,
+    "FIR": 3,
+    "GLIDER": 1,
+    "P": 277,
+    "PARACHUTE": 42,
+    "PARAGLIDER": 1,
+    "R": 130,
+    "RMZ": 36,
+    "TMA": 30,
+    "TMZ": 9,
+    "TRA": 7,
+    "TSA": 1
+  },
+  "bbox": [
+    6.811,
+    34.932,
+    19.042,
+    47.092
+  ]
+}

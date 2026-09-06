@@ -1,0 +1,64 @@
+name: Refresh Sakaeronavigatsia Georgia datasets
+
+# Regenerates public/data/ge-{airspaces,airports,navaids}.json plus
+# ge-aerodrome-facilities.json from the Georgian AIP Data Set, one
+# anonymous zip holding an AIXM 5.1.1 BasicMessage.
+#
+# Weekly Thursday rather than a 28-day cron: publishers drift off the
+# nominal AIRAC date, and the git-diff gate makes a non-update week a
+# free no-op. Sakaeronavigatsia lists exactly one data set, so there is
+# no pre-release slot to build; -target auto files it by its own
+# effective date.
+#
+# Licensing: none is published. See docs/ge-aip.md.
+
+on:
+  schedule:
+    - cron: '30 5 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build ge-* datasets
+        run: go run ./cmd/ge -min-navaids=20
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/ge-*.json' ':(exclude)public/data/ge-*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/ge-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/ge-*.json'
+            git commit -m "update Sakaeronavigatsia Georgia datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

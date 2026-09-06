@@ -1,0 +1,16 @@
+# Hand-placed VAC panels, for plates the graticule reader cannot do.
+#
+# One line per panel, tab or space separated:
+#
+#   ident  section  page  x0 y0 x1 y1  latSW lonSW  latNE lonNE
+#
+# The clip is in PDF points with the origin at the bottom left, which is
+# what `go run ./cmd/vacgeo -only <ident> -dump` prints and what
+# `pdftoppm -x -y -W -H` crops with. The two corners are decimal degrees,
+# negative west and south.
+#
+# An override is gated exactly like a fit: the aerodrome has to fall inside
+# the panel. A typed control point is at least as easy to get wrong as a
+# misread label.
+#
+# Every entry carries the reason it is here.

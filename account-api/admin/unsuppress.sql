@@ -1,0 +1,12 @@
+-- Lift one address off the hard-bounce suppression list (a mailbox that
+-- was full or a provider hiccup the worker misread as permanent, or a
+-- pilot writing in that their codes stopped arriving). The list is keyed
+-- by the worker's hash of the address, never the address itself, so
+-- compute it first and paste it below:
+--
+--   printf 'loxodrome:%s' 'pilot@example.org' | sha256sum | cut -d' ' -f1
+--
+-- (the address lowercased and trimmed, exactly as the worker normalises
+-- it). Then:
+-- wrangler d1 execute loxodrome-account --remote --file admin/unsuppress.sql
+DELETE FROM suppressions WHERE email_hash = '<sha256 hex from the command above>';

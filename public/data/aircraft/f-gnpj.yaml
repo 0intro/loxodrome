@@ -1,0 +1,77 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-GNPJ
+  type: DR400/140B
+  icaoType: DR40
+  name: Robin DR400/140B Major
+  operator: Aéroclub Les Aiglons
+
+fuel:
+  capacityL: 110 # main tank
+  types: [100LL]
+  consumptionLph: 33
+
+cruise:
+  speedKt: 120
+
+climb: # MdV DR400/140B page 5.04: Vz 4,3 m/s read at 1000 kg sea level std, Vy 160 km/h (86 kt)
+  speedKt: 86
+  rateFtMin: 845
+
+massAndBalance:
+  emptyMassKg: 604
+  emptyArmM: 0.363
+  stations:
+    - { label: Front seats, armM: 0.41, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.19, defaultMassKg: 10 }
+    - { label: Baggage, armM: 1.90, defaultMassKg: 0 }
+  fuelArmM: 1.12
+  envelope: # CG envelope polygon (arm, mass), implicitly closed
+    - { armM: 0.22, massKg: 400 }
+    - { armM: 0.22, massKg: 750 }
+    - { armM: 0.42, massKg: 1000 }
+    - { armM: 0.57, massKg: 1000 }
+    - { armM: 0.57, massKg: 400 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.5
+  massMaxKg: 1000
+  massMinKg: 850
+  wind:
+    takeoffHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    landingHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    tailwindPctPer2Kt: 10
+  # POH distances: cells are [ground roll m, distance over 15 m (50 ft)] at
+  # mass max / mass min; isaOffsetC is relative to ISA (15 - 2 * alt / 1000).
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [241, 482], massMin: [170, 340] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [268, 536], massMin: [185, 375] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [299, 595], massMin: [205, 415] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [321, 644], massMin: [220, 445] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [365, 725], massMin: [260, 500] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [406, 805], massMin: [275, 550] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [439, 886], massMin: [300, 605] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [498, 998], massMin: [340, 675] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [560, 1125], massMin: [380, 750] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [220, 491], massMin: [190, 435] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [239, 524], massMin: [205, 460] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [256, 552], massMin: [215, 485] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [248, 542], massMin: [210, 475] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [268, 576], massMin: [230, 505] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [286, 610], massMin: [245, 535] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [281, 595], massMin: [240, 520] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [305, 634], massMin: [260, 555] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [324, 671], massMin: [275, 585] }
+
+notes: Empty mass and arm from the official weighing of 2021-03-12 (VF Aéro
+  Maintenance, S/N 2261).
+source: Manuel de vol DR 400/140 B (Avions Pierre Robin). F-GNPJ weighing report
+  of 2021-03-12.

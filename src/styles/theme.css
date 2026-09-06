@@ -1,0 +1,199 @@
+/*
+ * Day / night theme tokens. The resolved theme ('day' | 'night') is written to
+ * <html data-theme> before first paint by the inline script in index.html, and
+ * thereafter by src/lib/state/theme.svelte.ts.
+ */
+
+:root {
+	color-scheme: light;
+
+	--bg: #eef0f3;
+	--surface: #fff;
+	--surface-2: #f4f5f7;
+	--surface-3: #e7e9ed;
+	--border: #d3d7dd;
+	--border-strong: #b9bfc8;
+	--text: #1a1d21;
+	--text-muted: #5d6670;
+	--accent: #1f5fbf;
+	--accent-hover: #1a51a3;
+	--accent-text: #fff;
+
+	/* Darkened from #d40000 for the same reason --workbook-orange and
+	 * --nav-orange were: it is the avoid tier's ink in the alert banner,
+	 * read as 12px text on its own 12% tint, where #d40000 measured
+	 * 4.42:1 and missed AA by a hair on the most severe state the app can
+	 * show. #c00 measures 4.70 there, 5.89 on --surface, 5.16 on --bg.
+	 * The print palette pins the true #d40000 (app.css), so paper is
+	 * unchanged, and --marker-red keeps it for the map. */
+	--danger: #c00;
+	--shadow-1: 0 1px 3px rgb(15 20 30 / 16%);
+	--shadow-2: 0 6px 24px rgb(15 20 30 / 22%);
+
+	/* NOTAM map features */
+	--marker-red: #d40000;
+	--marker-blue: #1f5fbf;
+	--area: #f08000;
+
+	/* airspace categories: the SIA 1:500 000 chart palette (Legende2026;
+	 * TRA orange from GEN 2.3). CSS text cannot import
+	 * src/lib/map/palette.ts (the single source of truth the canvas /
+	 * Leaflet layers read), so this block and the night block below MUST
+	 * equal AIRSPACE_CHIP_DAY / AIRSPACE_CHIP_NIGHT there;
+	 * tests/paletteSync.spec.ts fails the build on any drift. The activity
+	 * chip is a lightened chart red so it stays tellable from restricted
+	 * in lists; the map draws both families in the same chart red. */
+	--airspace-controlled: #164194;
+	--airspace-restricted: #e30613;
+	--airspace-activity: #f0767d;
+	--airspace-trafficmgmt: #1d1d1b;
+	--airspace-transit: #c3854a;
+	--airspace-siv: #00713c;
+	--airspace-fir: #1d1d1b;
+
+	/* The flight-prep "workbook orange" (extrapolation / caution tints),
+	 * formerly aliased to --airspace-activity before that token moved to
+	 * the SIA rubine family. On-screen day usage is TEXT, so the token is
+	 * darkened to pass WCAG AA. #9e6400 cleared its two original readings
+	 * (4.91:1 on white, 4.50:1 on --surface-2) but not the third that
+	 * arrived with the alert banner, where it is the caution tier's ink on
+	 * its own 12% tint: 4.18:1. Darkened again to #8f5a00, which measures
+	 * 4.89 on that tint, 5.78 on white and 5.30 on --surface-2.
+	 * The print palettes pin the true workbook #e69100 locally, keeping the
+	 * sheet look on paper. */
+	--workbook-orange: #8f5a00;
+
+	/* Flight-prep "no live data" amber: a performance field whose value is an
+	 * estimate (no usable METAR: station too far, observation too old, fetch
+	 * failed) rather than live weather. Kept a gold amber, distinct from
+	 * --workbook-orange (POH extrapolation) so the two don't read alike;
+	 * darkened from #b8860b so the amber TEXT passes WCAG AA (4.99:1 on
+	 * white, 4.57:1 on --surface-2). */
+	--no-live-data: #906909;
+
+	/* SUP AIP identity colour. Fixed across themes to match the canvas
+	 * overlay drawn by supaipLayer.ts (Leaflet paths can't read CSS
+	 * variables, so the hex is mirrored there). */
+	--supaip: #c2185b;
+
+	/* The live-navigation identity ink for UI SURFACES: the alert banner's
+	 * middle tier (clearance / equipment), the off-route number, the nav-log
+	 * live overlay, the trace profile's overflown marks. It carries TEXT at
+	 * 11-12 px, so it takes the treatment --workbook-orange and
+	 * --no-live-data took: the day value is darkened until every path it is
+	 * read on passes WCAG AA. Measured on #b34700: 4.62:1 as text on its own
+	 * 12% tint (the hardest case), 5.50:1 on --surface, 4.82:1 on --bg, and
+	 * 5.50:1 for --surface text on the solid fill. The former #e8590c
+	 * measured 3.09 / 3.58 / 3.14 / 3.58 and failed all four.
+	 * The map layers keep that saturated #e8590c as their LINE colour
+	 * (navLayer's TRACE_COLOR, navContactLayer's CONTACT_COLOR): a stroke
+	 * over map tiles is judged on saturation against terrain, never on a
+	 * text-contrast test, and conflating the two roles is what turned a line
+	 * colour into unreadable small text. */
+	--nav-orange: #b34700;
+
+	/* status badges: saturated fills (or text) on small chips. Warn and
+	 * neutral are fixed across themes so the white badge text keeps its
+	 * contrast; active is darkened for day (text usage passes WCAG AA:
+	 * 5.10:1 on white, 4.68:1 on --surface-2; white-on-fill rises with it)
+	 * with a night override keeping the original green. */
+	--status-active: #1b7e44;
+	--status-warn: #b03030;
+	--status-neutral: #5a6470;
+
+	/* route vertical-profile terrain silhouette */
+	--terrain-fill: #cdb196;
+	--terrain-line: #9c7f5f;
+
+	/* obstacle markers; fixed (theme-independent) to match the canvas
+	 * dots drawn by obstacleLayer.ts. Both obstacle groups print in the
+	 * Legende2026 obstacle ink. */
+	--obstacle-windturbines: #164194;
+	--obstacle-other: #164194;
+
+	/* layout metrics */
+	--toolbar-h: 52px;
+	--rail-w: 60px; /* sized for the widest tab label, FR "Aérodromes" */
+	--radius: 8px;
+
+	/* The secondary corner: 8px is right for panels, fieldsets and buttons,
+	 * but wrong for the small inner chrome (menu rows, swatches, cells),
+	 * which had been spelling 4px / 3px / 2px literally at 81 sites. */
+	--radius-sm: 4px;
+
+	/* Type scale. The app had grown 18 distinct sizes across 486
+	 * declarations, four of them fractional (12.5 / 11.5 / 10.5 / 13.5) and
+	 * six crowded into the 10-13px band where they are indistinguishable
+	 * but were applied inconsistently. These are the steps; body is 14px.
+	 * Adopted by the shared chrome in app.css and by the components as they
+	 * are touched, NOT by the measured print sheets (NavLogSheet /
+	 * NavLogSchedule / the flight-prep pages), whose card packing is
+	 * calibrated against their current rendered heights. */
+	--fs-2xs: 10px;
+	--fs-xs: 11px;
+	--fs-sm: 12px;
+	--fs-md: 13px;
+	--fs-lg: 14px;
+	--fs-xl: 16px;
+
+	/* Safe-area insets (viewport-fit=cover in index.html): the device notch /
+	 * rounded corners / home indicator; 0 everywhere else, so every rule
+	 * reading these is inert on desktop. --sheet-sab is the share of the
+	 * bottom inset the bottom sheets still owe: a bottom dock or the
+	 * on-screen keyboard under them (--dock-b / --kb, both stamped on the
+	 * root) already stands in it. */
+	--sat: env(safe-area-inset-top, 0px);
+	--sar: env(safe-area-inset-right, 0px);
+	--sal: env(safe-area-inset-left, 0px);
+
+	/* The bottom inset is the one the app checks rather than trusts: a browser
+	 * can report the system navigation bar's whole height for a page it lays
+	 * ABOVE the bar, and every surface owning that edge then pads for a strip
+	 * nothing draws in (the mobile tab rail grew a dead band of its own grey,
+	 * as tall again as the icons). --sab-env is what the browser reports and
+	 * --sab what the app pads by; ui/safeArea.ts stamps the second to 0 when
+	 * it measures the first as dead space. */
+	--sab-env: env(safe-area-inset-bottom, 0px);
+	--sab: var(--sab-env);
+	--sheet-sab: max(0px, calc(var(--sab) - var(--dock-b, 0px) - var(--kb, 0px)));
+}
+
+:root[data-theme="night"] {
+	color-scheme: dark;
+
+	--bg: #0f1216;
+	--surface: #181c22;
+	--surface-2: #1f242b;
+	--surface-3: #272d36;
+	--border: #313844;
+	--border-strong: #424b59;
+	--text: #e7e9ec;
+	--text-muted: #9aa3af;
+	--accent: #4d8bff;
+	--accent-hover: #6b9fff;
+	--accent-text: #0a0d12;
+	--danger: #ff6b6b;
+	--shadow-1: 0 1px 3px rgb(0 0 0 / 50%);
+	--shadow-2: 0 6px 24px rgb(0 0 0 / 60%);
+	--marker-red: #ff5a5a;
+	--marker-blue: #5a9bff;
+	--area: #ff9e33;
+	--airspace-controlled: #5c85d6;
+	--airspace-restricted: #ff5a52;
+	--airspace-activity: #ff8d86;
+	--airspace-trafficmgmt: #cfd3d7;
+	--airspace-transit: #d99a5e;
+	--airspace-siv: #25b563;
+	--airspace-fir: #9aa3ad;
+	--workbook-orange: #ffb444;
+	--no-live-data: #e0b050;
+
+	/* Brightened like its neighbours; sits between the night --danger and
+	 * --workbook-orange, which is where the middle alert tier belongs.
+	 * Measured: 6.02:1 as text on its own 12% tint, 7.32:1 on --surface,
+	 * 7.32:1 for --surface text on the solid fill. */
+	--nav-orange: #ff8a4c;
+	--status-active: #1f8f4d;
+	--terrain-fill: #3a352c;
+	--terrain-line: #6d6450;
+}

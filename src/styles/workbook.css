@@ -1,0 +1,370 @@
+/*
+ * The workbook form vocabulary, declared once for the page components that
+ * carry no styles of their own.
+ *
+ * Two scopes, two dialects with the same class names but different metrics,
+ * kept apart on purpose:
+ *
+ * - `.aircraft-editor-box .body`: the aircraft editor's page vocabulary
+ *   (GeneralPage / MassBalanceEditPage / PerformanceEditPage / YamlPage and
+ *   their sub-editors), formerly the `:global` block in
+ *   AircraftEditorModal.svelte. The `.body` hop keeps every selector at the
+ *   specificity the compiled `.body.svelte-hash X` form had, so the pages'
+ *   own higher-specificity overrides (PerformanceEditPage's .factors label
+ *   width) keep winning exactly as before.
+ *
+ * - `.fp-page`: the flight-preparation pages' shared fragments (the root
+ *   marker class on DossierPage / FuelPlanPage / MassBalancePage /
+ *   PerformancePage), formerly re-declared per page. Scoped to the page
+ *   root, NOT to the surrounding box: the printed dossier (.fpd-doc) also
+ *   hosts NavLogSchedule, whose th/td carry class "num" and whose empty
+ *   states carry "muted", so a box-wide rule would restyle the A5 schedule
+ *   cards. `.fp-page X` matches the page subtrees in every container (the
+ *   flight-prep box, the per-page print, the printed packs) at the same
+ *   (0,2,0) specificity the pages' scoped `.num.svelte-hash` rules had.
+ */
+
+/* ---- aircraft editor: shared page vocabulary -------------------------- */
+
+.aircraft-editor-box .body .card {
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 10px 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.aircraft-editor-box .body .sect-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.aircraft-editor-box .body .field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12.5px;
+}
+
+.aircraft-editor-box .body .field > span:first-child {
+	width: 130px;
+	color: var(--text-muted);
+}
+
+/* Checkboxes / radios keep their native size: the flex stretch would
+   widen each box with its label text and break the vertical alignment
+   of a checkbox column (the fuel grades). */
+.aircraft-editor-box .body .field input:not([type="checkbox"], [type="radio"]),
+.aircraft-editor-box .body .field select {
+	font: inherit;
+	font-size: 12.5px;
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 2px 6px;
+	flex: 1;
+	min-width: 0;
+}
+
+.aircraft-editor-box .body .field select {
+	flex: 0 1 auto;
+}
+
+.aircraft-editor-box .body .field .num {
+	flex: 0 0 90px;
+}
+
+.aircraft-editor-box .body .field input:disabled {
+	opacity: 0.6;
+}
+
+.aircraft-editor-box .body .unit {
+	color: var(--text-muted);
+	font-size: 12px;
+}
+
+.aircraft-editor-box .body .hint {
+	margin: 0;
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.aircraft-editor-box .body .err {
+	margin: 0;
+	font-size: 12.5px;
+	color: var(--danger);
+}
+
+.aircraft-editor-box .body .check {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12.5px;
+	cursor: pointer;
+}
+
+.aircraft-editor-box .body .link-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	font-size: 12.5px;
+	color: var(--accent);
+	cursor: pointer;
+}
+
+.aircraft-editor-box .body .link-btn:hover {
+	text-decoration: underline;
+}
+
+.aircraft-editor-box .body .add-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	align-self: flex-start;
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	font-size: 12.5px;
+	color: var(--accent);
+	cursor: pointer;
+}
+
+.aircraft-editor-box .body .add-btn:hover {
+	text-decoration: underline;
+}
+
+.aircraft-editor-box .body .icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	color: var(--text-muted);
+	background: transparent;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.aircraft-editor-box .body .icon:hover:not(:disabled) {
+	color: var(--text);
+	background: var(--surface-3);
+}
+
+.aircraft-editor-box .body .icon:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.aircraft-editor-box .body .btn {
+	font: inherit;
+	font-size: 12.5px;
+	padding: 5px 12px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	background: var(--surface-2);
+	color: var(--text);
+	cursor: pointer;
+	align-self: flex-start;
+}
+
+.aircraft-editor-box .body .btn:hover {
+	background: var(--surface-3);
+}
+
+.aircraft-editor-box .body .etable {
+	border-collapse: collapse;
+	font-size: 12.5px;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Editable tables are left-aligned like every other edit field; the
+   read-only columns of a display table (the reference figures) opt back
+   into right-aligned numbers with the numeric class. */
+.aircraft-editor-box .body .etable th,
+.aircraft-editor-box .body .etable td {
+	border: 1px solid var(--border);
+	padding: 2px 6px;
+	text-align: left;
+}
+
+.aircraft-editor-box .body .etable th.numeric,
+.aircraft-editor-box .body .etable td.numeric {
+	text-align: right;
+}
+
+.aircraft-editor-box .body .etable thead th {
+	background: var(--surface-2);
+	font-weight: 600;
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.aircraft-editor-box .body .etable .plain {
+	border: none;
+	background: none;
+	padding: 2px;
+}
+
+/* Edit inputs fill their cell (the tables stretch to the card width as
+   flex children, so a fixed input width would leave dead space); the
+   min-width keeps the dense POH grids usable. */
+.aircraft-editor-box .body .etable input.cell {
+	width: 100%;
+	min-width: 56px;
+	font: inherit;
+	font-size: 12.5px;
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid transparent;
+	border-radius: 3px;
+	padding: 1px 4px;
+	text-align: left;
+}
+
+.aircraft-editor-box .body .etable input.text-cell {
+	width: 100%;
+	min-width: 90px;
+	font: inherit;
+	font-size: 12.5px;
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid transparent;
+	border-radius: 3px;
+	padding: 1px 4px;
+	text-align: left;
+}
+
+.aircraft-editor-box .body .etable input.cell:hover,
+.aircraft-editor-box .body .etable input.text-cell:hover {
+	border-color: var(--border);
+}
+
+.aircraft-editor-box .body .etable input.cell:focus,
+.aircraft-editor-box .body .etable input.text-cell:focus {
+	border-color: var(--accent);
+	outline: none;
+}
+
+.aircraft-editor-box .body .etable input.axis {
+	width: 70px;
+	font: inherit;
+	font-size: 12.5px;
+	font-weight: 600;
+	background: var(--surface);
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 3px;
+	padding: 1px 4px;
+	text-align: left;
+}
+
+/* ---- flight preparation: the pages' shared fragments ------------------ */
+
+/* The workbook number input; each page states its own width through
+   --num-w on its .page root (Dossier 64, Fuel 72, Performance 76,
+   M&B 80px). */
+.fp-page .num {
+	width: var(--num-w);
+	background: var(--surface-2);
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 3px 6px;
+	font: inherit;
+}
+
+/* An empty box is not an unanswered one: its placeholder is the automatic value
+   in force (the standard QNH, the station's default mass, the derived final
+   reserve), which typing overrides and clearing hands back, and which the
+   spinner steps from (ui/numberStepAnchor). Muted rather than the browser's own
+   washed-out gray, so a value reads as a value. */
+.fp-page .num::placeholder {
+	color: var(--text-muted);
+	opacity: 1;
+}
+
+/* Neither a placeholder nor an empty box prints, so a field whose value is
+   automatic would leave a hole in the sheet (the fuel plan's final reserve, a
+   station left on its default mass). Each such input is followed by a span
+   carrying the number in force, and on paper they swap: the span's presence IS
+   the marker, so a field that prints its own typed content just does not have
+   one. */
+.fp-page .print-value {
+	display: none;
+}
+
+@media print {
+	.fp-page .num:has(+ .print-value) {
+		display: none;
+	}
+
+	.fp-page .print-value {
+		display: inline;
+	}
+}
+
+/* The pages' note size over app.css's base .muted (which brings margin 0
+   and the muted colour); DossierPage overrides to its denser 12.5px with
+   a .page-scoped rule. */
+.fp-page .muted {
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+/* Document-style table: a strong outer frame and strong rules around the
+   legend (header row + row-label column); light inner grid, tabular
+   figures so the digits align. The per-page extras stay local (Dossier's
+   ellipsis + .grid variant, Fuel's section / total rows). */
+.fp-page .fp-table {
+	border-collapse: collapse;
+	border: 2px solid var(--border-strong);
+	font-size: 12.5px;
+	font-variant-numeric: tabular-nums;
+	width: 100%;
+}
+
+.fp-page .fp-table th,
+.fp-page .fp-table td {
+	border: 1px solid var(--border);
+	padding: 3px 8px;
+	text-align: right;
+	white-space: nowrap;
+}
+
+.fp-page .fp-table thead th {
+	background: var(--surface-2);
+	font-weight: 600;
+	text-align: right;
+	border-bottom: 2px solid var(--border-strong);
+}
+
+.fp-page .fp-table .rowhead {
+	text-align: left;
+	font-weight: 500;
+	background: var(--surface-2);
+	color: var(--text);
+	border-right: 2px solid var(--border-strong);
+}
+
+/* Verdict inks. .warn (extrapolated POH values, the workbook's orange
+   flag) stays AFTER .ok / .danger so it wins when the classes combine on
+   a verdict cell; FuelPlanPage adds its bolder weight locally. */
+.fp-page .ok {
+	color: var(--status-active);
+}
+
+.fp-page .danger {
+	color: var(--danger);
+}
+
+.fp-page .warn {
+	color: var(--workbook-orange);
+}

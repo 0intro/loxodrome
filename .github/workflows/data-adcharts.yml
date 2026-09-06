@@ -1,0 +1,62 @@
+name: Refresh French aerodrome chart links
+
+# Regenerates public/data/fr-adcharts.json from the public SIA eAIP
+# per-aerodrome pages (no API key; throttled scrape of ~145 HTML pages).
+# The chart set changes only at AIRAC amendments, so a weekly Thursday
+# fire catches each cycle's churn, and the content gate (artifact only;
+# the meta's generatedAt changes every run) means non-update weeks no-op
+# without a commit. During the SIA pre-release window the tool also
+# writes the fr-adcharts.next.json pair, so the app flips at the cycle
+# boundary without waiting for this workflow.
+
+on:
+  schedule:
+    # Thursday like the other data refreshes, offset to its own slot;
+    # runs are independent (different paths to diff) so they don't race.
+    - cron: '15 5 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build fr-adcharts.json
+        run: go run ./cmd/adcharts
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain (not diff) so a first-time fr-adcharts.next.json,
+          # untracked, also triggers the commit; metas excluded from the
+          # gate (generatedAt changes every run) but committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/fr-adcharts*.json' ':(exclude)public/data/fr-adcharts*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/fr-adcharts*.json'
+            git commit -m "update French aerodrome chart links"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

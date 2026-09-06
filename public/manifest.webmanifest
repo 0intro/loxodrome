@@ -1,0 +1,15 @@
+{
+	"name": "Loxodrome",
+	"short_name": "Loxodrome",
+	"description": "Aeronautical information, flight preparation and navigation, on one chart-faithful map.",
+	"start_url": ".",
+	"scope": ".",
+	"display": "standalone",
+	"background_color": "#eef0f3",
+	"theme_color": "#1f5fbf",
+	"icons": [
+		{ "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+		{ "src": "icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
+		{ "src": "icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+	]
+}

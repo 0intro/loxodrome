@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-06T17:07:57.053Z",
+  "effective": "2026-09-03",
+  "source": "https://aeronav.faa.gov/d-tpp/2609/xml_data/d-TPP_Metafile.xml",
+  "cycle": "2609",
+  "base": "https://aeronav.faa.gov/d-tpp/2609/",
+  "airports": 3197,
+  "charts": 24231,
+  "byFamily": {
+    "ADC": 921,
+    "IAC": 11185,
+    "MISC": 5772,
+    "SID": 3317,
+    "STAR": 3036
+  }
+}

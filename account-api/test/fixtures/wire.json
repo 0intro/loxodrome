@@ -1,0 +1,212 @@
+{
+	"note": "The golden wire fixture (docs/accounts-sync.md, Testing): the worker suite replays these steps against the real fetch handler and tests/syncWire.spec.ts replays them against the simulation server, so the two implementations of the push/changes semantics cannot drift apart. Neither side may change this file unilaterally.",
+	"steps": [
+		{
+			"name": "create",
+			"push": [
+				{
+					"col": "plans",
+					"id": "p1",
+					"baseRev": 0,
+					"deleted": false,
+					"updatedAt": 1000,
+					"device": "dev-a",
+					"hash": "h1",
+					"meta": {
+						"savedAtMs": 1000
+					},
+					"payload": {
+						"alg": "none",
+						"data": "version: 1\n"
+					}
+				}
+			],
+			"expect": {
+				"results": [
+					{
+						"ok": true,
+						"rev": 1,
+						"seq": 1
+					}
+				]
+			}
+		},
+		{
+			"name": "update",
+			"push": [
+				{
+					"col": "plans",
+					"id": "p1",
+					"baseRev": 1,
+					"deleted": false,
+					"updatedAt": 2000,
+					"device": "dev-a",
+					"hash": "h2",
+					"meta": {
+						"savedAtMs": 2000
+					},
+					"payload": {
+						"alg": "none",
+						"data": "version: 2\n"
+					}
+				}
+			],
+			"expect": {
+				"results": [
+					{
+						"ok": true,
+						"rev": 2,
+						"seq": 2
+					}
+				]
+			}
+		},
+		{
+			"name": "stale base answers the server doc",
+			"push": [
+				{
+					"col": "plans",
+					"id": "p1",
+					"baseRev": 1,
+					"deleted": false,
+					"updatedAt": 3000,
+					"device": "dev-b",
+					"hash": "h3",
+					"meta": {
+						"savedAtMs": 3000
+					},
+					"payload": {
+						"alg": "none",
+						"data": "version: 3\n"
+					}
+				}
+			],
+			"expect": {
+				"results": [
+					{
+						"ok": false,
+						"conflict": true,
+						"server": {
+							"col": "plans",
+							"id": "p1",
+							"rev": 2,
+							"seq": 2,
+							"deleted": false,
+							"updatedAt": 2000,
+							"device": "dev-a",
+							"hash": "h2",
+							"meta": {
+								"savedAtMs": 2000
+							},
+							"payload": {
+								"alg": "none",
+								"data": "version: 2\n"
+							}
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "retried push whose intent stands is ok",
+			"push": [
+				{
+					"col": "plans",
+					"id": "p1",
+					"baseRev": 1,
+					"deleted": false,
+					"updatedAt": 2000,
+					"device": "dev-a",
+					"hash": "h2",
+					"meta": {
+						"savedAtMs": 2000
+					},
+					"payload": {
+						"alg": "none",
+						"data": "version: 2\n"
+					}
+				}
+			],
+			"expect": {
+				"results": [
+					{
+						"ok": true,
+						"rev": 2,
+						"seq": 2
+					}
+				]
+			}
+		},
+		{
+			"name": "tombstone",
+			"push": [
+				{
+					"col": "plans",
+					"id": "p1",
+					"baseRev": 2,
+					"deleted": true,
+					"updatedAt": 4000,
+					"device": "dev-a",
+					"hash": "",
+					"meta": {}
+				}
+			],
+			"expect": {
+				"results": [
+					{
+						"ok": true,
+						"rev": 3,
+						"seq": 5
+					}
+				]
+			}
+		},
+		{
+			"name": "changes lists the tombstone, refs and payload cleared",
+			"changes": {
+				"since": 0
+			},
+			"expect": {
+				"seq": 5,
+				"more": false,
+				"docs": [
+					{
+						"col": "plans",
+						"id": "p1",
+						"rev": 3,
+						"seq": 5,
+						"deleted": true,
+						"updatedAt": 4000,
+						"device": "dev-a",
+						"hash": "",
+						"meta": {}
+					}
+				]
+			}
+		},
+		{
+			"name": "a full-listing continuation (full=1) reads the same feed and never re-resets",
+			"changes": {
+				"since": 0,
+				"full": true
+			},
+			"expect": {
+				"seq": 5,
+				"more": false,
+				"docs": [
+					{
+						"col": "plans",
+						"id": "p1",
+						"rev": 3,
+						"seq": 5,
+						"deleted": true,
+						"updatedAt": 4000,
+						"device": "dev-a",
+						"hash": "",
+						"meta": {}
+					}
+				]
+			}
+		}
+	]
+}
