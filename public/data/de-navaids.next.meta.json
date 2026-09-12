@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-06T17:07:56.665Z",
+  "source": "ED_Airspace_StrokedBorders_2026-09-03_2026-10-01_revision.xml+ED_AirportHeliport_2026-09-03_2026-10-01_revision.xml+ED_Runway_2026-09-03_2026-10-01_revision.xml (+4 more)",
+  "sourceSha256": "fa5a1e88cad309ba2178546fba413644c8354fc05cda9fae486876fe2ccbe31a",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "navaidCount": 5368,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 1067,
+  "counts": {
+    "DME": 127,
+    "ILS": 29,
+    "ILS-DME": 51,
+    "LOC": 80,
+    "MKR": 42,
+    "NDB": 22,
+    "TACAN": 2,
+    "VFR_REPORTING_POINT": 3717,
+    "VOR": 42,
+    "VOR-DME": 37,
+    "VORTAC": 1,
+    "WAYPOINT": 1218
+  },
+  "bbox": [
+    5.815,
+    47.324,
+    14.951,
+    55.065
+  ]
+}

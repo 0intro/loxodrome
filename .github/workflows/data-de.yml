@@ -1,0 +1,122 @@
+name: Refresh DFS Germany datasets
+
+# Regenerates public/data/de-{airspaces,airports,navaids,obstacles}.json
+# from the DFS Germany AIXM 5.1.1 AIP dataset, published anonymously at
+# https://aip.dfs.de/datasets/ (REST API; contract in docs/de-aip.md).
+# DFS publishes on the 28-day AIRAC cycle; the weekly Thursday fire
+# catches publication drift and the git-diff-quiet skip turns
+# non-update weeks into no-ops. Data is redistributed under GeoNutzV.
+
+on:
+  schedule:
+    # Stagger half an hour past BE / METAR (06:00) to spread the cron load.
+    - cron: '30 6 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # DFS exposes a JSON REST API: the metadata lists four amendments
+      # (Amdt 0 = the currently effective AIRAC, 1 = the pre-release next
+      # cycle, 2 = after, 9999 = snapshot), each a tree of dataset leaves
+      # whose per-AIRAC filenames change every cycle. We resolve the AIXM
+      # 5.1 filenames by prefix, download them, and build. One AIP dataset
+      # is split across per-feature-type files, all decoded together
+      # (aixm5.DecodeAll) so runway / radio xlinks resolve onto airports;
+      # StrokedBorders carries every shared border expanded inline.
+      - name: Build DFS Germany datasets
+        id: build
+        run: |
+          set -euo pipefail
+          mkdir -p local/de
+          META=local/de/metadata.json
+          curl -fsSL --retry 3 'https://aip.dfs.de/datasets/rest/' -o "$META"
+
+          # Top-level AIXM files making up the AIP dataset (+ obstacles),
+          # matched by filename prefix (the dates change each AIRAC).
+          PREFIXES='ED_Airspace_StrokedBorders ED_AirportHeliport ED_Runway ED_Service ED_Navaids ED_Waypoints ED_Obstacles_Area_1'
+
+          # pick <amdt> <prefix> -> AIXM 5.1 release filename (empty if absent)
+          pick() {
+            jq -r --argjson a "$1" --arg p "$2" '
+              [ .Amdts[] | select(.Amdt == $a) | .. | objects
+                | select(.filename? and (.type | tostring | startswith("AIXM")))
+                | .filename | select(startswith($p)) ][0] // empty' "$META"
+          }
+
+          # build_slot <amdt> <target> <required>: download every file for
+          # the amendment and run cmd/de. Amdt 0 is required (fail loudly);
+          # Amdt 1 (the pre-release .next twins) is optional.
+          build_slot() {
+            local amdt="$1" target="$2" required="$3" numeric files=() f
+            numeric=$(jq -r --argjson a "$amdt" '(.Amdts[] | select(.Amdt == $a) | .AmdtNumeric) // empty' "$META")
+            if [ -z "$numeric" ] || [ "$numeric" = '99999999' ]; then
+              [ "$required" = 'yes' ] && { echo "ERROR: required amendment $amdt is absent"; exit 1; }
+              echo "amendment $amdt absent; skipping $target slot"; return 0
+            fi
+            for p in $PREFIXES; do
+              f=$(pick "$amdt" "$p")
+              if [ -z "$f" ]; then
+                [ "$required" = 'yes' ] && { echo "ERROR: amendment $amdt is missing $p"; exit 1; }
+                echo "amendment $amdt missing $p; skipping $target slot"; return 0
+              fi
+              curl -fsSL --retry 3 -o "local/de/$f" "https://aip.dfs.de/datasets/rest/${amdt}/${f}"
+              files+=("local/de/$f")
+            done
+            echo "building $target slot (AIRAC $numeric) from ${#files[@]} files"
+            go run ./cmd/de -effective "$numeric" -target "$target" \
+              -min-airspaces=200 -min-airports=100 -min-navaids=500 -min-obstacles=1000 \
+              "${files[@]}"
+            [ "$amdt" = '0' ] && echo "date=$numeric" >> "$GITHUB_OUTPUT"
+            return 0
+          }
+
+          build_slot 0 current yes
+          build_slot 1 next no
+
+          # The aerodrome-page links come from the DFS BasicVFR permalinks
+          # index, not the AIXM files; one fetch, cycle-independent, so a
+          # single slot with no -in input.
+          go run ./cmd/de -only adcharts
+
+      - name: Commit if changed
+        env:
+          DATE: ${{ steps.build.outputs.date }}
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip. The globs pick up the
+          # .next.json twins automatically during the pre-release window.
+          if git diff --quiet -- 'public/data/de-*.json' ':(exclude)public/data/de-*.meta.json'; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/de-*.json public/data/de-*.meta.json
+            git commit -m "update DFS Germany datasets, AIRAC ${DATE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

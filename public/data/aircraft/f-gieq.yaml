@@ -1,0 +1,84 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-GIEQ
+  type: PA28-161
+  icaoType: P28A
+  name: Piper PA28-161 Cadet
+  operator: Aéroclub Henri Guillaumet
+
+fuel:
+  capacityL: 182
+  usableL: 180
+  types: [100LL]
+  consumptionLph: 36
+  presets:
+    - { name: tabs, label: To tabs, litres: 128 }
+
+cruise:
+  speedKt: 110
+
+climb: # VB-1375 figure 5-17: 675 ft/min at sea level std, 2325 lb, Vi 79 kt
+  speedKt: 79
+  rateFtMin: 675
+
+massAndBalance:
+  emptyMassKg: 654
+  emptyArmM: 2.211
+  stations:
+    - { label: Front seats, armM: 2.045, defaultMassKg: 160 }
+    - { label: Rear seats, armM: 3.000, defaultMassKg: 10 }
+    - { label: Baggage, armM: 3.627, defaultMassKg: 0 }
+  fuelArmM: 2.413
+  envelope: # CG envelope polygon (arm, mass), implicitly closed
+    - { armM: 2.100, massKg: 500 }
+    - { armM: 2.100, massKg: 890 }
+    - { armM: 2.210, massKg: 1055 }
+    - { armM: 2.362, massKg: 1055 }
+    - { armM: 2.362, massKg: 500 }
+
+performance:
+  kind: closed-form
+  marginFactor: 1.3
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.5
+  massReferenceLb: 2325
+  # distanceM = ((a*PA + b) * tempC + (c*PA + d))
+  #             * (massKg * 2.20462 / massReferenceLb)^massExponent
+  #             * (1 - headwindPerKt * kt) or (1 + tailwindPerKt * kt);
+  # coefficients are [a, b, c, d].
+  # Takeoff: least-squares fit of the PA lines digitized from the manual's
+  # nomograms (figs 5-5/5-6/5-7/5-8 of the Warrior II edition VB-836, the
+  # same charts as the Cadet VB-1375 figs 5-7/5-9/5-11/5-13), sampled at
+  # PA 0/2000/4000/6000 ft x ISA-20/ISA/ISA+20; wind rates from the chart
+  # wind grids. Validated against the manual's printed worked examples
+  # (351/640/297/488 m) within +1.0/+0.3/+2.9/+1.5%. They replace the
+  # workbook's original fits, which were 25-47% short at those examples.
+  # The mass-squared law tracks the chart guides within ~3% above 1900 lb
+  # (the guides run exponent ~1.7-2.4 by chart). Landing: the workbook fit,
+  # verified against the manual's example (363/201 m) at -1%/-5%.
+  configs:
+    - phase: takeoff
+      flapsDeg: 0
+      massExponent: 2
+      distance15m: { coefficients: [0.000107, 8.971, 0.1, 397.5], headwindPerKt: 0.0121, tailwindPerKt: 0.024 }
+      groundRoll: { coefficients: [-0.000189, 5.407, 0.0575, 224.8], headwindPerKt: 0.0144, tailwindPerKt: 0.053 }
+    - phase: takeoff
+      flapsDeg: 25
+      default: true # short-field reference configuration; drives the runway verdict
+      massExponent: 2
+      distance15m: { coefficients: [0.000401, 7.746, 0.0883, 341.1], headwindPerKt: 0.0127, tailwindPerKt: 0.023 }
+      groundRoll: { coefficients: [0.0000537, 4.59, 0.0565, 229.3], headwindPerKt: 0.0137, tailwindPerKt: 0.049 }
+    - phase: landing
+      flapsDeg: 40
+      default: true
+      massExponent: 0 # the POH landing chart has no mass term
+      distance15m: { coefficients: [0.00006, 0.66, 0.0085, 320], headwindPerKt: 0.015, tailwindPerKt: 0.022 }
+      groundRoll: { coefficients: [0.00002, 0.58, 0.00625, 160], headwindPerKt: 0.018, tailwindPerKt: 0.028 }
+
+notes: Empty mass and arm from the official weighing of 2023-03-22.
+source: Piper Cadet PA-28-161 Pilot's Operating Handbook (report VB-1375).
+  F-GIEQ weighing report of 2023-03-22.

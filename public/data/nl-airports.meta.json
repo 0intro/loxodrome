@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-06T17:10:05.536Z",
+  "source": "LVNL Aerodrome FeatureServer",
+  "sourceSha256": "c2ed22a6c4b5390784f1a9af7e62a331303abb3c10ba8e4cb292b224acb5d0af",
+  "effective": "2022-05-19T00:00:00.000Z",
+  "ahpCount": 252,
+  "runwayCount": 0,
+  "militaryCount": 8,
+  "radioCount": 0,
+  "transitionAltCount": 0,
+  "chartCount": 55,
+  "counts": {
+    "heliport": 137,
+    "small_airport": 115
+  },
+  "bbox": [
+    2.816,
+    50.834,
+    7.033,
+    55.4
+  ]
+}

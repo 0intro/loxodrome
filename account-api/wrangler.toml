@@ -1,0 +1,81 @@
+# Cloudflare Worker config for the Loxodrome account + sync API
+# (docs/accounts-sync.md). `wrangler deploy` from this directory reads
+# this file. The worker is authenticated and stateful, DELIBERATELY a
+# separate project from notam-proxy (an anonymous relay): separate
+# secrets, separate origin allow-list, separate blast radius.
+#
+# Secrets, set out of band and never stored in this file:
+#
+#   wrangler secret put TURNSTILE_SECRET
+#
+# For `wrangler dev`, put dev values in account-api/.dev.vars
+# (gitignored). DEV_CODE=000000 there fixes the login code and bypasses
+# the Turnstile siteverify; it must NEVER be set in production.
+#
+# Provisioning (the deploy runbook, once, by the operator):
+#
+#   wrangler d1 create loxodrome-account --location weur
+#     -> paste database_id below
+#   wrangler r2 bucket create loxodrome-account-blobs --jurisdiction eu
+#   wrangler d1 migrations apply loxodrome-account          # remote
+#   wrangler d1 migrations apply loxodrome-account --local  # for dev
+#
+# Email Sending (public beta) must be enabled on the account, with
+# login@loxodrome.fr verified as a sender (DKIM/SPF on the zone); the
+# sendCode seam short-circuits on DEV_CODE before touching the binding,
+# so local dev works without it.
+
+name = "account-api"
+main = "worker.ts"
+compatibility_date = "2026-05-21"
+
+workers_dev = false
+
+# `wrangler dev` listens here: the vite proxy (vite.config.ts) and the debug
+# APK's VITE_ACCOUNT_API_URL both assume 8788, so the port lives in ONE place.
+[dev]
+port = 8788
+
+# Custom domain (the DNS record is created by the deploy).
+[[routes]]
+pattern = "api.loxodrome.fr"
+custom_domain = true
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[[d1_databases]]
+binding = "DB"
+database_name = "loxodrome-account"
+# Provisioned 2026-08-27 (`wrangler d1 create loxodrome-account
+# --location weur`); local `wrangler dev` and `d1 migrations apply
+# --local` key their state on the name, not this id.
+database_id = "269604c6-c779-45b9-a799-f0eeaf630829"
+
+[[r2_buckets]]
+binding = "BLOBS"
+bucket_name = "loxodrome-account-blobs"
+# The bucket lives in the EU jurisdiction; a jurisdictional bucket must
+# be addressed with it or the binding resolves nothing.
+jurisdiction = "eu"
+
+# send_email uses `name` where every other binding says `binding`;
+# `name` is the env key the worker reads (env.EMAIL).
+[[send_email]]
+name = "EMAIL"
+
+# One cron, four sweeps (staged purges, blob GC with the 30-day grace,
+# code/session expiry, bytes_used drift) plus the Monday weekly report.
+[triggers]
+crons = ["0 4 * * *"]
+
+[vars]
+# Origins allowed to call the API in PRODUCTION: the site and the
+# Android shell's WebView origin only. The vite dev origins ride
+# account-api/.dev.vars (`wrangler dev` overlays it over [vars]):
+#
+#   ALLOW_ORIGINS=https://loxodrome.fr,https://localhost,http://localhost:5173,http://127.0.0.1:5173
+ALLOW_ORIGINS = "https://loxodrome.fr,https://localhost"
+SENDER_EMAIL = "login@loxodrome.fr"
+REPORT_EMAIL = "0intro@gmail.com"

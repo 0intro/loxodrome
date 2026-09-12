@@ -1,0 +1,78 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-BRUE
+  type: PA28R-200
+  icaoType: P28R
+  name: Piper PA28R-200 Arrow
+  operator: Aéroclub Les Aiglons
+
+fuel:
+  capacityL: 189 # 50 US gal
+  usableL: 182 # 48 US gal
+  types: [100LL]
+  consumptionLph: 35
+
+cruise:
+  speedKt: 140
+
+climb: # Handbook 690203 section I: 910 ft/min, best rate of climb speed 95 mph (83 kt)
+  speedKt: 83
+  rateFtMin: 910
+
+massAndBalance:
+  emptyMassKg: 703
+  emptyArmM: 2.169
+  stations:
+    - { label: Front seats, armM: 2.172, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 3.000, defaultMassKg: 0 }
+    - { label: Baggage, armM: 3.63, defaultMassKg: 0 }
+  fuelArmM: 2.413
+  envelope: # CG envelope polygon (arm, mass), implicitly closed
+    - { armM: 2.057, massKg: 703 }
+    - { armM: 2.057, massKg: 1000 }
+    - { armM: 2.24, massKg: 1179 }
+    - { armM: 2.436, massKg: 1179 }
+    - { armM: 2.436, massKg: 703 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  grassFactor: 1.15
+  wetFactor: 1.15
+  massMaxKg: 1179 # 2600 lb
+  massMinKg: 900
+  wind:
+    takeoffHeadwind: [[0, 1.0], [12, 0.9], [24, 0.8]]
+    landingHeadwind: [[0, 1.0], [13, 0.9], [26, 0.8]]
+    tailwindPctPer2Kt: 10
+  # Single-weight (2600 lb) density-altitude abaque converted to a table, so both
+  # mass columns are identical. Cells are [ground roll m, distance over 15 m
+  # (50 ft)]; isaOffsetC is relative to ISA (15 - 2 * alt / 1000).
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [188, 398], massMin: [188, 398] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [235, 488], massMin: [235, 488] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [284, 583], massMin: [284, 583] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [267, 550], massMin: [267, 550] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [328, 671], massMin: [328, 671] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [413, 841], massMin: [413, 841] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [384, 783], massMin: [384, 783] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [488, 991], massMin: [488, 991] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [596, 1206], massMin: [596, 1206] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [227, 403], massMin: [227, 403] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [238, 421], massMin: [238, 421] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [249, 439], massMin: [249, 439] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [245, 433], massMin: [245, 433] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [259, 454], massMin: [259, 454] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [274, 480], massMin: [274, 480] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [269, 472], massMin: [269, 472] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [287, 500], massMin: [287, 500] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [304, 529], massMin: [304, 529] }
+
+notes: Empty mass and arm from the official weighing of 2025-06-26 (VF Aéro
+  Maintenance).
+source: Piper PA-28R-200 Cherokee Arrow Owner's Handbook (report 690203). F-BRUE
+  weighing report of 2025-06-26.

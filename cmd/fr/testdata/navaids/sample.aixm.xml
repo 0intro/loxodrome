@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Trimmed AIXM 4.5 snapshot: one VOR-DME, one full ILS-DME, one
+     LOC (localizer, no glidepath), and one middle marker. -->
+<AIXM-Snapshot version="4.5" origin="FR" effective="2026-07-09T00:00:00.000+02:00">
+  <Vor>
+    <VorUid mid="1">
+      <codeId>CGN</codeId>
+      <geoLat>490000.00N</geoLat>
+      <geoLong>0020000.00E</geoLong>
+    </VorUid>
+    <txtName>CAEN</txtName>
+    <codeType>VOR</codeType>
+    <valFreq>115.30</valFreq>
+    <uomFreq>MHZ</uomFreq>
+    <valElev>200</valElev>
+    <uomDistVer>FT</uomDistVer>
+  </Vor>
+  <Dme>
+    <DmeUid mid="2">
+      <codeId>CGN</codeId>
+      <geoLat>490000.00N</geoLat>
+      <geoLong>0020000.00E</geoLong>
+    </DmeUid>
+    <VorUid mid="1"><codeId>CGN</codeId></VorUid>
+    <codeChannel>100X</codeChannel>
+    <valGhostFreq>115.30</valGhostFreq>
+    <uomGhostFreq>MHZ</uomGhostFreq>
+  </Dme>
+  <Ils>
+    <IlsUid mid="10">
+      <RdnUid mid="11">
+        <RwyUid mid="12">
+          <AhpUid mid="13"><codeId>LFRK</codeId></AhpUid>
+          <txtDesig>13/31</txtDesig>
+        </RwyUid>
+        <txtDesig>31</txtDesig>
+      </RdnUid>
+    </IlsUid>
+    <DmeUid mid="14"><codeId>CN</codeId><geoLat>490100.00N</geoLat><geoLong>0020100.00E</geoLong></DmeUid>
+    <codeCat>I</codeCat>
+    <Ilz>
+      <codeId>CN</codeId>
+      <valFreq>109.90</valFreq>
+      <uomFreq>MHZ</uomFreq>
+      <geoLat>490100.00N</geoLat>
+      <geoLong>0020100.00E</geoLong>
+      <valElev>250</valElev>
+      <uomDistVer>FT</uomDistVer>
+    </Ilz>
+    <Igp>
+      <valFreq>333.80</valFreq>
+      <uomFreq>MHZ</uomFreq>
+    </Igp>
+  </Ils>
+  <Ils>
+    <IlsUid mid="20">
+      <RdnUid mid="21">
+        <RwyUid mid="22">
+          <AhpUid mid="23"><codeId>LFRD</codeId></AhpUid>
+          <txtDesig>11/29</txtDesig>
+        </RwyUid>
+        <txtDesig>11</txtDesig>
+      </RdnUid>
+    </IlsUid>
+    <codeCat>I</codeCat>
+    <Ilz>
+      <codeId>DND</codeId>
+      <valFreq>110.50</valFreq>
+      <uomFreq>MHZ</uomFreq>
+      <geoLat>484700.00N</geoLat>
+      <geoLong>0020200.00W</geoLong>
+      <valElev>150</valElev>
+      <uomDistVer>FT</uomDistVer>
+    </Ilz>
+  </Ils>
+  <Mkr>
+    <MkrUid mid="30">
+      <codeId>.-</codeId>
+      <geoLat>490200.00N</geoLat>
+      <geoLong>0020300.00E</geoLong>
+    </MkrUid>
+    <IlsUid mid="10">
+      <RdnUid mid="11">
+        <RwyUid mid="12">
+          <AhpUid mid="13"><codeId>LFRK</codeId></AhpUid>
+          <txtDesig>13/31</txtDesig>
+        </RwyUid>
+        <txtDesig>31</txtDesig>
+      </RdnUid>
+    </IlsUid>
+    <codePsnIls>M</codePsnIls>
+    <valFreq>75</valFreq>
+    <uomFreq>MHZ</uomFreq>
+  </Mkr>
+</AIXM-Snapshot>

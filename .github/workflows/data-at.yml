@@ -1,0 +1,76 @@
+name: Refresh Austria Austro Control datasets
+
+# Regenerates public/data/at-{airspaces,airports,navaids,obstacles}.json
+# from the two public Austro Control AIM products: the Luftraumstruktur
+# KML (airspace, aerodromes, navaids, VFR reporting points) and the
+# Obstacle Data Set (ICAO) Area 1 in AIXM 5.1.1. Both are published per
+# AIRAC cycle at austrocontrol.at with the effective date stamped into
+# the filename; the weekly Thursday fire catches each new cycle the week
+# it appears and the git-diff-quiet skip turns non-update weeks into
+# no-ops.
+#
+# cmd/at scrapes the two product pages for their download links and takes
+# the newest cycle (browser-style headers; see cmd/at/fetch.go). If a
+# fetch ever fails, this job fails visibly and the committed datasets
+# stay on the last good cycle; the recovery path is a local
+# `go run ./cmd/at -snapshot local/at-snapshot` and, offline,
+# `go run ./cmd/at -in local/at-snapshot`.
+#
+# Redistribution of the Austro Control products is covered by the
+# authorization requested from Austro Control; this workflow commits to
+# the public branch, so it takes effect once that authorization is in
+# hand (see docs/at-aip.md).
+
+on:
+  schedule:
+    # Stagger past UK (04:30), ES (05:00) and BE (06:00).
+    - cron: '30 6 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # One run builds every dataset: the tool resolves the current cycle
+      # of each product from its own product page.
+      - name: Build at-* datasets
+        run: go run ./cmd/at
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip.
+          if git diff --quiet -- 'public/data/at-*.json' ':(exclude)public/data/at-*.meta.json'; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/at-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/at-*.json public/data/at-*.meta.json
+            git commit -m "update Austro Control Austria datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

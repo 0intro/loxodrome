@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-09-06T17:07:51.114Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 03-Sep-2026-A/2026-09-03-AIRAC ENR 4.1",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "navaidCount": 14,
+  "counts": {
+    "NDB": 6,
+    "VOR-DME": 8
+  },
+  "tables": 1,
+  "skippedNoPosition": 0,
+  "bbox": [
+    18.8,
+    42.281,
+    21.851,
+    45.138
+  ]
+}

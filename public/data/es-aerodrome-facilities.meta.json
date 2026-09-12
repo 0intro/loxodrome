@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-06T17:09:11.582Z",
+  "source": "LE_Amdt_A_2024_05_AIP_DS_FULL_GECE.xml+LE_Amdt_A_2024_05_AIP_DS_FULL_LESU.xml+LE_Amdt_A_2025_02_AIP_DS_FULL_LEVC.xml (+50 more)",
+  "sourceSha256": "f84396cc93b13492c7c08c0a23ec24b40c32279e34e565bfb8242ae58835cbdb",
+  "effective": "",
+  "aerodromeCount": 288,
+  "heliportCount": 129,
+  "skippedNotes": 0,
+  "counts": {
+    "email": 354,
+    "operator": 299,
+    "phone": 424,
+    "remark": 25,
+    "web": 21
+  }
+}

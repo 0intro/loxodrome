@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-06T17:07:50.950Z",
+  "source": "skeyes eAIP 2026-09-03",
+  "sourceSha256": "274863ede30dff7afb1ebc27e77e42c3c547a663996ce751d376d6078cd9a7ac",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "zoneCount": 18,
+  "counts": {
+    "BIRD": 18
+  },
+  "bbox": [
+    2.499,
+    49.499,
+    6.5,
+    51.5
+  ]
+}

@@ -1,0 +1,91 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-GIRV
+  type: PA28-181
+  icaoType: P28A
+  name: Piper PA28-181 Archer II
+  operator: Aéroclub Henri Guillaumet
+
+fuel:
+  capacityL: 189
+  usableL: 182
+  types: [100LL]
+  consumptionLph: 40
+
+cruise:
+  speedKt: 122
+
+climb: # VB-1086 figure 5-15: 735 ft/min at sea level std, 2550 lb, Vi 76 kt
+  speedKt: 76
+  rateFtMin: 735
+
+massAndBalance:
+  emptyMassKg: 748.5
+  emptyArmM: 2.236
+  stations:
+    - { label: Front seats, armM: 2.045, defaultMassKg: 160 }
+    - { label: Rear seats, armM: 3.000, defaultMassKg: 0 }
+    - { label: Baggage, armM: 3.627, defaultMassKg: 0 }
+  fuelArmM: 2.413
+  envelope: # CG envelope polygon (arm, mass), implicitly closed; normal
+    # category per fig 6-15: forward limit 82 in (2.083 m) up to 2050 lb
+    # (930 kg) then straight to 88.6 in (2.250 m) at 2550 lb (1157 kg),
+    # aft limit 93 in (2.362 m), figure floor 1200 lb (544 kg)
+    - { armM: 2.083, massKg: 544 }
+    - { armM: 2.083, massKg: 930 }
+    - { armM: 2.250, massKg: 1157 }
+    - { armM: 2.362, massKg: 1157 }
+    - { armM: 2.362, massKg: 544 }
+
+performance:
+  kind: closed-form
+  marginFactor: 1.3
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.5
+  massReferenceLb: 2550
+  # distanceM = ((a*PA + b) * tempC + (c*PA + d))
+  #             * (massKg * 2.20462 / massReferenceLb)^massExponent
+  #             * (1 - headwindPerKt * kt) or (1 + tailwindPerKt * kt);
+  # coefficients are [a, b, c, d].
+  # Least-squares fit of the PA lines digitized from the manual's six
+  # nomograms (Archer II report VB-1086: figs 5-7/5-9/5-11/5-13 takeoff,
+  # 5-35/5-37 landing), sampled per line over the drawn extent (the grids
+  # end near ISA+12 at altitude, +27 C at sea level) on the 2550 lb
+  # reference line; panel samples reproduced within 7 percent (takeoff,
+  # the printed lines curve against the linear-in-T model) and 3 percent
+  # (landing). The takeoff mass exponent 2 matches the chart mass guides
+  # (figs 5-9/5-13 measure 1.98); the landing charts carry a mass grid,
+  # unlike the PA28-161's, and their guides measure exponent ~1 (fig 5-37
+  # 0.93), the kinetic-energy law. Headwind rates are calibrated on each
+  # chart's printed worked example through the fitted model (the redrawn
+  # wind guides disagree with the charts' own examples); tailwind rates
+  # carry over from the PA28-161 sheet, the same chart family, as the
+  # dashed tailwind guides did not digitize reliably. Validated against
+  # all six printed worked examples (579/567/335/290 m takeoff,
+  # 393/251 m landing) within 0.2 percent by construction.
+  configs:
+    - phase: takeoff
+      flapsDeg: 0
+      massExponent: 2
+      distance15m: { coefficients: [0.000594, 9.285, 0.096, 488.5], headwindPerKt: 0.0183, tailwindPerKt: 0.024 } # fig 5-7
+      groundRoll: { coefficients: [0.00011, 4.858, 0.076, 168.4], headwindPerKt: 0.0143, tailwindPerKt: 0.053 } # fig 5-11
+    - phase: takeoff
+      flapsDeg: 25
+      default: true # short-field reference configuration; drives the runway verdict
+      massExponent: 2
+      distance15m: { coefficients: [0.00032, 8.142, 0.0964, 365.3], headwindPerKt: 0.0172, tailwindPerKt: 0.023 } # fig 5-9
+      groundRoll: { coefficients: [-0.000214, 6.321, 0.0546, 136.6], headwindPerKt: 0.0114, tailwindPerKt: 0.049 } # fig 5-13
+    - phase: landing
+      flapsDeg: 40
+      default: true
+      massExponent: 1 # the VB-1086 landing charts have a mass grid; guides run exponent ~1
+      distance15m: { coefficients: [0.000144, 0.7064, 0.0191, 394.3], headwindPerKt: 0.0075, tailwindPerKt: 0.022 } # fig 5-35
+      groundRoll: { coefficients: [-0.0000032, 0.905, 0.0118, 263.6], headwindPerKt: 0.0174, tailwindPerKt: 0.028 } # fig 5-37
+
+notes: Empty mass and arm from the official weighing of 2015-05-20.
+source: Piper Archer II PA-28-181 Manuel de vol (report VB-1086). F-GIRV
+  weighing report of 2015-05-20.

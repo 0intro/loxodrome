@@ -1,0 +1,31 @@
+{
+	"generatedAt": "2026-07-02T00:00:00Z",
+	"source": "Club flight-planning workbook (Google Sheets), aircraft flight manuals and POHs (incl. the Cirrus SR22 POH, Robin DR400/140B + /160 manuals, and the Piper PA-28R-200 Owner's Handbook), and the operating clubs' published weighing reports (Aéroclub Henri Guillaumet, Les Aiglons, Sadi Lecointe)",
+	"aircraftCount": 15,
+	"files": [
+		"f-gjqk.yaml",
+		"f-gorq.yaml",
+		"f-gikp.yaml",
+		"f-gieq.yaml",
+		"f-girv.yaml",
+		"f-gkqc.yaml",
+		"f-gldt.yaml",
+		"f-gsbq.yaml",
+		"f-gkrd.yaml",
+		"f-gnna.yaml",
+		"f-hato.yaml",
+		"f-glds.yaml",
+		"f-hpcp.yaml",
+		"f-gnpj.yaml",
+		"f-brue.yaml"
+	],
+	"counts": {
+		"DR400/120": 4,
+		"DR400/100": 6,
+		"PA28-161": 1,
+		"PA28-181": 1,
+		"SR22": 1,
+		"DR400/140B": 1,
+		"PA28R-200": 1
+	}
+}

@@ -1,0 +1,102 @@
+name: Refresh eAIP-cohort datasets
+
+# Regenerates public/data/{sk,ie,rs,xk}-{airspaces,navaids}.json from
+# the States whose AIP is published only as a generated eAIP package AND
+# whose terms let this repo re-serve it: LPS SR Slovakia, AirNav Ireland,
+# SMATSA Serbia and Montenegro and KANS Kosovo. One job for all of them
+# because they share one
+# command (cmd/eaip) and one parser (internal/eaip); what differs per
+# State is a table row.
+#
+# Weekly Thursday rather than a 28-day cron: publishers drift off the
+# AIRAC grid (Ireland was still serving the previous cycle's package a
+# week after its effective date), so the weekly fire catches each package
+# the week it lands and the git-diff-quiet skip turns every other week
+# into a no-op.
+#
+# Each run builds both datasets a cohort State publishes in a table: the
+# airspace of ENR 2 and ENR 5, and the en-route radio navigation aids of
+# ENR 4.1.
+#
+# cmd/eaip locates each package by probing the AIRAC grid against the
+# State's own path templates and confirming with the first section, so a
+# redesigned index page cannot silently produce an empty scrape. One
+# State's site being down costs only that State's refresh: the command
+# reports which failed and exits non-zero, and the committed datasets
+# stay on the last good cycle.
+#
+# Seven States are deliberately NOT built here: Czechia, Poland, Hungary,
+# Portugal, Bosnia and Herzegovina, Slovenia and Albania. Each requires
+# the publisher's consent before its content is re-served, five of them saying
+# so in their own eAIP GEN 0.1 "Copyright policy" section, so cmd/eaip
+# holds them out of `-state all` until that consent is in hand. The table
+# row and the parser stay, so any of them is one `-state <cc>` away the
+# day permission arrives (docs/eaip-states.md).
+
+on:
+  schedule:
+    # Stagger past IT (08:00), the last of the existing data jobs.
+    - cron: '30 8 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The current slot. Each State's package is probed independently, so
+      # this writes every dataset whose publisher answered.
+      - name: Build the cohort's current slot
+        run: go run ./cmd/eaip -state all -target auto
+
+      # The pre-release slot, where a State publishes one. A missing
+      # pre-release is normal and writes nothing, so this step must not
+      # fail the job when no State has posted the next cycle yet.
+      - name: Build the cohort's next slot
+        continue-on-error: true
+        run: go run ./cmd/eaip -state all -target next
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip. --porcelain covers the
+          # first run of a State, whose files are untracked rather than
+          # modified.
+          CHANGED=$(git status --porcelain -- \
+            'public/data/sk-*.json' 'public/data/ie-*.json' \
+            'public/data/rs-*.json' 'public/data/xk-*.json' \
+            | grep -v '\.meta\.json$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/sk-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/sk-*.json public/data/ie-*.json \
+              public/data/rs-*.json public/data/xk-*.json
+            git commit -m "update eAIP-cohort datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

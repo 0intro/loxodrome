@@ -1,0 +1,94 @@
+# GitHub Pages deploy. Publishes the app at the root of loxodrome.fr.
+#
+# The build is the whole site: `vite build` copies public/ into dist/, so
+# dist/ already carries the datasets at /data/ and the CNAME that holds the
+# custom domain. There is nothing to compose, hence no per-file whitelist.
+#
+# One-time setup: Settings -> Pages -> Source must be "GitHub Actions" (not
+# "Deploy from a branch") for actions/deploy-pages to succeed.
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  # A dataset commit pushed by a data-*.yml run does NOT fire the `push`
+  # trigger above: a push made with the default GITHUB_TOKEN never starts
+  # another workflow. Without this the refreshed AIRAC sits in the branch and
+  # never reaches the site, which is what happened on the old repository -
+  # its deploys all carry a human actor. workflow_run is exempt from that rule
+  # and always runs the default branch's copy of this file.
+  workflow_run:
+    workflows:
+      - Rebuild the offline AIP document packs
+      - Refresh airports dataset
+      - Refresh Austria Austro Control datasets
+      - Refresh Belgium skeyes datasets
+      - Refresh DFS Germany datasets
+      - Refresh eAIP-cohort datasets
+      - Refresh ENAIRE Spain datasets
+      - Refresh FAA US datasets
+      - Refresh Fintraffic ANS Finland obstacles
+      - Refresh FOCA Switzerland obstacles
+      - Refresh French aerodrome chart links
+      - Refresh French SUP AIP overlay
+      - Refresh LVNL Netherlands datasets
+      - Refresh METAR station catalog
+      - Refresh open flightmaps Italy datasets
+      - Refresh pruatlas FIR overlay
+      - Refresh Sakaeronavigatsia Georgia datasets
+      - Refresh UK aerodrome chart links
+      - Refresh UK NATS datasets
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. NOT cancel-in-progress: several data workflows
+# finish within minutes of each other, and cancelling between the artifact
+# upload and the deploy is the one window that leaves a half-published site.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # The Turnstile sitekey needs no env here: every production
+        # build carries the real (public) key by default
+        # (src/lib/net/endpoints.ts).
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

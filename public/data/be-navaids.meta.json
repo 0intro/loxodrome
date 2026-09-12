@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-09-06T17:07:50.674Z",
+  "source": "skeyes eAIP 2026-09-03",
+  "sourceSha256": "274863ede30dff7afb1ebc27e77e42c3c547a663996ce751d376d6078cd9a7ac",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "navaidCount": 322,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 1,
+    "TACAN": 5,
+    "VOR": 2,
+    "VOR-DME": 14,
+    "WAYPOINT": 300
+  },
+  "bbox": [
+    2,
+    48.658,
+    6.57,
+    51.549
+  ]
+}

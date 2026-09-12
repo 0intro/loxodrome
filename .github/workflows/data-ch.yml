@@ -1,0 +1,66 @@
+name: Refresh FOCA Switzerland obstacles
+
+# Regenerates public/data/ch-obstacles.json from the Swiss air navigation
+# obstacle register, which FOCA publishes in AIXM on the federal geodata
+# platform under the opendata.swiss "open use, must provide the source"
+# terms.
+#
+# Obstacles only, deliberately: Swiss AIRSPACE is not available on any
+# free licence (skyguide sells the AIP through skybriefing). See
+# docs/ch-aip.md.
+#
+# FOCA revises the register "as needed" rather than on the AIRAC grid, so
+# the weekly Thursday fire plus the git-diff gate is exactly right: a
+# week with no revision is a free no-op.
+
+on:
+  schedule:
+    - cron: '30 7 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The data set is ~18 MB compressed and half a gigabyte of XML;
+      # cmd/ch streams it rather than buffering it, so this stays well
+      # inside the runner's memory.
+      - name: Build ch-obstacles.json
+        run: go run ./cmd/ch
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/ch-obstacles*.json' ':(exclude)public/data/ch-obstacles*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/ch-obstacles.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/ch-obstacles*.json'
+            git commit -m "update FOCA Switzerland obstacles, published ${EFFECTIVE}"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

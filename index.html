@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+		<meta name="description" content="Aeronautical information, flight preparation and navigation, on one chart-faithful map." />
+		<meta name="color-scheme" content="light dark" />
+
+		<!-- Icons + PWA manifest. The root-relative hrefs are rewritten to the
+		     Vite `base` at build time; the manifest's own paths are relative,
+		     so both resolve wherever the app is mounted. -->
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+
+		<!-- Tint the mobile browser chrome to match the active theme. -->
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eef0f3" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1216" />
+
+		<!-- Social preview. og:url / og:image must be absolute URLs, so they name
+		     the deployed site rather than riding the Vite `base`. -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Loxodrome" />
+		<meta
+			property="og:description"
+			content="Aeronautical information, flight preparation and navigation, on one chart-faithful map."
+		/>
+		<meta property="og:url" content="https://loxodrome.fr/" />
+		<meta property="og:image" content="https://loxodrome.fr/og.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<title>Loxodrome</title>
+		<script>
+			// Apply the saved theme before first paint to avoid a flash of the
+			// wrong colour scheme.
+			(function () {
+				try {
+					var t = localStorage.getItem('loxodrome:theme');
+					if (t !== 'day' && t !== 'night') {
+						t = window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'night'
+							: 'day';
+					}
+					document.documentElement.dataset.theme = t;
+				} catch (e) {
+					/* localStorage unavailable */
+				}
+			})();
+		</script>
+		<script>
+			// Resolve the UI language before first paint: an explicit stored
+			// choice, else the browser's preferred languages. <html lang> is the
+			// single pre-mount carrier that $lib/state/i18n.svelte.ts mirrors;
+			// an untouched preference keeps following the browser language.
+			(function () {
+				var lang = null;
+				try {
+					lang = localStorage.getItem('loxodrome:locale');
+				} catch (e) {
+					/* localStorage unavailable */
+				}
+				if (lang !== 'en' && lang !== 'fr') {
+					var prefs = navigator.languages || [navigator.language || 'en'];
+					lang = 'en';
+					for (var i = 0; i < prefs.length; i++) {
+						if (/^fr\b/i.test(prefs[i])) {
+							lang = 'fr';
+							break;
+						}
+						if (/^en\b/i.test(prefs[i])) {
+							break;
+						}
+					}
+				}
+				document.documentElement.lang = lang;
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<noscript>Loxodrome requires JavaScript to run.</noscript>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>

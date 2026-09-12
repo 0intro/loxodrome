@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" creator="SkyDreamSoft" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Châteaux de Picardie</name>
+  </metadata>
+  <wpt lat="48.821944" lon="2.622778">
+    <ele>457.2</ele>
+    <magvar>2.14</magvar>
+    <name>LFPL LOGNES EMERAINVILLE</name>
+    <cmt></cmt>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.791600627042" lon="2.8691714914193">
+    <ele>609.6</ele>
+    <magvar>2.21</magvar>
+    <name>L'obélisque</name>
+    <cmt></cmt>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <wpt lat="48.844631" lon="3.013858">
+    <ele>457.2</ele>
+    <magvar>2.25</magvar>
+    <name>CLM COULOMMIERS</name>
+    <cmt></cmt>
+    <extensions>
+      <cross/>
+      <notes/>
+    </extensions>
+  </wpt>
+  <rte>
+    <rtept lat="48.821944" lon="2.622778">
+      <ele>457.2</ele>
+      <magvar>2.14</magvar>
+      <name>LFPL LOGNES EMERAINVILLE</name>
+      <cmt></cmt>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.791600627042" lon="2.8691714914193">
+      <ele>609.6</ele>
+      <magvar>2.21</magvar>
+      <name>L'obélisque</name>
+      <cmt></cmt>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.844631" lon="3.013858">
+      <ele>457.2</ele>
+      <magvar>2.25</magvar>
+      <name>CLM COULOMMIERS</name>
+      <cmt></cmt>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+    <rtept lat="48.821944" lon="2.622778">
+      <ele>0</ele>
+      <magvar>2.14</magvar>
+      <name>LFPL LOGNES EMERAINVILLE</name>
+      <cmt></cmt>
+      <extensions>
+        <cross/>
+        <notes/>
+      </extensions>
+    </rtept>
+  </rte>
+</gpx>
