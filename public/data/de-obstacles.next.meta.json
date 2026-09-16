@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-09-06T17:07:56.408Z",
+  "source": "ED_Airspace_StrokedBorders_2026-09-03_2026-10-01_revision.xml+ED_AirportHeliport_2026-09-03_2026-10-01_revision.xml+ED_Runway_2026-09-03_2026-10-01_revision.xml (+4 more)",
+  "sourceSha256": "fa5a1e88cad309ba2178546fba413644c8354fc05cda9fae486876fe2ccbe31a",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "obstacleCount": 7179,
+  "litCount": 6965,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 4339,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "antenna": 218,
+    "bridge": 5,
+    "building": 152,
+    "cable": 74,
+    "chimney": 248,
+    "crane": 22,
+    "other": 1,
+    "pylon": 59,
+    "silo": 5,
+    "tower": 208,
+    "windturbine": 6187
+  },
+  "bbox": [
+    5.816,
+    47.404,
+    14.994,
+    55.196
+  ]
+}

@@ -1,0 +1,77 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-GLDT
+  type: DR400/120
+  icaoType: DR40
+  name: Robin DR400/120 Dauphin 2+2
+  operator: Aéroclub Les Aiglons
+
+fuel:
+  capacityL: 110
+  types: [100LL]
+  consumptionLph: 25
+
+cruise:
+  speedKt: 100
+
+climb: # MdV DR400/120 page 5.3: Vz 3,0 m/s at 140 km/h, 900 kg, sea level, std
+  speedKt: 76
+  rateFtMin: 590
+
+massAndBalance:
+  emptyMassKg: 592
+  emptyArmM: 0.355
+  stations:
+    - { label: Front seats, armM: 0.41, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.19, defaultMassKg: 10 }
+    - { label: Baggage, armM: 1.90, defaultMassKg: 0 }
+  fuelArmM: 1.12
+  envelope: # CG envelope polygon (arm, mass), implicitly closed
+    - { armM: 0.18, massKg: 500 }
+    - { armM: 0.18, massKg: 750 }
+    - { armM: 0.45, massKg: 900 }
+    - { armM: 0.58, massKg: 900 }
+    - { armM: 0.58, massKg: 500 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.5
+  massMaxKg: 900
+  massMinKg: 700
+  wind:
+    takeoffHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    landingHeadwind: [[0, 1.0], [10, 0.78], [20, 0.63], [30, 0.52]]
+    tailwindPctPer2Kt: 10
+  # POH distances: cells are [ground roll m, distance over 15 m (50 ft)] at
+  # mass max / mass min; isaOffsetC is relative to ISA (15 - 2 * alt / 1000).
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [225, 480], massMin: [130, 285] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [235, 535], massMin: [145, 315] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [285, 590], massMin: [165, 345] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [305, 645], massMin: [175, 375] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [345, 720], massMin: [195, 415] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [390, 800], massMin: [220, 460] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [425, 890], massMin: [235, 500] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [475, 1000], massMin: [265, 560] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [535, 1125], massMin: [300, 620] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [185, 435], massMin: [145, 365] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [200, 460], massMin: [155, 385] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [210, 485], massMin: [165, 400] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [205, 475], massMin: [160, 395] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [225, 505], massMin: [175, 420] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [240, 535], massMin: [185, 440] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [235, 525], massMin: [180, 430] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [250, 555], massMin: [195, 460] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [270, 590], massMin: [210, 485] }
+
+notes: Empty mass and arm from the official weighing of 2014-02-04 (CP Aéro,
+  Coulommiers).
+source: Manuel de vol DR 400/120 Dauphin (Avions Pierre Robin). F-GLDT weighing
+  report of 2014-02-04.

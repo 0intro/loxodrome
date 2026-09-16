@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-09-06T17:09:06.860Z",
+  "source": "LE_Amdt_A_2026_07_AIP_DS_FULL_Airspace.xml",
+  "sourceSha256": "3bbd6807dca2ba23aca53e62cccc35b800518fc9f720e86b4a2e7237f71c8b40",
+  "effective": "",
+  "airspaceCount": 358,
+  "skippedNoBoundary": 0,
+  "skippedNoType": 199,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "multiComponentAirspaces": 0,
+  "counts": {
+    "ATZ": 48,
+    "CTA": 14,
+    "CTR": 48,
+    "D": 113,
+    "FIR": 3,
+    "P": 15,
+    "R": 57,
+    "TMA": 16,
+    "TRA": 26,
+    "TSA": 14,
+    "UIR": 4
+  },
+  "bbox": [
+    -25,
+    19,
+    4.692,
+    45.028
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "BOS",
+        "ICAO_ID": "KBOS",
+        "NAME": "BOSTON CLASS B",
+        "TYPE_CODE": "CLASS",
+        "LOCAL_TYPE": "CLASS_B",
+        "CLASS": "B",
+        "UPPER_DESC": "7000 FT MSL",
+        "UPPER_VAL": 7000,
+        "UPPER_UOM": "FT",
+        "UPPER_CODE": "MSL",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-71.0,42.3],[-70.9,42.3],[-70.9,42.4],[-71.0,42.4],[-71.0,42.3]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ABI",
+        "ICAO_ID": "KABI",
+        "NAME": "ABILENE REGIONAL AIRPORT CLASS C",
+        "TYPE_CODE": "CLASS",
+        "LOCAL_TYPE": "CLASS_C",
+        "CLASS": "C",
+        "UPPER_DESC": "5800 FT MSL",
+        "UPPER_VAL": 5800,
+        "UPPER_UOM": "FT",
+        "UPPER_CODE": "MSL",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-99.7,32.4],[-99.6,32.4],[-99.6,32.5],[-99.7,32.5],[-99.7,32.4]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "",
+        "ICAO_ID": "CYXX",
+        "NAME": "LYNDEN CLASS D",
+        "TYPE_CODE": "CLASS",
+        "LOCAL_TYPE": "CLASS_D",
+        "CLASS": "D",
+        "UPPER_DESC": "2500 FT MSL",
+        "UPPER_VAL": 2500,
+        "UPPER_UOM": "FT",
+        "UPPER_CODE": "MSL",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-122.5,49.0],[-122.4,49.0],[-122.4,49.1],[-122.5,49.1],[-122.5,49.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ABR",
+        "ICAO_ID": "",
+        "NAME": "ABERDEEN CLASS E5",
+        "TYPE_CODE": "CLASS",
+        "LOCAL_TYPE": "CLASS_E5",
+        "CLASS": "E",
+        "UPPER_DESC": "",
+        "UPPER_VAL": -9998,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "",
+        "LOWER_DESC": "700 FT AGL",
+        "LOWER_VAL": 700,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "AGL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-98.5,45.4],[-98.4,45.4],[-98.4,45.5],[-98.5,45.5],[-98.5,45.4]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ATL",
+        "ICAO_ID": "KATL",
+        "NAME": "HARTSFIELD-JACKSON ATLANTA INTL MODE C",
+        "TYPE_CODE": "MODE-C",
+        "LOCAL_TYPE": "MODE C",
+        "CLASS": "Other",
+        "UPPER_DESC": "10000 FT MSL",
+        "UPPER_VAL": 10000,
+        "UPPER_UOM": "FT",
+        "UPPER_CODE": "MSL",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-84.5,33.6],[-84.3,33.6],[-84.3,33.7],[-84.5,33.7],[-84.5,33.6]]]
+      }
+    }
+  ]
+}

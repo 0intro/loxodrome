@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-09-06T17:07:10.736Z",
+  "source": "EG_AIP_DS_FULL_20261001.xml",
+  "sourceSha256": "898bac3f6e41e2576d96696d7200980daac4a7dc4dcb00e82a76289a58726ff0",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "aerodromeCount": 121,
+  "heliportCount": 5,
+  "skippedNotes": 0,
+  "counts": {
+    "altimeterCheck": 53,
+    "certification": 115,
+    "email": 88,
+    "fax": 66,
+    "landingIndicator": 5,
+    "operator": 121,
+    "phone": 257,
+    "powerSupply": 64,
+    "remark": 39,
+    "tlofType": 5,
+    "web": 157,
+    "windIndicator": 96
+  }
+}

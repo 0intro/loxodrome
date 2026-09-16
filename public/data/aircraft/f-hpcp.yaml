@@ -1,0 +1,78 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+version: 1
+
+aircraft:
+  registration: F-HPCP
+  type: SR22
+  icaoType: SR22
+  name: Cirrus SR22
+  operator: Aéroclub Sadi Lecointe
+
+fuel:
+  capacityL: 358 # 94.5 US gal
+  usableL: 348 # 92 US gal
+  types: [100LL]
+  consumptionLph: 58
+
+cruise:
+  speedKt: 170
+
+climb: # POH 13772-002 section 5 enroute rate of climb: 1398 ft/min at SL ISA, 3400 lb, 101 KIAS
+  speedKt: 101
+  rateFtMin: 1398
+
+massAndBalance:
+  emptyMassKg: 1071.0
+  emptyArmM: 3.5405
+  stations:
+    - { label: Front seats, armM: 3.645, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 4.572, defaultMassKg: 0 }
+    - { label: Baggage, armM: 5.283, defaultMassKg: 0 }
+  fuelArmM: 3.9345
+  envelope: # CG envelope polygon (arm, mass), implicitly closed
+    - { armM: 3.5001, massKg: 952 }
+    - { armM: 3.5331, massKg: 1225 }
+    - { armM: 3.6144, massKg: 1542 }
+    - { armM: 3.7617, massKg: 1542 }
+    - { armM: 3.7617, massKg: 952 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  grassFactor: 1.20
+  wetFactor: 1.15
+  massMaxKg: 1542 # 3400 lb
+  massMinKg: 1315 # 2900 lb
+  wind:
+    takeoffHeadwind: [[0, 1.0], [12, 0.9], [24, 0.8]]
+    landingHeadwind: [[0, 1.0], [13, 0.9], [26, 0.8]]
+    tailwindPctPer2Kt: 10
+  # POH distances: cells are [ground roll m, distance over 15 m (50 ft)] at
+  # mass max / mass min; isaOffsetC is relative to ISA (15 - 2 * alt / 1000).
+  # Landing is published at mass max only, so both columns carry it.
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [268, 420], massMin: [178, 285] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [313, 486], massMin: [209, 329] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [362, 556], massMin: [241, 376] }
+    - { altFt: 5000, isaOffsetC: -20, massMax: [406, 628], massMin: [270, 425] }
+    - { altFt: 5000, isaOffsetC: 0, massMax: [479, 734], massMin: [319, 497] }
+    - { altFt: 5000, isaOffsetC: 20, massMax: [556, 843], massMin: [370, 571] }
+    - { altFt: 10000, isaOffsetC: -20, massMax: [625, 960], massMin: [417, 650] }
+    - { altFt: 10000, isaOffsetC: 0, massMax: [750, 1136], massMin: [500, 769] }
+    - { altFt: 10000, isaOffsetC: 20, massMax: [876, 1313], massMin: [583, 888] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [324, 681], massMin: [324, 681] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [348, 714], massMin: [348, 714] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [372, 749], massMin: [372, 749] }
+    - { altFt: 5000, isaOffsetC: -20, massMax: [374, 752], massMin: [374, 752] }
+    - { altFt: 5000, isaOffsetC: 0, massMax: [404, 795], massMin: [404, 795] }
+    - { altFt: 5000, isaOffsetC: 20, massMax: [433, 838], massMin: [433, 838] }
+    - { altFt: 10000, isaOffsetC: -20, massMax: [436, 841], massMin: [436, 841] }
+    - { altFt: 10000, isaOffsetC: 0, massMax: [471, 896], massMin: [471, 896] }
+    - { altFt: 10000, isaOffsetC: 20, massMax: [506, 951], massMin: [506, 951] }
+
+notes: Basic empty mass and arm from the N342CP weighing of 2008-09-17
+  (Aerolithe / Cirrus France, S/N 3042).
+source: Cirrus SR22 Pilot's Operating Handbook (P/N 13772-002, Reissue A).
+  F-HPCP (N342CP) weighing report of 2008-09-17.

@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-09-06T17:08:32.510Z",
+  "source": "FAA AIS NAVAIDSystem + NavaidComponent + DesignatedPoints",
+  "sourceSha256": "ca8579f8bf2342a5844fdf099b7449b752beba27675d65a5fe30b969f090a2f9",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "navaidCount": 18297,
+  "radioCount": 1375,
+  "pointCount": 16922,
+  "skippedNoGeo": 231,
+  "skippedCnf": 103,
+  "unknownTypes": [],
+  "counts": {
+    "DME": 160,
+    "NDB": 252,
+    "TACAN": 154,
+    "VFR_REPORTING_POINT": 7277,
+    "VOR": 28,
+    "VOR-DME": 404,
+    "VORTAC": 377,
+    "WAYPOINT": 9645
+  },
+  "bbox": [
+    -179.847,
+    -21.381,
+    180,
+    71.274
+  ],
+  "bboxes": [
+    [
+      -179.847,
+      -12.487,
+      -58.583,
+      71.274
+    ],
+    [
+      122.329,
+      -21.381,
+      180,
+      29.917
+    ],
+    [
+      151.281,
+      44.857,
+      180,
+      60.96
+    ]
+  ]
+}

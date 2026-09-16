@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- No backup, cloud or otherwise. Auto Backup would take getFilesDir()
+         (the flight journal) and the WebView data directory (localStorage and
+         the OPFS chart packs) by default, which contradicts the About modal's
+         "what you build stays in this browser" and would not work anyway: the
+         per-app quota is 25 MB, one downloaded chart pack exceeds it, and past
+         the quota the system backs up NOTHING rather than a subset. Moving to
+         a new phone goes through the app's own YAML and ZIP exports.
+
+         allowBackup=false alone only guarantees cloud backup is off; on API 31+
+         device-to-device migration is a separate channel, hence the extraction
+         rules, which some manufacturers still do not let an app opt out of.
+         fullBackupContent is deliberately absent: with allowBackup=false it is
+         inert on API 24 to 30, and dead configuration reads as intent. -->
+    <application
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Files handed to the app from outside: "Open with" from a file
+                 manager, the Downloads list or a mail attachment, and "Share
+                 to" from Drive, a messenger or any app that sends a document.
+                 OpenFilePlugin.java reads the granted URI and hands it to the
+                 web app, which sniffs the kind (route or aircraft YAML, GPX
+                 trace, NOTAM briefing text).
+
+                 The <data> elements name a MIME type and NO scheme on purpose:
+                 by Android's data test, a filter that states only a MIME type
+                 is taken to support content: and file: URIs, which is the
+                 whole set that matters here.
+
+                 text/plain and application/octet-stream are claimed
+                 deliberately. Android's MIME table has no yaml entry at all
+                 (that is the same absence that broke the in-app file picker),
+                 so a .yaml is typed octet-stream by nearly every provider,
+                 including the FileProvider that shares this app's OWN exports;
+                 without the generic types the feature would almost never
+                 fire. The cost is appearing in the "Open with" list for
+                 unknown and plain-text files, which is a chooser entry, never
+                 a default. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:mimeType="text/yaml" />
+                <data android:mimeType="text/x-yaml" />
+                <data android:mimeType="application/yaml" />
+                <data android:mimeType="application/x-yaml" />
+                <data android:mimeType="application/gpx+xml" />
+                <data android:mimeType="application/vnd.google-earth.kml+xml" />
+                <data android:mimeType="application/vnd.google-earth.kmz" />
+                <!-- A plan in someone else's format (docs/route-files.md). The
+                     Garmin type is the one a provider states precisely; a .pln
+                     arrives as application/octet-stream below, which is what
+                     Android's own table makes of an extension it does not
+                     know. application/xml is deliberately NOT claimed: it
+                     would put this app in "Open with" for every XML file on
+                     the phone. -->
+                <data android:mimeType="application/vnd.garmin.flightplan" />
+                <!-- The flights bundle: a ZIP of the files this app already
+                     writes. Without this row a bundle shared from Drive or
+                     Files never offers Loxodrome at all. -->
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/yaml" />
+                <data android:mimeType="text/x-yaml" />
+                <data android:mimeType="application/yaml" />
+                <data android:mimeType="application/x-yaml" />
+                <data android:mimeType="application/gpx+xml" />
+                <data android:mimeType="application/vnd.google-earth.kml+xml" />
+                <data android:mimeType="application/vnd.google-earth.kmz" />
+                <!-- The same plan formats the VIEW filter above takes, for a
+                     file SHARED rather than opened (docs/route-files.md). -->
+                <data android:mimeType="application/vnd.garmin.flightplan" />
+                <!-- The flights bundle: a ZIP of the files this app already
+                     writes. Without this row a bundle shared from Drive or
+                     Files never offers Loxodrome at all. -->
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/octet-stream" />
+            </intent-filter>
+        </activity>
+
+        <!-- The background flight recorder (NavRecorderService.java +
+             NavRecorderPlugin.java, docs/android.md): a foreground service of
+             type location that runs exactly while a recording runs, so the
+             GPS trace survives backgrounding, screen-off and the task being
+             swiped away (stopWithTask=false is what keeps it past the
+             swipe). -->
+        <service
+            android:name=".NavRecorderService"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="location" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+    <!-- Package visibility. Android 11+ hides every other app unless it is
+         asked for by name, and an explicit intent at one that is hidden throws
+         as if it were not installed: this is what lets the "send to SendFPL"
+         route action open SendFPL itself (SendFplPlugin.java) instead of a
+         share sheet. -->
+    <queries>
+        <package android:name="app.sendfpl" />
+        <!-- The same rule bites the offline VAC / SUP AIP plates, which open
+             in whichever PDF viewer the phone has (OpenDocumentPlugin.java):
+             without this, resolveActivity answers null on Android 11+ even
+             with a viewer installed, and the app would report "no PDF app"
+             to a pilot who has one. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/pdf" />
+        </intent>
+        <!-- One per exported flight-plan format (docs/route-files.md), for the
+             same reason: an exported route is handed to a navigation app with
+             ACTION_VIEW, SDVFR and its kind declaring no ACTION_SEND filter at
+             all, so the share sheet cannot reach them. Unlisted here, the
+             chooser is invisible to us and the export would claim nothing on
+             the phone can open it. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/vnd.garmin.flightplan" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/gpx+xml" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/vnd.google-earth.kml+xml" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/xml" />
+        </intent>
+    </queries>
+
+    <!-- Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Live navigation: NavRecorderPlugin requests these at the recording
+         start (the native recorder replaced the WebView's watchPosition, so
+         Capacitor's BridgeWebChromeClient prompt no longer fires). NO
+         ACCESS_BACKGROUND_LOCATION on purpose: a location-type foreground
+         service started while the app is in use keeps while-in-use location
+         in the background, which is the whole design. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Both location permissions imply android.hardware.location as REQUIRED,
+         and Google Play filters the app off every device that lacks it. The
+         flight-preparation half (routes, fuel, mass and balance, the briefing,
+         the printed dossier) is fully usable with no GPS at all, so the
+         features are declared optional and the app stays installable on a
+         wifi-only tablet or a Chromebook. The declarations take precedence
+         over what the permissions imply. -->
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <!-- The background flight recorder's foreground service (API 28+ normal
+         permission; the typed one is mandatory from API 34), its ongoing
+         notification (runtime permission on API 33+; a refusal only hides
+         the card, never stops the service), and the SCREEN wake lock that
+         navigator.wakeLock takes while a recording is on screen. The service
+         holds no wake lock of its own: Android vitals counts a partial lock
+         held while a foreground service runs, and the location subsystem
+         already wakes the CPU to deliver each fix (docs/android.md).
+
+         NO REQUEST_IGNORE_BATTERY_OPTIMIZATIONS: Play restricts it to cases
+         where Doze breaks the core function, which a location foreground
+         service is precisely the sanctioned answer to. The Navigation tab
+         still offers the exemption, through the system settings list, which
+         needs no permission. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+</manifest>

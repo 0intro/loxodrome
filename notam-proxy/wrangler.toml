@@ -1,0 +1,83 @@
+# Cloudflare Worker config for the Loxodrome proxy.
+#
+# `wrangler deploy` (from this directory) reads this file. The worker forwards
+# the app's network routes to their upstreams (autorouter /notam, NOAA weather,
+# SIA SOFIA) and adds CORS headers for an allow-listed origin.
+#
+# Autorouter is authenticated at the APPLICATION level: the worker holds ONE
+# credential and exchanges it server-side for a bearer token (see worker.js,
+# getAutorouterToken). The credential is a SECRET, set out of band and never
+# stored in this file:
+#
+#   wrangler secret put AR_CLIENT_ID
+#   wrangler secret put AR_CLIENT_SECRET
+#
+# For `wrangler dev`, put the same two keys in notam-proxy/.dev.vars
+# (gitignored). AR_CLIENT_ID / AR_CLIENT_SECRET are whatever autorouter
+# provisions for the application (a dedicated service-account email + password,
+# or a registered-app client_id + secret; both use grant_type=client_credentials).
+#
+# The exchanged token is shared by every isolate through the KV namespace bound
+# below: autorouter allows an account only 20 simultaneously valid tokens, and
+# each one lives a WEEK (measured 2026-07-31: expires_in 604800, not the wiki's
+# "one hour"). A module-global cache is per isolate, so caching there alone
+# mints one token per cold start; an evicted isolate's token then holds its
+# slot for the rest of the week, and twenty of those make the endpoint answer
+# 403 toomanytokens for everyone, for days, with no revoke (see worker.js,
+# getAutorouterToken).
+# Create the namespace once and paste the id it prints:
+#
+#   wrangler kv namespace create AR_TOKEN_KV
+#
+# `wrangler dev` binds a local namespace instead (persisted under
+# .wrangler/state), so local restarts reuse their own token rather than
+# spending the shared account's slots.
+#
+# Flood protection is implemented in worker.js with no binding (module-global,
+# best-effort per isolate): a per-IP rate limit (checkRateLimit) AND an aggregate
+# per-route ceiling capping upstream calls regardless of source IP
+# (reserveUpstream), plus single-flight coalescing on /notam and /sofia and the
+# short response caches. To upgrade the counters to Cloudflare's cross-edge
+# (per-colo) Rate Limiting binding, add the current `[[ratelimits]]` / binding
+# stanza here (verify the syntax in the Cloudflare docs) and wire it into
+# slidingWindowAllow.
+
+name = "notam-proxy"
+main = "worker.js"
+compatibility_date = "2026-05-21"
+
+# The workers.dev hostname stays on beside the custom domain below: installed
+# Android builds carry it baked into their bundle and cannot be repointed
+# remotely, so it has to keep answering until those are replaced. Declared
+# before [[routes]]: a bare key after a table header belongs to that table.
+workers_dev = true
+
+# Served from the site's own zone. custom_domain = true has wrangler create the
+# DNS record and provision the TLS certificate; the Worker then runs BEFORE the
+# zone cache, so caches.default is a real edge cache here (see worker.js) and a
+# stale entry can be purged from the dashboard.
+[[routes]]
+pattern = "proxy.loxodrome.fr"
+custom_domain = true
+
+# Workers Logs: persist invocation logs plus the worker's own console.error
+# diagnostics (token failures, upstream errors / timeouts, ceiling refusals;
+# worker.js never logs secrets, cookies, bodies, or client IPs), so outages
+# are visible in the dashboard the README's tuning advice points at.
+# head_sampling_rate 1 keeps every invocation; free-tier volume is far below
+# the Workers Logs allowance.
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+# The shared autorouter-token store (one entry, key "autorouter-token").
+[[kv_namespaces]]
+binding = "AR_TOKEN_KV"
+id = "9536f5786974479e9624bd5f1345024c"
+
+# Override the default allow-list at deploy time by editing the line below, or
+# via the dashboard: Workers & Pages -> notam-proxy -> Settings -> Variables.
+# Comma-separated. https://localhost is the Capacitor Android app: its WebView
+# serves the bundled app from that origin (androidScheme https, no port).
+[vars]
+ALLOW_ORIGINS = "https://loxodrome.fr,https://www.loxodrome.fr,https://notam-viewer.net,http://localhost:5173,http://localhost:5174,http://192.168.1.25:5173,http://192.168.1.25:5174,https://localhost"

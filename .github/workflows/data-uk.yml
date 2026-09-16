@@ -1,0 +1,149 @@
+name: Refresh UK NATS datasets
+
+# Regenerates public/data/uk-{airspaces,airports,navaids,obstacles}.json
+# from the NATS UK AIXM 5.1 ICAO AIP Dataset + Obstacle Dataset Area 1
+# (https://nats.aero/ais). NATS publishes on the 28-day AIRAC cycle and
+# posts the next package about a cycle ahead, so this builds both slots;
+# weekly Thursday fire catches publication drift and the
+# git-diff-quiet skip turns non-update weeks into no-ops.
+
+on:
+  schedule:
+    # Stagger half an hour past FAA / pruatlas to spread the cron load.
+    - cron: '30 4 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # Discover the AIRAC dates by parsing the NATS digital-datasets index
+      # for its EG_AIP_DS_*_XML.zip filenames. The URL path differs between
+      # the public index page (...opencms/...) and the actual asset host
+      # (.../export/sites/default/...); we scrape the index to spot the
+      # YYYYMMDD then construct the asset URL.
+      #
+      # NATS lists the cycle in force beside the one that follows it, so the
+      # dates are compared against today rather than taken in listing order:
+      # the newest at or before today is the current slot, the first after it
+      # the pre-release. Taking the first match would file a pre-release as
+      # the current cycle the day NATS reorders its index, and -target auto
+      # would then quietly stop refreshing the current slot.
+      - name: Resolve AIRAC dates
+        id: airac
+        run: |
+          set -euo pipefail
+          INDEX_URL='https://nats-uk.ead-it.com/cms-nats/opencms/en/Publications/digital-datasets/index.html'
+          DATES=$(curl -fsSL "$INDEX_URL" \
+            | grep -oE 'EG_AIP_DS_[0-9]{8}_XML\.zip' \
+            | sed -E 's/EG_AIP_DS_([0-9]{8})_XML\.zip/\1/' \
+            | sort -u)
+          if [ -z "$DATES" ]; then
+            echo "Could not find an EG_AIP_DS_YYYYMMDD link on the index"
+            exit 1
+          fi
+          TODAY=$(date -u +%Y%m%d)
+          DATE=$(echo "$DATES" | awk -v t="$TODAY" '$1 <= t' | tail -n1)
+          NEXT=$(echo "$DATES" | awk -v t="$TODAY" '$1 >  t' | head -n1)
+          # Every listed cycle still ahead means NATS has only just started
+          # carrying this product; build the oldest so a run is never a no-op.
+          if [ -z "$DATE" ]; then
+            DATE=$(echo "$DATES" | head -n1)
+            NEXT=$(echo "$DATES" | sed -n 2p)
+          fi
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+          echo "Resolved AIRAC date: $DATE; pre-release: ${NEXT:-none}"
+
+      - name: Download NATS AIP + Obstacle datasets
+        env:
+          DATE: ${{ steps.airac.outputs.date }}
+        run: |
+          set -euo pipefail
+          mkdir -p local
+          BASE='https://nats-uk.ead-it.com/cms-nats/export/sites/default/en/Publications/digital-datasets'
+          curl -fsSL -o "local/EG_AIP_DS_${DATE}_XML.zip" \
+            "${BASE}/ICAO_AIP/EG_AIP_DS_${DATE}_XML.zip"
+          curl -fsSL -o "local/EG_OBS_DS_AREA1_FULL_${DATE}_XML.zip" \
+            "${BASE}/UK_ICAO_Obstacle_Dataset_Area_1/EG_OBS_DS_AREA1_FULL_${DATE}_XML.zip"
+
+      - name: Build uk-airspaces / uk-airports / uk-navaids
+        env:
+          DATE: ${{ steps.airac.outputs.date }}
+        run: go run ./cmd/uk -in "local/EG_AIP_DS_${DATE}_XML.zip" -only=airspaces,airports,navaids,facilities
+
+      - name: Build uk-obstacles
+        env:
+          DATE: ${{ steps.airac.outputs.date }}
+        run: go run ./cmd/uk -in "local/EG_OBS_DS_AREA1_FULL_${DATE}_XML.zip" -only=obstacles -min-obstacles=1000
+
+      # The pre-release is best-effort, like the eAIP and Fintraffic next
+      # passes: NATS publishes the AIP package about a cycle ahead but the
+      # obstacle twin usually only on the day, so a 404 on either is normal
+      # and must not fail the refresh of the cycle in force. The package's
+      # own effective date sends it to the .next slot, so no -target is
+      # needed, and once the current slot catches up aip.WriteDataset
+      # retires the pre-release on its own.
+      - name: Build the pre-release slot
+        if: steps.airac.outputs.next != ''
+        continue-on-error: true
+        env:
+          NEXT: ${{ steps.airac.outputs.next }}
+        run: |
+          set -euo pipefail
+          BASE='https://nats-uk.ead-it.com/cms-nats/export/sites/default/en/Publications/digital-datasets'
+          curl -fsSL -o "local/EG_AIP_DS_${NEXT}_XML.zip" \
+            "${BASE}/ICAO_AIP/EG_AIP_DS_${NEXT}_XML.zip"
+          go run ./cmd/uk -in "local/EG_AIP_DS_${NEXT}_XML.zip" -only=airspaces,airports,navaids,facilities
+
+      - name: Build the pre-release obstacles
+        if: steps.airac.outputs.next != ''
+        continue-on-error: true
+        env:
+          NEXT: ${{ steps.airac.outputs.next }}
+        run: |
+          set -euo pipefail
+          BASE='https://nats-uk.ead-it.com/cms-nats/export/sites/default/en/Publications/digital-datasets'
+          curl -fsSL -o "local/EG_OBS_DS_AREA1_FULL_${NEXT}_XML.zip" \
+            "${BASE}/UK_ICAO_Obstacle_Dataset_Area_1/EG_OBS_DS_AREA1_FULL_${NEXT}_XML.zip"
+          go run ./cmd/uk -in "local/EG_OBS_DS_AREA1_FULL_${NEXT}_XML.zip" -only=obstacles -min-obstacles=1000
+
+      - name: Commit if changed
+        env:
+          DATE: ${{ steps.airac.outputs.date }}
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip.
+          if git diff --quiet -- 'public/data/uk-*.json' ':(exclude)public/data/uk-*.meta.json'; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/uk-*.json public/data/uk-*.meta.json
+            git commit -m "update UK NATS datasets, AIRAC ${DATE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi
