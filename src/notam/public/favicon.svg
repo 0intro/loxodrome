@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="NOTAM Viewer">
+	<!-- The NOTAM Viewer's own mark, and it always was: this is the icon the
+	     application shipped under until 980f4569, when the SPIRAL replaced it
+	     and the two apps came to share one. They are two apps, so they are two
+	     marks again, and each says what its own app is about. Loxodrome's is
+	     the curve it is named after (scripts/gen-brand.js, which computes it);
+	     this one is an airspace boundary filled with the diagonal activation
+	     hatch the map itself draws over an activated zone, on the
+	     controlled-airspace blue. A NOTAM activating a zone is what this app
+	     is for.
+
+	     NOT generated, unlike the brand masters in assets/: there is nothing
+	     to compute here, the geometry being drawn rather than derived, so a
+	     generator would only writeFileSync a literal. Kept in the viewer's own
+	     publicDir so it ships at /notam/ and the notam-viewer.net mask reaches
+	     it by the ordinary prefix rule. -->
+	<rect width="32" height="32" fill="#1f5fbf"/>
+	<defs>
+		<clipPath id="zone">
+			<path d="M6 14 11 6 22 7 26 16 19 26 9 23Z"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#zone)" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+		<path d="M22 2 2 22M28 2 2 28M34 2 2 34M40 2 2 40"/>
+	</g>
+	<path d="M6 14 11 6 22 7 26 16 19 26 9 23Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+</svg>

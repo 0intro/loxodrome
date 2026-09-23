@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+		<meta name="description" content="Paste a NOTAM briefing and see it on an aeronautical chart, with the aerodromes, airspaces and AIP supplements it concerns. The NOTAM half of Loxodrome, the free flight preparation and navigation application." />
+		<meta name="color-scheme" content="light dark" />
+
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<!-- Tint the mobile browser chrome to match the active theme. -->
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eef0f3" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1216" />
+
+		<!-- Social preview and the canonical URL. These must be ABSOLUTE, so
+		     they name a location rather than riding the Vite `base`. The image
+		     is the site's own: this build ships no og.png, and pointing at one
+		     it does not ship is how the old address came to be serving it.
+
+		     The canonical is notam-viewer.net, which is NOT where this file is
+		     built to. The app is served at both addresses, the second masked
+		     onto the first by notam-viewer-net/worker.js, and the old domain is
+		     the one that carries the name and the links. One static tag serves
+		     both: self-canonical there, cross-domain canonical from
+		     loxodrome.fr/notam/, which is what consolidates them. -->
+		<link rel="canonical" href="https://notam-viewer.net/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="NOTAM Viewer" />
+		<meta
+			property="og:description"
+			content="Paste a NOTAM briefing and see it on an aeronautical chart, with the aerodromes, airspaces and AIP supplements it concerns. The NOTAM half of Loxodrome, the free flight preparation and navigation application."
+		/>
+		<meta property="og:url" content="https://notam-viewer.net/" />
+		<meta property="og:image" content="https://loxodrome.fr/notam/og.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<title>NOTAM Viewer</title>
+		<script>
+			// Apply the saved theme before first paint to avoid a flash of the
+			// wrong colour scheme.
+			(function () {
+				try {
+					var t = localStorage.getItem('loxodrome:theme');
+					if (t !== 'day' && t !== 'night') {
+						t = window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'night'
+							: 'day';
+					}
+					document.documentElement.dataset.theme = t;
+				} catch (e) {
+					/* localStorage unavailable */
+				}
+			})();
+		</script>
+		<script>
+			// Resolve the UI language before first paint: an explicit stored
+			// choice, else the browser's preferred languages. <html lang> is the
+			// single pre-mount carrier that $lib/state/i18n.svelte.ts mirrors;
+			// an untouched preference keeps following the browser language.
+			(function () {
+				var lang = null;
+				try {
+					lang = localStorage.getItem('loxodrome:locale');
+				} catch (e) {
+					/* localStorage unavailable */
+				}
+				if (lang !== 'en' && lang !== 'fr') {
+					var prefs = navigator.languages || [navigator.language || 'en'];
+					lang = 'en';
+					for (var i = 0; i < prefs.length; i++) {
+						if (/^fr\b/i.test(prefs[i])) {
+							lang = 'fr';
+							break;
+						}
+						if (/^en\b/i.test(prefs[i])) {
+							break;
+						}
+					}
+				}
+				document.documentElement.lang = lang;
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<noscript>NOTAM Viewer requires JavaScript to run.</noscript>
+		<script type="module" src="/src/notam/main.ts"></script>
+	</body>
+</html>

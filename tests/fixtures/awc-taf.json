@@ -1,0 +1,59 @@
+[
+	{
+		"icaoId": "LFPG",
+		"dbPopTime": "2026-06-11T17:20:17.332Z",
+		"bulletinTime": "2026-06-11T17:00:00.000Z",
+		"issueTime": "2026-06-11T17:00:00.000Z",
+		"validTimeFrom": 1781200800,
+		"validTimeTo": 1781308800,
+		"rawTAF": "TAF LFPG 111700Z 1118/1224 26011KT CAVOK TX20/1212Z TN14/1204Z BECMG 1202/1204 BKN012 BECMG 1208/1211 BKN016",
+		"mostRecent": 1,
+		"remarks": "",
+		"lat": 49.015,
+		"lon": 2.534,
+		"elev": 107,
+		"prior": 5,
+		"name": "Paris/De Gaulle Arpt",
+		"fcsts": [
+			{
+				"timeFrom": 1781200800,
+				"timeTo": 1781229600,
+				"timeBec": null,
+				"fcstChange": null,
+				"probability": null,
+				"wdir": 260,
+				"wspd": 11,
+				"wgst": null,
+				"visib": "6+",
+				"wxString": null,
+				"clouds": [{ "cover": "NSC", "base": null, "type": null }]
+			},
+			{
+				"timeFrom": 1781229600,
+				"timeTo": 1781251200,
+				"timeBec": 1781236800,
+				"fcstChange": "BECMG",
+				"probability": null,
+				"wdir": 260,
+				"wspd": 11,
+				"wgst": null,
+				"visib": "6+",
+				"wxString": null,
+				"clouds": [{ "cover": "BKN", "base": 1200, "type": null }]
+			},
+			{
+				"timeFrom": 1781251200,
+				"timeTo": 1781308800,
+				"timeBec": 1781262000,
+				"fcstChange": "BECMG",
+				"probability": null,
+				"wdir": 260,
+				"wspd": 11,
+				"wgst": null,
+				"visib": "6+",
+				"wxString": null,
+				"clouds": [{ "cover": "BKN", "base": 1600, "type": null }]
+			}
+		]
+	}
+]

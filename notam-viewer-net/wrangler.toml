@@ -1,0 +1,45 @@
+# notam-viewer.net, masked onto loxodrome.fr/notam/.
+#
+# Deploy:
+#
+#   cd notam-viewer-net
+#   npx wrangler@4 deploy
+#
+# BEFORE THE FIRST DEPLOY, and this is not optional: delete the Single Redirect
+# rule on this zone. Cloudflare runs Redirect Rules BEFORE Workers, so while the
+# rule exists it answers 301 and this worker never runs at all. The rule was the
+# previous arrangement (a plain redirect to loxodrome.fr/notam); the worker
+# replaces it.
+#
+# The route below is a PLAIN route, not `custom_domain = true`, unlike the other
+# two workers in this repo. They provision their own hostnames; this zone
+# already has its own proxied placeholder record, and a plain route attaches to
+# it and leaves DNS alone, where a custom domain would take the apex record
+# over. There is no origin server behind the placeholder and there does not need
+# to be: the worker answers every request itself.
+#
+# No secrets and no bindings. If this file ever gains either, they go through
+# `wrangler secret put` and a gitignored .dev.vars, as in notam-proxy.
+
+name = "notam-viewer-net"
+main = "worker.js"
+compatibility_date = "2026-05-21"
+
+# No legacy consumer carries a workers.dev hostname for this one, unlike
+# notam-proxy (whose installed Android builds do), so it stays off. Declared
+# before [[routes]]: a bare key after a table header belongs to that table.
+workers_dev = false
+
+# Both hosts, because the worker answers on the apex and 301s www to it. A route
+# on www is still needed for that redirect to run at all.
+[[routes]]
+pattern = "notam-viewer.net/*"
+zone_name = "notam-viewer.net"
+
+[[routes]]
+pattern = "www.notam-viewer.net/*"
+zone_name = "notam-viewer.net"
+
+[observability]
+enabled = true
+head_sampling_rate = 1

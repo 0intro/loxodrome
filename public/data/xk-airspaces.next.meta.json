@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-09-06T17:07:54.282Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 10-2026_2026_10_01",
+  "sourceSha256": "23f52d164d4441e6a214dfad979bd0531e21be1fbd258198afc1d5239d963dac",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "airspaceCount": 17,
+  "sectionCounts": {
+    "ENR 2.1": 5,
+    "ENR 2.2": 3,
+    "ENR 5.1": 2,
+    "ENR 5.2": 3,
+    "ENR 5.5": 4
+  },
+  "tables": 9,
+  "limitsSwapped": 3,
+  "classStacks": 1,
+  "withRadio": 6,
+  "pointCircles": 0,
+  "pointOnly": 20,
+  "firRings": 0,
+  "borderStitched": 1,
+  "borderChords": 2,
+  "skippedTypes": {
+    "AREA 1": 1,
+    "AREA 2: POLYGON": 1,
+    "AREA 3": 1,
+    "NO GEOMETRY": 2
+  },
+  "counts": {
+    "ACTIVITY": 4,
+    "CTA": 7,
+    "CTR": 1,
+    "R": 2,
+    "TRA": 3
+  },
+  "bbox": [
+    20.229,
+    42.077,
+    21.538,
+    43.123
+  ]
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AIXM-Snapshot effective="2026-05-14T00:00:00.000+02:00" version="4.5">
+    <Obs>
+        <ObsUid mid="1000001">
+            <geoLat>482936.00N</geoLat>
+            <geoLong>0015526.00W</geoLong>
+        </ObsUid>
+        <txtName>22033</txtName>
+        <txtDescrType>Pylône</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>N</codeLgt>
+        <valElev>318</valElev>
+        <valHgt>167</valHgt>
+        <uomDistVer>FT</uomDistVer>
+        <txtRmk>Pylône métallique\\Metallic pylon</txtRmk>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000002">
+            <geoLat>480936.59N</geoLat>
+            <geoLong>0042955.78E</geoLong>
+        </ObsUid>
+        <txtName>E1007-12</txtName>
+        <txtDescrType>Eolienne(s)</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>Y</codeLgt>
+        <txtDescrLgt>jour et nuit</txtDescrLgt>
+        <valElev>1376</valElev>
+        <valHgt>493</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000003">
+            <geoLat>483544.88N</geoLat>
+            <geoLong>0025715.01E</geoLong>
+        </ObsUid>
+        <txtName>77008</txtName>
+        <txtDescrType>Cheminée</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>Y</codeLgt>
+        <txtDescrLgt>jour</txtDescrLgt>
+        <valElev>673</valElev>
+        <valHgt>295</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000004">
+            <geoLat>490119.92N</geoLat>
+            <geoLong>0025450.00E</geoLong>
+        </ObsUid>
+        <txtName>77006</txtName>
+        <txtDescrType>Antenne</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>Y</codeLgt>
+        <txtDescrLgt>jour et nuit</txtDescrLgt>
+        <valElev>568</valElev>
+        <valHgt>164</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000005">
+            <geoLat>493527.96N</geoLat>
+            <geoLong>0013645.00W</geoLong>
+        </ObsUid>
+        <txtName>50009</txtName>
+        <txtDescrType>Mât</txtDescrType>
+        <codeGroup>Y</codeGroup>
+        <codeLgt>Y</codeLgt>
+        <txtDescrLgt>jour et nuit</txtDescrLgt>
+        <valElev>820</valElev>
+        <valHgt>246</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000006">
+            <geoLat>491200.00N</geoLat>
+            <geoLong>0011500.00W</geoLong>
+        </ObsUid>
+        <txtName>L01</txtName>
+        <txtDescrType>Phare marin</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>Y</codeLgt>
+        <txtDescrLgt>nuit</txtDescrLgt>
+        <valElev>180</valElev>
+        <valHgt>120</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000007">
+            <geoLat>454500.00N</geoLat>
+            <geoLong>0050000.00E</geoLong>
+        </ObsUid>
+        <txtName>UNKNOWN-1</txtName>
+        <txtDescrType>Étrange chose</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>N</codeLgt>
+        <valElev>100</valElev>
+        <valHgt>50</valHgt>
+        <uomDistVer>FT</uomDistVer>
+    </Obs>
+    <Obs>
+        <ObsUid mid="1000008">
+            <geoLat>BADCOORD</geoLat>
+            <geoLong>0011500.00W</geoLong>
+        </ObsUid>
+        <txtName>BAD</txtName>
+        <txtDescrType>Tour</txtDescrType>
+        <codeGroup>N</codeGroup>
+        <codeLgt>N</codeLgt>
+    </Obs>
+    <!-- Non-obstacle element; must be skipped silently by the decoder. -->
+    <Ase>
+        <AseUid mid="9000000">
+            <codeType>TMA</codeType>
+            <codeId>X</codeId>
+        </AseUid>
+        <txtName>NOISE</txtName>
+    </Ase>
+</AIXM-Snapshot>

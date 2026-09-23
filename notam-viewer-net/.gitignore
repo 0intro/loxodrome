@@ -1,0 +1,10 @@
+# Cloudflare Wrangler local dev state / cache (created by `wrangler dev`).
+.wrangler/
+
+# Local overrides for `wrangler dev`. This worker has no secrets, but the file
+# is ignored for the same reason the others are.
+.dev.vars
+.dev.vars.*
+
+# Local dependencies, if you ever `npm i` here (the worker has none).
+node_modules/

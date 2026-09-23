@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-09-09T06:50:59.177Z",
+  "effective": "2026-09-03",
+  "aixmEffective": "2026-09-03",
+  "source": {
+    "site": "https://www.sia.aviation-civile.gouv.fr",
+    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_03_SEP_2026/Atlas-VAC/",
+    "dataset": "fr-adcharts.json",
+    "facilities": "fr-aerodrome-facilities.json"
+  },
+  "aerodromes": 481,
+  "withGrades": 363,
+  "noFuel": 113,
+  "statedNoGrade": 5,
+  "bySource": {
+    "aixm": 60,
+    "both": 155,
+    "vac": 266
+  },
+  "agreement": {
+    "aRicher": 5,
+    "agree": 138,
+    "bRicher": 12
+  },
+  "byGrade": {
+    "100LL": 287,
+    "AVGAS": 7,
+    "F-18": 6,
+    "F-34": 28,
+    "F-35": 6,
+    "F-54": 1,
+    "F-63": 1,
+    "JET A-1": 174,
+    "MOGAS": 10,
+    "SUPER AERO+": 8,
+    "UL91": 30
+  },
+  "grades": [
+    "100LL",
+    "UL91",
+    "SUPER AERO+",
+    "AVGAS",
+    "MOGAS",
+    "JET A-1",
+    "F-18",
+    "F-34",
+    "F-35",
+    "F-40",
+    "F-44",
+    "F-54",
+    "F-63"
+  ],
+  "plates": {
+    "plates": 656,
+    "missing": 0,
+    "withItem": 436,
+    "noItem": 220,
+    "cutByPage": 12
+  },
+  "parserVersion": 1
+}

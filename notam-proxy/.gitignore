@@ -1,0 +1,10 @@
+# Cloudflare Wrangler local dev state / cache (created by `wrangler dev`).
+.wrangler/
+
+# Local secrets for `wrangler dev` (the autorouter AR_CLIENT_ID /
+# AR_CLIENT_SECRET). Never committed; production uses `wrangler secret put`.
+.dev.vars
+.dev.vars.*
+
+# Local dependencies, if you ever `npm i` here (the worker has none).
+node_modules/

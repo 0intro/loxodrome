@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-09-06T17:07:53.075Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026 ENR 4.1",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "navaidCount": 15,
+  "counts": {
+    "DME": 7,
+    "NDB": 3,
+    "VOR-DME": 5
+  },
+  "tables": 1,
+  "skippedNoPosition": 0,
+  "bbox": [
+    17.29,
+    48.178,
+    21.463,
+    49.266
+  ]
+}

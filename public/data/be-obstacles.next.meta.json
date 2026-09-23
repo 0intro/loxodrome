@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-06T17:08:35.972Z",
+  "source": "skeyes eAIP 2026-10-01",
+  "sourceSha256": "a0c7df3ed844d98ee7fdf1ffa282449343f9cd3625dc11fefcd45645ac352222",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "obstacleCount": 144,
+  "litCount": 0,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "building": 3,
+    "mast": 4,
+    "tower": 4,
+    "windturbine": 133
+  },
+  "bbox": [
+    3.386,
+    49.463,
+    6.498,
+    50.727
+  ]
+}

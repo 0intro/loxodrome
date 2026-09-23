@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-09-22T19:33:12.694Z",
+  "source": {
+    "site": "https://www.sia.aviation-civile.gouv.fr",
+    "pdfBase": "https://www.sia.aviation-civile.gouv.fr/media/store/documents/file/",
+    "listingShas": {
+      "car-sam-nam": "9d4f3cd2e20fd3f159d79f2cfa7710b87153d6eee9a363b3bedc7f59f4f65e9c",
+      "metropole": "dd35596f27bb7e5afb52bd88c57e36462e870b2622ce86951ba268e79829d597",
+      "pac-n": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pac-p": "16d8f31e74c6c96b3b149f35828bcd0c9d702987c891e0b86b8df8f4d10b7434",
+      "run": "0e29b72f95609e7f5013d11bfbdc4dc29826f644604e8cd9a1ef7a916bb45cb4"
+    }
+  },
+  "total": 247,
+  "active": 108,
+  "upcoming": 23,
+  "withGeometry": 190,
+  "withVertical": 188,
+  "withEnglish": 247,
+  "withContacts": 118,
+  "withPenetration": 200,
+  "withManager": 178,
+  "polygon": 122,
+  "circle": 11,
+  "mixed": 57,
+  "none": 57,
+  "byRegion": {
+    "car-sam-nam": 3,
+    "metropole": 238,
+    "pac-n": 1,
+    "pac-p": 4,
+    "run": 1
+  },
+  "pdfFetched": 0,
+  "pdfCached": 131,
+  "parseErrors": 0,
+  "popplerFallback": 21,
+  "retained": 0,
+  "parserVersion": 9
+}

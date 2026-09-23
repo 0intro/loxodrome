@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- account-deletion.html: how to delete the OPTIONAL account. This is the
+     web resource Google Play's account-deletion policy asks for (the Data
+     safety form links it): it must work without the application installed
+     and put the deletion path first.
+     Hand-authored and static like terms.html, whose head and style it
+     copies. The labels it quotes are the application's own and the grace
+     is the worker's; tests/accountDeletionPage.spec.ts pins both, so a
+     renamed button or a new grace fails the build instead of leaving this
+     page describing an application that no longer exists.
+     Self-contained: no stylesheet, no font, no script.
+     Both languages on one page, English first. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="How to delete a Loxodrome account and its data." />
+<title>Delete your Loxodrome account / Supprimer votre compte Loxodrome</title>
+<style>
+:root {
+	color-scheme: light dark;
+	--bg: #eef0f3;
+	--surface: #fff;
+	--border: #d3d7dd;
+	--text: #1a1d21;
+	--muted: #5d6670;
+	--accent: #1f5fbf;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #0f1216;
+		--surface: #181c22;
+		--border: #313844;
+		--text: #e7e9ec;
+		--muted: #9aa3af;
+		--accent: #4d8bff;
+	}
+}
+* { box-sizing: border-box; }
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: 15px/1.55 system-ui, sans-serif;
+}
+main {
+	max-width: 46rem;
+	margin: 0 auto;
+	padding: 2rem 1.25rem 4rem;
+}
+section {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 1.25rem 1.5rem;
+	margin: 1.25rem 0;
+}
+h1 { font-size: 1.4rem; margin: 0.5rem 0 0; }
+h2 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+p { margin: 0.6rem 0; }
+ol { margin: 0.6rem 0; padding-inline-start: 1.4rem; }
+li { margin: 0.35rem 0; }
+a { color: var(--accent); }
+.muted { color: var(--muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Delete your Loxodrome account / Supprimer votre compte Loxodrome</h1>
+<p class="muted">Updated 2026-09-24 &middot; Mis &agrave; jour le 24&#8239;septembre&#8239;2026</p>
+
+<section lang="en">
+<h2>English</h2>
+<p>Loxodrome, the flight-preparation and navigation application published on Google Play and at <a href="https://loxodrome.fr/">loxodrome.fr</a>, offers an optional account that syncs your flight plans, flights and aircraft between your devices. You can delete it at any time, from any web browser, without the application installed.</p>
+<ol>
+<li>Open <a href="https://loxodrome.fr/?account=">loxodrome.fr/?account=</a> (or the Account screen inside the application) and sign in with the account&#8217;s e-mail address. A sign-in code is sent to it.</li>
+<li>In the account screen, choose <strong>Delete my account</strong>. A fresh code is sent to the same address.</li>
+<li>Enter that code and choose <strong>Confirm</strong>. Tick <strong>Also remove my data from this device</strong> first if the device you are using should forget the data too.</li>
+</ol>
+<p><strong>What is deleted, and when.</strong> Every session of the account is signed out at once. After a 7-day grace the service erases everything it holds for the account: the e-mail address, the synced flight plans, flights with their traces, aircraft sheets and pilot details, and the session records. Signing in during those 7 days cancels the deletion. Daily backups of the service are kept for up to two months, so the erased data leaves the last of them within two months, and a deletion record stays up to 90 days so your other devices learn of it. The copies on your own devices are never touched: <strong>Reset application&hellip;</strong>, at the foot of the application&#8217;s Settings tab, erases them.</p>
+<p><strong>Cannot sign in?</strong> Write to <a href="mailto:0intro@gmail.com">0intro@gmail.com</a> from the account&#8217;s address and ask for its deletion. It is then deleted by hand, with the same effect.</p>
+<p>What the service stores, and where, is set out in the <a href="privacy.html">privacy policy</a>.</p>
+</section>
+
+<section lang="fr">
+<h2>Fran&ccedil;ais</h2>
+<p>Loxodrome, l&#8217;application de pr&eacute;paration du vol et de navigation publi&eacute;e sur Google Play et sur <a href="https://loxodrome.fr/">loxodrome.fr</a>, propose un compte facultatif qui synchronise vos plans de vol, vos vols et vos avions entre vos appareils. Vous pouvez le supprimer &agrave; tout moment, depuis n&#8217;importe quel navigateur, sans que l&#8217;application soit install&eacute;e.</p>
+<ol>
+<li>Ouvrez <a href="https://loxodrome.fr/?account=">loxodrome.fr/?account=</a> (ou l&#8217;&eacute;cran Compte de l&#8217;application) et connectez-vous avec l&#8217;adresse e-mail du compte. Un code de connexion y est envoy&eacute;.</li>
+<li>Dans l&#8217;&eacute;cran du compte, choisissez <strong>Supprimer mon compte</strong>. Un nouveau code est envoy&eacute; &agrave; la m&ecirc;me adresse.</li>
+<li>Saisissez ce code et choisissez <strong>Confirmer</strong>. Cochez d&#8217;abord <strong>Retirer aussi mes donn&eacute;es de cet appareil</strong> si l&#8217;appareil que vous utilisez doit lui aussi oublier les donn&eacute;es.</li>
+</ol>
+<p><strong>Ce qui est supprim&eacute;, et quand.</strong> Toutes les sessions du compte sont d&eacute;connect&eacute;es aussit&ocirc;t. Apr&egrave;s un d&eacute;lai de gr&acirc;ce de 7&#8239;jours, le service efface tout ce qu&#8217;il d&eacute;tient pour le compte&#8239;: l&#8217;adresse e-mail, les plans de vol, les vols avec leurs traces, les fiches avion et les informations pilote synchronis&eacute;s, et les enregistrements de session. Se connecter pendant ces 7&#8239;jours annule la suppression. Les sauvegardes quotidiennes du service sont conserv&eacute;es jusqu&#8217;&agrave; deux mois, si bien que les donn&eacute;es effac&eacute;es disparaissent de la derni&egrave;re d&#8217;entre elles dans les deux mois, et une trace de suppression subsiste jusqu&#8217;&agrave; 90&#8239;jours pour que vos autres appareils en soient inform&eacute;s. Les copies pr&eacute;sentes sur vos appareils ne sont jamais touch&eacute;es&#8239;: <strong>R&eacute;initialiser l&#8217;application&hellip;</strong>, au pied de l&#8217;onglet R&eacute;glages de l&#8217;application, les efface.</p>
+<p><strong>Impossible de vous connecter&#8239;?</strong> &Eacute;crivez &agrave; <a href="mailto:0intro@gmail.com">0intro@gmail.com</a> depuis l&#8217;adresse du compte en demandant sa suppression. Il est alors supprim&eacute; manuellement, avec le m&ecirc;me effet.</p>
+<p>Ce que le service conserve, et o&ugrave;, figure dans la <a href="privacy.html">politique de confidentialit&eacute;</a>.</p>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+# Hand-placed VAC panels, for plates the graticule reader cannot do.
+#
+# One line per panel, tab or space separated:
+#
+#   ident  section  page  x0 y0 x1 y1  latSW lonSW  latNE lonNE
+#
+# The clip is in PDF points with the origin at the bottom left, which is
+# what `go run ./cmd/vacgeo -only <ident> -dump` prints and what
+# `pdftoppm -x -y -W -H` crops with. The two corners are decimal degrees,
+# negative west and south.
+#
+# An override is gated exactly like a fit: the aerodrome has to fall inside
+# the panel. A typed control point is at least as easy to get wrong as a
+# misread label.
+#
+# Every entry carries the reason it is here.
+
+# LFPN PARIS SACLAY VERSAILLES, landing sheet, AD-2 plate page 2.
+#
+# The page carries two map panels and the automatic reader placed neither.
+# Its graticule is a clean one-minute comb, nine meridian ticks along the
+# bottom neatline and four parallel ticks down the left one, but the labels
+# name every FOURTH tick and the corner label is pushed inboard to stay
+# inside the frame, so no label sits on the tick it names. The runway
+# fallback then fitted the runways drawn in the SECOND panel, the aerodrome
+# diagram lower down the same page, against a frame enclosing both: the
+# second runway landed 139.9 m out and the sheet would have put the ARP
+# 1225 m from where the plate prints it, which is what runway:cross refused.
+#
+# Measured off the ticks at 600 dpi: 41.055 pt per minute of longitude from
+# 002 02' at x 18.78, 62.08 pt per minute of latitude from 48 45' at 100.02
+# from the page top. Checked three ways, none of them the fit: the two axes
+# stand in 1.5123 where sec(48.75) is 1.5173; the printed scale bar reads
+# 33.4 pt per km against the 33.6 the longitude comb gives; and both
+# published runways, projected through this mapping, lie on the two drawn
+# strips for 59 of 61 centreline samples with clear paper 120 m past every
+# threshold.
+LFPN	2	2	14.6 308.2 366.2 549.4	48.699781 2.031636	48.764536 2.174372
+
+# The seven the reader still cannot tie, 2026-09 cycle.
+#
+# Each prints a graticule and the reader finds it; what it cannot do is put
+# the labels on the ticks. Reims and Compiegne label every SECOND tick and
+# their combs run at 30-second intervals, which niceSteps has no entry for by
+# decision (adding one was measured once and cost ten panels for seven);
+# Chavenay, Lyon-Bron and Etain carry two map panels on one page and only the
+# upper one is a landing chart; Enghien, Luchon and Salon label their corners
+# inboard, off the line their own family sits on.
+#
+# All seven were measured the same way: the tick comb read off a 600 dpi
+# render, the labels supplying only which arcminute each tick IS (they wander
+# a couple of points against it), and the clip taken just inside the map's own
+# neatlines. The columns are the two axes in points per arcminute with the
+# number of labels each was tied by, the panel's axis ratio against
+# axisRatio() at its own latitude, and the worst distance from a PUBLISHED
+# runway end, projected through the typed mapping, to the ink the plate draws
+# there. That last one owes nothing to the graticule and is what each entry
+# stands on.
+#
+#   ident  sheet          lon pt/'     lat pt/'     ratio vs axisRatio   worst end
+#   LFQA   Reims-Prunay   106.92 x3    163.68 x2    1.5309 / 1.5263  +0.30%   2.6 pt
+#   LFPX   Chavenay       61.14 x6      91.62 x3    1.4985 / 1.5152  -1.11%   1.5 pt
+#   LFLY   Lyon-Bron      72.95 x5     104.01 x3    1.4258 / 1.4278  -0.14%   2.0 pt
+#   LFQE   Etain-Rouvres  114.27 x3    175.68 x2    1.5374 / 1.5268  +0.69%   0.8 pt
+#   LFFE   Enghien        13.69 x3      20.77 x3    1.5173 / 1.5199  -0.17%   1.8 pt
+#   LFCB   Luchon         15.25 x2      20.96 x2    1.3741 / 1.3590  +1.11%   2.3 pt
+#   LFNE   Salon-Eyguieres 37.49 x2     51.45 x2    1.3724 / 1.3772  -0.35%   1.5 pt
+#
+# Enghien's is the strongest of them and the one to read first: its approach
+# sheet covers the whole north of Paris, so the check lands the runway ends of
+# CDG, Le Bourget and Persan as well as its own, eleven runways on their own
+# drawn strips.
+#
+# A FOURTH check, since one exists now: each panel measured against IGN's own
+# survey through its own drawn line work. Three of the eight read far enough
+# out to be worth looking at, Chavenay 119.2 m, Lyon-Bron 66.0 and
+# Reims-Prunay 48.4, every one of them on five windows of five. All three
+# were then opened over orthophotos and all three draw their RUNWAY on the
+# real runway. What the measurement sees is the plate's background, which a
+# VAC chart draws approximately where it draws its runway from the survey
+# (docs/fr-vacgeo.md, "The witness"). The typed coordinates stand.
+#
+#   ident  sheet            worst end   against the ground
+#   LFQA   Reims-Prunay       2.6 pt     48.4 m, 4.3 pt, 5 of 5 windows
+#   LFPX   Chavenay           1.5 pt    119.2 m, 5.9 pt, 5 of 5
+#   LFLY   Lyon-Bron          2.0 pt     66.0 m, 3.7 pt, 5 of 5
+#   LFQE   Etain-Rouvres      0.8 pt     31.6 m, 3.0 pt, 2 of 2
+#   LFFE   Enghien            1.8 pt     52.1 m, 0.6 pt, 2 of 5
+#   LFCB   Luchon             2.3 pt    343.2 m, 3.9 pt, 2 of 5
+#   LFNE   Salon-Eyguieres    1.5 pt     22.3 m, 0.6 pt, 2 of 5
+#   LFPN   Toussus            (above)    51.2 m, 1.7 pt, 4 of 5
+LFQA	2	1	51.0 136.6 402.1 487.6	49.192593 4.120947	49.228338 4.175667
+LFPX	2	2	17.3 275.0 367.3 548.9	48.824678 1.938097	48.874500 2.033493
+LFLY	2	2	15.2 230.6 366.2 549.0	45.702644 4.904064	45.753665 4.984267
+LFQE	2	2	15.5 154.8 367.0 549.0	49.206578 5.657471	49.243980 5.708741
+LFFE	2	1	51.6 34.4 402.4 483.0	48.820315 2.156705	49.180359 2.583906
+LFCB	2	1	47.6 30.8 398.5 480.5	42.667128 0.410941	43.024732 0.794409
+LFNE	2	1	51.2 33.6 402.0 461.9	43.583511 4.938371	43.722261 5.094332
