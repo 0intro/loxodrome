@@ -1,0 +1,60 @@
+name: Refresh open flightmaps Italy datasets
+
+# Regenerates public/data/it-{airspaces,airports,navaids,nature}.json
+# from the Italian OFMX snapshot.
+#
+# This is the one dataset in the repo that is NOT a State AIS product:
+# Italy publishes no free official data (ENAV's eAIP is behind a free
+# account and its AIXM is a paid SWIM service), so the source is the
+# community-maintained open flightmaps database. Every surface that
+# names it says so. See docs/it-aip.md.
+#
+# The snapshot bucket is laid out by AIRAC cycle and cmd/it derives the
+# current one, falling back to the previous cycle for the day or two the
+# bucket can lag a rollover.
+
+on:
+  schedule:
+    - cron: '0 8 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build it-* datasets
+        run: go run ./cmd/it
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- 'public/data/it-*.json' ':(exclude)public/data/it-*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/it-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/it-*.json'
+            git commit -m "update open flightmaps Italy datasets, ${EFFECTIVE}"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-02T15:45:49.845Z",
+  "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "01 OCT 2026_2026_10_01",
+  "base": "https://www.ais.fi/eaip/01%20OCT%202026_2026_10_01/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 80,
+  "heliports": 16,
+  "withCharts": 35,
+  "withVac": 26,
+  "charts": 436,
+  "byFamily": {
+    "ADC": 27,
+    "AOC": 26,
+    "APDC": 2,
+    "ARC": 1,
+    "ATCSMAC": 17,
+    "DATA": 56,
+    "DEP": 26,
+    "GMC": 6,
+    "IAC": 148,
+    "PATC": 5,
+    "SID": 45,
+    "STAR": 50,
+    "VAC": 27
+  },
+  "linkCheck": "6/6"
+}

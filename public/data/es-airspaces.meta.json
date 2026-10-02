@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-02T16:34:34.332Z",
+  "source": "LE_Amdt_2026_411_AIP_DS_FULL_Airspace.xml",
+  "sourceSha256": "ad57f1713fd70a94e987de82495ab9717219bee788c78841bf91fd07f861ff76",
+  "effective": "",
+  "airspaceCount": 405,
+  "skippedNoBoundary": 0,
+  "skippedNoProjection": 6,
+  "skippedNoType": 81,
+  "skippedCoveredParts": 111,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "unresolvedGeometryXlinks": 0,
+  "multiComponentAirspaces": 3,
+  "limitRefsFromLayers": 422,
+  "limitsWithoutRef": 324,
+  "counts": {
+    "ATZ": 48,
+    "CTA": 16,
+    "CTR": 48,
+    "D": 111,
+    "FIR": 3,
+    "P": 15,
+    "R": 57,
+    "RMZ": 8,
+    "TMA": 55,
+    "TRA": 26,
+    "TSA": 14,
+    "UIR": 4
+  },
+  "bbox": [
+    -25,
+    19,
+    4.692,
+    45.028
+  ]
+}

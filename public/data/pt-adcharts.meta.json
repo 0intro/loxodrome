@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-10-02T15:45:24.315Z",
+  "source": "NAV Portugal eAIP ",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "",
+  "base": "https://ais.nav.pt/wp-content/uploads/AIS_Files/eAIP_Current/eAIP_Online/eAIP/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "fixed path",
+  "lang": "en-PT",
+  "aerodromes": 19,
+  "heliports": 0,
+  "withCharts": 19,
+  "withVac": 19,
+  "charts": 272,
+  "byFamily": {
+    "ADC": 20,
+    "AOC": 13,
+    "APDC": 20,
+    "ATCSMAC": 8,
+    "GMC": 2,
+    "IAC": 92,
+    "MISC": 2,
+    "PATC": 4,
+    "SID": 47,
+    "STAR": 37,
+    "VAC": 27
+  },
+  "miscTitles": [
+    "Visual Take-Off Chart (RWY05)",
+    "Visual Take-Off Chart (RWY23)"
+  ],
+  "linkCheck": "6/6"
+}

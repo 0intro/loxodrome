@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-10-02T15:45:35.001Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC",
+  "sourceSha256": "fae82650b8ae9ce449ad03d5eb6075a7d891361a8dff12e7a3d5da7e3b4452e0",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "ahpCount": 8,
+  "runwayCount": 9,
+  "militaryCount": 0,
+  "radioCount": 41,
+  "transitionAltCount": 8,
+  "counts": {
+    "large_airport": 5,
+    "medium_airport": 2,
+    "small_airport": 1
+  },
+  "bbox": [
+    18.723,
+    42.359,
+    21.854,
+    45.148
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB",
+  "unread": [
+    "LYPR"
+  ]
+}

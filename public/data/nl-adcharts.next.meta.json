@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-02T15:47:15.642Z",
+  "source": "LVNL Netherlands eAIP AIRAC AMDT 11-2026_2026_10_29",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "AIRAC AMDT 11-2026_2026_10_29",
+  "base": "https://eaip.lvnl.nl/web/eaip/AIRAC%20AMDT%2011-2026_2026_10_29/",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "aerodromes": 21,
+  "heliports": 3,
+  "withCharts": 24,
+  "withVac": 24,
+  "charts": 215,
+  "byFamily": {
+    "ADC": 23,
+    "AOC": 13,
+    "APDC": 10,
+    "ATCSMAC": 5,
+    "GMC": 9,
+    "IAC": 60,
+    "MISC": 1,
+    "PATC": 7,
+    "SID": 41,
+    "STAR": 9,
+    "VAC": 37
+  },
+  "miscTitles": [
+    "AREA ARR.pdf"
+  ],
+  "linkCheck": "6/6"
+}

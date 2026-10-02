@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-10-02T15:45:35.582Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC",
+  "sourceSha256": "5a935d9e828e8cdaf56980df6907340bd850ac73a25338c660e3b277faf1555b",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB",
+  "airspaceCount": 181,
+  "sectionCounts": {
+    "AD 2.17": 9,
+    "ENR 2.1": 9,
+    "ENR 2.2": 30,
+    "ENR 5.1": 28,
+    "ENR 5.2": 81,
+    "ENR 5.5": 24
+  },
+  "tables": 9,
+  "limitsSwapped": 0,
+  "classStacks": 0,
+  "withRadio": 16,
+  "pointCircles": 0,
+  "pointOnly": 41,
+  "firRings": 0,
+  "borderStitched": 19,
+  "borderChords": 0,
+  "arcsUnread": 1,
+  "unreadArcs": [
+    "a circle 0° - 225° (in clockwise direction) with a radius of 1500 M centered at 434150N 0194137E"
+  ],
+  "adZones": 9,
+  "adRepublished": 0,
+  "adInferredCtr": 0,
+  "refsResolved": 0,
+  "bufferColumns": 76,
+  "skippedTypes": {
+    "AREA REPRESENTED BY": 1,
+    "BEOGRAD FIR/UIR/CTA/UTA": 1,
+    "FIR: FL 285": 1,
+    "NO GEOMETRY": 5,
+    "NO NAME": 6
+  },
+  "counts": {
+    "ACTIVITY": 24,
+    "ATZ": 23,
+    "CTR": 7,
+    "D": 47,
+    "R": 3,
+    "RMZ": 9,
+    "TMA": 9,
+    "TRA": 51,
+    "TSA": 8
+  },
+  "bbox": [
+    18.378,
+    41.547,
+    23,
+    46.184
+  ]
+}

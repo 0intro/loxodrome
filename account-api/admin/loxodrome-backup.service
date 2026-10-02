@@ -1,0 +1,11 @@
+# Daily offsite backup of the account service (admin/backup.sh; the
+# README's Backups section). User unit: install with
+#   systemctl --user link $PWD/account-api/admin/loxodrome-backup.service
+#   systemctl --user link $PWD/account-api/admin/loxodrome-backup.timer
+#   systemctl --user enable --now loxodrome-backup.timer
+[Unit]
+Description=Loxodrome account-service offsite backup
+
+[Service]
+Type=oneshot
+ExecStart=%h/src/me/github.com/0intro/go/public/loxodrome/account-api/admin/backup.sh

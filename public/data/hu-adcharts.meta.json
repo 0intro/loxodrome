@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-02T15:45:22.179Z",
+  "source": "HungaroControl Hungary eAIP 2026-09-03/2026-09-03-AIRAC",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "edition": "2026-09-03/2026-09-03-AIRAC",
+  "base": "https://ais.hungarocontrol.hu/aip/2026-09-03/2026-09-03-AIRAC/",
+  "cycleLag": 1,
+  "confirmed": false,
+  "resolvedBy": "path templates",
+  "lang": "en-HU",
+  "aerodromes": 8,
+  "heliports": 0,
+  "withCharts": 8,
+  "withVac": 8,
+  "charts": 94,
+  "byFamily": {
+    "ADC": 8,
+    "AOC": 9,
+    "APDC": 4,
+    "ATCSMAC": 1,
+    "GMC": 2,
+    "IAC": 37,
+    "MISC": 3,
+    "PATC": 2,
+    "SID": 14,
+    "STAR": 6,
+    "VAC": 8
+  },
+  "miscTitles": [
+    "AD 2-LHBP-TMA",
+    "AD 2-LHBP-HLDG",
+    "AD 2-LHBP-BIRD"
+  ],
+  "linkCheck": "6/6"
+}

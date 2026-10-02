@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-10-02T15:45:33.666Z",
+  "source": "PANSA Poland eAIP AIRAC AMDT 10-26_2026_10_01",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "AIRAC AMDT 10-26_2026_10_01",
+  "base": "https://docs.pansa.pl/ais/eaipifr/AIRAC%20AMDT%2010-26_2026_10_01/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 84,
+  "heliports": 0,
+  "withCharts": 84,
+  "withVac": 84,
+  "charts": 452,
+  "byFamily": {
+    "ADC": 82,
+    "AOC": 16,
+    "APDC": 17,
+    "ARC": 1,
+    "GMC": 3,
+    "IAC": 100,
+    "MISC": 3,
+    "PATC": 12,
+    "SID": 33,
+    "STAR": 35,
+    "VAC": 150
+  },
+  "miscTitles": [
+    "HOT SPOT",
+    "BIRD CONCENTRATIONS",
+    "EPWA - BIRD CONCENTRATIONS"
+  ],
+  "linkCheck": "6/6",
+  "alsoRead": [
+    "PANSA AIP VFR AIRAC AMDT VFR 10-26_2026_10_01"
+  ]
+}

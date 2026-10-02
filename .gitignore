@@ -1,0 +1,33 @@
+node_modules/
+dist/
+
+# Compiled command binaries. `go build ./cmd/X` drops the binary named after
+# the command in the working directory (usually the repo root); an in-place
+# `cd cmd/X && go build` drops it beside the source.
+/adcharts
+/airports
+/at
+/bbox
+/be
+/ch
+/de
+/designators
+/eaip
+/es
+/faa
+/fi
+/fr
+/ge
+/geoid
+/it
+/metar
+/nl
+/pruatlas
+/supaip
+/uk
+/ukcharts
+cmd/airports/airports
+
+# Local working scratch (proprietary AIXM XML, briefing drafts, patches,
+# vim swap files, sample images). Anything inside local/ stays untracked.
+/local/

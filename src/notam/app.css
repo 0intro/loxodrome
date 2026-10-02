@@ -1,0 +1,159 @@
+/* The NOTAM Viewer's stylesheet: Loxodrome's visual language, and this app's
+ * own shell on top of it.
+ *
+ * The import is the whole point. src/app.css holds the tokens, the .btn and
+ * .icon-btn definitions, the shared tab chrome and the surface placement
+ * rules, and every component reused here was written against them. A second
+ * copy of any of that would drift on the first theme change.
+ */
+
+@import url('../app.css');
+
+/* The shell: a full-bleed map with the briefing beside it.
+ *
+ * POSITIONED on purpose, not only clipped. The detail panel is absolutely
+ * positioned and parks off-screen to the right when closed; an `overflow:
+ * hidden` ancestor only clips an absolutely-positioned descendant when it is
+ * also that descendant's containing block, so without `position: relative`
+ * here the parked panel widened the document to 1 989 px and the window grew a
+ * horizontal scrollbar. */
+.viewer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	block-size: 100dvh;
+	overflow: hidden;
+}
+
+.viewer-body {
+	display: flex;
+	flex: 1;
+	min-block-size: 0;
+}
+
+.viewer-panel {
+	display: flex;
+	flex-direction: column;
+	inline-size: 420px;
+	min-inline-size: 0;
+	border-inline-end: 1px solid var(--border);
+	background: var(--surface);
+	overflow: hidden;
+}
+
+/* The scrolling body, and the one place the panel's air comes from: the same
+ * 14px the flight app's sidebar gives .panel-body. The panel itself must NOT
+ * pad, or the scrollbar would sit inside the padding rather than at the edge. */
+.viewer-panel-body {
+	flex: 1;
+	min-block-size: 0;
+	padding: 14px;
+	overflow-y: auto;
+}
+
+.viewer-stage {
+	position: relative;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-inline-size: 0;
+	background: var(--bg);
+}
+
+/* The map and the right dock's spacer side by side, the bottom one below
+ * both (the flight app's .stage-main). */
+.viewer-stage-main {
+	display: flex;
+	flex: 1;
+	min-inline-size: 0;
+	min-block-size: 0;
+}
+
+/* ---------------------------------------------------------------- phones --
+ * No width to split at 392 px, so the briefing becomes a PAGE over the map and
+ * a two-destination bar decides which is up. The detail is the pane's
+ * occupant, exactly as it is in Loxodrome (docs/workspace-surfaces.md
+ * "Phones"), which is why the stage reserves its height in flow rather than
+ * letting it overlay: that is what shrinks the Leaflet container.
+ */
+
+:root.mobile-ui .viewer-body {
+	position: relative;
+}
+
+:root.mobile-ui .viewer-panel.page {
+	position: absolute;
+	inset: 0;
+
+	/* Above Leaflet's OWN chrome, not merely above its panes. leaflet.css puts
+	   .leaflet-control at 800 and the .leaflet-top / .leaflet-bottom corners at
+	   1000, so a page at 500 covered the map and left the zoom buttons and the
+	   attribution painted over the briefing. Same value as the flight app's
+	   PhonePages, which is the surface this one is the counterpart of, and it
+	   stays under the 1099 backdrop. */
+	z-index: 1093;
+	inline-size: auto;
+	border-inline-end: 0;
+}
+
+:root.mobile-ui .viewer-panel.hidden {
+	display: none;
+}
+
+.phone-bar {
+	display: flex;
+	flex: 0 0 auto;
+	border-block-start: 1px solid var(--border);
+	background: var(--surface);
+	padding-block-end: var(--sab, 0);
+}
+
+.phone-dest {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+
+	/* Both axes. align-items centres the icon and the label across the button;
+	   justify-content is what centres them WITHIN it, and without it the column
+	   defaults to flex-start and every pixel of min-block-size slack piles up
+	   below the label. Measured on the device: 3 px above the icon against 10
+	   below the label, from 7 px of slack that the padding never sees. */
+	justify-content: center;
+	gap: 1px;
+	padding: 3px 4px;
+
+	/* THE TOUCH FLOOR, and nothing above it. Slimmer than the flight app's
+	   56 px bar: that one carries five destinations and a recording state,
+	   this carries three, and every pixel it gives back is map. 46 px was
+	   2 px of pure air over the floor, and the content is slighter still
+	   (a 20 px glyph, the gap, a 10 px label = 31 px), so what the rule
+	   really sets is how much space the centring has to share out. Going
+	   under 44 is what is NOT available: this is the app's one definition of
+	   a target a finger can hit, and these three are the only way between
+	   the map and the briefing. */
+	min-block-size: 44px;
+	border: 0;
+	background: none;
+	color: var(--muted);
+	font: inherit;
+	font-size: var(--fs-2xs);
+
+	/* A label with no descender ("Map", "NOTAMs", "Load", and their French
+	   twins) leaves the line box's below-baseline room empty, and centring
+	   shares out the slack around the BOX rather than the ink, so the empty
+	   room lands under the word and reads as a band: measured on the device
+	   at 6.9 px above the icon's ink against 9.5 px below the label's. At
+	   line-height 1 the box is the em box, so the two ends match. */
+	line-height: 1;
+	cursor: pointer;
+}
+
+.phone-dest[aria-current='true'] {
+	color: var(--accent);
+}
+
+/* The space the docked detail pane occupies, reserved in FLOW. */
+.dock-space {
+	flex: 0 0 auto;
+}

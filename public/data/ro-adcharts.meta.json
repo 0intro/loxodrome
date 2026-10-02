@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-10-02T15:43:27.680Z",
+  "source": "ROMATSA AIP Romania 2026-10-01",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "2026-10-01",
+  "base": "https://www.aisro.ro/aip/2026-10-01/DOCS/AIP/AD/",
+  "aerodromes": 35,
+  "heliports": 4,
+  "withCharts": 39,
+  "withVac": 23,
+  "charts": 355,
+  "byFamily": {
+    "ADC": 39,
+    "AOC": 29,
+    "APDC": 26,
+    "ATCSMAC": 8,
+    "GMC": 3,
+    "IAC": 113,
+    "MISC": 11,
+    "PATC": 18,
+    "SID": 53,
+    "STAR": 27,
+    "VAC": 28
+  },
+  "unlisted": 2,
+  "missing": 0,
+  "miscTitles": [
+    "Bird concentrations in the vicinity of the aerodorme",
+    "Bird concentrations in the vicinity of the aerodrome",
+    "Bird concentrations in the vicinity of the aerodorme",
+    "AD 2.4-29",
+    "AD 2.7-21",
+    "Bird concentrations in the vicinity of the aerodrome",
+    "Bird concentrations in the vicinity of the aerodrome",
+    "Bird concentrations in the vicinity of the aerodorme",
+    "Bird concentrations in the vicinity of the aerodorme",
+    "Bird concentrations in the vicinity of the aerodrome",
+    "Bird concentrations in the vicinity of the aerodrome"
+  ],
+  "linkCheck": "6/6"
+}

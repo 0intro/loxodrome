@@ -1,0 +1,227 @@
+/* WCAG contrast pins for the theme inks that carry small TEXT.
+ *
+ * theme.css documents a measured ratio beside --workbook-orange,
+ * --no-live-data and --nav-orange, each darkened (day) or brightened
+ * (night) until it passed. Prose alone did not hold: --nav-orange shipped
+ * as the map's saturated line colour #e8590c reused as 12px banner text,
+ * at 3.09:1 on its own tint, and nothing failed. This spec recomputes the
+ * ratios from theme.css itself, so moving one of these values is a
+ * decision that has to pass, not an edit that quietly regresses the one
+ * band a pilot reads in flight.
+ *
+ * AA for normal text is 4.5:1 (WCAG 2.2 SC 1.4.3); the alert banner is
+ * 12px / weight 600, which is normal text, not large. The last block holds
+ * the paper inks to floors of their own. readFileSync per the
+ * paletteSync.spec.ts precedent. */
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+
+const AA_NORMAL = 4.5;
+
+const css = readFileSync(new URL('../src/styles/theme.css', import.meta.url), 'utf8');
+
+function tokens(block: string): Record<string, string> {
+	const out: Record<string, string> = {};
+	for (const m of block.matchAll(/--([\w-]+):\s*(#[0-9a-fA-F]{3,6})\s*;/g)) {
+		out[m[1]] = m[2].toLowerCase();
+	}
+	return out;
+}
+
+const nightAt = Math.max(
+	css.indexOf(":root[data-theme='night']"),
+	css.indexOf(':root[data-theme="night"]'),
+);
+const day = tokens(css.slice(0, nightAt));
+const nightOnly = tokens(css.slice(nightAt));
+// The night block overrides a subset; everything else falls through.
+const night = { ...day, ...nightOnly };
+
+function channels(hex: string): [number, number, number] {
+	let h = hex.replace('#', '');
+	if (h.length === 3) {
+		h = h
+			.split('')
+			.map((c) => c + c)
+			.join('');
+	}
+	return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)) as [number, number, number];
+}
+
+function luminance(hex: string): number {
+	const lin = (v: number): number => {
+		const c = v / 255;
+		return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+	};
+	const [r, g, b] = channels(hex);
+	return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+
+function ratio(a: string, b: string): number {
+	const la = luminance(a);
+	const lb = luminance(b);
+	return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
+/** `fg` composited over `bg` at `alpha`, the color-mix() the tints use. */
+function over(fg: string, bg: string, alpha: number): string {
+	const f = channels(fg);
+	const b = channels(bg);
+	return (
+		'#' +
+		[0, 1, 2]
+			.map((i) =>
+				Math.round(f[i] * alpha + b[i] * (1 - alpha))
+					.toString(16)
+					.padStart(2, '0'),
+			)
+			.join('')
+	);
+}
+
+describe('the theme inks that carry text pass WCAG AA', () => {
+	const themes: [string, Record<string, string>][] = [
+		['day', day],
+		['night', night],
+	];
+
+	/* The three alert tiers of NavStrip's banner. Each is read three ways:
+	 * as text on its own 12% tint (the hardest), as text on the surface the
+	 * strip sits on, and as the solid "inside the volume" fill under
+	 * --surface text. */
+	const TIERS = ['danger', 'workbook-orange', 'nav-orange'];
+
+	for (const [name, t] of themes) {
+		it(`${name}: every alert tier ink is legible on all three of its backdrops`, () => {
+			for (const tier of TIERS) {
+				const ink = t[tier];
+				expect(ink, `--${tier} missing in ${name}`).toBeTruthy();
+				const tint = over(ink, t.surface, 0.12);
+				expect(ratio(ink, tint), `--${tier} text on its own tint (${name})`).toBeGreaterThanOrEqual(
+					AA_NORMAL,
+				);
+				expect(ratio(ink, t.surface), `--${tier} text on --surface (${name})`).toBeGreaterThanOrEqual(
+					AA_NORMAL,
+				);
+				expect(
+					ratio(t.surface, ink),
+					`--surface text on the solid --${tier} fill (${name})`,
+				).toBeGreaterThanOrEqual(AA_NORMAL);
+			}
+		});
+
+		it(`${name}: --nav-orange is also legible on the app background`, () => {
+			// The off-route number and the Navigation tab's alert rows sit on
+			// --bg rather than on a strip surface.
+			expect(ratio(t['nav-orange'], t.bg)).toBeGreaterThanOrEqual(AA_NORMAL);
+		});
+
+		it(`${name}: body and muted text pass on both surfaces`, () => {
+			for (const on of ['bg', 'surface', 'surface-2']) {
+				expect(ratio(t.text, t[on]), `--text on --${on} (${name})`).toBeGreaterThanOrEqual(
+					AA_NORMAL,
+				);
+				expect(
+					ratio(t['text-muted'], t[on]),
+					`--text-muted on --${on} (${name})`,
+				).toBeGreaterThanOrEqual(AA_NORMAL);
+			}
+		});
+
+		it(`${name}: the accent is legible as a link and under its own text colour`, () => {
+			expect(ratio(t.accent, t.surface)).toBeGreaterThanOrEqual(AA_NORMAL);
+			expect(ratio(t['accent-text'], t.accent)).toBeGreaterThanOrEqual(AA_NORMAL);
+		});
+
+		it(`${name}: the band's ring inks read on the strip surface`, () => {
+			// The in-flight band's alternate readings: the muted ink for DTK /
+			// BRG / AGL, the danger ink for the leg's MSA, the accent for the
+			// heading and the destination ring, the nav-orange plan-delta
+			// suffix, all at 19px semibold on the 92% strip surface, which
+			// the strip's own --surface backdrop stands in for.
+			for (const ink of ['text-muted', 'danger', 'accent', 'nav-orange']) {
+				expect(ratio(t[ink], t.surface), `--${ink} on the band (${name})`).toBeGreaterThanOrEqual(
+					AA_NORMAL,
+				);
+			}
+		});
+
+		it(`${name}: the filled danger button's label is legible on it`, () => {
+			// .btn.danger labels with --surface rather than white, because the
+			// night --danger is a light red: white on it measures 2.78:1.
+			expect(ratio(t.surface, t.danger)).toBeGreaterThanOrEqual(AA_NORMAL);
+		});
+	}
+
+	it('the map keeps its own saturated line orange, distinct from the UI ink', () => {
+		// The split is the point: navLayer's stroke over terrain is not a
+		// text-contrast case, and reusing it as text is what failed.
+		const layer = readFileSync(new URL('../src/lib/map/navLayer.ts', import.meta.url), 'utf8');
+		expect(layer).toContain("const TRACE_COLOR = '#e8590c'");
+		expect(day['nav-orange']).not.toBe('#e8590c');
+	});
+});
+
+/* Paper is the day theme (night is a screen theme, tests/printPaper.spec.ts)
+ * with the departures app.css's print palette states. A screen ratio is no
+ * promise on paper: the day rules (1.85:1 and 1.44:1 on white) and the muted
+ * text passed on a monitor and printed pale on the club's laser, which
+ * halftones every grey and breaks thin strokes. These are paper floors: black
+ * text, neutral greys a driver can lay down in black toner alone, two line
+ * weights, and fills that keep every ink legible on them. */
+describe('the paper inks hold on paper', () => {
+	const app = readFileSync(new URL('../src/app.css', import.meta.url), 'utf8');
+	const block = app.match(/^\t\.print-palette \{([^}]*)\}/m)?.[1] ?? '';
+	const pins = tokens(block);
+	const paper: Record<string, string> = { ...day, ...pins };
+	const NEUTRALS = ['text', 'text-muted', 'border-strong', 'border', 'surface', 'surface-2', 'surface-3'];
+	const SURFACES = ['surface', 'surface-2', 'surface-3'];
+
+	it('pins the seven neutrals, each a neutral grey', () => {
+		for (const n of NEUTRALS) {
+			const hex = pins[n];
+			expect(hex, `--${n} pinned`).toBeTruthy();
+			const [r, g, b] = channels(hex);
+			expect(r === g && g === b, `--${n} ${hex} is R = G = B`).toBe(true);
+		}
+	});
+
+	it('text is black and the muted text stays dark, a step lighter', () => {
+		expect(paper.text).toBe('#000');
+		expect(ratio(paper['text-muted'], paper.surface)).toBeGreaterThanOrEqual(10);
+		expect(luminance(paper['text-muted'])).toBeGreaterThan(luminance(paper.text));
+	});
+
+	it('keeps two line weights, both printable', () => {
+		expect(ratio(paper['border-strong'], paper.surface)).toBeGreaterThanOrEqual(AA_NORMAL);
+		expect(ratio(paper.border, paper.surface)).toBeGreaterThanOrEqual(2.5);
+		expect(luminance(paper['border-strong'])).toBeLessThan(luminance(paper.border));
+	});
+
+	it('steps the fills down from white and keeps every ink legible on each', () => {
+		expect(paper.surface).toBe('#fff');
+		expect(luminance(paper['surface-2'])).toBeLessThan(luminance(paper.surface));
+		expect(luminance(paper['surface-3'])).toBeLessThan(luminance(paper['surface-2']));
+		for (const on of SURFACES) {
+			expect(ratio(paper.text, paper[on]), `--text on --${on}`).toBeGreaterThanOrEqual(7);
+			expect(ratio(paper['text-muted'], paper[on]), `--text-muted on --${on}`).toBeGreaterThanOrEqual(7);
+			// The bold verdict red and the one orange paper prints (the day
+			// ink, user decision 2026-10-02) sit on the fills too.
+			expect(ratio(paper.danger, paper[on]), `--danger on --${on}`).toBeGreaterThanOrEqual(AA_NORMAL);
+			expect(
+				ratio(paper['workbook-orange'], paper[on]),
+				`--workbook-orange on --${on}`,
+			).toBeGreaterThanOrEqual(AA_NORMAL);
+		}
+	});
+
+	it('states only where paper departs from the day theme', () => {
+		// White is restated as the top of the paper ramp; any other pin equal
+		// to its day value is a copy waiting to drift.
+		for (const [name, hex] of Object.entries(pins)) {
+			if (name !== 'surface') {
+				expect(hex, `--${name} restates the day value`).not.toBe(day[name]);
+			}
+		}
+	});
+});

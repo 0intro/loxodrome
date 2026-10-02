@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-10-02T15:45:51.636Z",
+  "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
+  "sourceSha256": "d76d60d05c72ea4567fe1bf0ca5f9b1c25fece7cf98a4d49a647734965fa8816",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "airspaceCount": 763,
+  "sectionCounts": {
+    "AD 2.17": 24,
+    "ENR 2.1": 34,
+    "ENR 2.2": 10,
+    "ENR 5.1": 259,
+    "ENR 5.2": 436,
+    "ENR 5.5": 0
+  },
+  "tables": 24,
+  "limitsSwapped": 0,
+  "classStacks": 2,
+  "withRadio": 60,
+  "pointCircles": 0,
+  "pointOnly": 0,
+  "firRings": 0,
+  "borderStitched": 29,
+  "borderChords": 5,
+  "arcsUnread": 0,
+  "adZones": 24,
+  "adRepublished": 0,
+  "adInferredCtr": 0,
+  "refsResolved": 0,
+  "bufferColumns": 0,
+  "skippedTypes": {
+    "AD 2.17 NO GEOMETRY": 56,
+    "ALAND RAS": 1,
+    "EF ACC SECT": 14,
+    "FLIGHT PLAN BUFFER ZONE": 181,
+    "HELSINKI FIR (EFIN": 1,
+    "NO GEOMETRY": 3
+  },
+  "counts": {
+    "CTA": 7,
+    "CTR": 19,
+    "D": 147,
+    "DLG-ATS": 3,
+    "P": 7,
+    "R": 108,
+    "RMZ": 15,
+    "TMA": 24,
+    "TRA": 280,
+    "TSA": 153
+  },
+  "bbox": [
+    19.268,
+    59,
+    31.55,
+    70.106
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-10-02T15:45:27.974Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026",
+  "sourceSha256": "38625862425fe17e79b22d24c056929395bfc7de337369846950994e6dc57c9d",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "ahpCount": 5,
+  "runwayCount": 8,
+  "militaryCount": 0,
+  "radioCount": 32,
+  "transitionAltCount": 5,
+  "counts": {
+    "large_airport": 3,
+    "medium_airport": 1,
+    "small_airport": 1
+  },
+  "bbox": [
+    17.212,
+    48.17,
+    21.242,
+    49.234
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-SK"
+}

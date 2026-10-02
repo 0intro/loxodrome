@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-10-02T15:46:51.338Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 11-2026_2026_10_29",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "AIRAC AMDT 11-2026_2026_10_29",
+  "base": "https://kans-ks.org/eAIP/AIRAC%20AMDT%2011-2026_2026_10_29/",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "aerodromes": 1,
+  "heliports": 0,
+  "withCharts": 1,
+  "withVac": 0,
+  "charts": 34,
+  "byFamily": {
+    "ADC": 1,
+    "AOC": 3,
+    "APDC": 1,
+    "ARC": 1,
+    "ATCSMAC": 1,
+    "DATA": 5,
+    "GMC": 1,
+    "IAC": 7,
+    "MISC": 1,
+    "PATC": 2,
+    "SID": 6,
+    "STAR": 5
+  },
+  "miscTitles": [
+    "KOSOVO RESTRITED AREAS"
+  ],
+  "linkCheck": "6/6"
+}

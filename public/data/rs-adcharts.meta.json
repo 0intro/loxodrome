@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-02T15:45:34.983Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "01-Oct-2026-A/2026-10-01-AIRAC",
+  "base": "https://smatsa.rs/upload/aip/published/01-Oct-2026-A/2026-10-01-AIRAC/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB",
+  "aerodromes": 9,
+  "heliports": 0,
+  "withCharts": 9,
+  "withVac": 7,
+  "charts": 180,
+  "byFamily": {
+    "ADC": 9,
+    "AOC": 15,
+    "APDC": 6,
+    "ATCSMAC": 1,
+    "IAC": 62,
+    "MISC": 3,
+    "PATC": 2,
+    "SID": 43,
+    "STAR": 29,
+    "VAC": 10
+  },
+  "miscTitles": [
+    "Bird concentrations in the vicinity of the aerodrome"
+  ],
+  "linkCheck": "6/6"
+}

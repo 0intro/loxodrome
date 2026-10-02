@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-02T15:45:40.237Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 10-2026_2026_10_01",
+  "sourceSha256": "769d3c65d1174594a1666e5e163b844d76bbaed3412845082a6ed6580078de49",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "ahpCount": 1,
+  "runwayCount": 1,
+  "militaryCount": 0,
+  "radioCount": 7,
+  "transitionAltCount": 1,
+  "counts": {
+    "large_airport": 1
+  },
+  "bbox": [
+    21.035,
+    42.572,
+    21.036,
+    42.573
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB"
+}

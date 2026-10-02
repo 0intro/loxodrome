@@ -1,0 +1,122 @@
+<script lang="ts">
+	/* The sync engine's mount-once host (the PersistHost idiom): the
+	 * triggers need rune tracking inside a component effect and the state
+	 * modules stay effect-free, so this mount is the engine's one
+	 * lifecycle. Renders nothing.
+	 *
+	 * The single-slot setOutingSettledHook is flightLibrary's and sync
+	 * NEVER touches it: the $effect below sees the archived row land in
+	 * flightLibrary.rows, and the engine's own !nav.recording gate is what
+	 * holds the just-flown trace's blobs until the archive settle. */
+
+	import { onMount } from 'svelte';
+	import { sharedSessionEndedBy } from '$lib/sync/keys';
+	import { holdRecordingLock } from '$lib/sync/recordingLock';
+	import { account, signedIn } from '$lib/state/account.svelte';
+	import { aircraftState } from '$lib/state/aircraft.svelte';
+	import { flightLibrary } from '$lib/state/flightLibrary.svelte';
+	import { flightPrep } from '$lib/state/flightPrep.svelte';
+	import { nav } from '$lib/state/navRecording.svelte';
+	import { notamState } from '$lib/state/notam.svelte';
+	import { planCatalog } from '$lib/state/planCatalog.svelte';
+	import { whenRoutesRestored } from '$lib/state/routePersist';
+	import {
+		checkSharedExpiry,
+		followEndedSession,
+		syncNow,
+	} from '$lib/state/sync.svelte';
+
+	// While a recording runs in this tab it holds the RECORDING lock, which
+	// every other tab asks before ending a shared session and a booting tab
+	// before sweeping one (sync/recordingLock.ts). An effect on purpose, the
+	// one kind the in-flight rules allow: the lock MIRRORS the state, every
+	// flip included (the Android boot reconcile's), and does nothing here.
+	$effect(() => {
+		if (nav.recording) {
+			return holdRecordingLock();
+		}
+	});
+
+	// A shared session another tab ended while a recording held this one:
+	// retried on the minute tick, which also beats on a return to the tab
+	// (a plain let, so the retry effect wakes on the tick alone).
+	let followPending = false;
+	$effect(() => {
+		void notamState.tick;
+		if (followPending && followEndedSession()) {
+			followPending = false;
+		}
+	});
+
+	onMount(() => {
+		// The first pass sequences BEHIND the workspace restore, so the
+		// rescue deposit is in the catalog before adoption enumerates it.
+		void whenRoutesRestored().then(async () => {
+			await checkSharedExpiry();
+			await syncNow();
+		});
+		const onVisible = () => {
+			if (document.visibilityState === 'visible') {
+				void checkSharedExpiry().then(() => syncNow());
+			}
+		};
+		document.addEventListener('visibilitychange', onVisible);
+		// Best-effort flush (inside fetch-keepalive's small budget; the
+		// next trigger catches whatever a closing page cut off).
+		const onPageHide = () => {
+			void syncNow();
+		};
+		window.addEventListener('pagehide', onPageHide);
+		// Another tab ended the shared session (a sign-out, the 12 h cap, a
+		// sign-in over it, a boot sweep): every open tab follows it out.
+		const onStorage = (e: StorageEvent) => {
+			if (e.storageArea === localStorage && sharedSessionEndedBy(e)) {
+				followPending = !followEndedSession();
+			}
+		};
+		window.addEventListener('storage', onStorage);
+		return () => {
+			document.removeEventListener('visibilitychange', onVisible);
+			window.removeEventListener('pagehide', onPageHide);
+			window.removeEventListener('storage', onStorage);
+		};
+	});
+
+	// The debounced mutation trigger: rune reads over the synced stores
+	// (the persist-writer idiom), DEEP enough that an in-place edit fires
+	// too: a remark or stamp edit replaces a row at an unchanged count, a
+	// plane edit swaps one value under an unchanged key set (copy-on-
+	// write), and length-only reads would sleep through all of them.
+	let debounce: ReturnType<typeof setTimeout> | null = null;
+	$effect(() => {
+		if (!signedIn()) {
+			return;
+		}
+		void account.email;
+		for (const r of flightLibrary.rows) {
+			void r.savedAtMs;
+			void r.remarks;
+			void r.aircraftKey;
+			void r.declared;
+		}
+		for (const r of planCatalog.rows) {
+			void r.savedAtMs;
+		}
+		for (const key of Object.keys(aircraftState.user)) {
+			void aircraftState.user[key];
+		}
+		for (const key of Object.keys(aircraftState.tankedFuel)) {
+			void aircraftState.tankedFuel[key];
+		}
+		void flightPrep.dossier.pilot.name;
+		void flightPrep.dossier.pilot.sepValidUntil;
+		void flightPrep.dossier.pilot.medicalValidUntil;
+		if (debounce !== null) {
+			clearTimeout(debounce);
+		}
+		debounce = setTimeout(() => {
+			debounce = null;
+			void syncNow();
+		}, 3000);
+	});
+</script>

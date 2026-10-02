@@ -1,0 +1,142 @@
+name: Refresh eAIP-cohort datasets
+
+# Regenerates public/data/{sk,ie,rs,xk,fi,is}-{airspaces,airports,navaids,
+# aerodrome-facilities}.json, and the ENR 5.4 obstacles of sk, rs and is,
+# from the States whose AIP is published as a generated eAIP package AND
+# whose terms let this repo re-serve it: LPS SR Slovakia, AirNav Ireland,
+# SMATSA Serbia and Montenegro, KANS Kosovo, Fintraffic ANS Finland and
+# Avians Iceland (non-commercial use only, which Loxodrome's is). One job
+# for all of them because they share one command (cmd/eaip) and one parser
+# (internal/eaip); what differs per State is a table row. Finland's
+# obstacles are data-fi.yml's, so only its airspace, navaid and chart files
+# are committed here.
+#
+# Every State, the held ones included, also gets its chart index
+# (<cc>-adcharts.json): the aerodrome pages and the charts their AD 2.24
+# links, where the publisher serves them. Links copy nothing, which is why
+# a State held for its data is indexed all the same (docs/aip-sources.md,
+# "Chart links are not copies"). Sweden and the Netherlands are read for
+# their chart index alone, their airspace being data-se.yml's and
+# data-nl.yml's, so only their chart files are committed here.
+#
+# Weekly Thursday rather than a 28-day cron: publishers drift off the
+# AIRAC grid (Ireland was still serving the previous cycle's package a
+# week after its effective date), so the weekly fire catches each package
+# the week it lands and the git-diff-quiet skip turns every other week
+# into a no-op.
+#
+# Each run builds both datasets a cohort State publishes in a table: the
+# airspace of ENR 2 and ENR 5, and the en-route radio navigation aids of
+# ENR 4.1.
+#
+# cmd/eaip locates each package by probing the AIRAC grid against the
+# State's own path templates and confirming with the first section, so a
+# redesigned index page cannot silently produce an empty scrape. One
+# State's site being down costs only that State's refresh: the command
+# reports which failed and exits non-zero, and the committed datasets
+# stay on the last good cycle.
+#
+# Ten States are deliberately NOT built here: Czechia, Poland, Hungary,
+# Portugal, Bosnia and Herzegovina, Slovenia, Albania, Estonia, Latvia and
+# Norway. Each requires the publisher's consent before its content is
+# re-served, most of them saying so in their own eAIP GEN 0.1 "Copyright
+# policy" section, so cmd/eaip holds them out of `-state all` until that
+# consent is in hand. The table row and the parser stay, so any of them is
+# one `-state <cc>` away the day permission arrives (docs/eaip-states.md).
+
+on:
+  schedule:
+    # Stagger past IT (08:00), the last of the existing data jobs.
+    - cron: '30 8 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # Six States, each an index or pointer read and five sections per
+    # slot, two slots; Avians and Fintraffic are the slow hosts.
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The current slot. Each State's package is probed independently, so
+      # this writes every dataset whose publisher answered. A State that
+      # fails (its site down, or a package older than the cycle in force
+      # that nothing the publisher states confirms, which is how a moved
+      # package shows) must not cost the others their commit, so the step
+      # carries on and the job fails at the end instead.
+      - name: Build the cohort's current slot
+        id: current
+        continue-on-error: true
+        run: go run ./cmd/eaip -state all -target auto
+
+      # The pre-release slot, where a State publishes one. A missing
+      # pre-release is normal and writes nothing, so this step must not
+      # fail the job when no State has posted the next cycle yet.
+      - name: Build the cohort's next slot
+        continue-on-error: true
+        run: go run ./cmd/eaip -state all -target next
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip. --porcelain covers the
+          # first run of a State, whose files are untracked rather than
+          # modified.
+          CHANGED=$(git status --porcelain -- \
+            'public/data/sk-*.json' 'public/data/ie-*.json' \
+            'public/data/rs-*.json' 'public/data/xk-*.json' \
+            'public/data/fi-airspaces*.json' 'public/data/fi-navaids*.json' \
+            'public/data/fi-airports*.json' 'public/data/fi-aerodrome-facilities*.json' \
+            'public/data/fi-adcharts*.json' 'public/data/is-*.json' \
+            'public/data/cz-adcharts*.json' 'public/data/pl-adcharts*.json' \
+            'public/data/hu-adcharts*.json' 'public/data/pt-adcharts*.json' \
+            'public/data/ba-adcharts*.json' 'public/data/si-adcharts*.json' \
+            'public/data/al-adcharts*.json' 'public/data/ee-adcharts*.json' \
+            'public/data/lv-adcharts*.json' 'public/data/no-adcharts*.json' \
+            'public/data/se-adcharts*.json' 'public/data/nl-adcharts*.json' \
+            | grep -v '\.meta\.json$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/sk-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/sk-*.json public/data/ie-*.json \
+              public/data/rs-*.json public/data/xk-*.json \
+              public/data/fi-airspaces*.json public/data/fi-navaids*.json \
+              public/data/fi-airports*.json public/data/fi-aerodrome-facilities*.json \
+              public/data/fi-adcharts*.json public/data/is-*.json \
+              public/data/{cz,pl,hu,pt,ba,si,al,ee,lv,no,se,nl}-adcharts*.json
+            git commit -m "update eAIP-cohort datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi
+
+      # Whatever the others committed, a State that could not be refreshed
+      # fails the run, so a stale package is seen the week it happens.
+      - name: Fail if a State could not be refreshed
+        if: steps.current.outcome == 'failure'
+        run: |
+          echo "At least one State failed its current-slot build; see the step above."
+          exit 1

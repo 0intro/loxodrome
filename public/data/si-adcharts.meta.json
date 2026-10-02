@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-02T15:45:42.213Z",
+  "source": "Slovenia Control eAIP 2026-10-01-AIRAC",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "2026-10-01-AIRAC",
+  "base": "https://aim.sloveniacontrol.si/aim/eAIP/Operations/2026-10-01-AIRAC/",
+  "cycleLag": 0,
+  "confirmed": false,
+  "resolvedBy": "path templates",
+  "lang": "en-GB",
+  "aerodromes": 4,
+  "heliports": 0,
+  "withCharts": 4,
+  "withVac": 4,
+  "charts": 109,
+  "byFamily": {
+    "ADC": 4,
+    "AOC": 8,
+    "APDC": 4,
+    "IAC": 25,
+    "MISC": 2,
+    "PATC": 1,
+    "SID": 40,
+    "STAR": 17,
+    "VAC": 8
+  },
+  "miscTitles": [
+    "LJLJ AD 2.24.10-1",
+    "Radar Vectoring Chart"
+  ],
+  "linkCheck": "6/6"
+}

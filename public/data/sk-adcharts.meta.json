@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-10-02T15:45:27.764Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "AIP_SR_EFF_01OCT2026",
+  "base": "https://aim.lps.sk/web/eAIP_SR/AIP_SR_EFF_01OCT2026/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-SK",
+  "aerodromes": 5,
+  "heliports": 0,
+  "withCharts": 5,
+  "withVac": 5,
+  "charts": 96,
+  "byFamily": {
+    "ADC": 5,
+    "AOC": 6,
+    "APDC": 5,
+    "ATCSMAC": 4,
+    "GMC": 4,
+    "IAC": 27,
+    "MISC": 5,
+    "PATC": 2,
+    "SID": 23,
+    "STAR": 10,
+    "VAC": 5
+  },
+  "miscTitles": [
+    "Bird Concentrations",
+    "Noise monitoring sites chart"
+  ],
+  "linkCheck": "6/6"
+}

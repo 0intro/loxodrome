@@ -1,0 +1,128 @@
+name: Refresh ROMATSA Romania datasets
+
+# Regenerates public/data/ro-adcharts.json (and its .next twin): the charts
+# of every aerodrome and heliport in AIP Romania, linked where ROMATSA
+# serves them in its open directory per AIRAC edition
+# (https://www.aisro.ro/aip/<ISO>/). The sheets are named by their page,
+# so the titles come from each field's own AD 2.24 list, read out of its
+# text PDF with pdftotext (cmd/ro/adcharts.go). Links only: no chart is
+# copied (docs/aip-sources.md, "Chart links are not copies").
+#
+# And public/data/ro-obstacles.json: the Area 1 obstacle data set ROMATSA
+# publishes as a CSV beside the AIP, checked against the CRC-32Q and SHA-1
+# published with it before it is read (cmd/ro/obstacles.go). ROMATSA
+# lists the file in force alone, so the pre-release slot is written only
+# when one is posted ahead of its day.
+#
+# And public/data/ro-airspaces.json (and its .next twin): the airspace of
+# ENR 2.1, 5.1 and 5.2, which ROMATSA publishes only as PDF. Each
+# section's ruled tables are rebuilt from the PDF (internal/pdftable, the
+# words placed by pdftotext -bbox-layout) and read by the grammar the
+# generated eAIPs are read by (cmd/ro/airspaces.go), with each
+# aerodrome's control zone from its AD 2.17. And public/data/ro-navaids.json
+# the same way, from ENR 4.1's navaids and ENR 4.4's points
+# (cmd/ro/navaids.go). And public/data/ro-airports.json and
+# ro-aerodrome-facilities.json, the aerodromes and heliports of AD 2 and
+# AD 3, one text PDF per field (cmd/ro/airports.go): the three datasets
+# reading the aerodrome pages are built in one step, which reads them once.
+#
+# Weekly Thursday like the other AIP jobs: ROMATSA publishes each edition
+# ahead of its effective date, so the next slot is ready before the day.
+
+on:
+  schedule:
+    - cron: '0 9 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The chart titles are read out of each field's text PDF, and the
+      # airspace tables are rebuilt from the words pdftotext places:
+      # without it every field and section fails to read, so the build
+      # fails rather than committing an index of untitled sheets.
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Build ro-adcharts (current)
+        id: current
+        continue-on-error: true
+        run: go run ./cmd/ro -only adcharts -target current
+
+      - name: Build ro-adcharts (next)
+        continue-on-error: true
+        run: go run ./cmd/ro -only adcharts -target next
+
+      - name: Build ro-obstacles (current)
+        id: obstacles
+        continue-on-error: true
+        run: go run ./cmd/ro -only obstacles -target current
+
+      - name: Build ro-obstacles (next)
+        continue-on-error: true
+        run: go run ./cmd/ro -only obstacles -target next
+
+      - name: Build ro-airspaces, ro-airports, ro-aerodrome-facilities (current)
+        id: airspaces
+        continue-on-error: true
+        run: go run ./cmd/ro -only airspaces,airports,facilities -target current
+
+      - name: Build ro-airspaces, ro-airports, ro-aerodrome-facilities (next)
+        continue-on-error: true
+        run: go run ./cmd/ro -only airspaces,airports,facilities -target next
+
+      - name: Build ro-navaids (current)
+        id: navaids
+        continue-on-error: true
+        run: go run ./cmd/ro -only navaids -target current
+
+      - name: Build ro-navaids (next)
+        continue-on-error: true
+        run: go run ./cmd/ro -only navaids -target next
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run. --porcelain covers the first
+          # run of a slot, whose files are untracked rather than modified.
+          CHANGED=$(git status --porcelain -- 'public/data/ro-*.json' \
+            | grep -v '\.meta\.json$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/ro-*.json
+            git commit -m "update ROMATSA Romania chart links, obstacles, airspace, navaids and aerodromes"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi
+
+      - name: Fail if the current slot could not be refreshed
+        if: steps.current.outcome == 'failure' || steps.obstacles.outcome == 'failure' || steps.airspaces.outcome == 'failure' || steps.navaids.outcome == 'failure'
+        run: |
+          echo "A current-slot build failed; see the steps above."
+          exit 1

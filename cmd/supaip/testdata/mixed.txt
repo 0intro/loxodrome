@@ -1,0 +1,66 @@
+62/310 PIA PUS
+Datedepublication:29JAN2026
+Internet: www.sia.aviation-civile.gouv.fr
+Objet: Cr�ationd'unezoneinterditetemporaire(ZIT)ORANGE(84)
+Envigueur: Dujeudi12f�vrier2026aumercredi14avril2027
+Lieux : FIR: MarseilleLFMM - AD: ORANGECARITATLFMO , ORANGEPLANDEDIEULFPR
+)48( EGNARO TIZ
+ExtraitcarteMarseilleDeltaduRh�ne1/250000SIA-Edition02-2025
+ACTIVIT�
+InterdictiondesurvoldinstallationsD�fensesp�ci�ques.
+FR
+Page1/3 �SIA
+SUPAIP013/26 Datedepublication:29JAN2026
+DATESETHEURESD'ACTIVIT�
+H24
+INFORMATIONDESUSAGERS
+ORANGEAPP: 118,925MHz 299,775MHz
+ORANGETWR: 128,950MHz 388,775MHz
+GESTIONNAIRES
+CommandementdelaD�fensea�rienneetdesOp�rationsA�riennes
+STATUT
+Zoneinterditetemporaire(ZIT)quicoexisteavecles portions desespacesa�riensaveclesquelleselleinterf�re.
+CONDITIONSDEP�N�TRATION
+P�n�trationinterditeH24�lexceptiondesACFT:
+enCAGIFRayantre�uuneclairancedunorganismeATS;
+delad�fense,delagendarmerie,desservicesdepolice,desdouanes,delasant�,intervenantaupro�tdEDF,
+delas�curit�civileetdesurveillanceayant�intervenirdanslecadredeleurmissionetnepouvant
+contournercettezone,apr�sobtentiondes�l�mentsdep�n�tration;
+ayantobtenuuneautorisationavecunpr�avisminimumde48HR,ainsiqueles�l�mentsdep�n�trationdela
+zone;
+lesa�ronefsaud�partou�destinationdel'ADdORANGECARITATayantunPPRetuneclairancede
+l'organismeducontr�led'ORANGE;
+lesa�ronefs�voluantenCAMdanslapartieinterf�renteaveclaLF-R55Aayantuneclairancedel'organisme
+ducontr�led'ORANGE;
+lesa�ronefsentrantdanslecadredelaconventionentrelabasea�riennedORANGECARITATetlACBde
+PLANDEDIEU.
+SERVICESRENDUS
+Lesservicesrendusauxa�ronefsautoris�s�p�n�trersontconformesauxservicesrendushabituellementdansles
+portionsdesespacesa�riensaveclesquelleslazoneinterf�re.
+LIMITESLATERALESETVERTICALES
+Limiteslat�rales
+44�05'31.79"N,004�53'19.75"E
+44�08'27.51"N,004�47'57.07"E
+archorairede3Nmderayoncentr�sur44�08'24.00"N,004�52'07.00"E
+44�05'31.79"N,004�53'19.75"E
+Limitesverticales
+SFC/FL55
+ORGANISMESACONTACTER
+Obtentionduneautorisation:CommandementdelaD�fensea�rienneetdesOp�rationsA�riennes.
+Formulairededemandedisponible:
+https//derog-zones.defense.gouv.fr
+Email: cdaoa-bapps-div-rend-derog-zones-interdites.contact.fct@def.gouv.fr
+Obtentiondes�l�mentsdep�n�tration(transpondeur,fr�quenceradio&)
+TEL:
+P1:0800397375(num�rovert)
+P2:0437503796
+P3:0478143143ou41)
+FR
+Page2/3 �SIA
+SUPAIP013/26 Datedepublication:29JAN2026
+DISPOSITIONSPARTICULI�RES
+LesegmentMTL-LFMO-CMdel'itin�rairedetransitVFRdenuitestsuspendu.LetransitVFRdenuitdoits'e�ectuervia
+MTL-AVN-CM.
+LaLFP236LORANGEestsuspenduependantlactivationdelaZITORANGE.
+FR
+Page3/3 �SIA
