@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-10-08T15:48:11.260Z",
+  "source": "Fintraffic ANS Finland eAIP 006-2026_2026_11_26 ENR 4.1 ENR 4.4",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "navaidCount": 324,
+  "counts": {
+    "DME": 23,
+    "VOR-DME": 6,
+    "WAYPOINT": 295
+  },
+  "tables": 2,
+  "skippedNoPosition": 0,
+  "bbox": [
+    19.111,
+    59.047,
+    31.376,
+    69.932
+  ]
+}

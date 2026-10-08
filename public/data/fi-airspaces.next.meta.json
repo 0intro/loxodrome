@@ -1,11 +1,10 @@
 {
-  "generatedAt": "2026-10-08T15:46:31.820Z",
-  "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
-  "sourceSha256": "d76d60d05c72ea4567fe1bf0ca5f9b1c25fece7cf98a4d49a647734965fa8816",
-  "effective": "2026-10-01T00:00:00.000Z",
+  "generatedAt": "2026-10-08T15:48:11.272Z",
+  "source": "Fintraffic ANS Finland eAIP 006-2026_2026_11_26",
+  "sourceSha256": "ca5e97c490949ae518ee135bbe09cc35d27c15e57f9caa235bcc1953b2536c33",
+  "effective": "2026-11-26T00:00:00.000Z",
   "cycleLag": 0,
-  "confirmed": true,
-  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "confirmed": false,
   "lang": "en-GB",
   "airspaceCount": 763,
   "sectionCounts": {
