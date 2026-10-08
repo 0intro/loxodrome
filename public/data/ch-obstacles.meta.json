@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-10-02T15:48:03.889Z",
-  "source": "Swiss_Obstacle_2026-10-02_004144.aixm.xml",
-  "sourceSha256": "997d029835cdcc7670852de49a9d0727a9caaa1492bd7512cb6a6156ada09a48",
-  "effective": "2026-10-02T00:00:00.000Z",
-  "obstacleCount": 15671,
-  "litCount": 1262,
+  "generatedAt": "2026-10-08T14:47:10.095Z",
+  "source": "Swiss_Obstacle_2026-10-08_005812.aixm.xml",
+  "sourceSha256": "cf87ee69a21f0d247bd9d743b0a976ccd83cb328d29f07ba6a6393353baa7a71",
+  "effective": "2026-10-08T00:00:00.000Z",
+  "obstacleCount": 15666,
+  "litCount": 1266,
   "skippedNonBaseline": 0,
-  "multiPartObstacles": 9356,
+  "multiPartObstacles": 9349,
   "skippedTooShort": 0,
   "unknownTypes": [],
   "counts": {
     "bridge": 46,
     "building": 967,
-    "cable": 9310,
+    "cable": 9303,
     "chimney": 145,
     "crane": 623,
     "other": 1715,
-    "pylon": 2794,
-    "windturbine": 71
+    "pylon": 2795,
+    "windturbine": 72
   },
   "bbox": [
     5.984,
