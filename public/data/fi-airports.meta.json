@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-02T15:45:49.910Z",
+  "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
+  "sourceSha256": "e2a85d79fd0685a0cdb29879d1430350198a6ccf603fe1d4a3f83e72b6854476",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "ahpCount": 96,
+  "runwayCount": 97,
+  "militaryCount": 0,
+  "radioCount": 174,
+  "transitionAltCount": 24,
+  "counts": {
+    "heliport": 16,
+    "large_airport": 19,
+    "medium_airport": 18,
+    "small_airport": 43
+  },
+  "bbox": [
+    19.896,
+    59.845,
+    30.074,
+    69.003
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB"
+}

@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-02T15:44:31.942Z",
+  "source": "skeyes eAIP 2026-10-01",
+  "sourceSha256": "95a9da27ff80c8c927d8d93ba9fa3d2df4db1cc60c7f51141e309aa6d01ea884",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "ahpCount": 165,
+  "runwayCount": 48,
+  "militaryCount": 11,
+  "radioCount": 117,
+  "transitionAltCount": 17,
+  "chartCount": 383,
+  "counts": {
+    "heliport": 113,
+    "large_airport": 10,
+    "medium_airport": 3,
+    "small_airport": 39
+  },
+  "bbox": [
+    2.447,
+    49.5,
+    6.277,
+    51.395
+  ]
+}

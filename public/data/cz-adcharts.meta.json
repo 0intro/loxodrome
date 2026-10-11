@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-10-02T15:45:26.770Z",
+  "source": "ANS CR Czechia eAIP ",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "",
+  "base": "https://aim.rlp.cz/eaip/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "fixed path",
+  "lang": "en-GB",
+  "aerodromes": 94,
+  "heliports": 74,
+  "withCharts": 168,
+  "withVac": 167,
+  "charts": 322,
+  "byFamily": {
+    "ADC": 11,
+    "AOC": 6,
+    "APDC": 11,
+    "ATCSMAC": 10,
+    "DEP": 6,
+    "GMC": 6,
+    "IAC": 53,
+    "MISC": 7,
+    "PATC": 3,
+    "SID": 22,
+    "STAR": 20,
+    "VAC": 167
+  },
+  "miscTitles": [
+    "Bird Hazard Concentrations Areas",
+    "Bird Hazard Concentration Areas",
+    "Reduced Runway Separation for Helicopters",
+    "General Aviation Stands and Taxiing on Apron WEST BRNO/Tuřany"
+  ],
+  "linkCheck": "6/6",
+  "alsoRead": [
+    "ANS CR VFR Manual 1 OCT 2026 (1)"
+  ]
+}

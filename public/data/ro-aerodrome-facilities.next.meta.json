@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-02T15:43:45.216Z",
+  "source": "ROMATSA AIP Romania 2026-10-29 AD 2, AD 3",
+  "sourceSha256": "031caa55859da3c030303ec85fb6404fa5f9256e522ec5e87347a8e9c855fc73",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "aerodromeCount": 39,
+  "heliportCount": 4,
+  "skippedNotes": 0,
+  "counts": {
+    "email": 52,
+    "fax": 35,
+    "operator": 39,
+    "phone": 68,
+    "remark": 8,
+    "web": 17
+  }
+}

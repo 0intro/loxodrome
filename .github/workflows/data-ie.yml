@@ -1,0 +1,80 @@
+name: Refresh IAA Ireland obstacles
+
+# Regenerates public/data/ie-obstacles.json from the Irish Aviation
+# Authority's two obstacle registers, the spreadsheets Ireland's ENR 5.4
+# points at: Area 1 (100 m AGL or higher, about 2200, nine in ten of them
+# wind-farm turbines) and the Safety Significant Obstacles, the ones under
+# 100 m the IAA judged air navigation must know of (about 900).
+#
+# Obstacles only: Ireland's airspace, aerodromes and navaids come from
+# AirNav Ireland's eAIP, in the eAIP-cohort job.
+#
+# Licence: the obstacle page states no terms of re-use and reserves the
+# copyright, the class Ireland's eAIP is in (GEN 0.1 carries no copyright
+# item), so the data ships, credited to the IAA.
+#
+# Both AIRAC slots come free here, as in Finland's: the page lists the
+# edition in force beside the next once it is posted, so -target picks the
+# files as well as the output slot. The site now and then answers 403 on
+# a cache miss and serves the same file a minute later; the command waits
+# that out (cmd/ie/fetch.go), hence the timeout.
+#
+# Weekly Thursday plus the git-diff gate, like the other data jobs: the
+# registers move on the AIRAC grid, most weeks are a free no-op, and a
+# publisher running late is caught the week it posts.
+
+on:
+  schedule:
+    # Stagger past the 09:30 jobs, the last of the existing ones.
+    - cron: '0 10 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build ie-obstacles.json
+        run: go run ./cmd/ie
+
+      # The pre-release, where one is posted. A cycle whose successor is
+      # not up yet writes nothing and exits clean, so this needs no
+      # continue-on-error.
+      - name: Build the pre-release slot
+        run: go run ./cmd/ie -target next
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/ie-obstacles*.json' ':(exclude)public/data/ie-obstacles*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/ie-obstacles.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/ie-obstacles*.json'
+            git commit -m "update IAA Ireland obstacles, AIRAC ${EFFECTIVE}"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

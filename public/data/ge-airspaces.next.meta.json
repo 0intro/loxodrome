@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-10-02T16:05:47.612Z",
+  "source": "UG_AIP_DS_FULL_20261126_AIRAC.xml",
+  "sourceSha256": "5012a9dbc785be8a5128f76a6b737c15cea9bcf24557638ab314f514979d161c",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "airspaceCount": 104,
+  "skippedNoBoundary": 0,
+  "skippedNoProjection": 28,
+  "skippedNoType": 2,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 14,
+  "unresolvedGeometryXlinks": 0,
+  "multiComponentAirspaces": 4,
+  "counts": {
+    "A": 14,
+    "ATZ": 1,
+    "CTA": 2,
+    "CTR": 4,
+    "FIR": 1,
+    "P": 1,
+    "R": 52,
+    "RMZ": 3,
+    "TMA": 26
+  },
+  "bbox": [
+    39.916,
+    41.053,
+    46.736,
+    43.587
+  ]
+}

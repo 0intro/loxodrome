@@ -1,0 +1,168 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Diamond DA20-C1 from its flight manual alone, no
+# airframe's weighing: DA20-C1 Airplane Flight Manual, Doc # DA202-C1,
+# Revision 28 of 28 February 2014 (initial issue 19 December 1997; Transport
+# Canada type certificate A-191). Continental IO-240, 125 hp, Sensenich
+# fixed-pitch propeller. The manual names no serial range. Pages below are
+# the manual's; it prints lb, in, US gal and ft with metric figures beside
+# them, used as printed.
+version: 1
+
+aircraft:
+  type: DA20-C1
+  icaoType: DV20
+  name: Diamond DA20-C1 (Continental IO-240), all s/n
+  generic: da20-c1
+
+fuel:
+  # 1.8 and 2.14: 93 L total, 91 L usable; AVGAS 100 or 100LL (100 is not
+  # one of the app's grades).
+  capacityL: 93
+  usableL: 91
+  types: [100LL]
+  consumptionLph: 25.0
+
+cruise:
+  speedKt: 123
+  name: '2700 rpm'
+  # The cruise performance table (5.3.10, Table 3, standard temperature) at
+  # 3000 ft, the mean of its 2000 and 4000 ft rows, speeds rounded down,
+  # flows to 0.1 L/h: 2700 rpm, 71 %, 123 kt, 6.6 US gal/h (25.0 L/h), the
+  # nearest printed power below 75 % (2800 rpm gives 79.5 %).
+  settings:
+    - { name: '2800 rpm', speedKt: 128, consumptionLph: 32.7 }
+    - { name: '2600 rpm', speedKt: 118, consumptionLph: 22.9 }
+    - { name: '2500 rpm', speedKt: 112, consumptionLph: 21.0 }
+
+climb: # 5.3.7, Figure 5.5: 800 kg, flaps CRUISE, 75 KIAS (the climb of 4.4.8, flaps up at 400 ft AGL), sea level ISA, read on the chart's vector lines at 922 to 929 ft/min (its example, 2000 ft 65 F, reads 807 for the printed 800), rounded down; 3 % less without wheel fairings
+  speedKt: 75
+  rateFtMin: 920
+
+massAndBalance:
+  # Empty mass and arm: the manual's loading example (6.4, Figure 6.7), 523 kg
+  # and 144.740 kgm (1153 lb, 12562 in.lb); with it, 728 kg at 202.788 kgm.
+  emptyMassKg: 523.0
+  emptyArmM: 0.2767
+  stations:
+    # Figure 6.7: pilot and passenger 0.143 m (5.63 in); baggage 0.824 m
+    # (32.44 in), 20 kg; the baggage compartment extension 1.575 m (62.0 in),
+    # 20 kg; both together 20 kg at most (the combined limit is not a station
+    # the app can state).
+    - { label: Seats, armM: 0.143, defaultMassKg: 80 }
+    - { label: Baggage, armM: 0.824, defaultMassKg: 0, maxMassKg: 20 }
+    - { label: Baggage extension, armM: 1.575, defaultMassKg: 0, maxMassKg: 20 }
+  fuelArmM: 0.824
+  # 2.8: forward 0.202 m at 750 kg, 0.205 m at 800 kg; aft 0.317 m at 750 kg,
+  # 0.309 m at 800 kg (points A to D); below 750 kg the limits run straight
+  # down to the foot of the diagram of 6.4 (Figure 6.8) at 1200 lb. Maximum
+  # take-off and landing mass 800 kg (2.7).
+  envelope:
+    - { armM: 0.202, massKg: 544.3 }
+    - { armM: 0.202, massKg: 750 }
+    - { armM: 0.205, massKg: 800 }
+    - { armM: 0.309, massKg: 800 }
+    - { armM: 0.317, massKg: 750 }
+    - { armM: 0.317, massKg: 544.3 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # Grass and wet: the manual gives no factor, the app's defaults. It prints
+  # no flapless landing figure, so no flapless check.
+  grassFactor: 1.15
+  wetFactor: 1.15
+  massMaxKg: 800
+  massMinKg: 600
+  # Take-off flaps T/O (15 deg, 7.3.3 p. 7-7), maximum take-off power, lift-off
+  # 52 KIAS, 58 KIAS over the obstacle (5.3.6): the speeds 4.4.7 gives for
+  # the shortest possible take-off distance over 15 m (the normal take-off
+  # rotates at 44 KIAS). Landing flaps LDG (45 deg), 55 KIAS (5.3.12).
+  takeoffFlapsDeg: 15
+  takeoffProcedure: short-field
+  landingFlapsDeg: 45
+  wind:
+    # Take-off: read on the chart's headwind guides, never more credit than
+    # they give: x0.78 for 10 kt, x0.62 for 20 kt (the chart's least credit,
+    # 0.770 and 0.611). Tailwind: its dash-dot guides, entered at the
+    # tailwind and followed to the zero line as their direction implies,
+    # add up to 13.4 % per 2 kt; its solid guides continued left of zero
+    # 8.7 %: the larger, 14 % per 2 kt, at landing too (none printed there).
+    # Landing: no wind correction printed, no headwind credit.
+    takeoffHeadwind: [[0, 1.0], [10, 0.78], [20, 0.62]]
+    landingHeadwind: [[0, 1.0]]
+    tailwindPctPer2Kt: 14
+  # Take-off (5.3.6, Figure 5.4, two sheets): read from the chart's vector
+  # paths (the pressure altitude curves in temperature, the weight guides
+  # from 800 kg, then the obstacle lines; the roll at a zero obstacle),
+  # cells every 2000 ft and 10 C at 800 and 600 kg, rounded up to 5 m, each
+  # raised until the app's interpolation never reads more than 0.1 % short
+  # of the chart: 3.5 % (over 15 m) and 2.6 % (roll) longer on average,
+  # 7.7 % at most. The obstacle lines stop at the 1000 m scale top (a
+  # 700 m roll reaches it at 15 m), so the table stops at 6000 ft, where the
+  # hottest 800 kg cell, 1040 m, is read along the lines 4 % above the
+  # scale: above 6000 ft the app reports the table's top. Its worked example
+  # (1000 ft, 22 C, 725 kg, 4 kt, a 5 m obstacle) prints 341 m; the chart's
+  # lines give 354 m.
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [320, 415], massMin: [160, 210] }
+    - { altFt: 0, isaOffsetC: -10, massMax: [360, 460], massMin: [180, 235] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [395, 510], massMin: [200, 260] }
+    - { altFt: 0, isaOffsetC: 10, massMax: [435, 570], massMin: [220, 285] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [480, 635], massMin: [240, 310] }
+    - { altFt: 2000, isaOffsetC: -20, massMax: [370, 470], massMin: [185, 240] }
+    - { altFt: 2000, isaOffsetC: -10, massMax: [410, 525], massMin: [205, 265] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [455, 595], massMin: [230, 295] }
+    - { altFt: 2000, isaOffsetC: 10, massMax: [500, 660], massMin: [250, 325] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [550, 745], massMin: [280, 355] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [425, 540], massMin: [210, 275] }
+    - { altFt: 4000, isaOffsetC: -10, massMax: [470, 610], massMin: [235, 305] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [525, 695], massMin: [260, 335] }
+    - { altFt: 4000, isaOffsetC: 10, massMax: [570, 780], massMin: [290, 370] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [630, 865], massMin: [320, 410] }
+    - { altFt: 6000, isaOffsetC: -20, massMax: [480, 625], massMin: [240, 310] }
+    - { altFt: 6000, isaOffsetC: -10, massMax: [535, 710], massMin: [270, 345] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [595, 815], massMin: [300, 385] }
+    - { altFt: 6000, isaOffsetC: 10, massMax: [660, 900], massMin: [330, 425] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [725, 1040], massMin: [365, 470] }
+  # Landing (5.3.12, Table 4): the manual prints the distances at 800 kg in
+  # the standard atmosphere only, by height, with + 5 % (distance) and + 7 %
+  # (roll) for an airplane with its ground idle set to 1000 rpm, applied
+  # here to every airplane. The ISA column is the table; the ISA + 20 column
+  # reads it at that day's density altitude (ICAO standard atmosphere; the
+  # table extended by its own step above 7000 ft; FAA-H-8083-25C 4-4); the
+  # cold column takes no credit. 800 kg in both mass columns. Cells: [ground
+  # roll, distance over 15 m], rounded up.
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [216, 436], massMin: [216, 436] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [216, 436], massMin: [216, 436] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [231, 457], massMin: [231, 457] }
+    - { altFt: 1000, isaOffsetC: -20, massMax: [222, 444], massMin: [222, 444] }
+    - { altFt: 1000, isaOffsetC: 0, massMax: [222, 444], massMin: [222, 444] }
+    - { altFt: 1000, isaOffsetC: 20, massMax: [238, 466], massMin: [238, 466] }
+    - { altFt: 2000, isaOffsetC: -20, massMax: [229, 454], massMin: [229, 454] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [229, 454], massMin: [229, 454] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [245, 476], massMin: [245, 476] }
+    - { altFt: 3000, isaOffsetC: -20, massMax: [236, 464], massMin: [236, 464] }
+    - { altFt: 3000, isaOffsetC: 0, massMax: [236, 464], massMin: [236, 464] }
+    - { altFt: 3000, isaOffsetC: 20, massMax: [253, 487], massMin: [253, 487] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [243, 474], massMin: [243, 474] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [243, 474], massMin: [243, 474] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [261, 498], massMin: [261, 498] }
+    - { altFt: 5000, isaOffsetC: -20, massMax: [251, 484], massMin: [251, 484] }
+    - { altFt: 5000, isaOffsetC: 0, massMax: [251, 484], massMin: [251, 484] }
+    - { altFt: 5000, isaOffsetC: 20, massMax: [268, 509], massMin: [268, 509] }
+    - { altFt: 6000, isaOffsetC: -20, massMax: [258, 495], massMin: [258, 495] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [258, 495], massMin: [258, 495] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [276, 520], massMin: [276, 520] }
+    - { altFt: 7000, isaOffsetC: -20, massMax: [266, 506], massMin: [266, 506] }
+    - { altFt: 7000, isaOffsetC: 0, massMax: [266, 506], massMin: [266, 506] }
+    - { altFt: 7000, isaOffsetC: 20, massMax: [284, 531], massMin: [284, 531] }
+
+notes: Generic sheet. Empty mass and arm from the flight manual's loading
+  example (523 kg, 144.740 kgm), not an aircraft's weighing. The landing
+  table above ISA reads the manual's standard-day table at the density
+  altitude.
+source: DA20-C1 Airplane Flight Manual, document DA202-C1, Revision 28 (28
+  February 2014), Diamond Aircraft Industries.

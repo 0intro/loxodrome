@@ -1,0 +1,60 @@
+{
+  "deepest": 12,
+  "coarsest": 6,
+  "regions": [
+    {
+      "id": "glo30",
+      "label": "Copernicus GLO-30",
+      "native": 12,
+      "datum": "DSM",
+      "vertical": "EGM2008",
+      "licence": "Copernicus DEM free and open",
+      "attribution": "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved. The organisations in charge of the Copernicus programme by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30.",
+      "bounds": [
+        -180,
+        -60,
+        180,
+        84
+      ]
+    },
+    {
+      "id": "glo90",
+      "label": "Copernicus GLO-90",
+      "native": 10,
+      "datum": "DSM",
+      "vertical": "EGM2008",
+      "licence": "Copernicus DEM free and open",
+      "attribution": "produced using Copernicus WorldDEM™-90 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved. The organisations in charge of the Copernicus programme by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM™-90.",
+      "bounds": [
+        -180,
+        -60,
+        180,
+        84
+      ]
+    },
+    {
+      "id": "nasadem",
+      "label": "NASADEM",
+      "native": 12,
+      "datum": "DSM",
+      "vertical": "EGM96",
+      "licence": "public domain (NASA LP DAAC)",
+      "attribution": "NASADEM Merged DEM Global 1 arc second V001, NASA JPL, distributed by the NASA EOSDIS Land Processes DAAC; public domain",
+      "bounds": [
+        38,
+        38,
+        51,
+        44
+      ]
+    }
+  ],
+  "tiles": {
+    "10": 288474,
+    "11": 326875,
+    "12": 1294826,
+    "6": 1583,
+    "7": 5424,
+    "8": 19693,
+    "9": 74402
+  }
+}

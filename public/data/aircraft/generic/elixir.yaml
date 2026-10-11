@@ -1,0 +1,134 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Elixir from its Airplane Flight Manual and Pilot's
+# Operating Handbook alone, no airframe's weighing: type certificate
+# EASA.A.633, Ed.02 Rev.01 of 27 July 2022 (the edition EASA approved, its
+# revision adding non-approved information). Rotax 912 iSc3 Sport, MT
+# MTV-34-1-A/156-203 propeller (2.4, 2.5), the configuration its
+# performance holds for (5.1). Pages below are the AFM's. The AFM prints SI
+# units; its imperial figures are conversions, not used.
+version: 1
+
+aircraft:
+  type: Elixir
+  icaoType: LXR
+  name: Elixir (Rotax 912 iSc3 Sport), all s/n
+  generic: elixir
+
+fuel:
+  # 2.12.1, p. 2-8: 104 L total, 100 L usable. Approved grades (2.12.2):
+  # unleaded Mogas 95/98 E5 (not above FL120), AVGAS UL91 / UL94, AVGAS
+  # 100LL (with engine maintenance limitations). UL Aero Super+, the app's
+  # SUPER AERO+, is an ethanol-free EN 228 SP98 (its maker, TotalEnergies),
+  # within the Mogas approval. The AFM converts fuel at 0.72 kg/L (6.4.1).
+  capacityL: 104
+  usableL: 100
+  types: [UL91, SUPER AERO+, 100LL]
+  consumptionLph: 19.5
+
+cruise:
+  speedKt: 126
+  name: Smart cruise
+  # The cruise table (5.7, p. 5-7, "only indicative", 630 kg) at 3000 ft,
+  # the mean of its 2000 and 4000 ft rows, speeds rounded down, flows to
+  # 0.1 L/h. The default is "Smart cruise" (max ECO), which the AFM calls
+  # the compromise between fast and economic cruise; it prints no
+  # percentage of power. Smart cruise: 126 and 126 kt, 20 and 19 L/h.
+  settings:
+    - { name: 'Fast cruise (5500 rpm)', speedKt: 128, consumptionLph: 26.0 }
+    - { name: 'Economy cruise 15 L/h', speedKt: 112, consumptionLph: 15.0 }
+    - { name: 'Economy cruise 13 L/h', speedKt: 105, consumptionLph: 13.0 }
+
+climb: # 5.6, p. 5-6: 630 kg, flaps UP, 5500 rpm, IAS 140 km/h (76 kt); 1040 ft/min at sea level ISA
+  speedKt: 76
+  rateFtMin: 1040
+
+massAndBalance:
+  # Empty mass and arm: the AFM's loading verification example (6.4, p.
+  # 6-3), 360 kg at 673 mm aft of the firewall, the datum of every arm.
+  emptyMassKg: 360.0
+  emptyArmM: 0.6730
+  stations:
+    # Arms, 6.3.4 p. 6-2: the seats move from 1050 mm (fully forward and up)
+    # to 1150 mm (fully aft and down), the AFM advising the larger arm when
+    # the airplane is tail heavy and the smaller when nose heavy; its
+    # example puts the pilot at 1150 and the copilot at 1050, as here.
+    # Baggage 1580 mm, 25 kg maximum (2.7).
+    - { label: Pilot, armM: 1.150, defaultMassKg: 80 }
+    - { label: Copilot, armM: 1.050, defaultMassKg: 0 }
+    - { label: Baggage, armM: 1.580, defaultMassKg: 0, maxMassKg: 25 }
+  fuelArmM: 0.774
+  # 2.8, p. 2-6: forward 720 mm at 500 kg, straight to 800 mm at 630 kg;
+  # aft 860 mm. Below 500 kg the limits run straight down to the chart's
+  # foot at 436 kg (the masses of 2.8's conversion chart; the chart of
+  # 6.4). Maximum landing mass 630 kg, the take-off maximum.
+  envelope:
+    - { armM: 0.720, massKg: 436 }
+    - { armM: 0.720, massKg: 500 }
+    - { armM: 0.800, massKg: 630 }
+    - { armM: 0.860, massKg: 630 }
+    - { armM: 0.860, massKg: 436 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # 5.5, p. 5-6: dry grass, the ground distances x1.2 at take-off and at
+  # landing, the AFM suggesting 1.4 at landing as dry and wet grass are hard
+  # to tell apart; wet grass x1.3 (take-off) and x1.6 (landing). One factor
+  # on both distances: 1.4. Wet: 1.15, the app's default, which with the
+  # grass factor gives 1.61 on wet grass. The AFM prints no flapless
+  # landing distance, so no flapless check.
+  grassFactor: 1.4
+  wetFactor: 1.15
+  # One mass printed, 630 kg, carried in both columns; the lower column
+  # stands at the envelope's foot (436 kg) so that no real mass reads as
+  # extrapolated.
+  massMaxKg: 630
+  massMinKg: 436
+  # Take-off flaps T/O (15 deg), maximum take-off power after brake release,
+  # lift-off 59 KIAS, 67 KIAS at 15 m; landing flaps LDG (37 deg), 59 KIAS
+  # at 15 m, a 3 deg approach (5.3, 5.4).
+  takeoffFlapsDeg: 15
+  takeoffProcedure: normal
+  landingFlapsDeg: 37
+  wind:
+    # The tables are for no wind and the AFM prints no wind correction:
+    # no headwind credit, the app's tailwind penalty (10 % per 2 kt).
+    takeoffHeadwind: [[0, 1.0]]
+    landingHeadwind: [[0, 1.0]]
+    tailwindPctPer2Kt: 10
+  # AFM distances by pressure altitude and ISA deviation, as printed
+  # (metres): cells [ground run, distance over 15 m]. Take-off 5.3 p. 5-3,
+  # landing 5.4 p. 5-4, both at 630 kg.
+  takeoff:
+    - { altFt: 0, isaOffsetC: 0, massMax: [250, 445], massMin: [250, 445] }
+    - { altFt: 0, isaOffsetC: 10, massMax: [270, 480], massMin: [270, 480] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [290, 517], massMin: [290, 517] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [292, 522], massMin: [292, 522] }
+    - { altFt: 2000, isaOffsetC: 10, massMax: [315, 564], massMin: [315, 564] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [339, 607], massMin: [339, 607] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [339, 608], massMin: [339, 608] }
+    - { altFt: 4000, isaOffsetC: 10, massMax: [366, 657], massMin: [366, 657] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [394, 708], massMin: [394, 708] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [398, 716], massMin: [398, 716] }
+    - { altFt: 6000, isaOffsetC: 10, massMax: [430, 774], massMin: [430, 774] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [464, 836], massMin: [464, 836] }
+  landing:
+    - { altFt: 0, isaOffsetC: 0, massMax: [225, 575], massMin: [225, 575] }
+    - { altFt: 0, isaOffsetC: 10, massMax: [233, 583], massMin: [233, 583] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [241, 591], massMin: [241, 591] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [239, 589], massMin: [239, 589] }
+    - { altFt: 2000, isaOffsetC: 10, massMax: [247, 597], massMin: [247, 597] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [255, 605], massMin: [255, 605] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [253, 603], massMin: [253, 603] }
+    - { altFt: 4000, isaOffsetC: 10, massMax: [262, 612], massMin: [262, 612] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [271, 621], massMin: [271, 621] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [269, 619], massMin: [269, 619] }
+    - { altFt: 6000, isaOffsetC: 10, massMax: [279, 629], massMin: [279, 629] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [289, 639], massMin: [289, 639] }
+
+notes: Generic sheet. Empty mass and arm from the AFM's loading verification
+  example (360 kg at 673 mm), not an aircraft's weighing.
+source: Elixir Airplane Flight Manual and Pilot's Operating Handbook, type
+  certificate EASA.A.633, Ed.02 Rev.01 (27 July 2022).

@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-10-02T15:47:01.542Z",
+  "source": "Avians Iceland eAIP A_10-2026_2026_10_29",
+  "sourceSha256": "18c2deba5f4291cd196354f31b99346c2f311c1fec762981c3b5cbbb72f03d50",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "airspaceCount": 45,
+  "sectionCounts": {
+    "AD 2.17": 6,
+    "ENR 2.1": 11,
+    "ENR 2.2": 4,
+    "ENR 5.1": 2,
+    "ENR 5.2": 16,
+    "ENR 5.5": 6
+  },
+  "tables": 14,
+  "limitsSwapped": 0,
+  "classStacks": 7,
+  "withRadio": 20,
+  "pointCircles": 0,
+  "pointOnly": 0,
+  "firRings": 0,
+  "borderStitched": 0,
+  "borderChords": 0,
+  "arcsUnread": 0,
+  "adZones": 6,
+  "adRepublished": 0,
+  "adInferredCtr": 0,
+  "refsResolved": 0,
+  "bufferColumns": 0,
+  "skippedTypes": {
+    "AD 2.17 NO GEOMETRY": 13,
+    "REYKJAVIK FLIGHT INFORMATION": 1
+  },
+  "counts": {
+    "ACTIVITY": 6,
+    "ATZ": 3,
+    "CTA": 4,
+    "CTR": 3,
+    "D": 17,
+    "DLG-ATS": 4,
+    "P": 1,
+    "TMA": 7
+  },
+  "bbox": [
+    -76,
+    60.666,
+    30,
+    90
+  ],
+  "bboxes": [
+    [
+      -76,
+      76,
+      -75,
+      78
+    ],
+    [
+      -60,
+      82,
+      -60,
+      82
+    ],
+    [
+      -57.75,
+      63.5,
+      -55.583,
+      65
+    ],
+    [
+      -39,
+      63.5,
+      -39,
+      63.5
+    ],
+    [
+      -30,
+      60.666,
+      -0,
+      73
+    ],
+    [
+      -0,
+      82,
+      -0,
+      90
+    ],
+    [
+      30,
+      82,
+      30,
+      82
+    ]
+  ]
+}

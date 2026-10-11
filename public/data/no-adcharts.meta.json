@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-10-02T15:46:11.860Z",
+  "source": "Avinor Norway eAIP 2026-09-03-AIRAC",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "edition": "2026-09-03-AIRAC",
+  "base": "https://aim-prod.avinor.no/no/AIP/View/Index/155/2026-09-03-AIRAC/",
+  "cycleLag": 1,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 53,
+  "heliports": 2,
+  "withCharts": 55,
+  "withVac": 51,
+  "charts": 1557,
+  "byFamily": {
+    "ADC": 52,
+    "AOC": 12,
+    "APDC": 32,
+    "ARC": 36,
+    "DATA": 247,
+    "DEP": 52,
+    "GMC": 2,
+    "IAC": 622,
+    "MISC": 9,
+    "PATC": 8,
+    "SID": 239,
+    "STAR": 188,
+    "VAC": 58
+  },
+  "miscTitles": [
+    "De-ice Areas",
+    "NIL",
+    "Intersection take-off Chart",
+    "De-ice Areas Chart",
+    "Push Back Procedures",
+    "Landing Pattern - Light Aircraft",
+    "Training Areas and Patterns Helicopter"
+  ],
+  "linkCheck": "6/6"
+}

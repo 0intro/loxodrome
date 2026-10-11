@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-02T15:46:18.451Z",
+  "source": "LFV Sweden eAIP AIP AMDT 1-2026_2026_08_07",
+  "effective": "2026-08-07T00:00:00.000Z",
+  "edition": "AIP AMDT 1-2026_2026_08_07",
+  "base": "https://aro.lfv.se/content/eaip/AIP%20AMDT%201-2026_2026_08_07/",
+  "cycleLag": 2,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 48,
+  "heliports": 0,
+  "withCharts": 48,
+  "withVac": 48,
+  "charts": 646,
+  "byFamily": {
+    "ADC": 44,
+    "AOC": 52,
+    "APDC": 8,
+    "ARC": 37,
+    "ATCSMAC": 36,
+    "GMC": 6,
+    "IAC": 284,
+    "MISC": 2,
+    "PATC": 13,
+    "SID": 61,
+    "STAR": 53,
+    "VAC": 50
+  },
+  "miscTitles": [
+    "ESSA - Holding Procedures",
+    "Holding Procedures - STOCKHOLM"
+  ],
+  "linkCheck": "6/6"
+}

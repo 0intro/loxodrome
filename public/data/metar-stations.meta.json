@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-10-11T21:39:46.750Z",
+  "source": "https://aviationweather.gov/api/data/stationinfo",
+  "stationCount": 7736,
+  "tafCount": 3638,
+  "countryCount": 236,
+  "requests": 312
+}

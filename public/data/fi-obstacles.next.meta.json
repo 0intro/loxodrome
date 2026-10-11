@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-02T15:43:25.531Z",
+  "source": "ef_efin_area1_obstdata_29_oct_2026.csv",
+  "sourceSha256": "d49699739a0adf6b0b33378ec46e9ffafa1e3f7afc8d794ce3c05bbc49036b18",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "obstacleCount": 2683,
+  "litCount": 2552,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "building": 9,
+    "chimney": 81,
+    "crane": 16,
+    "mast": 453,
+    "pylon": 3,
+    "tower": 4,
+    "windturbine": 2117
+  },
+  "bbox": [
+    19.549,
+    59.809,
+    30.934,
+    69.898
+  ]
+}

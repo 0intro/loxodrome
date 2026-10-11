@@ -1,0 +1,64 @@
+name: Refresh Naviair Denmark chart links
+
+# Regenerates public/data/dk-adcharts.json: the charts of every aerodrome
+# and heliport in the AIP of Denmark, its VFR Flight Guide and the AIPs of
+# the Faroe Islands and Greenland, linked where Naviair serves them. The
+# documents sit in Naviair's AIM tree behind an anonymous JSON API
+# (aim.naviair.dk, cmd/dk/adcharts.go). Links only: no chart is copied, and
+# the Danish CAA's terms hold everything else (docs/dk-aip.md).
+#
+# Weekly Thursday like the other AIP jobs. A new edition of a file gets a
+# new media id, so a week-old index would point at withdrawn files; the
+# link check fails the run when that happens rather than committing it.
+
+on:
+  schedule:
+    - cron: '30 9 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build dk-adcharts
+        run: go run ./cmd/dk -only adcharts
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run. --porcelain covers the first
+          # run, whose files are untracked rather than modified.
+          CHANGED=$(git status --porcelain -- 'public/data/dk-*.json' \
+            | grep -v '\.meta\.json$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/dk-*.json
+            git commit -m "update Naviair Denmark chart links"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

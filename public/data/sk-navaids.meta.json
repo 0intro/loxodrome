@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-02T15:45:28.354Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026 ENR 4.1 ENR 4.4",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-SK",
+  "navaidCount": 128,
+  "counts": {
+    "DME": 7,
+    "NDB": 3,
+    "VOR-DME": 5,
+    "WAYPOINT": 113
+  },
+  "tables": 2,
+  "skippedNoPosition": 0,
+  "bbox": [
+    16.926,
+    47.736,
+    22.449,
+    49.612
+  ]
+}

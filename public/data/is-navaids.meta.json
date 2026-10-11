@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-10-02T15:46:01.981Z",
+  "source": "Avians Iceland eAIP A_09-2026_2026_10_01 ENR 4.1 ENR 4.4",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "navaidCount": 316,
+  "counts": {
+    "DME": 4,
+    "NDB": 14,
+    "TACAN": 1,
+    "VOR-DME": 2,
+    "WAYPOINT": 295
+  },
+  "tables": 2,
+  "skippedNoPosition": 0,
+  "bbox": [
+    -75.834,
+    61,
+    -0,
+    90
+  ]
+}

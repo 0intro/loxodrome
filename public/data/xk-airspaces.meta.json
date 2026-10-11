@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-10-02T15:45:40.439Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 10-2026_2026_10_01",
+  "sourceSha256": "8604ff4b88af372f13073b3d9fd179d89f3d9e98ecdec1f5f6197fe481dff843",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "airspaceCount": 17,
+  "sectionCounts": {
+    "AD 2.17": 0,
+    "ENR 2.1": 5,
+    "ENR 2.2": 3,
+    "ENR 5.1": 2,
+    "ENR 5.2": 3,
+    "ENR 5.5": 4
+  },
+  "tables": 9,
+  "limitsSwapped": 3,
+  "classStacks": 1,
+  "withRadio": 8,
+  "pointCircles": 0,
+  "pointOnly": 20,
+  "firRings": 0,
+  "borderStitched": 1,
+  "borderChords": 2,
+  "arcsUnread": 0,
+  "adZones": 1,
+  "adRepublished": 1,
+  "adInferredCtr": 1,
+  "refsResolved": 0,
+  "bufferColumns": 0,
+  "skippedTypes": {
+    "AREA 1": 1,
+    "AREA 2": 1,
+    "AREA 3": 1,
+    "FIR PRISTINA COVERS": 1,
+    "NO GEOMETRY": 1
+  },
+  "counts": {
+    "ACTIVITY": 4,
+    "CTA": 4,
+    "CTR": 1,
+    "R": 2,
+    "RMZ": 3,
+    "TRA": 3
+  },
+  "bbox": [
+    20.229,
+    42.077,
+    21.538,
+    43.123
+  ]
+}

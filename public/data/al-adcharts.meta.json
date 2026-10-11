@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-10-02T15:45:39.189Z",
+  "source": "ALBCONTROL Albania eAIP 01-OCT-2026-A/2026-10-01-AIRAC",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "01-OCT-2026-A/2026-10-01-AIRAC",
+  "base": "https://www.albcontrol.al/al/aip/01-OCT-2026-A/2026-10-01-AIRAC/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB",
+  "aerodromes": 2,
+  "heliports": 0,
+  "withCharts": 2,
+  "withVac": 2,
+  "charts": 25,
+  "byFamily": {
+    "ADC": 2,
+    "AOC": 3,
+    "APDC": 1,
+    "ATCSMAC": 1,
+    "DEP": 2,
+    "GMC": 1,
+    "IAC": 6,
+    "SID": 3,
+    "STAR": 3,
+    "VAC": 3
+  },
+  "linkCheck": "6/6"
+}

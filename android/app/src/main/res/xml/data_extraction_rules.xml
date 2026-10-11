@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Nothing leaves the device through backup or migration (docs/android.md).
+
+  AndroidManifest's allowBackup="false" already covers cloud backup on every
+  API level; this file exists for the OTHER channel, device-to-device transfer,
+  which API 31+ configures separately and which allowBackup does not govern.
+  Some manufacturers do not honour a device-transfer opt-out at all, so this is
+  a statement of intent as much as a switch.
+
+  Every domain is excluded rather than the interesting ones, because the two
+  that matter are the ones a rule would be written to catch: `file` holds the
+  flight recorder's journal under navrec/, and `root` holds the WebView data
+  directory, where localStorage keeps the routes and the aircraft and OPFS
+  keeps the downloaded chart packs, hundreds of megabytes of them. The
+  device_* domains are omitted: no component here is directBootAware, so
+  device-protected storage is empty by construction.
+
+  The migration path for a user changing phones is the app's own exports: the
+  route and aircraft YAML, and the flights library ZIP.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </device-transfer>
+</data-extraction-rules>

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-02T15:43:32.566Z",
+  "source": "Obstacle_Data_LRBB_Area_1_16_APR_2026.csv",
+  "sourceSha256": "4e86e03e2360a453b880371696082f4ae02a63deddac0eda1b73675ddef50d12",
+  "effective": "2026-04-16T00:00:00.000Z",
+  "obstacleCount": 1574,
+  "litCount": 1445,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "antenna": 24,
+    "building": 9,
+    "chimney": 27,
+    "mast": 62,
+    "tower": 2,
+    "windturbine": 1450
+  },
+  "bbox": [
+    21.214,
+    43.75,
+    29.08,
+    48.224
+  ],
+  "integrity": {
+    "crc32q": "19ED4D38",
+    "sha1": "717f7786313afd69362cee6860fa625b942f8e17"
+  },
+  "skippedNoPosition": 0,
+  "skippedNoUnit": 1
+}

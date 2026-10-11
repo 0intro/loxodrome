@@ -1,0 +1,294 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Piper PA-34-200 Seneca from its Pilot's Operating
+# Manual alone, no airframe's weighing: Piper 761 506 (issued March 1972,
+# revised to 30 November 1987; "Information Manual" on this copy's cover),
+# which holds the FAA approved flight manual, report VB-423 (revised
+# 14 June 1983), and the weight and balance, report VB-424. It applies to
+# s/n 34-7250001 to 34-7350353, to 34-7250189 with Piper kit 760 607
+# installed, 34-7250190 to 34-7250214 with kit 760 611. Pages below are the
+# manual's. Converted from its lb, in, US gal, ft and mph: 1 lb =
+# 0.45359237 kg, 1 in = 0.0254 m, 1 US gal = 3.785411784 L, 1 ft = 0.3048 m,
+# 1 mph = 0.868976 kt.
+version: 2
+
+aircraft:
+  type: PA34-200
+  icaoType: PA34
+  # Two 200 hp Lycomings turning opposite ways (1-2, 3-1 A): IO-360-C1E6
+  # left, LIO-360-C1E6 right, so no critical engine.
+  engines: 2
+  name: Piper PA-34-200 Seneca, s/n 34-7250001 to 34-7350353
+  generic: pa34-200
+
+fuel:
+  # 1-2 and 3-3 I, J: 98 US gal in all, 93 usable (46.5 a side, each side
+  # two interconnected tanks), 5 unusable. Grade 100/130 minimum (3-1 B),
+  # 100LL today. Flow: 75 % power, both engines (cruise below).
+  capacityL: 371.0
+  usableL: 352.0
+  types: [100LL]
+  consumptionLph: 78.0
+
+cruise:
+  speedKt: 155
+  name: '75 %'
+  # The true airspeed chart (8-9, revised 26 April 1974: 4200 lb, gear and
+  # flaps up, cowl flaps closed, mixture leaned per Lycoming) read at 3000
+  # ft ISA, where density and pressure altitude agree; its 75 % line reads
+  # 171.8 mph at sea level and 186.4 at 6000 ft for the 171.6 and 186.3 the
+  # specifications print (1-1). Speeds rounded down: 75 % 179.0 mph
+  # (155.55 kt), 65 % 169.5 (147.32), 55 % 156.2 (135.76), 45 % 140.4
+  # (121.98, at the chart's edge). Flows, both engines, from the range
+  # chart's table (8-10, revised 30 May 1975): 20.6, 18.3, 16.0 and 14.0
+  # US gal/h, to 0.1 L/h. The power setting table (8-16) gives each power's
+  # rpm and manifold pressure.
+  settings:
+    - { name: '65 %', speedKt: 147, consumptionLph: 69.3 }
+    - { name: '55 %', speedKt: 135, consumptionLph: 60.6 }
+    - { name: '45 %', speedKt: 121, consumptionLph: 53.0 }
+
+climb: # 1-1: 4200 lb, both engines, 1360 ft/min at sea level, standard, at the best rate of climb speed, 105 mph (91.5 kt printed), rounded down
+  speedKt: 91
+  rateFtMin: 1360
+
+massAndBalance:
+  # Empty mass and arm: the weight and balance plotter's sample problem
+  # (VB-424 p. 4-10), a basic weight of 2615 lb at 82.0 in (the licensed
+  # empty weight, its unusable fuel included, plus the oil, p. 4-6); the
+  # mass rounded down to 0.1 kg, so its loading (180 and 200 lb in front,
+  # 115 and 135 in the centre, 80 and 100 in the rear, 50 lb forward and
+  # 45 lb aft of baggage, 60 US gal: 3880 lb at 89.52 in) stays inside the
+  # envelope.
+  emptyMassKg: 1186.1
+  emptyArmM: 2.0828
+  stations:
+    # The sample loading problem's arms (p. 4-7, revised 30 May 1975); the
+    # optional jump seat sits at the centre seats' 118.1 in. Baggage 100 lb
+    # in each compartment (1-2).
+    - { label: Front seats, armM: 2.1717, defaultMassKg: 80 }
+    - { label: Centre seats, armM: 2.9997, defaultMassKg: 0 }
+    - { label: Rear seats, armM: 3.9548, defaultMassKg: 0 }
+    - { label: Forward baggage, armM: 0.5715, defaultMassKg: 0, maxMassKg: 45.3 }
+    - { label: Aft baggage, armM: 4.539, defaultMassKg: 0, maxMassKg: 45.3 }
+  fuelArmM: 2.3774 # 93.6 in (p. 4-7)
+  # 3-3 H: forward 80.7 in at 2780 lb, 82.0 at 3400, 87.9 at 4200, straight
+  # between; aft 94.6 at all weights. The weight and balance envelope
+  # (p. 4-9) carries the forward 80.7 down to 2200 lb, its floor.
+  # Retracting the gear moves the moment by -32 lb-in (p. 4-9), neglected.
+  envelope:
+    - { armM: 2.0498, massKg: 997.9 }
+    - { armM: 2.0498, massKg: 1260.98 }
+    - { armM: 2.0828, massKg: 1542.21 }
+    - { armM: 2.2327, massKg: 1905.08 }
+    - { armM: 2.4028, massKg: 1905.08 }
+    - { armM: 2.4028, massKg: 997.9 }
+  # 3-3 G: maximum landing weight 4000 lb (take-off 4200). No zero fuel
+  # weight is printed.
+  maxLandingMassKg: 1814.36
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # Grass and wet: the manual gives no factor (its charts are for a paved,
+  # level, dry runway; 6-7 only says a soft, wet, rough or grassy surface
+  # reduces the performance), the app's defaults. It publishes no flapless
+  # landing distance, so no flapless check.
+  grassFactor: 1.15
+  wetFactor: 1.15
+  massMaxKg: 1905.08 # 4200 lb
+  massMinKg: 1270.06 # 2800 lb, where the charts' weight panels end
+  # The flaps-up short field take-off (6-7: brakes held to full power,
+  # rotate at 80 mph, 85 mph at 50 ft; charts 8-2 and 8-5), the manual's
+  # safest short field technique and its best configuration for an engine
+  # failure. The flaps-25 technique is left out: 6-7 notes it is
+  # momentarily below Vmc. Landing flaps 40 (charts 8-13 and 8-14).
+  takeoffFlapsDeg: 0
+  takeoffProcedure: short-field
+  landingFlapsDeg: 40
+  wind:
+    # Read on the charts' headwind guides, never more credit than any guide
+    # gives over its range (every 5 mph, the knots rounded up to 0.1 kt,
+    # the factors up to 0.01): take-off the larger of 8-2's and 8-5's,
+    # landing of 8-13's and 8-14's. The charts print no tailwind: the
+    # app's 10 % per 2 kt.
+    takeoffHeadwind: [[0, 1.0], [4.4, 0.92], [8.7, 0.84], [13.1, 0.77], [17.4, 0.7], [21.8, 0.62], [26.1, 0.55]]
+    landingHeadwind: [[0, 1.0], [4.4, 0.92], [8.7, 0.84], [13.1, 0.76], [17.4, 0.68], [21.8, 0.61], [26.1, 0.54]]
+    tailwindPctPer2Kt: 10
+  # Distances read from the charts' lines (the pressure altitude curves in
+  # temperature, the weight guides from 4200 lb, or 4000 lb at landing, to
+  # the 2800 lb end of their panels), cells at the charts' own temperatures
+  # (0 to 100 F every 20 F), every 2000 ft, at 4200 and 2800 lb, rounded up
+  # to 5 m and each raised until the app's interpolation never reads more
+  # than 0.1 % short of the chart: 1.5 % longer on average, 3.4 % at most.
+  # The landing cells at 4200 lb carry the guides straight on past 4000 lb.
+  # Chart 8-5's 8000 ft curve leaves the chart at 82 F (4340 ft at
+  # 4200 lb): hotter, it is continued along its own curvature (4930 ft at
+  # 100 F, more than its 6000 ft curve's ratio gives). Read the app's way,
+  # with the headwind factors above, every worked example comes out longer
+  # than printed: roll 940 ft for 900 (8-2), over 50 ft 1661 for 1600
+  # (8-5), landing roll 648 for 615 (8-13), over 50 ft 1277 for 1240
+  # (8-14); and the specifications' landing at 4000 lb, sea level,
+  # standard, 718 ft roll and 1341 over 50 ft for 705 and 1335 (1-1).
+  takeoff:
+    - { altFt: 0, temperatureC: -17.8, massMax: [230, 335], massMin: [135, 185] }
+    - { altFt: 0, temperatureC: -6.7, massMax: [255, 370], massMin: [150, 205] }
+    - { altFt: 0, temperatureC: 4.4, massMax: [280, 405], massMin: [160, 220] }
+    - { altFt: 0, temperatureC: 15.6, massMax: [315, 445], massMin: [175, 245] }
+    - { altFt: 0, temperatureC: 26.7, massMax: [350, 495], massMin: [195, 270] }
+    - { altFt: 0, temperatureC: 37.8, massMax: [405, 555], massMin: [220, 305] }
+    - { altFt: 2000, temperatureC: -17.8, massMax: [275, 400], massMin: [160, 220] }
+    - { altFt: 2000, temperatureC: -6.7, massMax: [315, 445], massMin: [180, 245] }
+    - { altFt: 2000, temperatureC: 4.4, massMax: [355, 500], massMin: [195, 275] }
+    - { altFt: 2000, temperatureC: 15.6, massMax: [400, 560], massMin: [220, 310] }
+    - { altFt: 2000, temperatureC: 26.7, massMax: [445, 635], massMin: [245, 345] }
+    - { altFt: 2000, temperatureC: 37.8, massMax: [500, 710], massMin: [275, 390] }
+    - { altFt: 4000, temperatureC: -17.8, massMax: [350, 485], massMin: [195, 265] }
+    - { altFt: 4000, temperatureC: -6.7, massMax: [400, 555], massMin: [220, 305] }
+    - { altFt: 4000, temperatureC: 4.4, massMax: [455, 625], massMin: [245, 345] }
+    - { altFt: 4000, temperatureC: 15.6, massMax: [505, 705], massMin: [275, 385] }
+    - { altFt: 4000, temperatureC: 26.7, massMax: [565, 790], massMin: [305, 435] }
+    - { altFt: 4000, temperatureC: 37.8, massMax: [625, 880], massMin: [340, 485] }
+    - { altFt: 6000, temperatureC: -17.8, massMax: [450, 625], massMin: [245, 345] }
+    - { altFt: 6000, temperatureC: -6.7, massMax: [510, 710], massMin: [275, 390] }
+    - { altFt: 6000, temperatureC: 4.4, massMax: [565, 805], massMin: [310, 440] }
+    - { altFt: 6000, temperatureC: 15.6, massMax: [625, 910], massMin: [340, 495] }
+    - { altFt: 6000, temperatureC: 26.7, massMax: [685, 1020], massMin: [375, 560] }
+    - { altFt: 6000, temperatureC: 37.8, massMax: [760, 1150], massMin: [415, 630] }
+    - { altFt: 8000, temperatureC: -17.8, massMax: [565, 790], massMin: [310, 430] }
+    - { altFt: 8000, temperatureC: -6.7, massMax: [630, 900], massMin: [345, 490] }
+    - { altFt: 8000, temperatureC: 4.4, massMax: [695, 1015], massMin: [380, 555] }
+    - { altFt: 8000, temperatureC: 15.6, massMax: [765, 1145], massMin: [415, 625] }
+    - { altFt: 8000, temperatureC: 26.7, massMax: [850, 1305], massMin: [465, 725] }
+    - { altFt: 8000, temperatureC: 37.8, massMax: [960, 1505], massMin: [530, 835] }
+  landing:
+    - { altFt: 0, temperatureC: -17.8, massMax: [200, 395], massMin: [135, 325] }
+    - { altFt: 0, temperatureC: -6.7, massMax: [210, 400], massMin: [140, 330] }
+    - { altFt: 0, temperatureC: 4.4, massMax: [220, 410], massMin: [150, 340] }
+    - { altFt: 0, temperatureC: 15.6, massMax: [230, 420], massMin: [155, 345] }
+    - { altFt: 0, temperatureC: 26.7, massMax: [240, 430], massMin: [160, 350] }
+    - { altFt: 0, temperatureC: 37.8, massMax: [250, 440], massMin: [165, 360] }
+    - { altFt: 2000, temperatureC: -17.8, massMax: [215, 410], massMin: [145, 340] }
+    - { altFt: 2000, temperatureC: -6.7, massMax: [225, 420], massMin: [150, 345] }
+    - { altFt: 2000, temperatureC: 4.4, massMax: [235, 430], massMin: [160, 350] }
+    - { altFt: 2000, temperatureC: 15.6, massMax: [245, 440], massMin: [165, 360] }
+    - { altFt: 2000, temperatureC: 26.7, massMax: [255, 450], massMin: [170, 365] }
+    - { altFt: 2000, temperatureC: 37.8, massMax: [265, 460], massMin: [180, 370] }
+    - { altFt: 4000, temperatureC: -17.8, massMax: [235, 425], massMin: [160, 350] }
+    - { altFt: 4000, temperatureC: -6.7, massMax: [245, 435], massMin: [165, 355] }
+    - { altFt: 4000, temperatureC: 4.4, massMax: [255, 445], massMin: [170, 365] }
+    - { altFt: 4000, temperatureC: 15.6, massMax: [265, 455], massMin: [180, 370] }
+    - { altFt: 4000, temperatureC: 26.7, massMax: [275, 465], massMin: [185, 375] }
+    - { altFt: 4000, temperatureC: 37.8, massMax: [285, 475], massMin: [190, 385] }
+    - { altFt: 6000, temperatureC: -17.8, massMax: [250, 445], massMin: [170, 360] }
+    - { altFt: 6000, temperatureC: -6.7, massMax: [260, 455], massMin: [175, 370] }
+    - { altFt: 6000, temperatureC: 4.4, massMax: [275, 465], massMin: [185, 375] }
+    - { altFt: 6000, temperatureC: 15.6, massMax: [285, 475], massMin: [190, 385] }
+    - { altFt: 6000, temperatureC: 26.7, massMax: [295, 490], massMin: [200, 390] }
+    - { altFt: 6000, temperatureC: 37.8, massMax: [310, 500], massMin: [205, 400] }
+    - { altFt: 8000, temperatureC: -17.8, massMax: [270, 460], massMin: [185, 375] }
+    - { altFt: 8000, temperatureC: -6.7, massMax: [285, 475], massMin: [190, 380] }
+    - { altFt: 8000, temperatureC: 4.4, massMax: [295, 485], massMin: [195, 390] }
+    - { altFt: 8000, temperatureC: 15.6, massMax: [310, 500], massMin: [205, 400] }
+    - { altFt: 8000, temperatureC: 26.7, massMax: [325, 520], massMin: [215, 410] }
+    - { altFt: 8000, temperatureC: 37.8, massMax: [340, 545], massMin: [230, 430] }
+  # Accelerate-stop (8-6: flaps up, full power before brake release,
+  # accelerate to 80 mph, then stop), read and covered as the take-off is:
+  # 0.9 % longer on average, 2.3 % at most; its worked example reads
+  # 1706 ft for the printed 1650. Its own headwind guides give its factors.
+  accelerateStop:
+    massMaxKg: 1905.08
+    massMinKg: 1270.06
+    headwind: [[0, 1.0], [4.4, 0.92], [8.7, 0.83], [13.1, 0.74], [17.4, 0.66], [21.8, 0.58], [26.1, 0.51]]
+    rows:
+      - { altFt: 0, temperatureC: -17.8, massMax: 500, massMin: 305 }
+      - { altFt: 0, temperatureC: -6.7, massMax: 535, massMin: 325 }
+      - { altFt: 0, temperatureC: 4.4, massMax: 570, massMin: 345 }
+      - { altFt: 0, temperatureC: 15.6, massMax: 610, massMin: 370 }
+      - { altFt: 0, temperatureC: 26.7, massMax: 660, massMin: 400 }
+      - { altFt: 0, temperatureC: 37.8, massMax: 720, massMin: 435 }
+      - { altFt: 2000, temperatureC: -17.8, massMax: 560, massMin: 340 }
+      - { altFt: 2000, temperatureC: -6.7, massMax: 615, massMin: 375 }
+      - { altFt: 2000, temperatureC: 4.4, massMax: 665, massMin: 410 }
+      - { altFt: 2000, temperatureC: 15.6, massMax: 725, massMin: 440 }
+      - { altFt: 2000, temperatureC: 26.7, massMax: 785, massMin: 470 }
+      - { altFt: 2000, temperatureC: 37.8, massMax: 850, massMin: 505 }
+      - { altFt: 4000, temperatureC: -17.8, massMax: 655, massMin: 400 }
+      - { altFt: 4000, temperatureC: -6.7, massMax: 720, massMin: 440 }
+      - { altFt: 4000, temperatureC: 4.4, massMax: 785, massMin: 475 }
+      - { altFt: 4000, temperatureC: 15.6, massMax: 850, massMin: 510 }
+      - { altFt: 4000, temperatureC: 26.7, massMax: 920, massMin: 540 }
+      - { altFt: 4000, temperatureC: 37.8, massMax: 1000, massMin: 580 }
+      - { altFt: 6000, temperatureC: -17.8, massMax: 780, massMin: 470 }
+      - { altFt: 6000, temperatureC: -6.7, massMax: 855, massMin: 510 }
+      - { altFt: 6000, temperatureC: 4.4, massMax: 925, massMin: 545 }
+      - { altFt: 6000, temperatureC: 15.6, massMax: 1000, massMin: 580 }
+      - { altFt: 6000, temperatureC: 26.7, massMax: 1080, massMin: 625 }
+      - { altFt: 6000, temperatureC: 37.8, massMax: 1170, massMin: 680 }
+      - { altFt: 8000, temperatureC: -17.8, massMax: 920, massMin: 540 }
+      - { altFt: 8000, temperatureC: -6.7, massMax: 1010, massMin: 585 }
+      - { altFt: 8000, temperatureC: 4.4, massMax: 1095, massMin: 635 }
+      - { altFt: 8000, temperatureC: 15.6, massMax: 1185, massMin: 685 }
+      - { altFt: 8000, temperatureC: 26.7, massMax: 1280, massMin: 740 }
+      - { altFt: 8000, temperatureC: 37.8, massMax: 1390, massMin: 805 }
+
+oneEngineInoperative:
+  # 3-2 E: minimum control speed 80 mph (69.52 kt, rounded up), the radial
+  # red line; best rate of climb speed on one engine 105 mph, the blue
+  # line, 91.5 kt as the specifications print it (1-1). No best angle of
+  # climb speed on one engine is printed.
+  vmcKt: 69.6
+  vyseKt: 91.5
+  # Single engine climb (8-8, revised 26 April 1974: cowl flap open on the
+  # operating engine only, gear and flaps up, 5 deg of bank into the
+  # operating engine, full throttle, mixture leaned per Lycoming): rate of
+  # climb by density altitude, its lines at 3400, 3700, 4000 and 4200 lb
+  # read straight (4200 lb: 193 ft/min at sea level, 50 ft/min at 3686 ft,
+  # nil at 4975 ft, for the specifications' 190, 3650 and 5000; 4000 lb:
+  # 231, 5192 and 6629 for 230, 5200 and 6600). Cells every 2000 ft to
+  # 14000 ft at ISA -20, ISA and ISA +20 (the app's ISA), each read at its
+  # density altitude, rounded down to 5 ft/min. The 4200 lb line lies
+  # closer to the 4000 lb one (38 ft/min for 200 lb at sea level) than that
+  # one does to the 3700 lb line (101 ft/min for 300 lb): one straight line
+  # in mass from 4200 to 3400 lb cannot follow both, so the 4200 lb cells
+  # keep the chart (1.7 ft/min under it on average) and the 3400 lb ones
+  # are lowered until no weight between reads above it: 3700 lb up to
+  # 66 ft/min under the chart, 3400 lb up to 113 low down, exact high up.
+  # The lines are carried straight past the chart's -100 ft/min edge.
+  # There is no time limit on full power (6-8) and the take-off is flown
+  # flaps up, so this table stands for the take-off climb too.
+  climb:
+    massMaxKg: 1905.08 # 4200 lb
+    massMinKg: 1542.22 # 3400 lb
+    rows:
+      - { altFt: 0, isaOffsetC: -20, massMax: 285, massMin: 410 }
+      - { altFt: 0, isaOffsetC: 0, massMax: 190, massMin: 315 }
+      - { altFt: 0, isaOffsetC: 20, massMax: 100, massMin: 265 }
+      - { altFt: 2000, isaOffsetC: -20, massMax: 210, massMin: 335 }
+      - { altFt: 2000, isaOffsetC: 0, massMax: 115, massMin: 240 }
+      - { altFt: 2000, isaOffsetC: 20, massMax: 25, massMin: 190 }
+      - { altFt: 4000, isaOffsetC: -20, massMax: 130, massMin: 280 }
+      - { altFt: 4000, isaOffsetC: 0, massMax: 35, massMin: 185 }
+      - { altFt: 4000, isaOffsetC: 20, massMax: -55, massMin: 135 }
+      - { altFt: 6000, isaOffsetC: -20, massMax: 55, massMin: 245 }
+      - { altFt: 6000, isaOffsetC: 0, massMax: -40, massMin: 150 }
+      - { altFt: 6000, isaOffsetC: 20, massMax: -130, massMin: 100 }
+      - { altFt: 8000, isaOffsetC: -20, massMax: -25, massMin: 195 }
+      - { altFt: 8000, isaOffsetC: 0, massMax: -120, massMin: 100 }
+      - { altFt: 8000, isaOffsetC: 20, massMax: -205, massMin: 40 }
+      - { altFt: 10000, isaOffsetC: -20, massMax: -100, massMin: 145 }
+      - { altFt: 10000, isaOffsetC: 0, massMax: -195, massMin: 50 }
+      - { altFt: 10000, isaOffsetC: 20, massMax: -285, massMin: -35 }
+      - { altFt: 12000, isaOffsetC: -20, massMax: -175, massMin: 70 }
+      - { altFt: 12000, isaOffsetC: 0, massMax: -275, massMin: -25 }
+      - { altFt: 12000, isaOffsetC: 20, massMax: -360, massMin: -110 }
+      - { altFt: 14000, isaOffsetC: -20, massMax: -255, massMin: -5 }
+      - { altFt: 14000, isaOffsetC: 0, massMax: -350, massMin: -100 }
+      - { altFt: 14000, isaOffsetC: 20, massMax: -440, massMin: -185 }
+
+notes: Generic sheet. Empty mass and arm from the weight and balance plotter's
+  sample problem (2615 lb at 82.0 in), not an aircraft's weighing.
+source: Piper PA-34-200 Seneca Pilot's Operating Manual, Piper 761 506, revised
+  to 30 November 1987, with the FAA approved Airplane Flight Manual, report
+  VB-423, revised 14 June 1983, and the Weight and Balance, report VB-424.

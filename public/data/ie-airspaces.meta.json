@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-10-02T15:45:31.070Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-10-01-AIRAC",
+  "sourceSha256": "ad914efec0533751d7e318ee6afeff787ed9b273f0834c5263af6e8de484f95f",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-IE",
+  "airspaceCount": 81,
+  "sectionCounts": {
+    "AD 2.17": 8,
+    "ENR 2.1": 36,
+    "ENR 2.2": 8,
+    "ENR 5.1": 25,
+    "ENR 5.2": 3,
+    "ENR 5.5": 5
+  },
+  "tables": 16,
+  "limitsSwapped": 44,
+  "classStacks": 2,
+  "withRadio": 50,
+  "pointCircles": 0,
+  "pointOnly": 115,
+  "firRings": 0,
+  "borderStitched": 0,
+  "borderChords": 0,
+  "arcsUnread": 0,
+  "arcSensesInferred": 1,
+  "adZones": 9,
+  "adRepublished": 1,
+  "adInferredCtr": 1,
+  "refsResolved": 0,
+  "bufferColumns": 0,
+  "skippedTypes": {
+    "AD 2.17 UNTYPED": 1,
+    "SHANNON FIR": 1,
+    "SHANNON FIR/UIR/UTA": 1,
+    "SHANNON UIR /": 1
+  },
+  "counts": {
+    "ACTIVITY": 5,
+    "ATZ": 1,
+    "CTA": 41,
+    "CTR": 8,
+    "D": 8,
+    "P": 5,
+    "R": 11,
+    "RMZ": 2
+  },
+  "bbox": [
+    -15,
+    48.5,
+    -5.5,
+    57
+  ]
+}

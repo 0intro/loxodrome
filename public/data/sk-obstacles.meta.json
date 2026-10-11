@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-10-02T15:45:28.355Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_01OCT2026 ENR 5.4",
+  "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "obstacleCount": 122,
+  "litCount": 99,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "building": 6,
+    "chimney": 97,
+    "pylon": 10,
+    "silo": 1,
+    "tower": 7,
+    "windturbine": 1
+  },
+  "bbox": [
+    16.987,
+    47.745,
+    22.196,
+    49.313
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-SK"
+}

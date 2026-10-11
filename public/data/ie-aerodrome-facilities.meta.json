@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-02T15:45:30.558Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-10-01-AIRAC",
+  "sourceSha256": "92dc050c4905fbf7e0d3afb775fde3522d0a00a8f9751d87bd7b5ee3de275376",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "aerodromeCount": 21,
+  "heliportCount": 0,
+  "skippedNotes": 0,
+  "counts": {
+    "fax": 10,
+    "operator": 20,
+    "phone": 29,
+    "remark": 1,
+    "web": 11
+  }
+}

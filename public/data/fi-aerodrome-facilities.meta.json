@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-02T15:45:49.911Z",
+  "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
+  "sourceSha256": "9757dc7c39fc5a8806c773d3c065d9a78836c435283c49297b2678c3e7966447",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "aerodromeCount": 51,
+  "heliportCount": 16,
+  "skippedNotes": 0,
+  "counts": {
+    "email": 36,
+    "fax": 5,
+    "operator": 51,
+    "phone": 70,
+    "remark": 24,
+    "web": 30
+  }
+}

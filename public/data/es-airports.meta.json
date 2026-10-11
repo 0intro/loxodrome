@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-02T15:52:18.526Z",
+  "source": "LE_Amdt_2026_404_AIP_DS_FULL_LEMH.xml+LE_Amdt_2026_407_AIP_DS_FULL_LEBZ.xml+LE_Amdt_2026_408_AIP_DS_FULL_LECO.xml (+57 more)",
+  "sourceSha256": "0c82b037ba280a0c245887bf9c4b4c744c9f7fb40e1b12c2a5eb3ca2a71de919",
+  "effective": "",
+  "ahpCount": 375,
+  "runwayCount": 84,
+  "militaryCount": 20,
+  "radioCount": 0,
+  "transitionAltCount": 57,
+  "counts": {
+    "heliport": 203,
+    "large_airport": 32,
+    "medium_airport": 21,
+    "small_airport": 119
+  },
+  "bbox": [
+    -17.996,
+    27.782,
+    4.252,
+    43.675
+  ]
+}

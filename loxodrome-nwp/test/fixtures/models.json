@@ -1,0 +1,2862 @@
+[
+	{
+		"id": "arome0025",
+		"name": "AROME 0.025",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 1121,
+			"nj": 717,
+			"northE6": 55400000,
+			"westE6": -12000000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			750,
+			700,
+			650,
+			600,
+			550,
+			500,
+			450,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 3,
+		"horizons": {
+			"00": 51,
+			"03": 51,
+			"06": 51,
+			"09": 51,
+			"12": 51,
+			"15": 51,
+			"18": 51,
+			"21": 51
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"03": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"09": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"15": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			],
+			"21": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				},
+				{
+					"first": 49,
+					"last": 51,
+					"name": "b049-051"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 7,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 1121,
+				"nj": 717,
+				"tx": 71,
+				"ty": 45
+			},
+			{
+				"z": 4,
+				"factor": 5,
+				"i0": 0,
+				"j0": 1,
+				"ni": 225,
+				"nj": 144,
+				"tx": 15,
+				"ty": 9
+			},
+			{
+				"z": 3,
+				"factor": 10,
+				"i0": 0,
+				"j0": 6,
+				"ni": 113,
+				"nj": 72,
+				"tx": 8,
+				"ty": 5
+			},
+			{
+				"z": 2,
+				"factor": 20,
+				"i0": 0,
+				"j0": 16,
+				"ni": 57,
+				"nj": 36,
+				"tx": 4,
+				"ty": 3
+			},
+			{
+				"z": 1,
+				"factor": 40,
+				"i0": 0,
+				"j0": 16,
+				"ni": 29,
+				"nj": 18,
+				"tx": 2,
+				"ty": 2
+			},
+			{
+				"z": 0,
+				"factor": 80,
+				"i0": 0,
+				"j0": 56,
+				"ni": 15,
+				"nj": 9,
+				"tx": 1,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome/0025",
+			"stem": "arome__0025",
+			"cloudPkg": "IP2",
+			"hourly": false,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome/0025/IP1/arome__0025__IP1__00H06H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/IP2/arome__0025__IP2__00H06H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/SP1/arome__0025__SP1__00H06H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/SP2/arome__0025__SP2__00H06H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b049-051": [
+					"pnt/2026-10-06T00:00:00Z/arome/0025/IP1/arome__0025__IP1__49H51H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/IP2/arome__0025__IP2__49H51H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/SP1/arome__0025__SP1__49H51H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome/0025/SP2/arome__0025__SP2__49H51H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "aromeomantil",
+		"name": "AROME-OM ANTIL",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 945,
+			"nj": 529,
+			"northE6": 22900000,
+			"westE6": -75300000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			700,
+			600,
+			500,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 48,
+			"06": 48,
+			"12": 48,
+			"18": 48
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 6,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 945,
+				"nj": 529,
+				"tx": 60,
+				"ty": 34
+			},
+			{
+				"z": 4,
+				"factor": 5,
+				"i0": 2,
+				"j0": 1,
+				"ni": 189,
+				"nj": 106,
+				"tx": 12,
+				"ty": 7
+			},
+			{
+				"z": 3,
+				"factor": 10,
+				"i0": 2,
+				"j0": 6,
+				"ni": 95,
+				"nj": 53,
+				"tx": 6,
+				"ty": 4
+			},
+			{
+				"z": 2,
+				"factor": 20,
+				"i0": 12,
+				"j0": 16,
+				"ni": 47,
+				"nj": 26,
+				"tx": 3,
+				"ty": 2
+			},
+			{
+				"z": 1,
+				"factor": 40,
+				"i0": 12,
+				"j0": 36,
+				"ni": 24,
+				"nj": 13,
+				"tx": 2,
+				"ty": 1
+			},
+			{
+				"z": 0,
+				"factor": 80,
+				"i0": 52,
+				"j0": 36,
+				"ni": 12,
+				"nj": 7,
+				"tx": 1,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome-om/ANTIL/0025",
+			"stem": "arome-om-ANTIL__0025",
+			"cloudPkg": "IP2",
+			"hourly": true,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__006H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b043-048": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP1/arome-om-ANTIL__0025__IP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/IP2/arome-om-ANTIL__0025__IP2__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP1/arome-om-ANTIL__0025__SP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/ANTIL/0025/SP2/arome-om-ANTIL__0025__SP2__048H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "aromeomguyane",
+		"name": "AROME-OM GUYANE",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 419,
+			"nj": 317,
+			"northE6": 8950000,
+			"westE6": -56750000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			700,
+			600,
+			500,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 48,
+			"06": 48,
+			"12": 48,
+			"18": 48
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 5,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 419,
+				"nj": 317,
+				"tx": 27,
+				"ty": 20
+			},
+			{
+				"z": 3,
+				"factor": 5,
+				"i0": 0,
+				"j0": 3,
+				"ni": 84,
+				"nj": 63,
+				"tx": 6,
+				"ty": 4
+			},
+			{
+				"z": 2,
+				"factor": 10,
+				"i0": 0,
+				"j0": 8,
+				"ni": 42,
+				"nj": 31,
+				"tx": 3,
+				"ty": 2
+			},
+			{
+				"z": 1,
+				"factor": 20,
+				"i0": 10,
+				"j0": 18,
+				"ni": 21,
+				"nj": 15,
+				"tx": 2,
+				"ty": 1
+			},
+			{
+				"z": 0,
+				"factor": 40,
+				"i0": 30,
+				"j0": 38,
+				"ni": 10,
+				"nj": 7,
+				"tx": 1,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome-om/GUYANE/0025",
+			"stem": "arome-om-GUYANE__0025",
+			"cloudPkg": "IP2",
+			"hourly": true,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__006H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b043-048": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP1/arome-om-GUYANE__0025__IP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/IP2/arome-om-GUYANE__0025__IP2__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP1/arome-om-GUYANE__0025__SP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/GUYANE/0025/SP2/arome-om-GUYANE__0025__SP2__048H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "aromeomindien",
+		"name": "AROME-OM INDIEN",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 1395,
+			"nj": 899,
+			"northE6": -3450000,
+			"westE6": 32750000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			700,
+			600,
+			500,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 48,
+			"06": 48,
+			"12": 48,
+			"18": 48
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 7,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 1395,
+				"nj": 899,
+				"tx": 88,
+				"ty": 57
+			},
+			{
+				"z": 5,
+				"factor": 5,
+				"i0": 0,
+				"j0": 2,
+				"ni": 279,
+				"nj": 180,
+				"tx": 18,
+				"ty": 12
+			},
+			{
+				"z": 4,
+				"factor": 10,
+				"i0": 0,
+				"j0": 2,
+				"ni": 140,
+				"nj": 90,
+				"tx": 9,
+				"ty": 6
+			},
+			{
+				"z": 3,
+				"factor": 20,
+				"i0": 10,
+				"j0": 2,
+				"ni": 70,
+				"nj": 45,
+				"tx": 5,
+				"ty": 3
+			},
+			{
+				"z": 2,
+				"factor": 40,
+				"i0": 10,
+				"j0": 22,
+				"ni": 35,
+				"nj": 22,
+				"tx": 3,
+				"ty": 2
+			},
+			{
+				"z": 1,
+				"factor": 80,
+				"i0": 50,
+				"j0": 22,
+				"ni": 17,
+				"nj": 11,
+				"tx": 2,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome-om/INDIEN/0025",
+			"stem": "arome-om-INDIEN__0025",
+			"cloudPkg": "IP2",
+			"hourly": true,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__006H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b043-048": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP1/arome-om-INDIEN__0025__IP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/IP2/arome-om-INDIEN__0025__IP2__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP1/arome-om-INDIEN__0025__SP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/INDIEN/0025/SP2/arome-om-INDIEN__0025__SP2__048H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "aromeomncaled",
+		"name": "AROME-OM NCALED",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 521,
+			"nj": 491,
+			"northE6": -13750000,
+			"westE6": 158500000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			700,
+			600,
+			500,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 48,
+			"06": 48,
+			"12": 48,
+			"18": 48
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 6,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 521,
+				"nj": 491,
+				"tx": 33,
+				"ty": 31
+			},
+			{
+				"z": 3,
+				"factor": 5,
+				"i0": 0,
+				"j0": 0,
+				"ni": 105,
+				"nj": 99,
+				"tx": 7,
+				"ty": 7
+			},
+			{
+				"z": 2,
+				"factor": 10,
+				"i0": 0,
+				"j0": 0,
+				"ni": 53,
+				"nj": 50,
+				"tx": 4,
+				"ty": 4
+			},
+			{
+				"z": 1,
+				"factor": 20,
+				"i0": 0,
+				"j0": 10,
+				"ni": 27,
+				"nj": 25,
+				"tx": 2,
+				"ty": 2
+			},
+			{
+				"z": 0,
+				"factor": 40,
+				"i0": 20,
+				"j0": 10,
+				"ni": 13,
+				"nj": 13,
+				"tx": 1,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome-om/NCALED/0025",
+			"stem": "arome-om-NCALED__0025",
+			"cloudPkg": "IP2",
+			"hourly": true,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__006H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b043-048": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP1/arome-om-NCALED__0025__IP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/IP2/arome-om-NCALED__0025__IP2__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP1/arome-om-NCALED__0025__SP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/NCALED/0025/SP2/arome-om-NCALED__0025__SP2__048H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "aromeompolyn",
+		"name": "AROME-OM POLYN",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 521,
+			"nj": 507,
+			"northE6": -12600000,
+			"westE6": -157500000,
+			"diE6": 25000,
+			"djE6": 25000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			700,
+			600,
+			500,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 48,
+			"06": 48,
+			"12": 48,
+			"18": 48
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 6,
+					"name": "b000-006"
+				},
+				{
+					"first": 7,
+					"last": 12,
+					"name": "b007-012"
+				},
+				{
+					"first": 13,
+					"last": 18,
+					"name": "b013-018"
+				},
+				{
+					"first": 19,
+					"last": 24,
+					"name": "b019-024"
+				},
+				{
+					"first": 25,
+					"last": 30,
+					"name": "b025-030"
+				},
+				{
+					"first": 31,
+					"last": 36,
+					"name": "b031-036"
+				},
+				{
+					"first": 37,
+					"last": 42,
+					"name": "b037-042"
+				},
+				{
+					"first": 43,
+					"last": 48,
+					"name": "b043-048"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 6,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 521,
+				"nj": 507,
+				"tx": 33,
+				"ty": 32
+			},
+			{
+				"z": 3,
+				"factor": 5,
+				"i0": 0,
+				"j0": 1,
+				"ni": 105,
+				"nj": 102,
+				"tx": 7,
+				"ty": 7
+			},
+			{
+				"z": 2,
+				"factor": 10,
+				"i0": 0,
+				"j0": 6,
+				"ni": 53,
+				"nj": 51,
+				"tx": 4,
+				"ty": 4
+			},
+			{
+				"z": 1,
+				"factor": 20,
+				"i0": 0,
+				"j0": 16,
+				"ni": 27,
+				"nj": 25,
+				"tx": 2,
+				"ty": 2
+			},
+			{
+				"z": 0,
+				"factor": 40,
+				"i0": 20,
+				"j0": 16,
+				"ni": 13,
+				"nj": 13,
+				"tx": 1,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arome-om/POLYN/0025",
+			"stem": "arome-om-POLYN__0025",
+			"cloudPkg": "IP2",
+			"hourly": true,
+			"keys": {
+				"b000-006": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__000H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__001H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__002H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__003H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__004H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__005H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__006H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__006H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b043-048": [
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__043H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__044H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__045H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__046H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__047H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP1/arome-om-POLYN__0025__IP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/IP2/arome-om-POLYN__0025__IP2__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP1/arome-om-POLYN__0025__SP1__048H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arome-om/POLYN/0025/SP2/arome-om-POLYN__0025__SP2__048H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "arpege01",
+		"name": "ARPEGE 0.1",
+		"producer": "Météo-France",
+		"grid": {
+			"ni": 741,
+			"nj": 521,
+			"northE6": 72000000,
+			"westE6": -32000000,
+			"diE6": 100000,
+			"djE6": 100000,
+			"wraps": false
+		},
+		"levels": [
+			1000,
+			950,
+			925,
+			900,
+			850,
+			800,
+			750,
+			700,
+			650,
+			600,
+			550,
+			500,
+			450,
+			400,
+			350,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 102,
+			"06": 102,
+			"12": 102,
+			"18": 102
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 13,
+					"last": 24,
+					"name": "b013-024"
+				},
+				{
+					"first": 25,
+					"last": 36,
+					"name": "b025-036"
+				},
+				{
+					"first": 37,
+					"last": 48,
+					"name": "b037-048"
+				},
+				{
+					"first": 49,
+					"last": 60,
+					"name": "b049-060"
+				},
+				{
+					"first": 61,
+					"last": 72,
+					"name": "b061-072"
+				},
+				{
+					"first": 73,
+					"last": 84,
+					"name": "b073-084"
+				},
+				{
+					"first": 85,
+					"last": 96,
+					"name": "b085-096"
+				},
+				{
+					"first": 97,
+					"last": 102,
+					"name": "b097-102"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 13,
+					"last": 24,
+					"name": "b013-024"
+				},
+				{
+					"first": 25,
+					"last": 36,
+					"name": "b025-036"
+				},
+				{
+					"first": 37,
+					"last": 48,
+					"name": "b037-048"
+				},
+				{
+					"first": 49,
+					"last": 60,
+					"name": "b049-060"
+				},
+				{
+					"first": 61,
+					"last": 72,
+					"name": "b061-072"
+				},
+				{
+					"first": 73,
+					"last": 84,
+					"name": "b073-084"
+				},
+				{
+					"first": 85,
+					"last": 96,
+					"name": "b085-096"
+				},
+				{
+					"first": 97,
+					"last": 102,
+					"name": "b097-102"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 13,
+					"last": 24,
+					"name": "b013-024"
+				},
+				{
+					"first": 25,
+					"last": 36,
+					"name": "b025-036"
+				},
+				{
+					"first": 37,
+					"last": 48,
+					"name": "b037-048"
+				},
+				{
+					"first": 49,
+					"last": 60,
+					"name": "b049-060"
+				},
+				{
+					"first": 61,
+					"last": 72,
+					"name": "b061-072"
+				},
+				{
+					"first": 73,
+					"last": 84,
+					"name": "b073-084"
+				},
+				{
+					"first": 85,
+					"last": 96,
+					"name": "b085-096"
+				},
+				{
+					"first": 97,
+					"last": 102,
+					"name": "b097-102"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 13,
+					"last": 24,
+					"name": "b013-024"
+				},
+				{
+					"first": 25,
+					"last": 36,
+					"name": "b025-036"
+				},
+				{
+					"first": 37,
+					"last": 48,
+					"name": "b037-048"
+				},
+				{
+					"first": 49,
+					"last": 60,
+					"name": "b049-060"
+				},
+				{
+					"first": 61,
+					"last": 72,
+					"name": "b061-072"
+				},
+				{
+					"first": 73,
+					"last": 84,
+					"name": "b073-084"
+				},
+				{
+					"first": 85,
+					"last": 96,
+					"name": "b085-096"
+				},
+				{
+					"first": 97,
+					"last": 102,
+					"name": "b097-102"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 6,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 741,
+				"nj": 521,
+				"tx": 47,
+				"ty": 33
+			},
+			{
+				"z": 4,
+				"factor": 5,
+				"i0": 0,
+				"j0": 0,
+				"ni": 149,
+				"nj": 105,
+				"tx": 10,
+				"ty": 7
+			},
+			{
+				"z": 3,
+				"factor": 10,
+				"i0": 0,
+				"j0": 0,
+				"ni": 75,
+				"nj": 53,
+				"tx": 5,
+				"ty": 4
+			},
+			{
+				"z": 2,
+				"factor": 20,
+				"i0": 0,
+				"j0": 0,
+				"ni": 38,
+				"nj": 27,
+				"tx": 3,
+				"ty": 2
+			},
+			{
+				"z": 1,
+				"factor": 40,
+				"i0": 0,
+				"j0": 0,
+				"ni": 19,
+				"nj": 14,
+				"tx": 2,
+				"ty": 1
+			}
+		],
+		"cloud": "native",
+		"mf": {
+			"dir": "arpege/01",
+			"stem": "arpege__01",
+			"cloudPkg": "IP3",
+			"hourly": false,
+			"keys": {
+				"b000-012": [
+					"pnt/2026-10-06T00:00:00Z/arpege/01/IP1/arpege__01__IP1__000H012H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/IP3/arpege__01__IP3__000H012H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/SP1/arpege__01__SP1__000H012H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/SP2/arpege__01__SP2__000H012H__2026-10-06T00:00:00Z.grib2"
+				],
+				"b097-102": [
+					"pnt/2026-10-06T00:00:00Z/arpege/01/IP1/arpege__01__IP1__097H102H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/IP3/arpege__01__IP3__097H102H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/SP1/arpege__01__SP1__097H102H__2026-10-06T00:00:00Z.grib2",
+					"pnt/2026-10-06T00:00:00Z/arpege/01/SP2/arpege__01__SP2__097H102H__2026-10-06T00:00:00Z.grib2"
+				]
+			}
+		}
+	},
+	{
+		"id": "ifs025",
+		"name": "IFS 0.25",
+		"producer": "ECMWF",
+		"grid": {
+			"ni": 1440,
+			"nj": 721,
+			"northE6": 90000000,
+			"westE6": -180000000,
+			"diE6": 250000,
+			"djE6": 250000,
+			"wraps": true
+		},
+		"levels": [
+			1000,
+			925,
+			850,
+			700,
+			600,
+			500,
+			400,
+			300
+		],
+		"cycleHours": 6,
+		"horizons": {
+			"00": 360,
+			"06": 144,
+			"12": 360,
+			"18": 144
+		},
+		"blocks": {
+			"00": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 15,
+					"last": 24,
+					"name": "b015-024"
+				},
+				{
+					"first": 27,
+					"last": 36,
+					"name": "b027-036"
+				},
+				{
+					"first": 39,
+					"last": 48,
+					"name": "b039-048"
+				},
+				{
+					"first": 51,
+					"last": 60,
+					"name": "b051-060"
+				},
+				{
+					"first": 63,
+					"last": 72,
+					"name": "b063-072"
+				},
+				{
+					"first": 75,
+					"last": 84,
+					"name": "b075-084"
+				},
+				{
+					"first": 87,
+					"last": 96,
+					"name": "b087-096"
+				},
+				{
+					"first": 99,
+					"last": 108,
+					"name": "b099-108"
+				},
+				{
+					"first": 111,
+					"last": 120,
+					"name": "b111-120"
+				},
+				{
+					"first": 123,
+					"last": 132,
+					"name": "b123-132"
+				},
+				{
+					"first": 135,
+					"last": 144,
+					"name": "b135-144"
+				},
+				{
+					"first": 150,
+					"last": 168,
+					"name": "b150-168"
+				},
+				{
+					"first": 174,
+					"last": 192,
+					"name": "b174-192"
+				},
+				{
+					"first": 198,
+					"last": 216,
+					"name": "b198-216"
+				},
+				{
+					"first": 222,
+					"last": 240,
+					"name": "b222-240"
+				},
+				{
+					"first": 246,
+					"last": 264,
+					"name": "b246-264"
+				},
+				{
+					"first": 270,
+					"last": 288,
+					"name": "b270-288"
+				},
+				{
+					"first": 294,
+					"last": 312,
+					"name": "b294-312"
+				},
+				{
+					"first": 318,
+					"last": 336,
+					"name": "b318-336"
+				},
+				{
+					"first": 342,
+					"last": 360,
+					"name": "b342-360"
+				}
+			],
+			"06": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 15,
+					"last": 24,
+					"name": "b015-024"
+				},
+				{
+					"first": 27,
+					"last": 36,
+					"name": "b027-036"
+				},
+				{
+					"first": 39,
+					"last": 48,
+					"name": "b039-048"
+				},
+				{
+					"first": 51,
+					"last": 60,
+					"name": "b051-060"
+				},
+				{
+					"first": 63,
+					"last": 72,
+					"name": "b063-072"
+				},
+				{
+					"first": 75,
+					"last": 84,
+					"name": "b075-084"
+				},
+				{
+					"first": 87,
+					"last": 96,
+					"name": "b087-096"
+				},
+				{
+					"first": 99,
+					"last": 108,
+					"name": "b099-108"
+				},
+				{
+					"first": 111,
+					"last": 120,
+					"name": "b111-120"
+				},
+				{
+					"first": 123,
+					"last": 132,
+					"name": "b123-132"
+				},
+				{
+					"first": 135,
+					"last": 144,
+					"name": "b135-144"
+				}
+			],
+			"12": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 15,
+					"last": 24,
+					"name": "b015-024"
+				},
+				{
+					"first": 27,
+					"last": 36,
+					"name": "b027-036"
+				},
+				{
+					"first": 39,
+					"last": 48,
+					"name": "b039-048"
+				},
+				{
+					"first": 51,
+					"last": 60,
+					"name": "b051-060"
+				},
+				{
+					"first": 63,
+					"last": 72,
+					"name": "b063-072"
+				},
+				{
+					"first": 75,
+					"last": 84,
+					"name": "b075-084"
+				},
+				{
+					"first": 87,
+					"last": 96,
+					"name": "b087-096"
+				},
+				{
+					"first": 99,
+					"last": 108,
+					"name": "b099-108"
+				},
+				{
+					"first": 111,
+					"last": 120,
+					"name": "b111-120"
+				},
+				{
+					"first": 123,
+					"last": 132,
+					"name": "b123-132"
+				},
+				{
+					"first": 135,
+					"last": 144,
+					"name": "b135-144"
+				},
+				{
+					"first": 150,
+					"last": 168,
+					"name": "b150-168"
+				},
+				{
+					"first": 174,
+					"last": 192,
+					"name": "b174-192"
+				},
+				{
+					"first": 198,
+					"last": 216,
+					"name": "b198-216"
+				},
+				{
+					"first": 222,
+					"last": 240,
+					"name": "b222-240"
+				},
+				{
+					"first": 246,
+					"last": 264,
+					"name": "b246-264"
+				},
+				{
+					"first": 270,
+					"last": 288,
+					"name": "b270-288"
+				},
+				{
+					"first": 294,
+					"last": 312,
+					"name": "b294-312"
+				},
+				{
+					"first": 318,
+					"last": 336,
+					"name": "b318-336"
+				},
+				{
+					"first": 342,
+					"last": 360,
+					"name": "b342-360"
+				}
+			],
+			"18": [
+				{
+					"first": 0,
+					"last": 12,
+					"name": "b000-012"
+				},
+				{
+					"first": 15,
+					"last": 24,
+					"name": "b015-024"
+				},
+				{
+					"first": 27,
+					"last": 36,
+					"name": "b027-036"
+				},
+				{
+					"first": 39,
+					"last": 48,
+					"name": "b039-048"
+				},
+				{
+					"first": 51,
+					"last": 60,
+					"name": "b051-060"
+				},
+				{
+					"first": 63,
+					"last": 72,
+					"name": "b063-072"
+				},
+				{
+					"first": 75,
+					"last": 84,
+					"name": "b075-084"
+				},
+				{
+					"first": 87,
+					"last": 96,
+					"name": "b087-096"
+				},
+				{
+					"first": 99,
+					"last": 108,
+					"name": "b099-108"
+				},
+				{
+					"first": 111,
+					"last": 120,
+					"name": "b111-120"
+				},
+				{
+					"first": 123,
+					"last": 132,
+					"name": "b123-132"
+				},
+				{
+					"first": 135,
+					"last": 144,
+					"name": "b135-144"
+				}
+			]
+		},
+		"pyramid": [
+			{
+				"z": 7,
+				"factor": 1,
+				"i0": 0,
+				"j0": 0,
+				"ni": 1440,
+				"nj": 721,
+				"tx": 90,
+				"ty": 46
+			},
+			{
+				"z": 6,
+				"factor": 2,
+				"i0": 0,
+				"j0": 0,
+				"ni": 720,
+				"nj": 361,
+				"tx": 45,
+				"ty": 23
+			},
+			{
+				"z": 5,
+				"factor": 4,
+				"i0": 0,
+				"j0": 0,
+				"ni": 360,
+				"nj": 181,
+				"tx": 23,
+				"ty": 12
+			},
+			{
+				"z": 4,
+				"factor": 8,
+				"i0": 0,
+				"j0": 0,
+				"ni": 180,
+				"nj": 91,
+				"tx": 12,
+				"ty": 6
+			},
+			{
+				"z": 3,
+				"factor": 16,
+				"i0": 0,
+				"j0": 8,
+				"ni": 90,
+				"nj": 45,
+				"tx": 6,
+				"ty": 3
+			}
+		],
+		"cloud": "sundqvist"
+	}
+]

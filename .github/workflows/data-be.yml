@@ -1,0 +1,72 @@
+name: Refresh Belgium skeyes datasets
+
+# Regenerates public/data/be-{airspaces,airports,navaids,obstacles,nature,
+# supaip}.json (+ the .next twins while skeyes pre-publishes the next
+# cycle) from the public skeyes eAIP, the joint "AIP Belgium and
+# Luxembourg" (https://ops.skeyes.be, Eurocontrol-eAIP HTML; no public
+# AIXM exists). skeyes publishes on the 28-day AIRAC cycle; the weekly
+# Thursday fire catches each new cycle the week it appears (plus the
+# eAIP_Next pre-release and off-cycle AMDTs) and the git-diff-quiet skip
+# turns non-update weeks into no-ops.
+#
+# cmd/be fetches the ~160 pages itself (throttled, browser-style headers:
+# the skeyes WAF 403s generic clients; see cmd/be/fetch.go). If the WAF
+# ever blocks the runner IPs, this job fails visibly and the committed
+# datasets simply stay on the last good cycle; the recovery path is a
+# local `go run ./cmd/be -snapshot local/be-eaip` and, offline,
+# `go run ./cmd/be -in local/be-eaip/main`.
+
+on:
+  schedule:
+    # Stagger past UK (04:30) and ES (05:00) to spread the cron load.
+    - cron: '0 6 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # One run builds every dataset for both slots: eAIP_Main -> the
+      # current files, eAIP_Next -> the .next twins when it serves a newer
+      # cycle (fail-soft in-tool when absent or stale).
+      - name: Build be-* datasets
+        run: go run ./cmd/be
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Gate on the data files only: the .meta.json sidecars carry a
+          # generatedAt stamped on every run, so including them would
+          # defeat the non-update-week no-op skip.
+          if git diff --quiet -- 'public/data/be-*.json' ':(exclude)public/data/be-*.meta.json'; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/be-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/be-*.json public/data/be-*.meta.json
+            git commit -m "update skeyes Belgium datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

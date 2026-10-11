@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-10-02T15:47:19.410Z",
+  "source": "open flightmaps OFMX LI",
+  "sourceSha256": "ed801d55af125d5f69077faf53ddb182210f3818798b527300f92bdec86343e4",
+  "effective": "2026-09-22T00:00:00.000Z",
+  "ahpCount": 548,
+  "runwayCount": 569,
+  "militaryCount": 0,
+  "radioCount": 0,
+  "transitionAltCount": 0,
+  "counts": {
+    "heliport": 11,
+    "large_airport": 38,
+    "medium_airport": 30,
+    "small_airport": 469
+  },
+  "bbox": [
+    7.244,
+    36.722,
+    18.437,
+    46.884
+  ]
+}

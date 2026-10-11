@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-02T15:46:05.557Z",
+  "source": "LGS Latvia eAIP eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03",
+  "effective": "2026-09-03T00:00:00.000Z",
+  "edition": "eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03",
+  "base": "https://ais.lgs.lv/eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03/",
+  "cycleLag": 1,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 9,
+  "heliports": 3,
+  "withCharts": 12,
+  "withVac": 12,
+  "charts": 76,
+  "byFamily": {
+    "ADC": 12,
+    "AOC": 2,
+    "ATCSMAC": 1,
+    "GMC": 2,
+    "IAC": 24,
+    "MISC": 5,
+    "PATC": 1,
+    "SID": 9,
+    "STAR": 8,
+    "VAC": 12
+  },
+  "miscTitles": [
+    "Arrival and Departure Route Chart - non-ICAO",
+    "1813 EVGA 2 24 2 20260903",
+    "1633 EVRA 2 24 2 S 20250904",
+    "1629 EVRA 2 24 2 N 20250904"
+  ],
+  "linkCheck": "6/6"
+}

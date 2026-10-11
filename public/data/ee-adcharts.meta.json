@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-10-02T15:46:03.481Z",
+  "source": "EANS Estonia eAIP 2026-10-01",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "2026-10-01",
+  "base": "https://eaip.eans.ee/2026-10-01/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB",
+  "aerodromes": 8,
+  "heliports": 0,
+  "withCharts": 8,
+  "withVac": 8,
+  "charts": 96,
+  "byFamily": {
+    "ADC": 9,
+    "AOC": 6,
+    "APDC": 3,
+    "DATA": 12,
+    "IAC": 30,
+    "MISC": 5,
+    "PATC": 1,
+    "SID": 10,
+    "STAR": 4,
+    "VAC": 16
+  },
+  "miscTitles": [
+    "Bird Concentrations in the Vicinity of the Aerodrome",
+    "Bird concentrations in the vicinity of the aerodrome"
+  ],
+  "linkCheck": "6/6"
+}

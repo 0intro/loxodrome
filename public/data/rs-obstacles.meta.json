@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-10-02T15:45:35.569Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC ENR 5.4",
+  "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "obstacleCount": 256,
+  "litCount": 176,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [],
+  "counts": {
+    "antenna": 7,
+    "bridge": 1,
+    "chimney": 11,
+    "tower": 2,
+    "windturbine": 235
+  },
+  "bbox": [
+    18.941,
+    41.964,
+    21.227,
+    46.076
+  ],
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "path templates, confirmed by the publisher pointer",
+  "lang": "en-GB"
+}

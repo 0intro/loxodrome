@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-10-02T15:47:19.488Z",
+  "source": "open flightmaps OFMX LI",
+  "sourceSha256": "ed801d55af125d5f69077faf53ddb182210f3818798b527300f92bdec86343e4",
+  "effective": "2026-09-22T00:00:00.000Z",
+  "navaidCount": 604,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 2,
+    "NDB": 15,
+    "TACAN": 8,
+    "VFR_REPORTING_POINT": 519,
+    "VOR-DME": 53,
+    "VORTAC": 7
+  },
+  "bbox": [
+    7.071,
+    35.5,
+    18.447,
+    46.643
+  ],
+  "skippedFarFromAerodrome": 1
+}

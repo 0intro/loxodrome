@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-02T18:27:05.474Z",
+  "source": "FAA Digital Obstacle File (\u003e= 500 ft AGL)",
+  "sourceSha256": "61695d2fe00f042e780f846b4304b1eb9b2adb4d4afa762e1ab6f41b6d19ffdd",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "floorFt": 500,
+  "obstacleCount": 23850,
+  "litCount": 22181,
+  "skippedNoGeo": 0,
+  "unknownTypes": [],
+  "counts": {
+    "bridge": 32,
+    "building": 818,
+    "cable": 233,
+    "chimney": 318,
+    "crane": 13,
+    "mast": 18,
+    "other": 12,
+    "powerplant": 4,
+    "pylon": 21,
+    "silo": 1,
+    "tower": 4088,
+    "windturbine": 18292
+  },
+  "bbox": [
+    -158.154,
+    15.021,
+    -57.712,
+    61.423
+  ],
+  "bboxes": [
+    [
+      -158.154,
+      19.717,
+      -155.885,
+      21.673
+    ],
+    [
+      -152.538,
+      57.781,
+      -149.874,
+      61.423
+    ],
+    [
+      -132.232,
+      15.021,
+      -57.712,
+      58.451
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-02T15:45:59.298Z",
+  "source": "Avians Iceland eAIP A_09-2026_2026_10_01",
+  "effective": "2026-10-01T00:00:00.000Z",
+  "edition": "A_09-2026_2026_10_01",
+  "base": "https://eaip.avians.is/A_09-2026_2026_10_01/",
+  "cycleLag": 0,
+  "confirmed": true,
+  "resolvedBy": "cycle index, confirmed by the cycle index",
+  "lang": "en-GB",
+  "aerodromes": 53,
+  "heliports": 0,
+  "withCharts": 17,
+  "withVac": 2,
+  "charts": 157,
+  "byFamily": {
+    "ADC": 14,
+    "APDC": 2,
+    "ATCSMAC": 2,
+    "DATA": 14,
+    "DEP": 1,
+    "IAC": 79,
+    "MISC": 3,
+    "PATC": 4,
+    "SID": 21,
+    "STAR": 11,
+    "VAC": 6
+  },
+  "miscTitles": [
+    "BIAR Lead-in lights RWY 01",
+    "BIRK Intersection Take Off Chart",
+    "BIVM Obstruction Lights Chart"
+  ],
+  "linkCheck": "6/6"
+}

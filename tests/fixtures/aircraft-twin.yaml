@@ -1,0 +1,73 @@
+# A made-up twin for the multi-engine format specs: every section the format
+# allows a twin, small grids, figures chosen for the arithmetic.
+version: 2
+aircraft:
+  registration: F-TWIN
+  type: PA34-200
+  icaoType: PA34
+  engines: 2
+fuel:
+  capacityL: 371
+  usableL: 352
+  consumptionLph: 78
+cruise:
+  speedKt: 155
+climb:
+  speedKt: 91
+  rateFtMin: 1360
+massAndBalance:
+  emptyMassKg: 1186
+  emptyArmM: 2.083
+  stations:
+    - { label: Front seats, armM: 2.172, defaultMassKg: 80 }
+    - { label: Baggage, armM: 4.539, defaultMassKg: 0, maxMassKg: 45 }
+  fuelArmM: 2.377
+  envelope:
+    - { armM: 2.05, massKg: 998 }
+    - { armM: 2.05, massKg: 1261 }
+    - { armM: 2.083, massKg: 1542 }
+    - { armM: 2.233, massKg: 1905 }
+    - { armM: 2.403, massKg: 1905 }
+    - { armM: 2.403, massKg: 998 }
+  maxLandingMassKg: 1814
+  maxZeroFuelMassKg: 1814
+performance:
+  kind: table
+  massMaxKg: 1905
+  massMinKg: 1360
+  takeoffFlapsDeg: 0
+  takeoffProcedure: short-field
+  landingFlapsDeg: 40
+  wind:
+    takeoffHeadwind: [[0, 1], [8.7, 0.87]]
+    landingHeadwind: [[0, 1], [8.7, 0.88]]
+  takeoff:
+    - { altFt: 0, temperatureC: 0, massMax: [300, 600], massMin: [180, 380] }
+    - { altFt: 0, temperatureC: 30, massMax: [340, 680], massMin: [200, 420] }
+    - { altFt: 4000, temperatureC: 0, massMax: [380, 760], massMin: [220, 460] }
+    - { altFt: 4000, temperatureC: 30, massMax: [440, 880], massMin: [250, 520] }
+  landing:
+    - { altFt: 0, temperatureC: 0, massMax: [220, 400], massMin: [190, 350] }
+    - { altFt: 0, temperatureC: 30, massMax: [240, 430], massMin: [205, 375] }
+    - { altFt: 4000, temperatureC: 0, massMax: [250, 450], massMin: [210, 390] }
+    - { altFt: 4000, temperatureC: 30, massMax: [270, 480], massMin: [230, 410] }
+  accelerateStop:
+    massMaxKg: 1905
+    massMinKg: 1360
+    headwind: [[0, 1], [8.7, 0.9]]
+    rows:
+      - { altFt: 0, temperatureC: 0, massMax: 500, massMin: 320 }
+      - { altFt: 0, temperatureC: 30, massMax: 560, massMin: 360 }
+      - { altFt: 4000, temperatureC: 0, massMax: 600, massMin: 380 }
+      - { altFt: 4000, temperatureC: 30, massMax: 680, massMin: 430 }
+oneEngineInoperative:
+  vmcKt: 69.5
+  vyseKt: 91.3
+  climb:
+    massMaxKg: 1905
+    massMinKg: 1542
+    rows:
+      - { altFt: 0, isaOffsetC: 0, massMax: 190, massMin: 420 }
+      - { altFt: 0, isaOffsetC: 20, massMax: 120, massMin: 340 }
+      - { altFt: 8000, isaOffsetC: 0, massMax: -90, massMin: 130 }
+      - { altFt: 8000, isaOffsetC: 20, massMax: -160, massMin: 50 }

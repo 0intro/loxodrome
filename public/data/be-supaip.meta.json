@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-02T15:44:32.110Z",
+  "source": {
+    "site": "https://ops.skeyes.be/html/belgocontrol_static/eaip/eAIP_Main/html/eSUP/",
+    "listingSha": "495325db9664b7c4bb428c942c31cff5842918f2a5027e2eb9d8447ad6a1d780"
+  },
+  "total": 84,
+  "withGeometry": 49,
+  "polygon": 3,
+  "circle": 46,
+  "mixed": 0,
+  "none": 35,
+  "byRegion": {
+    "be": 84
+  },
+  "parserVersion": 1
+}

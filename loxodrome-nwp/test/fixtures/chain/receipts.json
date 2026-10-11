@@ -1,0 +1,464 @@
+[
+	{
+		"key": "first/mini/2026100600.pmtiles",
+		"model": "mini",
+		"run": "2026-10-06T00:00:00Z",
+		"first": 0,
+		"last": 6,
+		"size": 16278,
+		"sha256": "96162ff1fcde08d9183432f00b658e91f57346d1e737ab9f3ffa7b4fb3f4f083",
+		"content": "4198ca2703d7cfd5593f2799c65d2463dd7812a50847dc9ec46d13066724a94c",
+		"tiles": 7,
+		"covered": 830,
+		"canaries": [
+			{
+				"z": 2,
+				"x": 0,
+				"y": 1,
+				"segments": [
+					"c3966c587fae2251996fae0488864139650bcd0a9769859ffc767dfd03ef583b",
+					"ff8478ad8254758072916db8b4cb2f4b5e2be79b72f173a013cce210d2308ba8",
+					"b4cb80ed7c13398705051333624e79dcf073941816065df6d0d103de45db3336",
+					"53ddac1f8eddc5a76c9b10aebed72055ce073d07b5b87b1225188321a49036c8",
+					"4d3bd009d2fae0a2e99be433a7678ace998544fb5d90617a1710683d3a9e6feb",
+					"601aab44d75a6caa33b480f9d3b8810299954a668029e3d27639aca042c62ba5"
+				]
+			},
+			{
+				"z": 2,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"9519ca7a826b8378422aaae920eafe5a0f4a6c6f2511e75a16f6ee8dcf92ffbd",
+					"24856a2e17c6a3741046fd211e35ff66093e2f9d43e008c6408e941f24188271",
+					"9b7567668f3cbf00082d5b940ff35d68a9b4181be2fbbc9a0d044f71d75f0e6f",
+					"50a989b6bf70d4c9fcdc6cf22c7edb67023580b7b68b380452151f28f28c176b",
+					"ca623d491c6704d7a3bb1766ce184cb20aef3133d09a14ecccea01ebc5b5c174",
+					"cd3c83c351c0a8c75250bf7e881173bd5c0fcf00e685cb031ccdc2d57ea8e586"
+				]
+			},
+			{
+				"z": 0,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"dd59b3a317ad69db12336a6aca704708357fad7586fda0fbdcb5bdca8840370f",
+					"96ae1f0042760b4b17136bd12a36b0c53b757258463b5781fbbe97feacd283ce",
+					"73236fe5a26a7f63b1b7418070b5ee4fddf0d8bf55f0eaa7398a72bf065768de",
+					"1d73ceb1949db3ada4eaf6cd10d9228af125ebcf3bf255c8a02577df891dbcd9",
+					"0debd5099e64634789ec55d1e0bff427bb210281fe9d17cd63f4cc8aae5b23cc",
+					"011a8b70437d982e662baeb7d6e41717b6a903c423992763a212e824b3a7802c"
+				]
+			}
+		],
+		"steps": {
+			"cloud": [
+				0,
+				3,
+				6
+			],
+			"ps": [
+				0,
+				3,
+				6
+			],
+			"sfc": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			],
+			"uvt": [
+				0,
+				3,
+				6
+			],
+			"z": [
+				0,
+				3,
+				6
+			]
+		},
+		"gustPeriod": [
+			0,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1
+		],
+		"built": "0001-01-01T00:00:00Z"
+	},
+	{
+		"key": "blocks/mini/2026100600/b007-012.pmtiles",
+		"model": "mini",
+		"run": "2026-10-06T00:00:00Z",
+		"first": 7,
+		"last": 12,
+		"size": 13356,
+		"sha256": "ff4c3ece519e952163554e96fc9bbae24fcd65571672ea9fa0c5c4bd9d6e262c",
+		"content": "69d5446738d38a5c81a5233977401a6126e9716ee844e3f126e8afddcbb85926",
+		"tiles": 7,
+		"covered": 830,
+		"canaries": [
+			{
+				"z": 2,
+				"x": 0,
+				"y": 1,
+				"segments": [
+					"c3966c587fae2251996fae0488864139650bcd0a9769859ffc767dfd03ef583b",
+					"add2c769036471710e2d7caae75f308ae1b9bdbaa0f3379744d89e36c056d81e",
+					"00f407d352551b761cba2a9344de9cf8b34951c22491981e955c55c9947059f3",
+					"9c9822c2bf1fe74cd95622db40d2b70ddfce2cc18f4c77172926afbd42ff774f",
+					"ed0d412da07d332772f848426ed2d57b528bdc24aefe813d932e9da5020980e1",
+					"4a9b73bbb438c7fb4e4360f0af5aa224be0a04c9aad3ee2e304c266ffd0ac0fd"
+				]
+			},
+			{
+				"z": 2,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"9519ca7a826b8378422aaae920eafe5a0f4a6c6f2511e75a16f6ee8dcf92ffbd",
+					"2e308a3a4226afe4485c31515f421d969321b50bfecd8cad7e122b713519703c",
+					"1aca5de88dece1f303756a52579f73c9a16268209a213feeb96e45a8c3617e0f",
+					"07a6bdfa1f42397cb500dc6b1b742dec344c24eb604bf114f414b31e36f8cab1",
+					"3586193d151f4dc24484c3d85b0973766d767354ede85253404303232d3b48b4",
+					"d7aa88dd99e584ef6e652aaa4d0017b4353c8b8a49f552bd1ed7ecf02226e0c8"
+				]
+			},
+			{
+				"z": 0,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"dd59b3a317ad69db12336a6aca704708357fad7586fda0fbdcb5bdca8840370f",
+					"c904abdbc2ed564b9a74e5a46c0bb297ee998b5a51bba2d349f15316140cdecf",
+					"6a125c4beb92679dc31d0e2cdc1c26269cba58be4a97a5b8c33fcf982e356399",
+					"2bc41c4ad8fcd6fbb2c3a9d4f093776a26c3634ca5076fd70e69a2a29a27d3ef",
+					"45fc5cd7efdeee9c0ea78d84972b70b1d66f41219c0a9d705d677c80a0f9e6c3",
+					"ad6c1c0f99d7cd67ed5f0e250e562af612b25a9dab276458395d2184fccc9262"
+				]
+			}
+		],
+		"steps": {
+			"cloud": [
+				9,
+				12
+			],
+			"ps": [
+				9,
+				12
+			],
+			"sfc": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"uvt": [
+				9,
+				12
+			],
+			"z": [
+				9,
+				12
+			]
+		},
+		"gustPeriod": [
+			1,
+			1,
+			1,
+			1,
+			1,
+			1
+		],
+		"built": "0001-01-01T00:00:00Z"
+	},
+	{
+		"key": "first/mini/2026100603.pmtiles",
+		"model": "mini",
+		"run": "2026-10-06T03:00:00Z",
+		"first": 0,
+		"last": 6,
+		"size": 16112,
+		"sha256": "540497236ec9a3aef8f7bb14f72188af81113c1a81576fa6d61daf3acc14d443",
+		"content": "3e2265d15b8fb8a5223623cdba60255d55c7fc930d7f538971485e79bf302615",
+		"tiles": 7,
+		"covered": 830,
+		"canaries": [
+			{
+				"z": 2,
+				"x": 0,
+				"y": 1,
+				"segments": [
+					"c3966c587fae2251996fae0488864139650bcd0a9769859ffc767dfd03ef583b",
+					"1ad9b187e46ca80934ade4c695427462b710d0204c5f2d9d77de0ace7ff2e9c7",
+					"29b2739e1c57a399c3d31f48c38846c695ee50c4a1b49d4fd45613873973beaa",
+					"17b72095e3c86e2e2a495cb411a033852904176fda38f3aa278bbaed1f619ead",
+					"050f9322bff115b989419bfb286ae5ff4f4e8b878af7b309658da547f8ee709b",
+					"601aab44d75a6caa33b480f9d3b8810299954a668029e3d27639aca042c62ba5"
+				]
+			},
+			{
+				"z": 2,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"9519ca7a826b8378422aaae920eafe5a0f4a6c6f2511e75a16f6ee8dcf92ffbd",
+					"b374a672494309d98c3021b3d0dffdc267e27ad394fe8f88a36953d67dfa2e09",
+					"b63b71779504bfaf3b99caeba64a203f143679b9147b827578e0b1af7fb03f50",
+					"6c41b107dd986b1cde86ff1472fde3f59145ca85a51c8d14160c5d67b57107d6",
+					"d36b349144fa82c723d16e8473c20442f651e04d9ccb164ffa0b24e08c9fc9e8",
+					"cd3c83c351c0a8c75250bf7e881173bd5c0fcf00e685cb031ccdc2d57ea8e586"
+				]
+			},
+			{
+				"z": 0,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"dd59b3a317ad69db12336a6aca704708357fad7586fda0fbdcb5bdca8840370f",
+					"8ba6ae63c54611411c2fa1cddf66e9a3a56842d56fe4e5878f3ece9a5e482574",
+					"0b4b3fba0eba09ea1337e9c1c19fb3fe178373278c970d2fb08478d44f2d9cc2",
+					"96697def06061973fcde21004efedef20a06865ac83684fb0aa04e2aa2cca0fc",
+					"f563cab7177b1d322f0eb8630712063071ceaaa194255acf6322613b0b12ea79",
+					"011a8b70437d982e662baeb7d6e41717b6a903c423992763a212e824b3a7802c"
+				]
+			}
+		],
+		"steps": {
+			"cloud": [
+				0,
+				3,
+				6
+			],
+			"ps": [
+				0,
+				3,
+				6
+			],
+			"sfc": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
+			],
+			"uvt": [
+				0,
+				3,
+				6
+			],
+			"z": [
+				0,
+				3,
+				6
+			]
+		},
+		"gustPeriod": [
+			0,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1
+		],
+		"built": "0001-01-01T00:00:00Z"
+	},
+	{
+		"key": "blocks/mini/2026100603/b007-012.pmtiles",
+		"model": "mini",
+		"run": "2026-10-06T03:00:00Z",
+		"first": 7,
+		"last": 12,
+		"size": 13397,
+		"sha256": "bf1adf5288edf23b58fa74e73ee42490702ff225f2a7f6e865399e8714e74a0a",
+		"content": "54aad78db77aa9bf1599ea3453a3e17a24fd88587f9e3ce5c26d03224e392f36",
+		"tiles": 7,
+		"covered": 830,
+		"canaries": [
+			{
+				"z": 2,
+				"x": 0,
+				"y": 1,
+				"segments": [
+					"c3966c587fae2251996fae0488864139650bcd0a9769859ffc767dfd03ef583b",
+					"6ba617c483d9681a6d24ec74d9d51e070d5a893b43f43f68ecff539b07bd9e72",
+					"12b76cdd592abf293a26cdd7020d66b45d79c425e422d01a7a30070a69f9c9bf",
+					"982cfefbabd6ae812972e88f1541ac5582d8fdd082e782bdac92d7b3886b0a1c",
+					"6aa7a27b19cbbc91671461d4be3b1cab31e2d75886bf541c78f1a9049a9dfa63",
+					"4a9b73bbb438c7fb4e4360f0af5aa224be0a04c9aad3ee2e304c266ffd0ac0fd"
+				]
+			},
+			{
+				"z": 2,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"9519ca7a826b8378422aaae920eafe5a0f4a6c6f2511e75a16f6ee8dcf92ffbd",
+					"247bd367aa0baa415ab1db38beda397ce1c067e94931b63ebedf5aa9db95b9d1",
+					"16725df813889468753f682e209c38325c74168bd2d270594c172998390744d8",
+					"fb93e03f5ff7ee2f6f77b4bec5e74fb7951db3837c83ac12533395dc0c7c6bb3",
+					"d30579fba3d82240733e9ad357efaf0c1584bfbbb2f4ed7de4fa539d38c7cee1",
+					"d7aa88dd99e584ef6e652aaa4d0017b4353c8b8a49f552bd1ed7ecf02226e0c8"
+				]
+			},
+			{
+				"z": 0,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"dd59b3a317ad69db12336a6aca704708357fad7586fda0fbdcb5bdca8840370f",
+					"6dcd37c33b571fa02cd055220c8f8c5a7f5ed56a9b149f69d369f2fe03b4eac8",
+					"d769c6ee595500cf349f8bda384239e0e88a0e82931227a537e27defcb5eeb53",
+					"fd01e13f1c5f14623ce02ac03beca1372ddcad760196c00631d33a40904e331d",
+					"ea45e6d68a0e75c2b8c5f7f5638e4f5b9e233d18758dccdbc5617ad8d97bdb45",
+					"ad6c1c0f99d7cd67ed5f0e250e562af612b25a9dab276458395d2184fccc9262"
+				]
+			}
+		],
+		"steps": {
+			"cloud": [
+				9,
+				12
+			],
+			"ps": [
+				9,
+				12
+			],
+			"sfc": [
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"uvt": [
+				9,
+				12
+			],
+			"z": [
+				9,
+				12
+			]
+		},
+		"gustPeriod": [
+			1,
+			1,
+			1,
+			1,
+			1,
+			1
+		],
+		"built": "0001-01-01T00:00:00Z"
+	},
+	{
+		"key": "first/miniwide/2026100600.pmtiles",
+		"model": "miniwide",
+		"run": "2026-10-06T00:00:00Z",
+		"first": 0,
+		"last": 12,
+		"size": 14178,
+		"sha256": "3f1de9883c591a55e9baabf17a5ccc1d714a38b1cff596902c397015d19d27b9",
+		"content": "c59e3f73285689a1241816b514408b1afa3bce3d8bbbcd7e8b095792db44a813",
+		"tiles": 5,
+		"covered": 651,
+		"canaries": [
+			{
+				"z": 1,
+				"x": 1,
+				"y": 1,
+				"segments": [
+					"c5e8b69d11e5bb83eedbed6f6d84494062069cdd93c0ec78057bc3759d35cafb",
+					"8bf682590f84049d1f61e9cdb585ea26ec0a27d1f12f3e9f544ebb4cda20eb6e",
+					"769930510c9c21740e9138c4a271b2c081521494d1c133fe2f1736e0f4b74984",
+					"9f81c36fdd6333dcee4bf60ee6136eccfba59c6ae12c4a8d6d3afd942638c818",
+					"7a15dc14c02d08f9525980d81dc298fcf763e9468c7173ddc7f275602a152e79",
+					"80cd5f41e5171be84a047e1d3b5690f8945bcce491141918423ea0d971ca969e"
+				]
+			},
+			{
+				"z": 1,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"1fc6bd1c119ef4ab5fc1f663bbe2f854d637a978baf59796e8a650ee1f9659a8",
+					"9bc556439acd0b93990477609202295c5ee1fc6fb602eadd3f60ae93cf820cc0",
+					"43069bb4ff61bf26e2341ce034045cc28a9fe767788b4366b3714aad834d03b0",
+					"2d013b619632722d909a3c8f0a88799fb43443843c8dec70e8b0870e93fcfe1f",
+					"c4934c261a0f3968dabbeb081f196f8b4c134e812c313322464ca6e0684884e0",
+					"010784f8158a62b52a58b853fc508eb87dd3f0fbbea94fa660e8ad675066fe87"
+				]
+			},
+			{
+				"z": 0,
+				"x": 0,
+				"y": 0,
+				"segments": [
+					"7427ba4c7f46e28dfddc2d9c44c3de16e76f79e2364c8f01c0ece6b1ed9cde77",
+					"627716292f95aa539c0b067405c097401f53a5ecbb2534d32292e6e0bbc61b5f",
+					"97f788f98ed7a979ab154fc4d52eea3dc96853763a19bff135e324218f23a55f",
+					"9e9f52766ec52f4f5df5a3f8da640bda9c97280b5a7c526db1718cad3db4e611",
+					"9b501adc1df4bd911c24384f6a0dc04f21cc272b674063f719d0444742d2e3e2",
+					"100c3c4cdd54e8090c0637ee61fbf82f3e5775aaa681bac8022afcfcd62295de"
+				]
+			}
+		],
+		"steps": {
+			"cloud": [
+				0,
+				3,
+				6,
+				9,
+				12
+			],
+			"ps": [
+				0,
+				3,
+				6,
+				9,
+				12
+			],
+			"sfc": [
+				0,
+				3,
+				6,
+				9,
+				12
+			],
+			"uvt": [
+				0,
+				3,
+				6,
+				9,
+				12
+			],
+			"z": [
+				0,
+				3,
+				6,
+				9,
+				12
+			]
+		},
+		"gustPeriod": [
+			0,
+			3,
+			3,
+			3,
+			3
+		],
+		"built": "0001-01-01T00:00:00Z"
+	}
+]

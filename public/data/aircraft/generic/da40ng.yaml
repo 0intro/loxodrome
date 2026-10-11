@@ -1,0 +1,230 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Diamond DA 40 NG from its Airplane Flight Manual
+# alone, no airframe's weighing: Doc. # 6.01.15-E, Rev. 3 of 1 July 2014
+# ("valid for all serial numbers", 1.1); a Rev. 4 exists behind Diamond's
+# partner login and was not seen. The basic airplane: standard tanks,
+# maximum take-off mass 1280 kg (not MAM 40-662's 1310 kg), maximum
+# landing mass 1216 kg (not MAM 40-574's 1280 kg). Pages below are the
+# AFM's. The AFM prints SI units; inch, pound and US gallon figures are
+# its own conversions, not used.
+version: 1
+
+aircraft:
+  type: DA40 NG
+  icaoType: DA40
+  name: Diamond DA 40 NG (1280 kg, standard tanks), all s/n
+  generic: da40ng
+
+fuel:
+  # 2.14, p. 2-28: standard tanks 2 x 56.8 L total, 2 x 53.0 L usable.
+  # Approved grades JET A, JET A-1, TS-1, RT, No. 3 Jet Fuel and JP-8 (p.
+  # 2-26); JET A-1 is the app's grade, at the 0.84 kg/L the AFM's own
+  # loading example uses (6.4.3).
+  capacityL: 113.6
+  usableL: 106.0
+  types: [JET A-1]
+  consumptionLph: 25.0
+
+cruise:
+  speedKt: 126
+  name: '75 %'
+  # The cruise table (5.3.11, p. 5-27: 1310 kg, flaps up, with wheel
+  # fairings; 4 % less TAS without them) at 3000 ft ISA, the mean of its
+  # 2000 and 4000 ft ISA rows, speeds rounded down: 75 % 125 and 127 kt,
+  # so 126.0. Flows from the fuel flow table (5.3.2, p. 5-5), its litre
+  # column: 92 % 31.5, 75 % 25.0, 60 % 19.5, 45 % 15.5 L/h.
+  settings:
+    - { name: '92 %', speedKt: 137, consumptionLph: 31.5 }
+    - { name: '60 %', speedKt: 113, consumptionLph: 19.5 }
+    - { name: '45 %', speedKt: 96, consumptionLph: 15.5 }
+
+climb: # Cruise climb, flaps UP (5.3.9, p. 5-21): 1280 kg, 92 % or 2100 rpm, vY 88 KIAS, 674 ft/min at sea level ISA (40 ft/min less without wheel fairings)
+  speedKt: 88
+  rateFtMin: 674
+
+massAndBalance:
+  # Empty mass and arm: the AFM's loading example (6.4.3 a), p. 6-9), 900 kg
+  # at a moment of 2180.8 kgm, so 2.4231 m.
+  emptyMassKg: 900.0
+  emptyArmM: 2.4231
+  stations:
+    # Moment arms, 6.4.1 p. 6-7. Baggage limits, 2.7 p. 2-16: the standard
+    # compartment 30 kg, the baggage tube (basic design, where installed)
+    # 5 kg. The short baggage extension (OAM 40-331, 3.97 m, 15 kg) and the
+    # extended compartment (OAM 40-164) are options, not stations here.
+    - { label: Front seats, armM: 2.30, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 3.25, defaultMassKg: 0 }
+    - { label: Baggage, armM: 3.65, defaultMassKg: 0, maxMassKg: 30 }
+    - { label: Baggage tube, armM: 4.32, defaultMassKg: 0, maxMassKg: 5 }
+  fuelArmM: 2.63
+  # 2.8, p. 2-18: forward 2.40 m from 940 kg to 1080 kg, then straight to
+  # 2.46 m at 1280 kg; aft 2.53 m at every mass. The floor is the minimum
+  # flight mass, 940 kg (2.7). Maximum landing mass 1216 kg, maximum zero
+  # fuel mass 1200 kg (2.7, p. 2-16); a ramp mass 4 kg above the take-off
+  # maximum is approved (p. 2-17).
+  envelope:
+    - { armM: 2.40, massKg: 940 }
+    - { armM: 2.40, massKg: 1080 }
+    - { armM: 2.46, massKg: 1280 }
+    - { armM: 2.53, massKg: 1280 }
+    - { armM: 2.53, massKg: 940 }
+  maxLandingMassKg: 1216
+  maxZeroFuelMassKg: 1200
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # Dry grass (5.3.7 p. 5-11 and 5.3.12 p. 5-28): take-off +10 % of the
+  # ground roll up to 5 cm long, +30 % 5 to 10 cm, +45 % at 25 cm (longer:
+  # no take-off); landing +30 % of the roll at 5 cm, at least +45 % longer.
+  # One factor on both distances must cover every case the AFM allows: the
+  # take-off roll on 25 cm grass, x1.45, which also covers the landing
+  # distance over 15 m (+45 % of the roll is at most x1.27 over the
+  # tables); it overstates short grass. Wet: the paved landing +15 %, wet
+  # grass +20 % over the dry grass take-off (+15 % of the landing roll):
+  # 1.20.
+  grassFactor: 1.45
+  wetFactor: 1.2
+  # The AFM prints the landing with flaps T/O or UP as tables (5.3.13, pp.
+  # 5-34 to 5-37), no factor: over the grid below and its four masses the
+  # 15 m distances run 1.23 to 1.43 times the flaps LDG ones (1.423 at
+  # 1280 kg, 9000 ft, 30 C; 1.427 at 1310 kg), hence 1.43.
+  flaplessLandingFactor: 1.43
+  massMaxKg: 1280
+  massMinKg: 1100
+  # 5.2, p. 5-2: "For weights below 1100 kg (2425 lb), use data for the
+  # lowest weight", and below the coldest column "use data for lowest
+  # temperature shown": held, never extrapolated to shorter distances.
+  holdBelowTable: true
+  # The take-off tables are the normal procedure's (flaps T/O, power MAX,
+  # brakes held, vR 67 / v50 72 KIAS at 1280 kg); the landing tables flaps
+  # LDG, power idle, vREF 77 KIAS at 1280 kg. No flap angle is printed.
+  takeoffProcedure: normal
+  wind:
+    # Take-off -10 % per 12 kt of headwind, landing -10 % per 20 kt;
+    # tailwind +10 % per 2 kt (take-off), +10 % per 3 kt (landing): the
+    # take-off's figure serves both. The AFM's factors already hold 50 % of
+    # the headwind and 150 % of the tailwind.
+    takeoffHeadwind: [[0, 1.0], [12, 0.9], [24, 0.8], [36, 0.7]]
+    landingHeadwind: [[0, 1.0], [20, 0.9], [40, 0.8]]
+    tailwindPctPer2Kt: 10
+  # AFM distances by pressure altitude and outside air temperature, as
+  # printed (metres): cells [ground roll, total over 15 m]. Take-off: the
+  # normal procedure tables at 1280 kg (p. 5-14) and 1100 kg (p. 5-16);
+  # landing: flaps LDG at 1280 kg (p. 5-31) and 1100 kg (p. 5-33). The
+  # tables print 0 to 50 C and sea level to 10000 ft but blank the hot
+  # cells (50 C from 5000 ft, 40 C at 10000 ft), so the grid keeps 0 to
+  # 40 C and sea level to 9000 ft. Between these two masses the 1200 kg
+  # tables (pp. 5-15, 5-32) come out on average 0.1 % short of their
+  # printed figures, from -1.4 to +1.4 % (9 m at most) cell by cell: the
+  # tables' own rounding to 5 m (roll) and 10 m (15 m distance), with no
+  # trend in altitude or temperature.
+  takeoff:
+    - { altFt: 0, temperatureC: 0, massMax: [365, 540], massMin: [280, 430] }
+    - { altFt: 0, temperatureC: 10, massMax: [385, 570], massMin: [295, 450] }
+    - { altFt: 0, temperatureC: 20, massMax: [405, 600], massMin: [310, 470] }
+    - { altFt: 0, temperatureC: 30, massMax: [425, 630], massMin: [330, 490] }
+    - { altFt: 0, temperatureC: 40, massMax: [460, 670], massMin: [355, 530] }
+    - { altFt: 1000, temperatureC: 0, massMax: [385, 580], massMin: [295, 450] }
+    - { altFt: 1000, temperatureC: 10, massMax: [410, 600], massMin: [315, 470] }
+    - { altFt: 1000, temperatureC: 20, massMax: [430, 630], massMin: [335, 500] }
+    - { altFt: 1000, temperatureC: 30, massMax: [460, 670], massMin: [355, 530] }
+    - { altFt: 1000, temperatureC: 40, massMax: [495, 720], massMin: [385, 570] }
+    - { altFt: 2000, temperatureC: 0, massMax: [410, 610], massMin: [315, 480] }
+    - { altFt: 2000, temperatureC: 10, massMax: [435, 640], massMin: [335, 500] }
+    - { altFt: 2000, temperatureC: 20, massMax: [460, 670], massMin: [355, 530] }
+    - { altFt: 2000, temperatureC: 30, massMax: [495, 720], massMin: [385, 570] }
+    - { altFt: 2000, temperatureC: 40, massMax: [535, 770], massMin: [415, 600] }
+    - { altFt: 3000, temperatureC: 0, massMax: [435, 640], massMin: [340, 500] }
+    - { altFt: 3000, temperatureC: 10, massMax: [465, 670], massMin: [360, 530] }
+    - { altFt: 3000, temperatureC: 20, massMax: [495, 710], massMin: [385, 560] }
+    - { altFt: 3000, temperatureC: 30, massMax: [535, 770], massMin: [415, 610] }
+    - { altFt: 3000, temperatureC: 40, massMax: [580, 820], massMin: [450, 650] }
+    - { altFt: 4000, temperatureC: 0, massMax: [470, 680], massMin: [360, 530] }
+    - { altFt: 4000, temperatureC: 10, massMax: [495, 720], massMin: [385, 560] }
+    - { altFt: 4000, temperatureC: 20, massMax: [535, 770], massMin: [415, 600] }
+    - { altFt: 4000, temperatureC: 30, massMax: [585, 830], massMin: [455, 650] }
+    - { altFt: 4000, temperatureC: 40, massMax: [625, 890], massMin: [490, 700] }
+    - { altFt: 5000, temperatureC: 0, massMax: [500, 720], massMin: [385, 560] }
+    - { altFt: 5000, temperatureC: 10, massMax: [535, 760], massMin: [415, 600] }
+    - { altFt: 5000, temperatureC: 20, massMax: [580, 830], massMin: [455, 650] }
+    - { altFt: 5000, temperatureC: 30, massMax: [635, 890], massMin: [495, 710] }
+    - { altFt: 5000, temperatureC: 40, massMax: [680, 950], massMin: [530, 750] }
+    - { altFt: 6000, temperatureC: 0, massMax: [535, 760], massMin: [415, 600] }
+    - { altFt: 6000, temperatureC: 10, massMax: [580, 820], massMin: [455, 650] }
+    - { altFt: 6000, temperatureC: 20, massMax: [635, 890], massMin: [495, 700] }
+    - { altFt: 6000, temperatureC: 30, massMax: [695, 970], massMin: [545, 770] }
+    - { altFt: 6000, temperatureC: 40, massMax: [740, 1030], massMin: [580, 820] }
+    - { altFt: 7000, temperatureC: 0, massMax: [575, 810], massMin: [450, 640] }
+    - { altFt: 7000, temperatureC: 10, massMax: [635, 890], massMin: [495, 700] }
+    - { altFt: 7000, temperatureC: 20, massMax: [695, 970], massMin: [545, 770] }
+    - { altFt: 7000, temperatureC: 30, massMax: [760, 1050], massMin: [600, 830] }
+    - { altFt: 7000, temperatureC: 40, massMax: [810, 1120], massMin: [640, 890] }
+    - { altFt: 8000, temperatureC: 0, massMax: [630, 880], massMin: [490, 690] }
+    - { altFt: 8000, temperatureC: 10, massMax: [695, 960], massMin: [545, 760] }
+    - { altFt: 8000, temperatureC: 20, massMax: [765, 1050], massMin: [605, 840] }
+    - { altFt: 8000, temperatureC: 30, massMax: [840, 1150], massMin: [660, 910] }
+    - { altFt: 8000, temperatureC: 40, massMax: [895, 1220], massMin: [705, 970] }
+    - { altFt: 9000, temperatureC: 0, massMax: [690, 960], massMin: [540, 760] }
+    - { altFt: 9000, temperatureC: 10, massMax: [765, 1050], massMin: [600, 830] }
+    - { altFt: 9000, temperatureC: 20, massMax: [845, 1150], massMin: [665, 910] }
+    - { altFt: 9000, temperatureC: 30, massMax: [910, 1230], massMin: [725, 980] }
+    - { altFt: 9000, temperatureC: 40, massMax: [980, 1320], massMin: [780, 1050] }
+  landing:
+    - { altFt: 0, temperatureC: 0, massMax: [295, 610], massMin: [255, 590] }
+    - { altFt: 0, temperatureC: 10, massMax: [305, 630], massMin: [265, 610] }
+    - { altFt: 0, temperatureC: 20, massMax: [320, 650], massMin: [275, 630] }
+    - { altFt: 0, temperatureC: 30, massMax: [330, 670], massMin: [285, 640] }
+    - { altFt: 0, temperatureC: 40, massMax: [345, 710], massMin: [300, 680] }
+    - { altFt: 1000, temperatureC: 0, massMax: [305, 630], massMin: [265, 590] }
+    - { altFt: 1000, temperatureC: 10, massMax: [320, 650], massMin: [275, 610] }
+    - { altFt: 1000, temperatureC: 20, massMax: [330, 670], massMin: [285, 630] }
+    - { altFt: 1000, temperatureC: 30, massMax: [340, 690], massMin: [295, 660] }
+    - { altFt: 1000, temperatureC: 40, massMax: [365, 730], massMin: [315, 690] }
+    - { altFt: 2000, temperatureC: 0, massMax: [320, 640], massMin: [275, 600] }
+    - { altFt: 2000, temperatureC: 10, massMax: [330, 660], massMin: [285, 620] }
+    - { altFt: 2000, temperatureC: 20, massMax: [340, 680], massMin: [295, 640] }
+    - { altFt: 2000, temperatureC: 30, massMax: [360, 720], massMin: [310, 670] }
+    - { altFt: 2000, temperatureC: 40, massMax: [380, 750], massMin: [330, 710] }
+    - { altFt: 3000, temperatureC: 0, massMax: [330, 650], massMin: [285, 610] }
+    - { altFt: 3000, temperatureC: 10, massMax: [340, 670], massMin: [295, 630] }
+    - { altFt: 3000, temperatureC: 20, massMax: [355, 700], massMin: [310, 650] }
+    - { altFt: 3000, temperatureC: 30, massMax: [375, 740], massMin: [330, 690] }
+    - { altFt: 3000, temperatureC: 40, massMax: [400, 780], massMin: [345, 730] }
+    - { altFt: 4000, temperatureC: 0, massMax: [340, 670], massMin: [295, 620] }
+    - { altFt: 4000, temperatureC: 10, massMax: [355, 690], massMin: [305, 640] }
+    - { altFt: 4000, temperatureC: 20, massMax: [375, 720], massMin: [325, 670] }
+    - { altFt: 4000, temperatureC: 30, massMax: [395, 770], massMin: [345, 710] }
+    - { altFt: 4000, temperatureC: 40, massMax: [420, 810], massMin: [365, 750] }
+    - { altFt: 5000, temperatureC: 0, massMax: [355, 680], massMin: [305, 630] }
+    - { altFt: 5000, temperatureC: 10, massMax: [370, 710], massMin: [320, 650] }
+    - { altFt: 5000, temperatureC: 20, massMax: [390, 750], massMin: [340, 690] }
+    - { altFt: 5000, temperatureC: 30, massMax: [415, 800], massMin: [360, 730] }
+    - { altFt: 5000, temperatureC: 40, massMax: [440, 840], massMin: [385, 780] }
+    - { altFt: 6000, temperatureC: 0, massMax: [365, 700], massMin: [320, 640] }
+    - { altFt: 6000, temperatureC: 10, massMax: [385, 740], massMin: [335, 680] }
+    - { altFt: 6000, temperatureC: 20, massMax: [415, 780], massMin: [355, 720] }
+    - { altFt: 6000, temperatureC: 30, massMax: [440, 830], massMin: [380, 760] }
+    - { altFt: 6000, temperatureC: 40, massMax: [465, 870], massMin: [405, 800] }
+    - { altFt: 7000, temperatureC: 0, massMax: [395, 730], massMin: [345, 670] }
+    - { altFt: 7000, temperatureC: 10, massMax: [420, 780], massMin: [365, 710] }
+    - { altFt: 7000, temperatureC: 20, massMax: [450, 820], massMin: [390, 750] }
+    - { altFt: 7000, temperatureC: 30, massMax: [475, 870], massMin: [415, 800] }
+    - { altFt: 7000, temperatureC: 40, massMax: [505, 920], massMin: [440, 840] }
+    - { altFt: 8000, temperatureC: 0, massMax: [450, 800], massMin: [400, 740] }
+    - { altFt: 8000, temperatureC: 10, massMax: [480, 850], massMin: [425, 790] }
+    - { altFt: 8000, temperatureC: 20, massMax: [510, 900], massMin: [450, 840] }
+    - { altFt: 8000, temperatureC: 30, massMax: [540, 950], massMin: [480, 880] }
+    - { altFt: 8000, temperatureC: 40, massMax: [570, 1010], massMin: [510, 930] }
+    - { altFt: 9000, temperatureC: 0, massMax: [510, 880], massMin: [465, 830] }
+    - { altFt: 9000, temperatureC: 10, massMax: [545, 930], massMin: [495, 880] }
+    - { altFt: 9000, temperatureC: 20, massMax: [580, 990], massMin: [525, 930] }
+    - { altFt: 9000, temperatureC: 30, massMax: [615, 1040], massMin: [560, 980] }
+    - { altFt: 9000, temperatureC: 40, massMax: [650, 1100], massMin: [590, 1030] }
+
+notes: Generic sheet. Empty mass and arm from the AFM's loading example (900 kg,
+  2180.8 kgm), not an aircraft's weighing.
+source: Diamond DA 40 NG Airplane Flight Manual, Doc. No. 6.01.15-E, Rev. 3
+  (1 July 2014), valid for all serial numbers.

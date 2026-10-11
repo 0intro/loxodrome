@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-10-02T16:05:47.750Z",
+  "source": "UG_AIP_DS_FULL_20261126_AIRAC.xml",
+  "sourceSha256": "5012a9dbc785be8a5128f76a6b737c15cea9bcf24557638ab314f514979d161c",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "ahpCount": 7,
+  "runwayCount": 8,
+  "militaryCount": 1,
+  "radioCount": 17,
+  "transitionAltCount": 3,
+  "counts": {
+    "large_airport": 3,
+    "small_airport": 4
+  },
+  "bbox": [
+    41.599,
+    41.61,
+    45.509,
+    43.055
+  ]
+}

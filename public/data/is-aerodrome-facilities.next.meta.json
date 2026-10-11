@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-02T15:47:00.121Z",
+  "source": "Avians Iceland eAIP A_10-2026_2026_10_29",
+  "sourceSha256": "785d2ff51e0b25648ab0a210cd76c51266f4639fb91e82a9bb9f68b218f95d4c",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "aerodromeCount": 53,
+  "heliportCount": 0,
+  "skippedNotes": 0,
+  "counts": {
+    "email": 34,
+    "operator": 53,
+    "phone": 103,
+    "remark": 12,
+    "web": 1
+  }
+}

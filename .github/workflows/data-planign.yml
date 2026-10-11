@@ -1,0 +1,145 @@
+name: Rebuild the Plan IGN offline base map
+
+# The offline pack of IGN's Plan IGN (cmd/planign): a harvest of IGN's own
+# WMTS, about 173,000 requests at 15 a second, so about three hours and a
+# quarter, assembled into one PMTiles archive the chart worker serves at
+# charts.loxodrome.fr/planign/archive for the app's offline manager.
+#
+# Quarterly, on the 3rd of January, April, July and October. IGN updates
+# Plan IGN monthly, and every new edition asks each pilot holding the pack
+# to download 1.2 GB again, so the cadence is ours to choose, not IGN's.
+# An unchanged map is not uploaded: cmd/planign compares the tiles' pixels
+# with the edition being served, and refuses an edition that lost tiles
+# (an outage answering 404) unless forced.
+#
+# Three jobs, so the job that compiles and runs the build never holds the R2
+# token: build (no secrets) harvests, assembles and decides; upload (the
+# token and the AWS CLI, nothing else) runs only when the decision says so;
+# verify checks the route serves what was built.
+#
+# It commits nothing, so it is not in deploy.yml's workflow_run list.
+
+on:
+  schedule:
+    - cron: '17 2 3 1,4,7,10 *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Upload even when the tiles did not change or a zoom lost tiles'
+        type: boolean
+        default: false
+
+concurrency:
+  group: planign
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    outputs:
+      decision: ${{ steps.decide.outputs.decision }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # A run's own cache only: "Re-run failed jobs" resumes the harvest a
+      # deadline stopped, while every scheduled run starts a fresh edition.
+      - name: Restore an interrupted harvest
+        uses: actions/cache/restore@v6
+        with:
+          path: local/planign-cache
+          key: planign-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: planign-${{ github.run_id }}-
+
+      # -deadline stops cleanly (exit 3) before the step's own timeout, so the
+      # cache-save step below still runs.
+      - name: Harvest, assemble and decide
+        timeout-minutes: 300
+        env:
+          GOMEMLIMIT: 6GiB
+          FORCE: ${{ inputs.force && '-force' || '' }}
+        run: |
+          set -euo pipefail
+          go run -tags nodynamic ./cmd/planign -deadline 4h40m \
+            -previous https://charts.loxodrome.fr/planign/archive $FORCE
+
+      - name: Keep the harvest for a re-run
+        if: failure() || cancelled()
+        uses: actions/cache/save@v6
+        with:
+          path: local/planign-cache
+          key: planign-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Second opinion (go-pmtiles verify)
+        run: go run github.com/protomaps/go-pmtiles@v1.31.2 verify local/planign/planign.pmtiles
+
+      - name: Decision
+        id: decide
+        run: |
+          set -euo pipefail
+          jq '{version, digest, bytes, present, absent, census, header, decision, reason}' local/planign/planign.json
+          echo "decision=$(jq -r .decision local/planign/planign.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Hand the archive to the upload job
+        if: steps.decide.outputs.decision == 'upload'
+        uses: actions/upload-artifact@v7
+        with:
+          name: planign
+          path: |
+            local/planign/planign.pmtiles
+            local/planign/planign.json
+          retention-days: 1
+          compression-level: 0
+
+  upload:
+    needs: build
+    if: needs.build.outputs.decision == 'upload'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: planign
+          path: local/planign
+
+      - name: Upload to R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PLANIGN_R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PLANIGN_R2_SECRET_ACCESS_KEY }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BUCKET: ${{ vars.PLANIGN_R2_BUCKET }}
+        run: |
+          set -euo pipefail
+          # CRC32: R2 rejects the CRC64NVME the AWS CLI now defaults to.
+          aws s3 cp local/planign/planign.pmtiles "s3://$BUCKET/planign.pmtiles" \
+            --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" \
+            --content-type application/octet-stream \
+            --checksum-algorithm CRC32 --only-show-errors
+
+  verify:
+    needs: upload
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: planign
+          path: local/planign
+
+      - name: Check the published route
+        run: go run -tags nodynamic ./cmd/planign -check-published https://charts.loxodrome.fr/planign/archive
