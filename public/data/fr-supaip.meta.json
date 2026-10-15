@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-10-11T19:43:27.916Z",
+  "generatedAt": "2026-10-15T08:44:56.497Z",
   "source": {
     "site": "https://www.sia.aviation-civile.gouv.fr",
     "pdfBase": "https://www.sia.aviation-civile.gouv.fr/media/store/documents/file/",
     "listingShas": {
       "car-sam-nam": "9d4f3cd2e20fd3f159d79f2cfa7710b87153d6eee9a363b3bedc7f59f4f65e9c",
-      "metropole": "d655eebb369372a4fc8c85a2ac600a73e3590435f08341e5f2a94d0ca3a9eb9f",
+      "metropole": "665859d779c3f835abb8b172daf20be8fea5f181ac06728e8398ccc56852decb",
       "pac-n": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "pac-p": "16d8f31e74c6c96b3b149f35828bcd0c9d702987c891e0b86b8df8f4d10b7434",
-      "run": "753685eefcddbc77b4ec25d996231f8cae2d876edcec2e5dc0ac07ffebda046c"
+      "run": "685118ea9cc20e353924933e40bee639165eae7be2f26642073d116dfa59edfb"
     }
   },
-  "total": 256,
+  "total": 261,
   "active": 111,
-  "upcoming": 12,
-  "withGeometry": 196,
-  "withVertical": 194,
-  "withEnglish": 256,
-  "withContacts": 122,
-  "withPenetration": 208,
-  "withManager": 185,
-  "polygon": 126,
+  "upcoming": 17,
+  "withGeometry": 199,
+  "withVertical": 197,
+  "withEnglish": 261,
+  "withContacts": 124,
+  "withPenetration": 211,
+  "withManager": 188,
+  "polygon": 127,
   "circle": 11,
-  "mixed": 59,
-  "none": 60,
+  "mixed": 61,
+  "none": 62,
   "byRegion": {
     "car-sam-nam": 3,
-    "metropole": 246,
+    "metropole": 250,
     "pac-n": 1,
     "pac-p": 4,
-    "run": 2
+    "run": 3
   },
-  "pdfFetched": 3,
+  "pdfFetched": 6,
   "pdfCached": 116,
   "parseErrors": 0,
   "popplerFallback": 14,
-  "retained": 137,
+  "retained": 139,
   "parserVersion": 13
 }
