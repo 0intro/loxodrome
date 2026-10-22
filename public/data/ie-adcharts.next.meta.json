@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-22T14:18:26.986Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-10-29-AIRAC",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "AIRAC/2026-10-29-AIRAC",
+  "base": "https://www.airnav.ie/AIRAC/2026-10-29-AIRAC/",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-IE",
+  "aerodromes": 21,
+  "heliports": 0,
+  "withCharts": 9,
+  "withVac": 8,
+  "charts": 138,
+  "byFamily": {
+    "ADC": 10,
+    "AOC": 12,
+    "APDC": 2,
+    "ATCSMAC": 3,
+    "IAC": 56,
+    "PATC": 7,
+    "SID": 28,
+    "STAR": 12,
+    "VAC": 8
+  },
+  "linkCheck": "6/6"
+}
