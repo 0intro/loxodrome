@@ -1,33 +1,34 @@
 {
-  "generatedAt": "2026-10-02T15:53:26.413Z",
+  "generatedAt": "2026-10-22T10:10:11.225Z",
   "source": {
     "site": "https://aip.enaire.es/AIP/Suplementos-es.html",
     "listingShas": {
-      "en": "07bc1ce22f893f656a34bccc7164295c1969afbf0a1f617f24333734990fefcb",
-      "es": "2440cab9ccec2f367b7f209305ce9abd9aee549518798f005d73b7364f468d2a"
+      "en": "da852ab6dc8f06100c05fa1e2374c96449a7c761ab1e371c4098569d051ae5f5",
+      "es": "9566e0c411db4d009b41918897c1d272e6affa8ab3326592fe49fbb9414393b9"
     }
   },
-  "total": 218,
+  "total": 231,
   "active": 213,
-  "upcoming": 5,
-  "withGeometry": 94,
-  "withVertical": 94,
-  "withEnglish": 218,
-  "polygon": 3,
-  "circle": 89,
-  "mixed": 2,
-  "none": 124,
+  "upcoming": 18,
+  "withGeometry": 95,
+  "withVertical": 95,
+  "withEnglish": 231,
+  "polygon": 4,
+  "circle": 90,
+  "mixed": 1,
+  "none": 136,
   "pdfFallbacks": 4,
   "pdftotextMissing": 0,
   "docsMissing": 0,
-  "estimatedEnd": 213,
+  "estimatedEnd": 225,
   "byRegion": {
-    "es": 218
+    "es": 231
   },
   "warnings": {
-    "exclusion-not-modeled": 6,
+    "exclusion-not-modeled": 8,
     "obstacle-row-without-position": 61,
     "pdf-fallback": 4,
+    "ring-too-short": 1,
     "wef-mismatch": 1
   },
   "parserVersion": 2
