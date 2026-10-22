@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-02T16:12:55.569Z",
-  "source": "enr-5-4-airac-amendment-011_-26-effective-nov-2026.xlsx + safety-significant-obstacles-airac-amendment-011_26-effective-nov-2026.xlsx",
-  "sourceSha256": "bb6f2fca38b8006625561c6ea720f715b6a9a4d3bfe0e0b221009e8f62f9cb19",
+  "generatedAt": "2026-10-22T14:55:56.567Z",
+  "source": "enr-5-4-airac-amendment-011_-26-effective-nov-2026.xlsx + safety-significant-obstacles-airac-amendment-011_26-effective-nov-2026-ws.xlsx",
+  "sourceSha256": "89bf0cee15b67b7df2ec1c5a2f160873efc0e58e00d655acaa55243e8d7e2c7f",
   "effective": "2026-11-26T00:00:00.000Z",
   "obstacleCount": 3125,
   "litCount": 1450,
@@ -27,6 +27,6 @@
   "area1": 2222,
   "area1Source": "enr-5-4-airac-amendment-011_-26-effective-nov-2026.xlsx",
   "safetySignificant": 903,
-  "safetySignificantSource": "safety-significant-obstacles-airac-amendment-011_26-effective-nov-2026.xlsx",
+  "safetySignificantSource": "safety-significant-obstacles-airac-amendment-011_26-effective-nov-2026-ws.xlsx",
   "skippedNoPosition": 2
 }

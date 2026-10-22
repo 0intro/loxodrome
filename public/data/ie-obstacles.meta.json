@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T16:12:50.292Z",
-  "source": "enr-5-4-airac-amendment-008-26-effective-aug-2026.xlsx + safety-significant-obstacles-airac-amendment-008-26-effective-aug-2026.xlsx",
-  "sourceSha256": "cd2ac9b0a81d77c4908370c59be741f0e1e6ca0eb32234a29232d68f2067e875",
+  "generatedAt": "2026-10-22T14:55:46.926Z",
+  "source": "enr-5-4-airac-amendment-008-26-effective-aug-2026.xlsx + safety-significant-obstacles-airac-amendment-004_26-effective-apr-2026-ws.xlsx",
+  "sourceSha256": "816c1250d266467559e0c1f931dea43b3b30177c80047b75714eae849b244b8c",
   "effective": "2026-08-06T00:00:00.000Z",
-  "obstacleCount": 3098,
-  "litCount": 1440,
+  "obstacleCount": 3099,
+  "litCount": 1439,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
   "skippedTooShort": 0,
@@ -12,11 +12,11 @@
   "counts": {
     "antenna": 1,
     "chimney": 40,
-    "mast": 278,
+    "mast": 280,
     "other": 1,
     "silo": 7,
     "tower": 1,
-    "windturbine": 2770
+    "windturbine": 2769
   },
   "bbox": [
     -10.426,
@@ -26,7 +26,7 @@
   ],
   "area1": 2200,
   "area1Source": "enr-5-4-airac-amendment-008-26-effective-aug-2026.xlsx",
-  "safetySignificant": 898,
-  "safetySignificantSource": "safety-significant-obstacles-airac-amendment-008-26-effective-aug-2026.xlsx",
+  "safetySignificant": 899,
+  "safetySignificantSource": "safety-significant-obstacles-airac-amendment-004_26-effective-apr-2026-ws.xlsx",
   "skippedNoPosition": 2
 }
