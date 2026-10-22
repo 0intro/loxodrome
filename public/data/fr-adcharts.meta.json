@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T15:44:48.910Z",
+  "generatedAt": "2026-10-22T10:15:28.333Z",
   "effective": "2026-10-01",
   "source": {
     "site": "https://www.sia.aviation-civile.gouv.fr",
@@ -8,13 +8,13 @@
     "vacHIndex": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_01_OCT_2026/Atlas-VAC/Javascript/AeroArraysVach.js"
   },
   "aerodromes": 134,
-  "charts": 3102,
+  "charts": 3101,
   "vacAerodromes": 419,
   "vacHeliports": 237,
   "byFamily": {
     "ADC": 138,
     "AMG": 15,
-    "AMSR": 10,
+    "AMSR": 9,
     "AOC": 85,
     "APDC": 96,
     "ARC": 20,
