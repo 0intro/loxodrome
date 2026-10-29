@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-22T14:18:46.723Z",
-  "source": "KANS Kosovo eAIP AIRAC AMDT 11-2026_2026_10_29",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "edition": "AIRAC AMDT 11-2026_2026_10_29",
-  "base": "https://kans-ks.org/eAIP/AIRAC%20AMDT%2011-2026_2026_10_29/",
+  "generatedAt": "2026-10-29T15:37:11.871Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 12-2026_2026_11_26",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "AIRAC AMDT 12-2026_2026_11_26",
+  "base": "https://kans-ks.org/eAIP/AIRAC%20AMDT%2012-2026_2026_11_26/",
   "cycleLag": 0,
   "confirmed": false,
   "lang": "en-GB",
@@ -29,5 +29,5 @@
   "miscTitles": [
     "KOSOVO RESTRITED AREAS"
   ],
-  "linkCheck": "6/6"
+  "linkCheck": "5/6"
 }

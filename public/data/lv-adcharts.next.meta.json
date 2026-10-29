@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T15:47:03.612Z",
-  "source": "LGS Latvia eAIP eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "edition": "eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29",
-  "base": "https://ais.lgs.lv/eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29/",
+  "generatedAt": "2026-10-29T15:38:01.431Z",
+  "source": "LGS Latvia eAIP eAIPfiles/2026_008_26-NOV-2026/data/2026-11-26",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "eAIPfiles/2026_008_26-NOV-2026/data/2026-11-26",
+  "base": "https://ais.lgs.lv/eAIPfiles/2026_008_26-NOV-2026/data/2026-11-26/",
   "cycleLag": 0,
   "confirmed": false,
   "lang": "en-GB",
@@ -11,7 +11,7 @@
   "heliports": 3,
   "withCharts": 12,
   "withVac": 12,
-  "charts": 78,
+  "charts": 76,
   "byFamily": {
     "ADC": 12,
     "AOC": 2,
@@ -21,14 +21,14 @@
     "MISC": 5,
     "PATC": 1,
     "SID": 9,
-    "STAR": 10,
+    "STAR": 8,
     "VAC": 12
   },
   "miscTitles": [
     "Arrival and Departure Route Chart - non-ICAO",
-    "1813 EVGA 2 24 2 20260903",
-    "1633 EVRA 2 24 2 S 20250904",
-    "1629 EVRA 2 24 2 N 20250904"
+    "1903 EVGA 2 24 2 20261126",
+    "1901 EVRA 2 24 2 S 20261126",
+    "1907 EVRA 2 24 2 N 20261126"
   ],
   "linkCheck": "6/6"
 }

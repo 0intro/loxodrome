@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-22T13:58:54.421Z",
-  "source": "PANSA Poland eAIP AIRAC AMDT 10-26_2026_10_01",
-  "effective": "2026-10-01T00:00:00.000Z",
-  "edition": "AIRAC AMDT 10-26_2026_10_01",
-  "base": "https://docs.pansa.pl/ais/eaipifr/AIRAC%20AMDT%2010-26_2026_10_01/",
+  "generatedAt": "2026-10-29T15:22:36.792Z",
+  "source": "PANSA Poland eAIP AIRAC AMDT 11-26_2026_10_29",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "AIRAC AMDT 11-26_2026_10_29",
+  "base": "https://docs.pansa.pl/ais/eaipifr/AIRAC%20AMDT%2011-26_2026_10_29/",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",
@@ -33,6 +33,6 @@
   ],
   "linkCheck": "6/6",
   "alsoRead": [
-    "PANSA AIP VFR AIRAC AMDT VFR 10-26_2026_10_01"
+    "PANSA AIP VFR AIRAC AMDT VFR 11-26_2026_10_29"
   ]
 }

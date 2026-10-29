@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T15:45:51.636Z",
+  "generatedAt": "2026-10-29T15:26:56.513Z",
   "source": "Fintraffic ANS Finland eAIP 01 OCT 2026_2026_10_01",
   "sourceSha256": "d76d60d05c72ea4567fe1bf0ca5f9b1c25fece7cf98a4d49a647734965fa8816",
   "effective": "2026-10-01T00:00:00.000Z",
-  "cycleLag": 0,
+  "cycleLag": 1,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",
   "lang": "en-GB",

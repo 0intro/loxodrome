@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:46:05.557Z",
-  "source": "LGS Latvia eAIP eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03",
-  "effective": "2026-09-03T00:00:00.000Z",
-  "edition": "eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03",
-  "base": "https://ais.lgs.lv/eAIPfiles/2026_006_03-SEP-2026/data/2026-09-03/",
-  "cycleLag": 1,
+  "generatedAt": "2026-10-29T15:27:20.103Z",
+  "source": "LGS Latvia eAIP eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29",
+  "base": "https://ais.lgs.lv/eAIPfiles/2026_007_29-OCT-2026/data/2026-10-29/",
+  "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",
   "lang": "en-GB",
@@ -12,7 +12,7 @@
   "heliports": 3,
   "withCharts": 12,
   "withVac": 12,
-  "charts": 76,
+  "charts": 78,
   "byFamily": {
     "ADC": 12,
     "AOC": 2,
@@ -22,7 +22,7 @@
     "MISC": 5,
     "PATC": 1,
     "SID": 9,
-    "STAR": 8,
+    "STAR": 10,
     "VAC": 12
   },
   "miscTitles": [

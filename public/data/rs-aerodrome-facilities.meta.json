@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-22T13:58:58.726Z",
-  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC",
+  "generatedAt": "2026-10-29T15:22:43.002Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 29-Oct-2026-A/2026-10-29-AIRAC",
   "sourceSha256": "43d9d3d238a8b343981b4ad6314b5f87ab63eabc1ee4e4e792c3b084429d532b",
-  "effective": "2026-10-01T00:00:00.000Z",
+  "effective": "2026-10-29T00:00:00.000Z",
   "aerodromeCount": 8,
   "heliportCount": 0,
   "skippedNotes": 0,

@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-10-29T15:37:16.906Z",
+  "source": "BHANSA Bosnia and Herzegovina eAIP 2026-11-26-AIRAC",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "2026-11-26-AIRAC",
+  "base": "https://eaip.bhansa.gov.ba/2026-11-26-AIRAC/",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "aerodromes": 4,
+  "heliports": 0,
+  "withCharts": 4,
+  "withVac": 4,
+  "charts": 113,
+  "byFamily": {
+    "ADC": 4,
+    "AOC": 9,
+    "APDC": 1,
+    "IAC": 34,
+    "SID": 38,
+    "STAR": 23,
+    "VAC": 4
+  },
+  "linkCheck": "6/6"
+}

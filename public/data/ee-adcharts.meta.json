@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:46:03.481Z",
+  "generatedAt": "2026-10-29T15:27:15.193Z",
   "source": "EANS Estonia eAIP 2026-10-01",
   "effective": "2026-10-01T00:00:00.000Z",
   "edition": "2026-10-01",
   "base": "https://eaip.eans.ee/2026-10-01/",
-  "cycleLag": 0,
+  "cycleLag": 1,
   "confirmed": true,
   "resolvedBy": "path templates, confirmed by the publisher pointer",
   "lang": "en-GB",

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-22T13:58:18.878Z",
+  "generatedAt": "2026-10-29T15:22:13.776Z",
   "source": "NAV Portugal eAIP ",
   "effective": "2026-10-01T00:00:00.000Z",
   "edition": "",
   "base": "https://ais.nav.pt/wp-content/uploads/AIS_Files/eAIP_Current/eAIP_Online/eAIP/",
-  "cycleLag": 0,
+  "cycleLag": 1,
   "confirmed": true,
   "resolvedBy": "fixed path",
   "lang": "en-PT",

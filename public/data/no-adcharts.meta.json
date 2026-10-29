@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:46:11.860Z",
+  "generatedAt": "2026-10-29T15:27:30.317Z",
   "source": "Avinor Norway eAIP 2026-09-03-AIRAC",
   "effective": "2026-09-03T00:00:00.000Z",
   "edition": "2026-09-03-AIRAC",
   "base": "https://aim-prod.avinor.no/no/AIP/View/Index/155/2026-09-03-AIRAC/",
-  "cycleLag": 1,
+  "cycleLag": 2,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",
   "lang": "en-GB",

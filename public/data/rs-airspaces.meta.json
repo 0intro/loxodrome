@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-10-22T13:59:00.348Z",
-  "source": "SMATSA Serbia and Montenegro eAIP 01-Oct-2026-A/2026-10-01-AIRAC",
-  "sourceSha256": "5a935d9e828e8cdaf56980df6907340bd850ac73a25338c660e3b277faf1555b",
-  "effective": "2026-10-01T00:00:00.000Z",
+  "generatedAt": "2026-10-29T15:22:45.383Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 29-Oct-2026-A/2026-10-29-AIRAC",
+  "sourceSha256": "dc031a9a33a4e09d65aab1f6890cd0702adff7eb131f6cc5dd6f27241dcbae04",
+  "effective": "2026-10-29T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "path templates, confirmed by the publisher pointer",
   "lang": "en-GB",
-  "airspaceCount": 181,
+  "airspaceCount": 333,
   "sectionCounts": {
     "AD 2.17": 9,
     "ENR 2.1": 9,
     "ENR 2.2": 30,
     "ENR 5.1": 28,
-    "ENR 5.2": 81,
+    "ENR 5.2": 233,
     "ENR 5.5": 24
   },
   "tables": 9,
@@ -33,7 +33,7 @@
   "adRepublished": 0,
   "adInferredCtr": 0,
   "refsResolved": 0,
-  "bufferColumns": 76,
+  "bufferColumns": 75,
   "skippedTypes": {
     "AREA REPRESENTED BY": 1,
     "BEOGRAD FIR/UIR/CTA/UTA": 1,
@@ -49,8 +49,8 @@
     "R": 3,
     "RMZ": 9,
     "TMA": 9,
-    "TRA": 51,
-    "TSA": 8
+    "TRA": 197,
+    "TSA": 14
   },
   "bbox": [
     18.378,

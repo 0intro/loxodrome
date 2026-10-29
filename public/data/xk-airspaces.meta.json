@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-22T13:59:12.034Z",
-  "source": "KANS Kosovo eAIP AIRAC AMDT 10-2026_2026_10_01",
-  "sourceSha256": "f83bd4a5fdcfbf69fdde753c7908c2a40cdef21b12f52dd104e404625a6acc34",
-  "effective": "2026-10-01T00:00:00.000Z",
+  "generatedAt": "2026-10-29T15:26:40.926Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 11-2026_2026_10_29",
+  "sourceSha256": "6f7742e86e3c5b82fdeda9cf442f3026763723bc6c4b43999db000f4a1a78390",
+  "effective": "2026-10-29T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",

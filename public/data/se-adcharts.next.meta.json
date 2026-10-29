@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T15:47:10.105Z",
-  "source": "LFV Sweden eAIP AIRAC AIP AMDT 6-2026_2026_10_29",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "edition": "AIRAC AIP AMDT 6-2026_2026_10_29",
-  "base": "https://aro.lfv.se/content/eaip/AIRAC%20AIP%20AMDT%206-2026_2026_10_29/",
+  "generatedAt": "2026-10-29T15:38:16.409Z",
+  "source": "LFV Sweden eAIP AIRAC AIP AMDT 7-2026_2026_11_26",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "AIRAC AIP AMDT 7-2026_2026_11_26",
+  "base": "https://aro.lfv.se/content/eaip/AIRAC%20AIP%20AMDT%207-2026_2026_11_26/",
   "cycleLag": 0,
   "confirmed": false,
   "lang": "en-GB",
@@ -11,7 +11,7 @@
   "heliports": 0,
   "withCharts": 48,
   "withVac": 48,
-  "charts": 652,
+  "charts": 657,
   "byFamily": {
     "ADC": 44,
     "AOC": 52,
@@ -19,11 +19,11 @@
     "ARC": 37,
     "ATCSMAC": 36,
     "GMC": 6,
-    "IAC": 286,
+    "IAC": 289,
     "MISC": 2,
     "PATC": 13,
     "SID": 63,
-    "STAR": 55,
+    "STAR": 57,
     "VAC": 50
   },
   "miscTitles": [
