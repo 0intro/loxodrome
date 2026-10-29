@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:47:19.410Z",
+  "generatedAt": "2026-10-29T14:52:35.735Z",
   "source": "open flightmaps OFMX LI",
-  "sourceSha256": "ed801d55af125d5f69077faf53ddb182210f3818798b527300f92bdec86343e4",
-  "effective": "2026-09-22T00:00:00.000Z",
+  "sourceSha256": "f94f1881d6827d842b46b2c3ea7b804b873253fcb3eee8d9049564bc6b4fe57b",
+  "effective": "2026-10-23T00:00:00.000Z",
   "ahpCount": 548,
   "runwayCount": 569,
   "militaryCount": 0,
