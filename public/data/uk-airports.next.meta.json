@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:43:34.303Z",
-  "source": "EG_AIP_DS_FULL_20261029.xml",
-  "sourceSha256": "30ef8f2adb48d2226c0fb77877d441883dd8c4d85403890967545768477e228a",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-10-29T11:00:00.889Z",
+  "source": "EG_AIP_DS_FULL_20261126.xml",
+  "sourceSha256": "313bdcf54ce80823b0cc6526a0bc3ab3926f5744d84289fefc7dc07bfa4a27a0",
+  "effective": "2026-11-26T00:00:00.000Z",
   "ahpCount": 121,
   "runwayCount": 230,
   "militaryCount": 0,

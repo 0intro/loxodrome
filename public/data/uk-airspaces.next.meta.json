@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T15:43:34.210Z",
-  "source": "EG_AIP_DS_FULL_20261029.xml",
-  "sourceSha256": "30ef8f2adb48d2226c0fb77877d441883dd8c4d85403890967545768477e228a",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "airspaceCount": 2346,
+  "generatedAt": "2026-10-29T11:00:00.825Z",
+  "source": "EG_AIP_DS_FULL_20261126.xml",
+  "sourceSha256": "313bdcf54ce80823b0cc6526a0bc3ab3926f5744d84289fefc7dc07bfa4a27a0",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "airspaceCount": 2347,
   "skippedNoBoundary": 0,
   "skippedNoProjection": 3,
   "skippedNoType": 49,
@@ -13,7 +13,7 @@
   "multiComponentAirspaces": 0,
   "counts": {
     "ATZ": 144,
-    "CTA": 379,
+    "CTA": 380,
     "CTR": 34,
     "D": 884,
     "FIR": 3,

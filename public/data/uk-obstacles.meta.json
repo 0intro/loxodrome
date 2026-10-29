@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:43:30.550Z",
-  "source": "EG_OBS_DS_AREA1_FULL_20261001.xml",
-  "sourceSha256": "2c46ec1514460e4c684eb24d1174bd93be409ed66b2a2732f0f30a7bb70d4288",
-  "effective": "2026-10-01T00:00:00.000Z",
-  "obstacleCount": 10546,
-  "litCount": 1966,
+  "generatedAt": "2026-10-29T10:59:57.880Z",
+  "source": "EG_OBS_DS_AREA1_FULL_20261029.xml",
+  "sourceSha256": "1114f5a79e9245c59a01b496b34e7780aef60972f961b1087d074b9874544a50",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "obstacleCount": 10566,
+  "litCount": 1968,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
   "skippedTooShort": 0,
@@ -14,12 +14,12 @@
     "building": 214,
     "cable": 85,
     "chimney": 92,
-    "crane": 564,
-    "derrick": 97,
+    "crane": 577,
+    "derrick": 96,
     "other": 1,
     "powerplant": 6,
-    "tower": 316,
-    "windturbine": 9150
+    "tower": 317,
+    "windturbine": 9157
   },
   "bbox": [
     -7.901,

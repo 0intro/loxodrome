@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-10-02T15:43:34.365Z",
-  "source": "EG_AIP_DS_FULL_20261029.xml",
-  "sourceSha256": "30ef8f2adb48d2226c0fb77877d441883dd8c4d85403890967545768477e228a",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "navaidCount": 1698,
+  "generatedAt": "2026-10-29T11:00:00.933Z",
+  "source": "EG_AIP_DS_FULL_20261126.xml",
+  "sourceSha256": "313bdcf54ce80823b0cc6526a0bc3ab3926f5744d84289fefc7dc07bfa4a27a0",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "navaidCount": 1702,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 426,
   "counts": {
-    "DME": 79,
+    "DME": 80,
     "ILS-DME": 45,
     "LOC": 2,
-    "NDB": 61,
+    "NDB": 60,
     "VFR_REPORTING_POINT": 404,
     "VOR": 1,
     "VOR-DME": 44,
-    "WAYPOINT": 1062
+    "WAYPOINT": 1066
   },
   "bbox": [
     -15,
