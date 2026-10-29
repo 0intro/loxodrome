@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-02T15:43:45.919Z",
-  "source": "ED_Airspace_StrokedBorders_2026-10-01_2026-10-29_revision.xml+ED_AirportHeliport_2026-10-01_2026-10-29_revision.xml+ED_Runway_2026-10-01_2026-10-29_revision.xml (+4 more)",
-  "sourceSha256": "bd7b9b13dad01ce353bfc0ee312e3892e8d0495158a2b345e0f72ed71d7b0ccd",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "aerodromeCount": 1576,
-  "heliportCount": 455,
+  "generatedAt": "2026-10-29T13:33:00.905Z",
+  "source": "ED_Airspace_StrokedBorders_2026-10-29_2026-11-26_revision.xml+ED_AirportHeliport_2026-10-29_2026-11-26_revision.xml+ED_Runway_2026-10-29_2026-11-26_revision.xml (+4 more)",
+  "sourceSha256": "39ad719110c0d305d1dfa72f2ff4e6ee63f22223180d488e95f2e9ad06c0e1de",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "aerodromeCount": 1578,
+  "heliportCount": 457,
   "skippedNotes": 0,
   "counts": {
     "email": 210,
-    "fax": 273,
-    "kind": 1573,
-    "operator": 761,
-    "phone": 758,
-    "usage": 785,
+    "fax": 272,
+    "kind": 1575,
+    "operator": 762,
+    "phone": 759,
+    "usage": 786,
     "web": 173
   }
 }
