@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:49:37.339Z",
+  "generatedAt": "2026-10-29T16:19:11.700Z",
   "source": "LFV Digital AIM WFS",
-  "sourceSha256": "81f82f5469cb105311f817b3a3a22239835f386fac385c0b6474f57c41bb48af",
-  "effective": "2026-10-01T00:00:00.000Z",
-  "obstacleCount": 5832,
-  "litCount": 5734,
+  "sourceSha256": "38a538918cd4d19cfd2cb9ff9356dd4e92518dd62fdff493cd0ca864e290d788",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "obstacleCount": 5843,
+  "litCount": 5745,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
   "skippedTooShort": 0,
@@ -16,16 +16,16 @@
     "building": 17,
     "chimney": 81,
     "crane": 9,
-    "mast": 331,
+    "mast": 332,
     "other": 1,
     "pylon": 6,
     "silo": 2,
     "tower": 27,
-    "windturbine": 5355
+    "windturbine": 5365
   },
   "bbox": [
     11.185,
-    54.949,
+    54.919,
     23.73,
     68.405
   ],
