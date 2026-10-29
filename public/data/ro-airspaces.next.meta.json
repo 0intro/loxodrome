@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:43:45.203Z",
-  "source": "ROMATSA AIP Romania 2026-10-29 ENR 2.1, ENR 5.1, ENR 5.2, AD 2.17",
+  "generatedAt": "2026-10-29T15:57:15.542Z",
+  "source": "ROMATSA AIP Romania 2026-11-26 ENR 2.1, ENR 5.1, ENR 5.2, AD 2.17",
   "sourceSha256": "4d591b7df19a54943da31ba05b2eb61bea6e39dbc8f86d0ae7fc0ef993962562",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "effective": "2026-11-26T00:00:00.000Z",
   "airspaceCount": 511,
   "skippedNoBoundary": 0,
   "skippedNoProjection": 0,
@@ -11,6 +11,7 @@
   "unresolvedXlinks": 0,
   "unresolvedGeometryXlinks": 0,
   "multiComponentAirspaces": 0,
+  "limitsWithoutRef": 1,
   "counts": {
     "CTA": 4,
     "CTR": 18,
@@ -27,7 +28,7 @@
     30.534,
     48.251
   ],
-  "edition": "2026-10-29",
+  "edition": "2026-11-26",
   "adZones": 18,
   "adRepublished": 0,
   "sectionCounts": {

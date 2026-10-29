@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:43:45.216Z",
-  "source": "ROMATSA AIP Romania 2026-10-29 AD 2, AD 3",
-  "sourceSha256": "031caa55859da3c030303ec85fb6404fa5f9256e522ec5e87347a8e9c855fc73",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-10-29T15:57:15.550Z",
+  "source": "ROMATSA AIP Romania 2026-11-26 AD 2, AD 3",
+  "sourceSha256": "d7072f4623f1d86e3a13553f0a4c5f6cfcbeb186624315daa6c3e510d907bd74",
+  "effective": "2026-11-26T00:00:00.000Z",
   "aerodromeCount": 39,
   "heliportCount": 4,
   "skippedNotes": 0,
