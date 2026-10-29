@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-02T15:44:32.069Z",
-  "source": "skeyes eAIP 2026-10-01",
-  "sourceSha256": "95a9da27ff80c8c927d8d93ba9fa3d2df4db1cc60c7f51141e309aa6d01ea884",
-  "effective": "2026-10-01T00:00:00.000Z",
+  "generatedAt": "2026-10-29T12:35:09.412Z",
+  "source": "skeyes eAIP 2026-10-29",
+  "sourceSha256": "1e6ce5b8c89f6b304a730d040c426c72795d87b595a228291d0b66fe0a044e19",
+  "effective": "2026-10-29T00:00:00.000Z",
   "obstacleCount": 144,
   "litCount": 0,
   "skippedNonBaseline": 0,

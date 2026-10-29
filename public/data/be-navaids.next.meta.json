@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-02T15:45:18.026Z",
-  "source": "skeyes eAIP 2026-10-29",
-  "sourceSha256": "04e23da8bb1544f68bc3379ecb2b00fd6268dc08831292b68b8224aa22e7d949",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "navaidCount": 325,
+  "generatedAt": "2026-10-29T12:35:56.554Z",
+  "source": "skeyes eAIP 2026-11-26",
+  "sourceSha256": "48d2367773fc78187dfa11ab9a73996a7408a503725ccacaf2cb5c8ca65b3558",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "navaidCount": 326,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 0,
   "counts": {
@@ -11,7 +11,7 @@
     "TACAN": 5,
     "VOR": 2,
     "VOR-DME": 14,
-    "WAYPOINT": 303
+    "WAYPOINT": 304
   },
   "bbox": [
     2,
