@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T17:12:22.451Z",
-  "effective": "2026-10-01",
+  "generatedAt": "2026-10-29T11:48:20.232Z",
+  "effective": "2026-10-29",
   "source": {
     "site": "https://www.sia.aviation-civile.gouv.fr",
     "dataset": "fr-adcharts.json",
-    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_01_OCT_2026/Atlas-VAC/"
+    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_29_OCT_2026/Atlas-VAC/"
   },
   "plates": 656,
   "panels": 891,

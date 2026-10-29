@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T16:52:00.937Z",
-  "effective": "2026-10-01",
+  "generatedAt": "2026-10-29T11:48:35.346Z",
+  "effective": "2026-10-29",
   "aixmEffective": "2026-10-01",
   "source": {
     "site": "https://www.sia.aviation-civile.gouv.fr",
-    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_01_OCT_2026/Atlas-VAC/",
+    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_29_OCT_2026/Atlas-VAC/",
     "dataset": "fr-adcharts.json",
     "facilities": "fr-aerodrome-facilities.json"
   },
@@ -55,7 +55,7 @@
     "missing": 0,
     "withItem": 436,
     "noItem": 220,
-    "cutByPage": 11
+    "cutByPage": 12
   },
   "parserVersion": 1
 }
