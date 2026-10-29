@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:43:25.531Z",
-  "source": "ef_efin_area1_obstdata_29_oct_2026.csv",
-  "sourceSha256": "d49699739a0adf6b0b33378ec46e9ffafa1e3f7afc8d794ce3c05bbc49036b18",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "obstacleCount": 2683,
-  "litCount": 2552,
+  "generatedAt": "2026-10-29T15:50:08.904Z",
+  "source": "ef_efin_area1_obstdata_26_nov_2026.csv",
+  "sourceSha256": "7d23c6cf985ff62c50640484f3315856dce062ee0a03bee7ab56a0b6cf8c0e19",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "obstacleCount": 2691,
+  "litCount": 2560,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
   "skippedTooShort": 0,
@@ -13,10 +13,10 @@
     "building": 9,
     "chimney": 81,
     "crane": 16,
-    "mast": 453,
+    "mast": 454,
     "pylon": 3,
     "tower": 4,
-    "windturbine": 2117
+    "windturbine": 2124
   },
   "bbox": [
     19.549,
