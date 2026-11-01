@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T15:43:25.042Z",
-  "sourceSha256": "197c68d0520b01c35f03c7fa15bf3467bf8ed788b3ed5a128e86eccebf4465ef",
-  "rawRowCount": 86156,
-  "rowCount": 41752,
-  "runwayCount": 38600,
-  "frequencyCount": 11659,
+  "generatedAt": "2026-11-01T09:57:17.397Z",
+  "sourceSha256": "1aab80ccfa203a0d02476c16ac282d9e787cf3d08700d7365c5c5502a0db8ba7",
+  "rawRowCount": 86329,
+  "rowCount": 41850,
+  "runwayCount": 38670,
+  "frequencyCount": 11658,
   "shortRows": 0,
   "unknownTypes": []
 }
