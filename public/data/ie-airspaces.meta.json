@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T15:22:30.241Z",
+  "generatedAt": "2026-11-05T16:38:35.044Z",
   "source": "AirNav Ireland eAIP AIRAC/2026-10-29-AIRAC",
-  "sourceSha256": "32ab69c523e2c6a054ab9567266cef639791c70674ac6576687bc407e974b73b",
+  "sourceSha256": "090d5b6fe4d026b0514b77858105a75584e09034423288931540ec3e6ed72f96",
   "effective": "2026-10-29T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
