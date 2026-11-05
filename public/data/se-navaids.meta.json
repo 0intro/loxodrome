@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T16:19:10.680Z",
+  "generatedAt": "2026-11-05T17:32:18.622Z",
   "source": "LFV Digital AIM WFS",
-  "sourceSha256": "c3530b4fc37e0fe4286ff1b459c5292b47569080232d978752709b962e4d3d32",
+  "sourceSha256": "50f7e467a5074a04cea36e8e80cc7909e8480979b9eebecb75d9f2bf2161689c",
   "effective": "2026-10-29T00:00:00.000Z",
   "navaidCount": 1905,
   "skippedNonBaseline": 0,
@@ -18,7 +18,7 @@
     10.566,
     54.805,
     24.154,
-    69.32
+    68.834
   ],
   "noPosition": 0
 }
