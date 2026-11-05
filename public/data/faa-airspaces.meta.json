@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-02T16:02:26.634Z",
-  "airspaceCount": 7745,
+  "generatedAt": "2026-11-05T12:11:45.127Z",
+  "airspaceCount": 7757,
   "boundary": {
     "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Boundary_Airspace/FeatureServer/0/query",
-    "sha256": "54fa43ff489d0a8e64f75f6ada90ad0740b52cb9abfd6d687ae9ff16c41fdc69",
-    "count": 503
+    "sha256": "e4b298227843d898673e72f0382c876a79d73b03b8197ff364961be73466c5b1",
+    "count": 505
   },
   "specialUse": {
     "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Special_Use_Airspace/FeatureServer/0/query",
-    "sha256": "f03e86bd3df0bdad863d2feaad53e014b1c1b1f8666a6956eb7dd769f3164228",
-    "count": 1537
+    "sha256": "4c43257b8889ab7299611f48e1641558e4472b77d1b43e9923ac2715e9211058",
+    "count": 1540
   },
   "class": {
     "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Class_Airspace/FeatureServer/0/query",
-    "sha256": "fdbad0eec91902ebcd9752ee3d7e76e1aff13b265ce8c7ad8a87999ad92f726a",
-    "count": 5705
+    "sha256": "112a18d7956c92261989f00f4a8c329403b3fc73d2b947c74b4be2ed1300cb46",
+    "count": 5712
   },
-  "scheduledRows": 213,
+  "scheduledRows": 215,
   "counts": {
-    "A": 80,
-    "ACC": 85,
+    "A": 78,
+    "ACC": 84,
     "ADIZ": 13,
     "ARTCC": 43,
-    "CLASS": 5643,
-    "CTA": 80,
-    "FIR": 45,
-    "MOA": 731,
+    "CLASS": 5652,
+    "CTA": 84,
+    "FIR": 44,
+    "MOA": 733,
     "OCA": 2,
-    "P": 16,
+    "P": 17,
     "R": 662,
     "SATA": 40,
     "TFR": 8,
