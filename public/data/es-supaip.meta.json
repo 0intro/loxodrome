@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-11-08T01:27:52.806Z",
+  "source": {
+    "site": "https://aip.enaire.es/AIP/Suplementos-es.html",
+    "listingShas": {
+      "en": "f737e57f33bc3684fec3c8ac61dffb1143dbb605f702e208d9b97232dc6fc1d4",
+      "es": "1c4da1698491e836ce15062ada652c5aecda8dd69e019c85085c6823d6d8ee4d"
+    }
+  },
+  "total": 210,
+  "active": 203,
+  "upcoming": 7,
+  "withGeometry": 87,
+  "withVertical": 87,
+  "withEnglish": 210,
+  "polygon": 2,
+  "circle": 84,
+  "mixed": 1,
+  "none": 123,
+  "pdfFallbacks": 4,
+  "pdftotextMissing": 0,
+  "docsMissing": 0,
+  "estimatedEnd": 207,
+  "byRegion": {
+    "es": 210
+  },
+  "warnings": {
+    "exclusion-not-modeled": 4,
+    "obstacle-row-without-position": 61,
+    "pdf-fallback": 4
+  },
+  "parserVersion": 2
+}

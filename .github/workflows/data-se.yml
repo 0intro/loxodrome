@@ -1,0 +1,65 @@
+name: Refresh LFV Sweden datasets
+
+# Regenerates public/data/se-{airspaces,airports,navaids,obstacles}.json from
+# LFV's Digital AIM WFS (daim.lfv.se), which publishes AIP Sweden's spatial
+# data under CC BY 4.0 with no registration. The eAIP beside it is read for
+# the datum of the few limits the WFS carries without one (cmd/se/datum.go);
+# a package it cannot resolve fails the build rather than reading every such
+# limit as ft AMSL.
+#
+# Weekly Thursday rather than a 28-day cron: the service follows the AIRAC
+# cycle but publishes no pre-release, and the git-diff gate makes a
+# non-update week a free no-op; -target auto files each dataset by its own
+# effective date.
+
+on:
+  schedule:
+    # Past the eAIP cohort (08:30) and Finland (09:00).
+    - cron: '30 9 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build se-* datasets
+        run: go run ./cmd/se
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/se-*.json' ':(exclude)public/data/se-*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/se-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/se-*.json'
+            git commit -m "update LFV Sweden datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

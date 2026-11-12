@@ -1,0 +1,82 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "departement.1",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Hautes-Alpes",
+        "code_insee": "05"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.2",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Ariège",
+        "code_insee": "09"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.3",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Charente-Maritime",
+        "code_insee": "17"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.4",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Corse-du-Sud",
+        "code_insee": "2A"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.5",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Jura",
+        "code_insee": "39"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.6",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Meuse",
+        "code_insee": "55"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.7",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Essonne",
+        "code_insee": "91"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "departement.8",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Guadeloupe",
+        "code_insee": "971"
+      }
+    }
+  ],
+  "totalFeatures": 8,
+  "numberMatched": 8,
+  "numberReturned": 8,
+  "timeStamp": "2026-10-19T00:00:05.000Z",
+  "crs": null
+}

@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "commune.33001",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Fleury-devant-Douaumont",
+        "code_insee": "55189",
+        "population": 0,
+        "code_insee_du_departement": "55"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.32913",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Étampes",
+        "code_insee": "91223",
+        "population": 26857,
+        "code_insee_du_departement": "91"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.34741",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Les Abymes",
+        "code_insee": "97101",
+        "population": 51055,
+        "code_insee_du_departement": "971"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.34853",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Saint-Pierre",
+        "code_insee": "97502",
+        "population": 5194,
+        "code_insee_du_departement": "NR"
+      }
+    }
+  ],
+  "totalFeatures": 9,
+  "numberMatched": 9,
+  "numberReturned": 4,
+  "timeStamp": "2026-10-19T00:00:04.000Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+/*
+ * Kill switch for the service worker this path used to serve.
+ *
+ * The application that lived at /v2/ has moved to https://loxodrome.fr/. An
+ * app installed from here does not notice: its old worker answers navigations
+ * from its own precache, so it keeps opening and keeps serving aeronautical
+ * data out of a 30-day StaleWhileRevalidate cache. Failing silently would be
+ * bad in any app; in this one it means presenting an AIRAC cycle that has
+ * expired, which is worse than presenting nothing.
+ *
+ * A browser re-fetches a worker script bypassing the HTTP cache once the
+ * registration is over 24 hours old, so every install picks this up on one of
+ * its next launches. It takes control at once, drops every cache, unregisters
+ * itself, and sends its clients to the new site.
+ *
+ * It ships from the NOTAM Viewer's own public directory, at loxodrome.fr/
+ * notam/v2/sw.js, because notam-viewer.net is now MASKED onto loxodrome.fr/
+ * notam/ (notam-viewer-net/): the mask's prefix rule maps notam-viewer.net/
+ * v2/sw.js exactly here. Without this file that update fetch answered 404,
+ * and a 404 does not unregister a worker, so every install that had not yet
+ * picked this up kept its stale shell for good. Never registered by anything:
+ * only an existing /v2/ registration updates onto it.
+ */
+
+self.addEventListener('install', () => self.skipWaiting());
+
+self.addEventListener('activate', (event) => {
+	event.waitUntil(
+		(async () => {
+			await self.clients.claim();
+			const names = await caches.keys();
+			await Promise.all(names.map((n) => caches.delete(n)));
+			await self.registration.unregister();
+			const clients = await self.clients.matchAll({ type: 'window' });
+			for (const client of clients) {
+				client.navigate('https://loxodrome.fr/');
+			}
+		})(),
+	);
+});
+
+// Everything else goes straight to the network: nothing here is cached, and a
+// navigation must be able to reach the moved-page notice at /v2/.
+self.addEventListener('fetch', () => {});

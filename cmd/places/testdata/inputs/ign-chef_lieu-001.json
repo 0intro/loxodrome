@@ -1,0 +1,90 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.34619",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.66921972,
+          44.28510886
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "05135"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.20057",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.88556003,
+          42.98870823
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "09243"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.33748",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.27706303,
+          45.28275417
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "17319"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.5844",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.73912438,
+          41.91935358
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "2A004"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.580",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.57031237,
+          46.70883349
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "39421"
+      }
+    }
+  ],
+  "totalFeatures": 8,
+  "numberMatched": 8,
+  "numberReturned": 5,
+  "timeStamp": "2026-10-19T00:00:01.000Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

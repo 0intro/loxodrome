@@ -1,0 +1,124 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Robin DR400/120, sold as the DR401/120, from its
+# flight manual alone, no airframe's weighing: Manuel de vol DR400/120,
+# document 1002853, edition 0 (EASA AFM approval 10065087 of 27 March 2018)
+# revision 2 (28 July 2023, the 5.00-5 tyres; every page cited below reads
+# as in revision 1), applicability S/N >= 2669. Lycoming O-235-L2A. Its
+# tables, limits and climb chart are edition 10's (1992); its loading
+# example and its landing rules are its own. Pages below are the manual's.
+version: 1
+
+aircraft:
+  type: DR400/120
+  icaoType: DR40
+  name: Robin DR400/120 (DR401, 2018 manual), s/n 2669 and on
+  generic: dr400-120-sn2669
+
+fuel:
+  # 5-8 and 2-8: one main tank, 110 L, 109 usable (an optional 50 L tank
+  # gives 159 usable, not counted). AVGAS 100LL, octane 100 minimum (other
+  # grades: Lycoming Service Instruction 1070).
+  capacityL: 110
+  usableL: 109
+  types: [100LL]
+  consumptionLph: 25
+
+cruise:
+  speedKt: 109
+  name: '75 %'
+  # 5-9, "Performances en palier", 900 kg, standard atmosphere, mixture
+  # best power: at 3000 ft 2520 rpm, 75 %, 202 km/h, 25 l/h, the speed
+  # rounded down (109.07 kt). The column is headed VI but rises with
+  # altitude at one flow: true airspeed. Its 65 % row is at 10000 ft only,
+  # so no second setting at 3000 ft.
+
+climb: # 5-6 and its chart 5-7: 900 kg, flaps up, full throttle, standard atmosphere, Vy 145 km/h (78 KIAS); the chart's 900 kg line meets sea level at 3.06 m/s (603 ft/min), rounded down
+  speedKt: 78
+  rateFtMin: 600
+
+massAndBalance:
+  # Empty mass and arm: the manual's loading example (6-4), 574 kg and
+  # 205 m.kg; with it, 896 kg inside the envelope (no total moment
+  # printed: the centrogram's dotted path, 6-2).
+  emptyMassKg: 574.0
+  emptyArmM: 0.3571
+  stations:
+    # 2-5, table 2-4, the loading plan: front seats 2 x 77 kg at 0.36 to
+    # 0.46 m (0.41, their middle), rear seats 135 kg at 1.19 m (the
+    # maximum, as in edition 10), baggage 40 kg at 1.9 m, the main tank's
+    # 78.5 kg at 1.12 m.
+    - { label: Front seats, armM: 0.41, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.19, defaultMassKg: 0, maxMassKg: 135 }
+    - { label: Baggage, armM: 1.90, defaultMassKg: 0, maxMassKg: 40 }
+  fuelArmM: 1.12
+  # 2-4, figure 2-1: forward 0.205 m at 750 kg and below, then straight to
+  # 0.428 m at 900 kg; aft 0.564 m; the graph's foot at 500 kg. Maximum
+  # take-off and landing mass 900 kg, categories N and U (6-3).
+  envelope:
+    - { armM: 0.205, massKg: 500 }
+    - { armM: 0.205, massKg: 750 }
+    - { armM: 0.428, massKg: 900 }
+    - { armM: 0.564, massKg: 900 }
+    - { armM: 0.564, massKg: 500 }
+
+performance:
+  kind: table
+  # 4-17: a normal landing needs a runway at least 1.5 times the section 5
+  # distance, the short landing's (its worked example, 4-19: 1.5 x 359 =
+  # 539 m); a crosswind or gusty landing takes + 50 % (4-18). The sheet's
+  # one margin carries it, so its take-off verdicts read x1.5 too: the
+  # manual sets no take-off factor.
+  marginFactor: 1.5
+  # Dry short grass + 15 % at take-off and landing (5-4, 5-10). Wet: no
+  # factor printed, the app's default. Flaps up landing + 30 % (3-14, 4-18).
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.3
+  massMaxKg: 900
+  massMinKg: 700
+  # 5-2, 5-4, 5-5 and 5-10: conservative distances are read at "la valeur
+  # immédiatement supérieure pour la masse, l'altitude et la température".
+  # Below the tables, that is their edge: 700 kg below 700 kg, ISA - 20 below
+  # it, never extrapolated to shorter distances.
+  holdBelowTable: true
+  # Take-off 5-5: flaps first notch, full power before brake release, "une
+  # technique pour décollage court" (5-4, the short take-off of 4-12), the
+  # only take-off charted. Landing 5-11: flaps second notch, power off, the
+  # short landing (4-17). Flap angles are not printed.
+  takeoffProcedure: short-field
+  wind:
+    # 5-4: x0.85 / 0.65 / 0.55 for 10 / 20 / 30 kt of headwind; 5-10: x0.78 /
+    # 0.63 / 0.52; both + 10 % per 2 kt of tailwind.
+    takeoffHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    landingHeadwind: [[0, 1.0], [10, 0.78], [20, 0.63], [30, 0.52]]
+    tailwindPctPer2Kt: 10
+  # Distances as printed (metres), cells [ground roll, distance over 15 m]
+  # at 900 kg / 700 kg: take-off 5-5, landing 5-11, paved dry level runway.
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [225, 480], massMin: [130, 285] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [235, 535], massMin: [145, 315] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [285, 590], massMin: [165, 345] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [305, 645], massMin: [175, 375] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [345, 720], massMin: [195, 415] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [390, 800], massMin: [220, 460] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [425, 890], massMin: [235, 500] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [475, 1000], massMin: [265, 560] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [535, 1125], massMin: [300, 620] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [185, 435], massMin: [145, 365] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [200, 460], massMin: [155, 385] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [210, 485], massMin: [165, 400] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [205, 475], massMin: [160, 395] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [225, 505], massMin: [175, 420] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [240, 535], massMin: [185, 440] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [235, 525], massMin: [180, 430] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [250, 555], massMin: [195, 460] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [270, 590], massMin: [210, 485] }
+
+notes: Generic sheet. Empty mass and arm from the flight manual's loading
+  example (574 kg, 205 m.kg), not an aircraft's weighing.
+source: Manuel de vol DR400/120, document 1002853, edition 0 (EASA AFM
+  approval 10065087, 27 March 2018) revision 2 (28 July 2023), for s/n 2669
+  and on.

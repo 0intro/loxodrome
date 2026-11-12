@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-11-08T01:27:17.234Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 12-2026_2026_11_26 ENR 4.4",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-GB",
+  "navaidCount": 6,
+  "counts": {
+    "WAYPOINT": 6
+  },
+  "tables": 1,
+  "skippedNoPosition": 0,
+  "bbox": [
+    20.021,
+    42.096,
+    21.398,
+    42.834
+  ]
+}

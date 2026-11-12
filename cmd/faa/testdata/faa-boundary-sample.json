@@ -1,0 +1,141 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ZAP",
+        "NAME": "ANCHORAGE ARCTIC FIR",
+        "TYPE_CODE": "FIR",
+        "CLASS": "Other",
+        "LOCAL_TYPE": "FIR",
+        "ICAO_ID": "PAZN",
+        "UPPER_DESC": "UNLIMITED",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "UNLTD",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-170.0,68.0],[-140.0,68.0],[-140.0,75.0],[-170.0,75.0],[-170.0,68.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "MNL",
+        "NAME": "MANILA OCA",
+        "TYPE_CODE": "OCA",
+        "CLASS": "A",
+        "ICAO_ID": "RPHI",
+        "UPPER_DESC": "UNLIMITED",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "UNLTD",
+        "LOWER_DESC": "FL55",
+        "LOWER_VAL": 55,
+        "LOWER_UOM": "FL",
+        "LOWER_CODE": "STD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[115.0,5.0],[130.0,5.0],[130.0,20.0],[115.0,20.0],[115.0,5.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ZAB",
+        "NAME": "ALBUQUERQUE",
+        "TYPE_CODE": "ARTCC",
+        "CLASS": "",
+        "LOCAL_TYPE": "ARTCC_H",
+        "ICAO_ID": "",
+        "UPPER_DESC": "UNLIMITED",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "UNLTD",
+        "LOWER_DESC": "FL245",
+        "LOWER_VAL": 245,
+        "LOWER_UOM": "FL",
+        "LOWER_CODE": "STD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-110.0,32.0],[-100.0,32.0],[-100.0,38.0],[-110.0,38.0],[-110.0,32.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "ATLANTIC HIGH",
+        "NAME": "ATLANTIC HIGH",
+        "TYPE_CODE": "CLASS",
+        "CLASS": "A",
+        "LOCAL_TYPE": "CLASS_A_OFFSHORE",
+        "ICAO_ID": "",
+        "UPPER_DESC": "FL600",
+        "UPPER_VAL": 600,
+        "UPPER_UOM": "FL",
+        "UPPER_CODE": "STD",
+        "LOWER_DESC": "18000 FT MSL",
+        "LOWER_VAL": 18000,
+        "LOWER_UOM": "FT",
+        "LOWER_CODE": "MSL"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-75.0,30.0],[-65.0,30.0],[-65.0,40.0],[-75.0,40.0],[-75.0,30.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "GUAM ADIZ INNER",
+        "NAME": "GUAM ADIZ INNER BOUNDARY",
+        "TYPE_CODE": "ADIZ",
+        "CLASS": "",
+        "LOCAL_TYPE": "ADIZ",
+        "ICAO_ID": "",
+        "UPPER_DESC": "UNLIMITED",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "UNLTD",
+        "LOWER_DESC": "SFC",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "",
+        "LOWER_CODE": "SFC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[143.0,12.0],[146.0,12.0],[146.0,15.0],[143.0,15.0],[143.0,12.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "IDENT": "UNKNOWN",
+        "NAME": "UNKNOWN TYPE",
+        "TYPE_CODE": "WEIRD",
+        "CLASS": "",
+        "ICAO_ID": "",
+        "UPPER_DESC": "",
+        "UPPER_VAL": 0,
+        "UPPER_UOM": "",
+        "UPPER_CODE": "",
+        "LOWER_DESC": "",
+        "LOWER_VAL": 0,
+        "LOWER_UOM": "",
+        "LOWER_CODE": ""
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]]
+      }
+    }
+  ]
+}

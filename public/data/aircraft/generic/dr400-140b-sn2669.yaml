@@ -1,0 +1,188 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Robin DR400/140B, sold as the DR401/140B, from its
+# flight manual alone, no airframe's weighing: Manuel de vol DR400/140B,
+# document 1002825, edition 0 (EASA minor change approval 10067679 of 29
+# November 2018) revision 1 (28 July 2023, the 5.00-5 tyres), applicability
+# S/N 2090, 2650, S/N >= 2669 but 2704 and 2705, and S/N < 2669 modified
+# per DET150102. Lycoming O-320-D2A, 160 hp. Its take-off and
+# landing charts are the 1992 manual's (document 1001588), its climb and
+# cruise charts redrawn; its landing rules are its own. Pages below are
+# the manual's.
+version: 1
+
+aircraft:
+  type: DR400/140B
+  icaoType: DR40
+  name: Robin DR400/140B (DR401, 2018 manual), s/n 2669 and on
+  generic: dr400-140b-sn2669
+
+fuel:
+  # 5-9 and 2-8: one main tank, 110 L, 109 usable (an optional 50 L tank
+  # gives 159 usable, not counted). AVGAS 100LL, octane 100 minimum (other
+  # grades: Lycoming Service Instruction 1070).
+  capacityL: 110
+  usableL: 109
+  types: [100LL]
+  consumptionLph: 38.3
+
+cruise:
+  speedKt: 123
+  name: '75 %'
+  # 5-10, "Performances en palier", 1000 kg, standard atmosphere, full rich:
+  # its chart at 3000 ft, where the 75 % line meets the 2600 rpm curve,
+  # read at 229.5 km/h (123.9 kt, rounded down), with the table's 75 % flow
+  # at 2600 rpm, 38.3 l/h. The 65 % line lies below 2500 rpm there, which
+  # the table gives no flow for, so no second setting.
+
+climb: # 5-7 and its chart 5-8: flaps up, full throttle, standard atmosphere, best rate 160 km/h (86 KIAS) at sea level; the 1000 kg line meets sea level at 4.40 m/s (866 ft/min), rounded down
+  speedKt: 86
+  rateFtMin: 865
+
+massAndBalance:
+  # Empty mass and arm: the manual's loading example (6-4), 600 kg and
+  # 214 m.kg ("pour exemple"); with it, 922 kg inside the envelope (no
+  # total moment printed: the centrogram's dotted path, 6-2).
+  emptyMassKg: 600.0
+  emptyArmM: 0.3567
+  stations:
+    # 2-5, table 2-4, the loading plan: front seats 2 x 77 kg at 0.36 to
+    # 0.46 m (0.41, the 1992 manual's example arm), rear seats 2 x 77 kg at
+    # 1.19 m (the 1992 manual's note makes it their maximum), baggage at
+    # 1.9 m, 40 kg at most (loading limits, 2-5), the main tank's 78.5 kg at
+    # 1.12 m.
+    - { label: Front seats, armM: 0.41, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.19, defaultMassKg: 0, maxMassKg: 154 }
+    - { label: Baggage, armM: 1.90, defaultMassKg: 0, maxMassKg: 40 }
+  fuelArmM: 1.12
+  # 2-4, figure 2-1, category N: forward 0.205 m at 750 kg and below, then
+  # straight to 0.428 m at 1000 kg; aft 0.564 m. Maximum take-off and
+  # landing mass 1000 kg (910 kg in category U). The graph starts at
+  # 650 kg; the limits hold below it, and the floor sits at 500 kg, below
+  # the empty mass.
+  envelope:
+    - { armM: 0.205, massKg: 500 }
+    - { armM: 0.205, massKg: 750 }
+    - { armM: 0.428, massKg: 1000 }
+    - { armM: 0.564, massKg: 1000 }
+    - { armM: 0.564, massKg: 500 }
+
+performance:
+  kind: table
+  # 4-17: a normal landing needs a runway at least 1.5 times the section 5
+  # distance, the short landing's; a crosswind or gusty landing takes + 50 %
+  # (4-18). The sheet's one margin carries it, so its take-off verdicts read
+  # x1.5 too: the manual sets no take-off factor.
+  marginFactor: 1.5
+  # Dry short grass + 15 % at take-off and landing (5-4, 5-11). Wet: no
+  # factor printed, the app's default. Flaps up landing + 30 % (3-14, 4-18).
+  grassFactor: 1.15
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.3
+  massMaxKg: 1000
+  massMinKg: 800
+  # 5-2, 5-4, 5-5 and 5-11: conservative distances are read at "la valeur
+  # immédiatement supérieure pour la masse, l'altitude et la température".
+  # Below the tables, that is their edge: 800 kg below 800 kg, ISA - 20 below
+  # it, never extrapolated to shorter distances.
+  holdBelowTable: true
+  # Take-off 5-4 to 5-6: flaps first notch, full power before brake release,
+  # "une technique pour décollage court", lift-off 100 km/h, 120 km/h at
+  # 15 m (the short take-off of 4-12 climbing at 130 km/h; the 1992 manual
+  # had these figures for its normal take-off). Landing 5-11 and 5-12: flaps
+  # second notch, power off, 115 km/h at 15 m, the short landing (4-17).
+  # Flap angles are not printed.
+  takeoffProcedure: short-field
+  wind:
+    # 5-4 and 5-11: x0.79 / 0.64 / 0.53 for 10 / 20 / 30 kt of headwind,
+    # + 10 % per 2 kt of tailwind.
+    takeoffHeadwind: [[0, 1.0], [10, 0.79], [20, 0.64], [30, 0.53]]
+    landingHeadwind: [[0, 1.0], [10, 0.79], [20, 0.64], [30, 0.53]]
+    tailwindPctPer2Kt: 10
+  # The distances over 15 m are read on the charts of 5-6 and 5-12, the
+  # 1992 manual's (whose 200 ppi scan is read): the pressure altitude
+  # lines in temperature, then the guide lines from 800 kg to the mass,
+  # interpolated between the drawn lines as the chart is read (6000 ft
+  # between the 4000 and 8000 ft lines). Cells every 2000 ft and 10 C, at
+  # 1000 kg and the charts' lightest mass, 800 kg, rounded up to 5 m; at
+  # 8000 ft ISA - 20 at the charts' -20 C edge. The guide lines are unevenly
+  # spaced, so a cell is raised (in 5 m steps) wherever interpolating
+  # between cells would read short of the chart: the table is never shorter
+  # than the charts as read (by 0.1 % at most), 2.5 % (take-off) and 0.5 %
+  # (landing) longer on average, more between 800 and 1000 kg (up to 6.5 %).
+  # The landing cells at 2000 ft ISA - 10 and ISA, 1000 kg, are 5 m higher
+  # still, so that the chart's worked example (950 kg, 2000 ft, 5 C) is not
+  # read below its printed 510 m: its drawn path ends at 513 m where the
+  # guide lines give 505 m.
+  # Two cells lie beyond the guide family and are carried by its ratios:
+  # sea level ISA - 20 (both charts, below it, the lowest guide's) and
+  # 8000 ft ISA + 20 (above it, the largest; the take-off one also above
+  # the scale's 1200 m). The manual prints no ground roll: each roll is the
+  # DR400/160 manual's roll fraction of its 15 m distance at the same
+  # altitude and temperature (edition 10, 5.03 and 5.07: 0.44 to 0.52,
+  # interpolated between its rows; its 1050 kg column for 1000 kg, its
+  # 850 kg column for 800 kg; same engine), rounded up to 5 m. No verdict
+  # turns on it: at 0.52 of the 15 m distance at most, the roll times the
+  # margin stays within the 15 m distance, which the take-off check already
+  # holds to the TORA. Cells: [ground roll, distance over 15 m] at
+  # 1000 kg / 800 kg.
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [255, 505], massMin: [160, 320] }
+    - { altFt: 0, isaOffsetC: -10, massMax: [275, 550], massMin: [170, 340] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [295, 590], massMin: [185, 365] }
+    - { altFt: 0, isaOffsetC: 10, massMax: [320, 630], massMin: [195, 390] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [340, 670], massMin: [205, 410] }
+    - { altFt: 2000, isaOffsetC: -20, massMax: [295, 590], massMin: [185, 365] }
+    - { altFt: 2000, isaOffsetC: -10, massMax: [325, 645], massMin: [200, 395] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [345, 685], massMin: [215, 420] }
+    - { altFt: 2000, isaOffsetC: 10, massMax: [370, 730], massMin: [230, 450] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [400, 785], massMin: [240, 475] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [335, 670], massMin: [205, 410] }
+    - { altFt: 4000, isaOffsetC: -10, massMax: [365, 725], massMin: [230, 445] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [400, 795], massMin: [250, 480] }
+    - { altFt: 4000, isaOffsetC: 10, massMax: [430, 850], massMin: [265, 515] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [470, 925], massMin: [275, 550] }
+    - { altFt: 6000, isaOffsetC: -20, massMax: [400, 795], massMin: [240, 480] }
+    - { altFt: 6000, isaOffsetC: -10, massMax: [435, 865], massMin: [265, 520] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [485, 965], massMin: [290, 560] }
+    - { altFt: 6000, isaOffsetC: 10, massMax: [520, 1035], massMin: [310, 610] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [555, 1100], massMin: [330, 650] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [460, 925], massMin: [275, 550] }
+    - { altFt: 8000, isaOffsetC: -10, massMax: [505, 1015], massMin: [295, 590] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [545, 1090], massMin: [325, 640] }
+    - { altFt: 8000, isaOffsetC: 10, massMax: [580, 1160], massMin: [350, 690] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [620, 1250], massMin: [375, 735] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [220, 480], massMin: [180, 405] }
+    - { altFt: 0, isaOffsetC: -10, massMax: [230, 495], massMin: [190, 420] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [240, 515], massMin: [195, 435] }
+    - { altFt: 0, isaOffsetC: 10, massMax: [250, 535], massMin: [205, 450] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [265, 555], massMin: [210, 465] }
+    - { altFt: 2000, isaOffsetC: -20, massMax: [230, 495], massMin: [185, 420] }
+    - { altFt: 2000, isaOffsetC: -10, massMax: [245, 525], massMin: [195, 435] }
+    - { altFt: 2000, isaOffsetC: 0, massMax: [255, 545], massMin: [205, 455] }
+    - { altFt: 2000, isaOffsetC: 10, massMax: [265, 560], massMin: [215, 470] }
+    - { altFt: 2000, isaOffsetC: 20, massMax: [280, 585], massMin: [225, 490] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [245, 525], massMin: [195, 440] }
+    - { altFt: 4000, isaOffsetC: -10, massMax: [255, 545], massMin: [210, 460] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [270, 570], massMin: [220, 475] }
+    - { altFt: 4000, isaOffsetC: 10, massMax: [280, 590], massMin: [230, 495] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [290, 610], massMin: [235, 510] }
+    - { altFt: 6000, isaOffsetC: -20, massMax: [260, 550], massMin: [210, 460] }
+    - { altFt: 6000, isaOffsetC: -10, massMax: [275, 575], massMin: [220, 480] }
+    - { altFt: 6000, isaOffsetC: 0, massMax: [285, 595], massMin: [235, 500] }
+    - { altFt: 6000, isaOffsetC: 10, massMax: [300, 620], massMin: [245, 520] }
+    - { altFt: 6000, isaOffsetC: 20, massMax: [310, 645], massMin: [255, 540] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [275, 575], massMin: [225, 485] }
+    - { altFt: 8000, isaOffsetC: -10, massMax: [290, 600], massMin: [235, 500] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [305, 625], massMin: [250, 525] }
+    - { altFt: 8000, isaOffsetC: 10, massMax: [320, 655], massMin: [260, 545] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [335, 680], massMin: [270, 565] }
+
+notes: Generic sheet. Empty mass and arm from the flight manual's loading
+  example (600 kg, 214 m.kg), not an aircraft's weighing. The ground rolls
+  are the DR400/160 manual's fractions, this manual printing none.
+source: Manuel de vol DR400/140B, document 1002825, edition 0 (EASA
+  approval 10067679, 29 November 2018) revision 1 (28 July 2023), for s/n
+  2669 and on; ground rolls after the DR400/160 manual, edition 10.

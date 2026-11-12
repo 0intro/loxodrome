@@ -1,0 +1,197 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Cessna 172S from its Pilot's Operating Handbook alone,
+# no airframe's weighing. Two editions agree on every figure used here,
+# distance for distance: 172SPHUS at revision 5 (19 July 2004, s/n 172S8001
+# and on) and 172SPHAUS-04 (NAV III, revision 4 of 12 October 2006, s/n
+# 172S9810 and on); pages below are the NAV III's. Converted from the POH's
+# lb, in, US gal and ft: 1 lb = 0.45359237 kg, 1 in = 0.0254 m,
+# 1 US gal = 3.785411784 L, 1 ft = 0.3048 m.
+version: 1
+
+aircraft:
+  type: C172S
+  icaoType: C172
+  name: Cessna 172S Skyhawk SP, s/n 172S8001 and on
+  generic: c172s
+
+fuel:
+  # POH 1-6: 56.0 US gal total, 53.0 usable (26.5 a tank). Approved grades
+  # (1-5, 2-16) 100LL (blue) and 100 (green); 100 is not one of the app's
+  # grades.
+  capacityL: 212.0
+  usableL: 200.6
+  types: [100LL]
+  consumptionLph: 38.5
+
+cruise:
+  speedKt: 117
+  name: '75 %'
+  # The POH's cruise table (Figure 5-8, p. 5-19: 2550 lb, recommended lean
+  # mixture, standard temperature), read at 3000 ft: each power found between
+  # its rpm rows at 2000 and at 4000 ft, then the mean of the two altitudes;
+  # speeds rounded down, flows to 0.1 L/h. 75 % is the maximum cruise power
+  # with the recommended lean mixture (its note). 75 %: 117.50 kt,
+  # 10.175 US gal/h.
+  settings:
+    - { name: '65 %', speedKt: 111, consumptionLph: 34.3 }
+    - { name: '55 %', speedKt: 102, consumptionLph: 29.7 }
+
+climb: # Figure 5-6, p. 5-17: 2550 lb, flaps up, full throttle, 74 KIAS; 785 ft/min at 0 °C and 710 at 20 °C at sea level, 728.75 at ISA (computed)
+  speedKt: 74
+  rateFtMin: 729
+
+massAndBalance:
+  # Empty mass and arm: the POH's sample loading problem (Figure 6-3, p. 6-10),
+  # 1642 lb at a moment of 62.6 lb-in/1000, so 38.124 in; the mass rounded
+  # down to 0.1 kg, so that example at 2550 lb stays inside the envelope.
+  emptyMassKg: 744.7
+  emptyArmM: 0.9684
+  stations:
+    # Loading arrangements, Figure 6-5 p. 6-13: seats at 37 in (34 to 46),
+    # rear seats 73, baggage area A 95 (82 to 108), B 123 (108 to 142).
+    # Baggage limits 2-8: A 120 lb, B 50 lb, A and B together 120 lb (the
+    # combined limit is not a station the app can state).
+    - { label: Front seats, armM: 0.9398, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.8542, defaultMassKg: 0 }
+    - { label: Baggage A, armM: 2.413, defaultMassKg: 0, maxMassKg: 54.4 }
+    - { label: Baggage B, armM: 3.1242, defaultMassKg: 0, maxMassKg: 22.6 }
+  fuelArmM: 1.2192 # usable fuel at FS 48.00 (Figure 6-5 note)
+  # Normal category, 2-8: forward 35.0 in at 1950 lb or less, then straight
+  # to 41.0 in at 2550 lb; aft 47.3 in at all weights. The limit lines run
+  # to the foot of the CG-limits chart (Figure 6-8, p. 6-16) at 1500 lb.
+  envelope:
+    - { armM: 0.889, massKg: 680.39 }
+    - { armM: 0.889, massKg: 884.51 }
+    - { armM: 1.0414, massKg: 1156.66 }
+    - { armM: 1.2014, massKg: 1156.66 }
+    - { armM: 1.2014, massKg: 680.39 }
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # Dry grass: the POH adds 15 % of the ground roll at take-off and 45 % at
+  # landing; one factor on both distances must cover the landing distance
+  # over 15 m, at most x1.215 (1 + 0.45 roll / total over the
+  # landing table): 1.22, which overstates take-off on grass. Wet: the
+  # POH gives no factor, the app's default. Flaps up landing: "allow for 35 %
+  # longer distances" (Figure 5-11 note).
+  grassFactor: 1.22
+  wetFactor: 1.15
+  flaplessLandingFactor: 1.35
+  massMaxKg: 1156.66 # 2550 lb
+  massMinKg: 997.9 # 2200 lb
+  # The tables are the short field technique's, take-off flaps 10° (Figure
+  # 5-5 conditions); landing flaps FULL (the POH prints no angle).
+  takeoffFlapsDeg: 10
+  takeoffProcedure: short-field
+  wind:
+    # Both tables: distances -10 % per 9 kt of headwind, +10 % per 2 kt of
+    # tailwind up to 10 kt.
+    takeoffHeadwind: [[0, 1.0], [9, 0.9], [18, 0.8], [27, 0.7]]
+    landingHeadwind: [[0, 1.0], [9, 0.9], [18, 0.8], [27, 0.7]]
+    tailwindPctPer2Kt: 10
+  # POH distances by pressure altitude and outside air temperature, as
+  # printed (ft converted to metres, 0.1 m): cells [ground roll, total over
+  # 50 ft]. Take-off: Figure 5-5, 2550 lb (sheet 1) and 2200 lb (sheet 3);
+  # the 2400 lb sheet 2 lies between them on the safe side (pinned). Landing:
+  # Figure 5-11, 2550 lb only, so both columns carry it.
+  takeoff:
+    - { altFt: 0, temperatureC: 0, massMax: [262.1, 446.5], massMin: [185.9, 321.6] }
+    - { altFt: 0, temperatureC: 10, massMax: [281.9, 480.1], massMin: [199.6, 344.4] }
+    - { altFt: 0, temperatureC: 20, massMax: [303.3, 515.1], massMin: [214.9, 367.3] }
+    - { altFt: 0, temperatureC: 30, massMax: [326.1, 551.7], massMin: [231.6, 393.2] }
+    - { altFt: 0, temperatureC: 40, massMax: [350.5, 592.8], massMin: [248.4, 420.6] }
+    - { altFt: 1000, temperatureC: 0, massMax: [286.5, 487.7], massMin: [202.7, 349.0] }
+    - { altFt: 1000, temperatureC: 10, massMax: [307.8, 524.3], massMin: [219.5, 374.9] }
+    - { altFt: 1000, temperatureC: 20, massMax: [332.2, 563.9], massMin: [234.7, 400.8] }
+    - { altFt: 1000, temperatureC: 30, massMax: [356.6, 606.6], massMin: [253.0, 429.8] }
+    - { altFt: 1000, temperatureC: 40, massMax: [384.0, 650.7], massMin: [271.3, 458.7] }
+    - { altFt: 2000, temperatureC: 0, massMax: [312.4, 534.9], massMin: [221.0, 381.0] }
+    - { altFt: 2000, temperatureC: 10, massMax: [338.3, 576.1], massMin: [239.3, 408.4] }
+    - { altFt: 2000, temperatureC: 20, massMax: [364.2, 620.3], massMin: [257.6, 437.4] }
+    - { altFt: 2000, temperatureC: 30, massMax: [391.7, 667.5], massMin: [275.8, 469.4] }
+    - { altFt: 2000, temperatureC: 40, massMax: [420.6, 717.8], massMin: [297.2, 502.9] }
+    - { altFt: 3000, temperatureC: 0, massMax: [342.9, 586.7], massMin: [242.3, 416.1] }
+    - { altFt: 3000, temperatureC: 10, massMax: [370.3, 634.0], massMin: [262.1, 446.5] }
+    - { altFt: 3000, temperatureC: 20, massMax: [399.3, 682.8], massMin: [281.9, 478.5] }
+    - { altFt: 3000, temperatureC: 30, massMax: [429.8, 737.6], massMin: [303.3, 513.6] }
+    - { altFt: 3000, temperatureC: 40, massMax: [461.8, 794.0], massMin: [324.6, 550.2] }
+    - { altFt: 4000, temperatureC: 0, massMax: [376.4, 646.2], massMin: [265.2, 454.2] }
+    - { altFt: 4000, temperatureC: 10, massMax: [406.9, 699.5], massMin: [286.5, 489.2] }
+    - { altFt: 4000, temperatureC: 20, massMax: [438.9, 755.9], massMin: [307.8, 525.8] }
+    - { altFt: 4000, temperatureC: 30, massMax: [472.4, 818.4], massMin: [332.2, 565.4] }
+    - { altFt: 4000, temperatureC: 40, massMax: [506.0, 877.8], massMin: [355.1, 602.0] }
+    - { altFt: 5000, temperatureC: 0, massMax: [413.0, 714.8], massMin: [291.1, 498.3] }
+    - { altFt: 5000, temperatureC: 10, massMax: [446.5, 775.7], massMin: [313.9, 538.0] }
+    - { altFt: 5000, temperatureC: 20, massMax: [483.1, 839.7], massMin: [338.3, 579.1] }
+    - { altFt: 5000, temperatureC: 30, massMax: [519.7, 906.8], massMin: [364.2, 620.3] }
+    - { altFt: 5000, temperatureC: 40, massMax: [556.3, 976.9], massMin: [388.6, 662.9] }
+    - { altFt: 6000, temperatureC: 0, massMax: [455.7, 794.0], massMin: [320.0, 548.6] }
+    - { altFt: 6000, temperatureC: 10, massMax: [492.3, 862.6], massMin: [344.4, 591.3] }
+    - { altFt: 6000, temperatureC: 20, massMax: [531.9, 937.3], massMin: [371.9, 637.0] }
+    - { altFt: 6000, temperatureC: 30, massMax: [571.5, 1011.9], massMin: [399.3, 682.8] }
+    - { altFt: 6000, temperatureC: 40, massMax: [612.6, 1092.7], massMin: [426.7, 730.0] }
+    - { altFt: 7000, temperatureC: 0, massMax: [501.4, 887.0], massMin: [350.5, 605.0] }
+    - { altFt: 7000, temperatureC: 10, massMax: [544.1, 966.2], massMin: [379.5, 653.8] }
+    - { altFt: 7000, temperatureC: 20, massMax: [585.2, 1048.5], massMin: [408.4, 702.6] }
+    - { altFt: 7000, temperatureC: 30, massMax: [629.4, 1136.9], massMin: [437.4, 754.4] }
+    - { altFt: 7000, temperatureC: 40, massMax: [675.1, 1232.9], massMin: [469.4, 807.7] }
+    - { altFt: 8000, temperatureC: 0, massMax: [554.7, 995.2], massMin: [387.1, 669.0] }
+    - { altFt: 8000, temperatureC: 10, massMax: [600.5, 1089.7], massMin: [417.6, 723.9] }
+    - { altFt: 8000, temperatureC: 20, massMax: [646.2, 1182.6], massMin: [449.6, 778.8] }
+    - { altFt: 8000, temperatureC: 30, massMax: [694.9, 1287.8], massMin: [481.6, 836.7] }
+    - { altFt: 8000, temperatureC: 40, massMax: [746.8, 1406.7], massMin: [516.6, 899.2] }
+  landing:
+    - { altFt: 0, temperatureC: 0, massMax: [166.1, 393.2], massMin: [166.1, 393.2] }
+    - { altFt: 0, temperatureC: 10, massMax: [172.2, 402.3], massMin: [172.2, 402.3] }
+    - { altFt: 0, temperatureC: 20, massMax: [178.3, 411.5], massMin: [178.3, 411.5] }
+    - { altFt: 0, temperatureC: 30, massMax: [184.4, 420.6], massMin: [184.4, 420.6] }
+    - { altFt: 0, temperatureC: 40, massMax: [190.5, 431.3], massMin: [190.5, 431.3] }
+    - { altFt: 1000, temperatureC: 0, massMax: [172.2, 402.3], massMin: [172.2, 402.3] }
+    - { altFt: 1000, temperatureC: 10, massMax: [178.3, 411.5], massMin: [178.3, 411.5] }
+    - { altFt: 1000, temperatureC: 20, massMax: [184.4, 422.1], massMin: [184.4, 422.1] }
+    - { altFt: 1000, temperatureC: 30, massMax: [190.5, 432.8], massMin: [190.5, 432.8] }
+    - { altFt: 1000, temperatureC: 40, massMax: [198.1, 442.0], massMin: [198.1, 442.0] }
+    - { altFt: 2000, temperatureC: 0, massMax: [178.3, 413.0], massMin: [178.3, 413.0] }
+    - { altFt: 2000, temperatureC: 10, massMax: [185.9, 422.1], massMin: [185.9, 422.1] }
+    - { altFt: 2000, temperatureC: 20, massMax: [192.0, 432.8], massMin: [192.0, 432.8] }
+    - { altFt: 2000, temperatureC: 30, massMax: [198.1, 443.5], massMin: [198.1, 443.5] }
+    - { altFt: 2000, temperatureC: 40, massMax: [204.2, 454.2], massMin: [204.2, 454.2] }
+    - { altFt: 3000, temperatureC: 0, massMax: [185.9, 422.1], massMin: [185.9, 422.1] }
+    - { altFt: 3000, temperatureC: 10, massMax: [192.0, 434.3], massMin: [192.0, 434.3] }
+    - { altFt: 3000, temperatureC: 20, massMax: [199.6, 445.0], massMin: [199.6, 445.0] }
+    - { altFt: 3000, temperatureC: 30, massMax: [205.7, 455.7], massMin: [205.7, 455.7] }
+    - { altFt: 3000, temperatureC: 40, massMax: [211.8, 466.3], massMin: [211.8, 466.3] }
+    - { altFt: 4000, temperatureC: 0, massMax: [192.0, 434.3], massMin: [192.0, 434.3] }
+    - { altFt: 4000, temperatureC: 10, massMax: [199.6, 445.0], massMin: [199.6, 445.0] }
+    - { altFt: 4000, temperatureC: 20, massMax: [205.7, 455.7], massMin: [205.7, 455.7] }
+    - { altFt: 4000, temperatureC: 30, massMax: [213.4, 467.9], massMin: [213.4, 467.9] }
+    - { altFt: 4000, temperatureC: 40, massMax: [221.0, 478.5], massMin: [221.0, 478.5] }
+    - { altFt: 5000, temperatureC: 0, massMax: [199.6, 445.0], massMin: [199.6, 445.0] }
+    - { altFt: 5000, temperatureC: 10, massMax: [207.3, 457.2], massMin: [207.3, 457.2] }
+    - { altFt: 5000, temperatureC: 20, massMax: [214.9, 467.9], massMin: [214.9, 467.9] }
+    - { altFt: 5000, temperatureC: 30, massMax: [221.0, 480.1], massMin: [221.0, 480.1] }
+    - { altFt: 5000, temperatureC: 40, massMax: [228.6, 492.3], massMin: [228.6, 492.3] }
+    - { altFt: 6000, temperatureC: 0, massMax: [207.3, 457.2], massMin: [207.3, 457.2] }
+    - { altFt: 6000, temperatureC: 10, massMax: [214.9, 469.4], massMin: [214.9, 469.4] }
+    - { altFt: 6000, temperatureC: 20, massMax: [222.5, 481.6], massMin: [222.5, 481.6] }
+    - { altFt: 6000, temperatureC: 30, massMax: [230.1, 493.8], massMin: [230.1, 493.8] }
+    - { altFt: 6000, temperatureC: 40, massMax: [237.7, 506.0], massMin: [237.7, 506.0] }
+    - { altFt: 7000, temperatureC: 0, massMax: [214.9, 470.9], massMin: [214.9, 470.9] }
+    - { altFt: 7000, temperatureC: 10, massMax: [222.5, 483.1], massMin: [222.5, 483.1] }
+    - { altFt: 7000, temperatureC: 20, massMax: [231.6, 495.3], massMin: [231.6, 495.3] }
+    - { altFt: 7000, temperatureC: 30, massMax: [239.3, 507.5], massMin: [239.3, 507.5] }
+    - { altFt: 7000, temperatureC: 40, massMax: [246.9, 519.7], massMin: [246.9, 519.7] }
+    - { altFt: 8000, temperatureC: 0, massMax: [224.0, 483.1], massMin: [224.0, 483.1] }
+    - { altFt: 8000, temperatureC: 10, massMax: [231.6, 496.8], massMin: [231.6, 496.8] }
+    - { altFt: 8000, temperatureC: 20, massMax: [240.8, 509.0], massMin: [240.8, 509.0] }
+    - { altFt: 8000, temperatureC: 30, massMax: [248.4, 522.7], massMin: [248.4, 522.7] }
+    - { altFt: 8000, temperatureC: 40, massMax: [256.0, 534.9], massMin: [256.0, 534.9] }
+
+notes: Generic sheet. Empty mass and arm from the POH's sample loading problem
+  (1642 lb, 62.6 lb-in/1000), not an aircraft's weighing.
+source: Cessna Model 172S Pilot's Operating Handbook, 172SPHAUS-04 (NAV III,
+  revision 4, 12 October 2006, s/n 172S9810 and on) and 172SPHUS (revision 5,
+  19 July 2004, s/n 172S8001 and on), as their Information Manuals.

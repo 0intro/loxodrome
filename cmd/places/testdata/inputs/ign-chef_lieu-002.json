@@ -1,0 +1,60 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.32913",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.16129463,
+          48.43451965
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "91223"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.34741",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.50533475,
+          16.27116413
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "97101"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "chef_lieu_de_commune.34853",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.17421706,
+          46.78190395
+        ]
+      },
+      "geometry_name": "geometrie",
+      "properties": {
+        "code_insee_de_la_commune": "97502"
+      }
+    }
+  ],
+  "totalFeatures": 8,
+  "numberMatched": 8,
+  "numberReturned": 3,
+  "timeStamp": "2026-10-19T00:00:02.000Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

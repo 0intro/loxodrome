@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-11-08T01:24:45.044Z",
+  "source": "ROMATSA AIP Romania 2026-11-26 ENR 4.1, ENR 4.4",
+  "sourceSha256": "d47f4878da8d790f1443c18583896f53b22b1678bfa1280ec8c87d6e50e1dc50",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "2026-11-26",
+  "navaidCount": 452,
+  "sectionCounts": {
+    "ENR 4.1": 44,
+    "ENR 4.4": 408
+  },
+  "counts": {
+    "DME": 23,
+    "NDB": 5,
+    "VOR-DME": 16,
+    "WAYPOINT": 408
+  },
+  "tables": 2,
+  "skippedNoPosition": 0,
+  "bbox": [
+    20.401,
+    43.626,
+    30.505,
+    48.178
+  ]
+}

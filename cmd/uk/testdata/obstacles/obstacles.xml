@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic AIXM 5.1 obstacle fixture for cmd/uk tests (not real data).
+     Exercises BuildObstacles' type-vocabulary mapping, the "other"
+     fallback with unknown-type tracking, the lit count, and the SNAPSHOT
+     (non-baseline) skip. cmd/uk emits one row per BASELINE structure with
+     no height floor (unlike cmd/es). -->
+<message:AIXMBasicMessage
+	xmlns:message="http://www.aixm.aero/schema/5.1/message"
+	xmlns:gco="http://www.isotc211.org/2005/gco"
+	xmlns:gml="http://www.opengis.net/gml/3.2"
+	xmlns:aixm="http://www.aixm.aero/schema/5.1"
+	xmlns:gmd="http://www.isotc211.org/2005/gmd"
+	gml:id="M-UK">
+	<aixm:messageMetadata>
+		<gmd:MD_Metadata>
+			<gmd:dateStamp>
+				<gco:DateTime>2026-05-14T00:00:00Z</gco:DateTime>
+			</gmd:dateStamp>
+		</gmd:MD_Metadata>
+	</aixm:messageMetadata>
+
+	<!-- VS1: lit wind turbine; mapped to windturbine. -->
+	<message:hasMember>
+		<aixm:VerticalStructure gml:id="uuid.uk-1">
+			<gml:identifier codeSpace="urn:uuid:">UK-OBS-WT-001</gml:identifier>
+			<aixm:timeSlice>
+				<aixm:VerticalStructureTimeSlice gml:id="ts-uk-1">
+					<aixm:interpretation>BASELINE</aixm:interpretation>
+					<aixm:name>Pennine Wind Farm 1</aixm:name>
+					<aixm:type>WIND_TURBINE</aixm:type>
+					<aixm:lighted>YES</aixm:lighted>
+					<aixm:part>
+						<aixm:VerticalStructurePart gml:id="p-uk-1">
+							<aixm:verticalExtent uom="M">130</aixm:verticalExtent>
+							<aixm:type>WIND_TURBINE</aixm:type>
+							<aixm:horizontalProjection_location>
+								<aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="pt-uk-1">
+									<gml:pos>52.50000 -1.50000</gml:pos>
+									<aixm:elevation uom="M">200</aixm:elevation>
+								</aixm:ElevatedPoint>
+							</aixm:horizontalProjection_location>
+						</aixm:VerticalStructurePart>
+					</aixm:part>
+				</aixm:VerticalStructureTimeSlice>
+			</aixm:timeSlice>
+		</aixm:VerticalStructure>
+	</message:hasMember>
+
+	<!-- VS2: lit tower; mapped to tower. -->
+	<message:hasMember>
+		<aixm:VerticalStructure gml:id="uuid.uk-2">
+			<gml:identifier codeSpace="urn:uuid:">UK-OBS-TWR-002</gml:identifier>
+			<aixm:timeSlice>
+				<aixm:VerticalStructureTimeSlice gml:id="ts-uk-2">
+					<aixm:interpretation>BASELINE</aixm:interpretation>
+					<aixm:name>Emley Moor Tower</aixm:name>
+					<aixm:type>TOWER</aixm:type>
+					<aixm:lighted>YES</aixm:lighted>
+					<aixm:part>
+						<aixm:VerticalStructurePart gml:id="p-uk-2">
+							<aixm:verticalExtent uom="M">80</aixm:verticalExtent>
+							<aixm:type>TOWER</aixm:type>
+							<aixm:horizontalProjection_location>
+								<aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="pt-uk-2">
+									<gml:pos>53.50000 -2.50000</gml:pos>
+									<aixm:elevation uom="M">250</aixm:elevation>
+								</aixm:ElevatedPoint>
+							</aixm:horizontalProjection_location>
+						</aixm:VerticalStructurePart>
+					</aixm:part>
+				</aixm:VerticalStructureTimeSlice>
+			</aixm:timeSlice>
+		</aixm:VerticalStructure>
+	</message:hasMember>
+
+	<!-- VS3: unlit mast; mapped to mast. -->
+	<message:hasMember>
+		<aixm:VerticalStructure gml:id="uuid.uk-3">
+			<gml:identifier codeSpace="urn:uuid:">UK-OBS-MST-003</gml:identifier>
+			<aixm:timeSlice>
+				<aixm:VerticalStructureTimeSlice gml:id="ts-uk-3">
+					<aixm:interpretation>BASELINE</aixm:interpretation>
+					<aixm:name>Moorside Mast</aixm:name>
+					<aixm:type>MAST</aixm:type>
+					<aixm:lighted>NO</aixm:lighted>
+					<aixm:part>
+						<aixm:VerticalStructurePart gml:id="p-uk-3">
+							<aixm:verticalExtent uom="M">45</aixm:verticalExtent>
+							<aixm:type>MAST</aixm:type>
+							<aixm:horizontalProjection_location>
+								<aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="pt-uk-3">
+									<gml:pos>54.50000 -3.50000</gml:pos>
+									<aixm:elevation uom="M">300</aixm:elevation>
+								</aixm:ElevatedPoint>
+							</aixm:horizontalProjection_location>
+						</aixm:VerticalStructurePart>
+					</aixm:part>
+				</aixm:VerticalStructureTimeSlice>
+			</aixm:timeSlice>
+		</aixm:VerticalStructure>
+	</message:hasMember>
+
+	<!-- VS4: unmapped type; falls back to "other" and is tracked in
+	     meta.UnknownTypes. -->
+	<message:hasMember>
+		<aixm:VerticalStructure gml:id="uuid.uk-4">
+			<gml:identifier codeSpace="urn:uuid:">UK-OBS-GAN-004</gml:identifier>
+			<aixm:timeSlice>
+				<aixm:VerticalStructureTimeSlice gml:id="ts-uk-4">
+					<aixm:interpretation>BASELINE</aixm:interpretation>
+					<aixm:name>Dockside Gantry</aixm:name>
+					<aixm:type>GANTRY</aixm:type>
+					<aixm:lighted>NO</aixm:lighted>
+					<aixm:part>
+						<aixm:VerticalStructurePart gml:id="p-uk-4">
+							<aixm:verticalExtent uom="M">60</aixm:verticalExtent>
+							<aixm:type>GANTRY</aixm:type>
+							<aixm:horizontalProjection_location>
+								<aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="pt-uk-4">
+									<gml:pos>55.50000 -4.50000</gml:pos>
+									<aixm:elevation uom="M">15</aixm:elevation>
+								</aixm:ElevatedPoint>
+							</aixm:horizontalProjection_location>
+						</aixm:VerticalStructurePart>
+					</aixm:part>
+				</aixm:VerticalStructureTimeSlice>
+			</aixm:timeSlice>
+		</aixm:VerticalStructure>
+	</message:hasMember>
+
+	<!-- VS5: SNAPSHOT interpretation; counted into SkippedNonBaseline,
+	     not emitted. -->
+	<message:hasMember>
+		<aixm:VerticalStructure gml:id="uuid.uk-5">
+			<gml:identifier codeSpace="urn:uuid:">UK-OBS-SNP-005</gml:identifier>
+			<aixm:timeSlice>
+				<aixm:VerticalStructureTimeSlice gml:id="ts-uk-5">
+					<aixm:interpretation>SNAPSHOT</aixm:interpretation>
+					<aixm:name>Ignored Snapshot</aixm:name>
+					<aixm:type>TOWER</aixm:type>
+					<aixm:lighted>YES</aixm:lighted>
+					<aixm:part>
+						<aixm:VerticalStructurePart gml:id="p-uk-5">
+							<aixm:verticalExtent uom="M">90</aixm:verticalExtent>
+							<aixm:type>TOWER</aixm:type>
+							<aixm:horizontalProjection_location>
+								<aixm:ElevatedPoint srsName="urn:ogc:def:crs:EPSG::4326" gml:id="pt-uk-5">
+									<gml:pos>56.50000 -5.50000</gml:pos>
+									<aixm:elevation uom="M">120</aixm:elevation>
+								</aixm:ElevatedPoint>
+							</aixm:horizontalProjection_location>
+						</aixm:VerticalStructurePart>
+					</aixm:part>
+				</aixm:VerticalStructureTimeSlice>
+			</aixm:timeSlice>
+		</aixm:VerticalStructure>
+	</message:hasMember>
+</message:AIXMBasicMessage>

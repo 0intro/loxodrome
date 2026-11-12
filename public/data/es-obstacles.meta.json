@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-11-08T01:27:09.834Z",
+  "source": "LE_Amdt_2015_258_AIP_DS_FULL_Obstacles_LELC.xml+LE_Amdt_2019_314_AIP_DS_FULL_Obstacles_GECE.xml+LE_Amdt_2024_386_AIP_DS_FULL_Obstacles_LEVD.xml (+48 more)",
+  "sourceSha256": "40122ec1a905d870173fb87fba3b5400206cc4e66d488a57a7815ffdbcafa7ea",
+  "effective": "",
+  "obstacleCount": 21286,
+  "litCount": 6428,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 164628,
+  "repeatedRows": 214,
+  "unknownTypes": [],
+  "counts": {
+    "antenna": 2058,
+    "bridge": 20,
+    "building": 1783,
+    "cable": 1552,
+    "chimney": 472,
+    "crane": 525,
+    "derrick": 1,
+    "lighthouse": 3,
+    "other": 3392,
+    "powerplant": 1,
+    "pylon": 315,
+    "silo": 34,
+    "tower": 1000,
+    "watertower": 1,
+    "windturbine": 10129
+  },
+  "bbox": [
+    -17.923,
+    27.78,
+    4.293,
+    43.696
+  ]
+}

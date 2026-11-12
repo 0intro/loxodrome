@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-11-08T01:25:09.037Z",
+  "source": "LFV Digital AIM WFS",
+  "sourceSha256": "5bc82aecb3d022fe895257a4ec7423b02f7c1948ad8bf48a84a71bee902fae99",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "navaidCount": 1905,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 78,
+    "NDB": 55,
+    "VFR_REPORTING_POINT": 290,
+    "VOR": 1,
+    "VOR-DME": 22,
+    "WAYPOINT": 1459
+  },
+  "bbox": [
+    10.566,
+    54.805,
+    24.154,
+    68.834
+  ],
+  "noPosition": 0
+}

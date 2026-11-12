@@ -1,0 +1,808 @@
+{
+  "generatedAt": "2026-11-08T01:29:42.027Z",
+  "placeCount": 105962,
+  "sources": {
+    "ign": {
+      "name": "IGN ADMIN EXPRESS COG",
+      "url": "https://data.geopf.fr/wfs/ows",
+      "licence": "Licence Ouverte 2.0",
+      "licenceUrl": "https://www.data.gouv.fr/pages/legal/licences/etalab-2.0",
+      "sha256": "9f41ad517b5baf0223d6a3e653db4be675fca289eb07e80aff335ccfff6a8bc3"
+    },
+    "geonames": {
+      "name": "GeoNames",
+      "url": "https://www.geonames.org/",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sha256": "6f7393951b1ceb763e33d8d1aaa7c4fa571fe00857a36aa763e9a0fcc6495662",
+      "date": "2026-11-06"
+    }
+  },
+  "countries": {
+    "ad": {
+      "source": "geonames",
+      "rows": 15,
+      "minPop": 1000,
+      "bbox": [
+        1.485,
+        42.462,
+        1.734,
+        42.58
+      ]
+    },
+    "al": {
+      "source": "geonames",
+      "rows": 379,
+      "minPop": 1000,
+      "bbox": [
+        19.406,
+        39.659,
+        20.99,
+        42.451
+      ]
+    },
+    "as": {
+      "source": "geonames",
+      "rows": 17,
+      "minPop": 1000,
+      "bbox": [
+        -171.088,
+        -14.353,
+        -169.513,
+        -11.055
+      ]
+    },
+    "at": {
+      "source": "geonames",
+      "rows": 2141,
+      "minPop": 1000,
+      "bbox": [
+        9.579,
+        46.523,
+        17.106,
+        48.997
+      ]
+    },
+    "ax": {
+      "source": "geonames",
+      "rows": 21,
+      "minPop": 1000,
+      "bbox": [
+        19.614,
+        59.921,
+        21.045,
+        60.412
+      ]
+    },
+    "ba": {
+      "source": "geonames",
+      "rows": 293,
+      "minPop": 1000,
+      "bbox": [
+        15.778,
+        42.712,
+        19.367,
+        45.22
+      ]
+    },
+    "be": {
+      "source": "geonames",
+      "rows": 1735,
+      "minPop": 1000,
+      "bbox": [
+        2.594,
+        49.538,
+        6.339,
+        51.472
+      ]
+    },
+    "bg": {
+      "source": "geonames",
+      "rows": 302,
+      "minPop": 1000,
+      "bbox": [
+        22.522,
+        41.327,
+        28.534,
+        44.162
+      ]
+    },
+    "bl": {
+      "source": "geonames",
+      "rows": 1,
+      "minPop": 0,
+      "bbox": [
+        -62.85,
+        17.896,
+        -62.85,
+        17.896
+      ]
+    },
+    "ch": {
+      "source": "geonames",
+      "rows": 1195,
+      "minPop": 1000,
+      "bbox": [
+        5.972,
+        45.832,
+        10.298,
+        47.748
+      ]
+    },
+    "cy": {
+      "source": "geonames",
+      "rows": 102,
+      "minPop": 1000,
+      "bbox": [
+        32.381,
+        34.658,
+        34.379,
+        35.597
+      ]
+    },
+    "cz": {
+      "source": "geonames",
+      "rows": 1480,
+      "minPop": 1000,
+      "bbox": [
+        12.176,
+        48.616,
+        18.827,
+        51.004
+      ]
+    },
+    "de": {
+      "source": "geonames",
+      "rows": 7234,
+      "minPop": 1000,
+      "bbox": [
+        5.96,
+        47.407,
+        14.989,
+        55.019
+      ]
+    },
+    "dk": {
+      "source": "geonames",
+      "rows": 433,
+      "minPop": 1000,
+      "bbox": [
+        8.125,
+        54.659,
+        15.187,
+        57.721
+      ]
+    },
+    "ee": {
+      "source": "geonames",
+      "rows": 117,
+      "minPop": 1000,
+      "bbox": [
+        22.246,
+        57.728,
+        28.19,
+        59.576
+      ]
+    },
+    "es": {
+      "source": "geonames",
+      "rows": 6929,
+      "minPop": 1000,
+      "bbox": [
+        -18.004,
+        27.754,
+        4.29,
+        43.741
+      ]
+    },
+    "fi": {
+      "source": "geonames",
+      "rows": 562,
+      "minPop": 1000,
+      "bbox": [
+        21.2,
+        59.833,
+        30.933,
+        69.909
+      ]
+    },
+    "fo": {
+      "source": "geonames",
+      "rows": 26,
+      "minPop": 1000,
+      "bbox": [
+        -7.307,
+        61.473,
+        -6.316,
+        62.36
+      ]
+    },
+    "fr": {
+      "source": "ign",
+      "rows": 34740,
+      "minPop": 0,
+      "bbox": [
+        -5.098,
+        41.387,
+        9.539,
+        51.071
+      ]
+    },
+    "gb": {
+      "source": "geonames",
+      "rows": 4475,
+      "minPop": 1000,
+      "bbox": [
+        -7.641,
+        34.984,
+        33.734,
+        60.153
+      ],
+      "bboxes": [
+        [
+          -7.641,
+          49.914,
+          1.752,
+          60.153
+        ],
+        [
+          33.734,
+          34.984,
+          33.734,
+          34.984
+        ]
+      ]
+    },
+    "ge": {
+      "source": "geonames",
+      "rows": 176,
+      "minPop": 1000,
+      "bbox": [
+        40.044,
+        41.24,
+        46.275,
+        43.393
+      ]
+    },
+    "gf": {
+      "source": "ign",
+      "rows": 22,
+      "minPop": 0,
+      "bbox": [
+        -54.384,
+        3.167,
+        -51.673,
+        5.734
+      ]
+    },
+    "gg": {
+      "source": "geonames",
+      "rows": 11,
+      "minPop": 1000,
+      "bbox": [
+        -2.65,
+        49.43,
+        -2.208,
+        49.715
+      ]
+    },
+    "gi": {
+      "source": "geonames",
+      "rows": 1,
+      "minPop": 1000,
+      "bbox": [
+        -5.353,
+        36.145,
+        -5.353,
+        36.145
+      ]
+    },
+    "gp": {
+      "source": "ign",
+      "rows": 32,
+      "minPop": 0,
+      "bbox": [
+        -61.794,
+        15.85,
+        -61.076,
+        16.472
+      ]
+    },
+    "gr": {
+      "source": "geonames",
+      "rows": 1127,
+      "minPop": 1000,
+      "bbox": [
+        19.7,
+        34.835,
+        29.594,
+        41.584
+      ]
+    },
+    "gu": {
+      "source": "geonames",
+      "rows": 24,
+      "minPop": 1000,
+      "bbox": [
+        144.653,
+        13.266,
+        144.918,
+        13.572
+      ]
+    },
+    "hr": {
+      "source": "geonames",
+      "rows": 757,
+      "minPop": 1000,
+      "bbox": [
+        13.524,
+        42.581,
+        19.377,
+        46.525
+      ]
+    },
+    "hu": {
+      "source": "geonames",
+      "rows": 962,
+      "minPop": 1000,
+      "bbox": [
+        16.274,
+        45.79,
+        22.818,
+        48.467
+      ]
+    },
+    "ie": {
+      "source": "geonames",
+      "rows": 349,
+      "minPop": 1000,
+      "bbox": [
+        -10.269,
+        51.55,
+        -6.049,
+        55.25
+      ]
+    },
+    "im": {
+      "source": "geonames",
+      "rows": 21,
+      "minPop": 1000,
+      "bbox": [
+        -4.751,
+        54.074,
+        -4.318,
+        54.383
+      ]
+    },
+    "is": {
+      "source": "geonames",
+      "rows": 35,
+      "minPop": 1000,
+      "bbox": [
+        -23.709,
+        63.443,
+        -13.684,
+        66.152
+      ]
+    },
+    "it": {
+      "source": "geonames",
+      "rows": 9926,
+      "minPop": 1000,
+      "bbox": [
+        6.699,
+        35.501,
+        18.487,
+        47.04
+      ]
+    },
+    "je": {
+      "source": "geonames",
+      "rows": 6,
+      "minPop": 1000,
+      "bbox": [
+        -2.141,
+        49.168,
+        -2.051,
+        49.246
+      ]
+    },
+    "li": {
+      "source": "geonames",
+      "rows": 14,
+      "minPop": 1000,
+      "bbox": [
+        9.496,
+        47.061,
+        9.547,
+        47.238
+      ]
+    },
+    "lt": {
+      "source": "geonames",
+      "rows": 114,
+      "minPop": 1000,
+      "bbox": [
+        20.997,
+        54.016,
+        26.44,
+        56.361
+      ]
+    },
+    "lu": {
+      "source": "geonames",
+      "rows": 148,
+      "minPop": 1000,
+      "bbox": [
+        5.816,
+        49.46,
+        6.505,
+        50.137
+      ]
+    },
+    "lv": {
+      "source": "geonames",
+      "rows": 123,
+      "minPop": 1000,
+      "bbox": [
+        21.011,
+        55.883,
+        28.122,
+        57.898
+      ]
+    },
+    "mc": {
+      "source": "geonames",
+      "rows": 1,
+      "minPop": 1000,
+      "bbox": [
+        7.421,
+        43.737,
+        7.421,
+        43.737
+      ]
+    },
+    "md": {
+      "source": "geonames",
+      "rows": 98,
+      "minPop": 1000,
+      "bbox": [
+        27.078,
+        45.482,
+        30.096,
+        48.44
+      ]
+    },
+    "me": {
+      "source": "geonames",
+      "rows": 41,
+      "minPop": 1000,
+      "bbox": [
+        18.506,
+        41.929,
+        20.167,
+        43.357
+      ]
+    },
+    "mf": {
+      "source": "geonames",
+      "rows": 9,
+      "minPop": 0,
+      "bbox": [
+        -63.099,
+        18.059,
+        -63.016,
+        18.105
+      ]
+    },
+    "mk": {
+      "source": "geonames",
+      "rows": 196,
+      "minPop": 1000,
+      "bbox": [
+        20.522,
+        40.939,
+        22.89,
+        42.233
+      ]
+    },
+    "mp": {
+      "source": "geonames",
+      "rows": 6,
+      "minPop": 1000,
+      "bbox": [
+        145.62,
+        14.968,
+        145.755,
+        15.212
+      ]
+    },
+    "mq": {
+      "source": "ign",
+      "rows": 34,
+      "minPop": 0,
+      "bbox": [
+        -61.225,
+        14.435,
+        -60.84,
+        14.876
+      ]
+    },
+    "mt": {
+      "source": "geonames",
+      "rows": 68,
+      "minPop": 1000,
+      "bbox": [
+        14.204,
+        35.825,
+        14.567,
+        36.072
+      ]
+    },
+    "nc": {
+      "source": "geonames",
+      "rows": 33,
+      "minPop": 0,
+      "bbox": [
+        163.647,
+        -22.666,
+        168.026,
+        -19.712
+      ]
+    },
+    "nl": {
+      "source": "geonames",
+      "rows": 1312,
+      "minPop": 1000,
+      "bbox": [
+        3.386,
+        50.771,
+        7.165,
+        53.48
+      ]
+    },
+    "no": {
+      "source": "geonames",
+      "rows": 528,
+      "minPop": 1000,
+      "bbox": [
+        4.715,
+        58.027,
+        31.111,
+        71.041
+      ]
+    },
+    "pf": {
+      "source": "geonames",
+      "rows": 45,
+      "minPop": 0,
+      "bbox": [
+        -151.749,
+        -23.347,
+        -134.969,
+        -8.911
+      ]
+    },
+    "pl": {
+      "source": "geonames",
+      "rows": 2933,
+      "minPop": 1000,
+      "bbox": [
+        14.202,
+        49.213,
+        24.037,
+        54.831
+      ]
+    },
+    "pm": {
+      "source": "geonames",
+      "rows": 2,
+      "minPop": 0,
+      "bbox": [
+        -56.381,
+        46.779,
+        -56.177,
+        47.098
+      ]
+    },
+    "pr": {
+      "source": "geonames",
+      "rows": 220,
+      "minPop": 1000,
+      "bbox": [
+        -67.25,
+        17.954,
+        -65.301,
+        18.501
+      ]
+    },
+    "pt": {
+      "source": "geonames",
+      "rows": 939,
+      "minPop": 1000,
+      "bbox": [
+        -31.178,
+        32.645,
+        -6.273,
+        42.079
+      ]
+    },
+    "re": {
+      "source": "ign",
+      "rows": 24,
+      "minPop": 0,
+      "bbox": [
+        55.27,
+        -21.379,
+        55.793,
+        -20.879
+      ]
+    },
+    "ro": {
+      "source": "geonames",
+      "rows": 4497,
+      "minPop": 1000,
+      "bbox": [
+        20.317,
+        43.656,
+        29.654,
+        48.233
+      ]
+    },
+    "rs": {
+      "source": "geonames",
+      "rows": 440,
+      "minPop": 1000,
+      "bbox": [
+        18.928,
+        42.258,
+        22.776,
+        46.106
+      ]
+    },
+    "se": {
+      "source": "geonames",
+      "rows": 812,
+      "minPop": 1000,
+      "bbox": [
+        11.171,
+        55.343,
+        24.137,
+        67.856
+      ]
+    },
+    "si": {
+      "source": "geonames",
+      "rows": 302,
+      "minPop": 1000,
+      "bbox": [
+        13.527,
+        45.496,
+        16.451,
+        46.835
+      ]
+    },
+    "sk": {
+      "source": "geonames",
+      "rows": 609,
+      "minPop": 1000,
+      "bbox": [
+        16.849,
+        47.752,
+        22.23,
+        49.527
+      ]
+    },
+    "sm": {
+      "source": "geonames",
+      "rows": 14,
+      "minPop": 1000,
+      "bbox": [
+        12.419,
+        43.905,
+        12.5,
+        43.983
+      ]
+    },
+    "us": {
+      "source": "geonames",
+      "rows": 16655,
+      "minPop": 1000,
+      "bbox": [
+        -166.542,
+        19.044,
+        -66.984,
+        71.291
+      ],
+      "bboxes": [
+        [
+          -166.542,
+          53.874,
+          -131.577,
+          71.291
+        ],
+        [
+          -159.712,
+          19.044,
+          -154.912,
+          22.218
+        ],
+        [
+          -124.497,
+          24.555,
+          -66.984,
+          49
+        ]
+      ]
+    },
+    "va": {
+      "source": "geonames",
+      "rows": 1,
+      "minPop": 1000,
+      "bbox": [
+        12.454,
+        41.903,
+        12.454,
+        41.903
+      ]
+    },
+    "vi": {
+      "source": "geonames",
+      "rows": 6,
+      "minPop": 1000,
+      "bbox": [
+        -64.949,
+        17.728,
+        -64.706,
+        18.342
+      ]
+    },
+    "wf": {
+      "source": "geonames",
+      "rows": 8,
+      "minPop": 0,
+      "bbox": [
+        -178.158,
+        -14.311,
+        -176.166,
+        -13.247
+      ]
+    },
+    "xk": {
+      "source": "geonames",
+      "rows": 67,
+      "minPop": 1000,
+      "bbox": [
+        20.169,
+        42.027,
+        21.599,
+        43.104
+      ]
+    },
+    "yt": {
+      "source": "ign",
+      "rows": 17,
+      "minPop": 0,
+      "bbox": [
+        45.059,
+        -12.957,
+        45.275,
+        -12.697
+      ]
+    }
+  },
+  "dropped": {
+    "ign": {
+      "collectivity": 2,
+      "noPosition": 6
+    },
+    "geonames": {
+      "belowFloor": 22083,
+      "duplicate": 12,
+      "historical": 15,
+      "noPosition": 0,
+      "notPopulated": 0,
+      "section": 3694
+    }
+  }
+}

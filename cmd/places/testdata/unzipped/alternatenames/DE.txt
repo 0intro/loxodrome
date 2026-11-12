@@ -1,0 +1,9 @@
+999999	2867714	de	Monachium	1			1		
+1000000	2867714	de	Minga	1		1			
+1000001	2867714	de	München	1					
+1000002	2867714	en	Munich	1					
+1000003	2867714	fr	Munich						
+1000004	2867714	de	Muenchen					1900	
+1000005	2867714	post	80331						
+1000006	9000003	de	Dachau						
+1000007	9000003	en	Dachau						

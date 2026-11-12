@@ -1,0 +1,4 @@
+2000001	4717560	fr	Paris						
+2000002	5879400	en	Anchorage	1					
+2000003	5856195	haw	Honolulu						
+2000004	5856195	fr	Honolulu						

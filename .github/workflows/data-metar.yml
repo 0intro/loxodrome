@@ -1,0 +1,57 @@
+name: Refresh METAR station catalog
+
+# Regenerates public/data/metar-stations.json from NOAA AWC's stationinfo
+# API (https://aviationweather.gov/api/data/stationinfo). cmd/metar crawls
+# the world with a bbox quadtree, keeping METAR-capable stations with their
+# ICAO / IATA / FAA / WMO ids, site name, country, elevation and TAF
+# capability. The map's live METAR / TAF feed is unchanged; this only
+# refreshes the static station metadata the SPA joins onto observations by
+# ident.
+
+on:
+  schedule:
+    # Thursday window, one hour past ENAIRE Spain.
+    - cron: '0 6 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build metar-stations.json
+        run: go run ./cmd/metar
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/data/metar-stations.json; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/metar-stations.json public/data/metar-stations.meta.json
+            git commit -m "update METAR stations"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

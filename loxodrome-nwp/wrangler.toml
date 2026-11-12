@@ -1,0 +1,124 @@
+# loxodrome-nwp: the forecast service at nwp.loxodrome.fr
+# (docs/nwp-service.md). `wrangler deploy` from this directory builds the
+# ingest image (Docker, context the repository root) and deploys the
+# Worker, its Container class and its cron.
+#
+# Provisioning (once, by the operator):
+#
+#   wrangler r2 bucket create loxodrome-nwp --location weur
+#   wrangler r2 bucket lifecycle add loxodrome-nwp blocks-3d blocks/ --expire-days 3
+#   wrangler r2 bucket lifecycle add loxodrome-nwp first-8d first/ --expire-days 8
+#   wrangler r2 bucket lifecycle add loxodrome-nwp receipts-8d receipts/ --expire-days 8
+#   wrangler r2 bucket lifecycle add loxodrome-nwp manifests-8d manifests/ --expire-days 8
+#   wrangler r2 bucket lifecycle add loxodrome-nwp logs-8d logs/ --expire-days 8
+#   wrangler r2 bucket lifecycle add loxodrome-nwp multipart-1d --abort-multipart-days 1
+#
+# The bucket sits in Western Europe beside the Container and the users, with
+# no jurisdiction: the archives are public model output, and the EU
+# jurisdiction had placed it in Eastern Europe. A location hint is honoured
+# only at a name's first creation in its namespace (the EU jurisdiction is
+# a namespace of its own, which is how this name moved, on 2026-10-08).
+#
+# Email Sending must accept nwp@loxodrome.fr as a sender (the domain is
+# verified for account-api's login@).
+#
+# The levers, [vars] edited and redeployed (or set in the dashboard):
+# DISABLED = "1" answers every forecast and run poll 503 "disabled", which
+# every client fails over to Open-Meteo on; INGEST_PAUSED = "1" starts no
+# Container job while the read path keeps serving (for three days: the
+# lifecycle rules then take the blocks the pointer still names, which the
+# read path reads as not covering); a new RETRY_EPOCH retries the failed
+# blocks once.
+
+name = "loxodrome-nwp"
+main = "worker.ts"
+compatibility_date = "2026-10-01"
+
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "nwp.loxodrome.fr"
+custom_domain = true
+
+# The API sees coordinates: no invocation log, only the Worker's own
+# failure lines (never an address).
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+invocation_logs = false
+
+[[r2_buckets]]
+binding = "NWP"
+bucket_name = "loxodrome-nwp"
+
+[[containers]]
+class_name = "NwpIngest"
+image = "./Dockerfile"
+image_build_context = ".."
+instance_type = "standard-4"
+# One instance per model's orchestrator (eight), and room for an old one
+# still finishing its job through a rollout's grace: a start refused at the
+# cap costs that model a five-minute pause. test/plan.test.ts holds it at
+# the registry's size or above.
+max_instances = 10
+# A rollout leaves an instance alone until its job has run this long: past
+# the job's cap (JOB_CAP_MS, 12 min) and the tick that kills a job over it
+# (a minute later), so a deploy never signals a job the orchestrator has not
+# already judged, and a job within its cap finishes first. Applied by a
+# full `wrangler deploy` only (--containers-rollout=none skips every
+# container step); test/plan.test.ts holds it above the cap.
+rollout_active_grace_period = 1200
+
+[containers.constraints]
+regions = ["WEUR"]
+
+[[durable_objects.bindings]]
+name = "INGEST"
+class_name = "NwpIngest"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["NwpIngest"]
+
+# send_email uses `name` where every other binding says `binding`.
+[[send_email]]
+name = "EMAIL"
+
+[triggers]
+crons = ["* * * * *"]
+
+[vars]
+# Origins allowed: the site, the Android shell's WebView (https://localhost)
+# and, as loxodrome-proxy allows them, the vite dev servers (the flight app
+# on 5173, a second instance on 5174, and the LAN address a phone tests
+# from), so a development build reads the production forecasts. A public
+# read API: the gate keeps other sites' pages off it, nothing more. A local
+# `wrangler dev` reads loxodrome-nwp/.dev.vars instead.
+ALLOW_ORIGINS = "https://loxodrome.fr,https://www.loxodrome.fr,https://localhost,http://localhost:5173,http://localhost:5174,http://192.168.1.25:5173,http://192.168.1.25:5174"
+SENDER_EMAIL = "nwp@loxodrome.fr"
+REPORT_EMAIL = "0intro@gmail.com"
+DISABLED = "0"
+INGEST_PAUSED = "0"
+# A model's daily budget of container time, whole minutes: past it no job
+# starts until 00:00 UTC and the operator is mailed, once. Cloudflare puts no
+# limit on a container's life, so this is what bounds a bug that hangs every
+# job (each to its 12-minute cap) to 90 minutes and a job a day per model.
+# AROME France, the heaviest, runs about 23 minutes on a normal day. Raised and
+# redeployed (--containers-rollout=none) to build again the same day; "0"
+# holds every job.
+JOB_BUDGET_MINUTES = "90"
+# A new value gives every failed block of the runs still collecting its
+# three attempts back, once: set after fixing what failed them. Named after
+# the incident it retried.
+RETRY_EPOCH = "2026-10-07-ifs-gust"
+# A new value sends one test alert to REPORT_EMAIL: the proof the mail path
+# works after a change to the sender or the binding.
+MAIL_TEST = "2026-10-06-first-deploy-2"
+# A new value starts every orchestrator afresh from the bucket's own
+# pointers, once, at its first tick with no job running: set when the
+# bucket is moved or restored, the runs it remembers being in the old one.
+# Named after the move.
+STATE_EPOCH = "2026-10-08-weur"

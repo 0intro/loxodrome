@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "commune.34619",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Sainte-Colombe",
+        "code_insee": "05135",
+        "population": 65,
+        "code_insee_du_departement": "05"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.20057",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Régat",
+        "code_insee": "09243",
+        "population": 51,
+        "code_insee_du_departement": "09"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.33748",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Sainte-Colombe",
+        "code_insee": "17319",
+        "population": 113,
+        "code_insee_du_departement": "17"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.5844",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Ajaccio",
+        "code_insee": "2A004",
+        "population": 74962,
+        "code_insee_du_departement": "2A"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "commune.580",
+      "geometry": null,
+      "properties": {
+        "nom_officiel": "Le Pin",
+        "code_insee": "39421",
+        "population": null,
+        "code_insee_du_departement": "39"
+      }
+    }
+  ],
+  "totalFeatures": 9,
+  "numberMatched": 9,
+  "numberReturned": 5,
+  "timeStamp": "2026-10-19T00:00:03.000Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

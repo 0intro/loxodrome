@@ -1,0 +1,58 @@
+name: Refresh place names
+
+# Regenerates public/data/places-<iso>.json and places.meta.json with
+# cmd/places (docs/places.md): every French commune from IGN's ADMIN
+# EXPRESS COG through the Géoplateforme WFS (Licence Ouverte 2.0), and the
+# towns of the other countries the app covers from GeoNames (CC BY 4.0).
+# The communes change on 1 January and GeoNames slowly, so the refresh is
+# monthly. The index's generatedAt moves on every run, so a commit is made
+# only when a country file changed, appeared or went.
+
+on:
+  schedule:
+    # The 2nd of each month, a day after the airports baseline.
+    - cron: '0 3 2 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build the place names
+        run: go run ./cmd/places
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- 'public/data/places-*.json')" ]; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            # --all: a country the table no longer holds is removed.
+            git add --all -- 'public/data/places-*.json' public/data/places.meta.json
+            git commit -m "update place names"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

@@ -1,0 +1,110 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "LF",
+        "id": "1",
+        "code": "LFFF",
+        "name": "PARIS FIR",
+        "min_fl": 0,
+        "max_fl": 195,
+        "airspace_type": "FIR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[2.0,48.0],[4.0,48.0],[4.0,50.0],[2.0,50.0],[2.0,48.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "EG",
+        "id": "2",
+        "code": "EGGX",
+        "name": "SHANWICK OCEANIC",
+        "min_fl": 55,
+        "max_fl": 999,
+        "airspace_type": "FIR"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [[[-10.0,50.0],[-15.0,50.0],[-15.0,55.0],[-10.0,55.0],[-10.0,50.0]]],
+          [[[-20.0,55.0],[-25.0,55.0],[-25.0,60.0],[-20.0,60.0],[-20.0,55.0]]]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "ED",
+        "id": "3",
+        "code": "EDUU",
+        "name": "RHEIN UIR",
+        "min_fl": 245,
+        "max_fl": 660,
+        "airspace_type": "UIR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[6.0,48.0],[10.0,48.0],[10.0,52.0],[6.0,52.0],[6.0,48.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "ZZ",
+        "id": "99",
+        "code": "ZZZZ",
+        "name": "PLACEHOLDER",
+        "min_fl": 0,
+        "max_fl": 999,
+        "airspace_type": "FIR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "XX",
+        "id": "100",
+        "code": "XX-1",
+        "name": "BAD CODE",
+        "min_fl": 0,
+        "max_fl": 100,
+        "airspace_type": "FIR"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "airac_cfmu": 524,
+        "icao": "LF",
+        "id": "200",
+        "code": "LFFA",
+        "name": "ANSP TEST",
+        "min_fl": 0,
+        "max_fl": 100,
+        "airspace_type": "ANSP"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0],[0.0,0.0]]]
+      }
+    }
+  ]
+}

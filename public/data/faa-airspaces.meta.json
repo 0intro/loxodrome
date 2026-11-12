@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-11-08T01:40:27.354Z",
+  "airspaceCount": 7757,
+  "boundary": {
+    "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Boundary_Airspace/FeatureServer/0/query",
+    "sha256": "e4b298227843d898673e72f0382c876a79d73b03b8197ff364961be73466c5b1",
+    "count": 505
+  },
+  "specialUse": {
+    "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Special_Use_Airspace/FeatureServer/0/query",
+    "sha256": "4c43257b8889ab7299611f48e1641558e4472b77d1b43e9923ac2715e9211058",
+    "count": 1540
+  },
+  "class": {
+    "url": "https://services6.arcgis.com/ssFJjBXIUyZDrSYZ/arcgis/rest/services/Class_Airspace/FeatureServer/0/query",
+    "sha256": "112a18d7956c92261989f00f4a8c329403b3fc73d2b947c74b4be2ed1300cb46",
+    "count": 5712
+  },
+  "scheduledRows": 215,
+  "counts": {
+    "A": 78,
+    "ACC": 84,
+    "ADIZ": 13,
+    "ARTCC": 43,
+    "CLASS": 5652,
+    "CTA": 84,
+    "FIR": 44,
+    "MOA": 733,
+    "OCA": 2,
+    "P": 17,
+    "R": 662,
+    "SATA": 40,
+    "TFR": 8,
+    "TRSA": 81,
+    "UTA": 4,
+    "W": 212
+  },
+  "bbox": [
+    -180,
+    -30.001,
+    180,
+    90
+  ],
+  "bboxes": [
+    [
+      -180,
+      -30.001,
+      -31.999,
+      90
+    ],
+    [
+      92,
+      -30,
+      180,
+      78
+    ],
+    [
+      180,
+      86.24,
+      180,
+      86.241
+    ]
+  ]
+}
