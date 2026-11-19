@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T01:27:17.974Z",
+  "generatedAt": "2026-11-19T17:32:53.389Z",
   "source": "BHANSA Bosnia and Herzegovina eAIP 2026-11-26-AIRAC",
   "effective": "2026-11-26T00:00:00.000Z",
   "edition": "2026-11-26-AIRAC",
@@ -16,9 +16,10 @@
     "ADC": 4,
     "AOC": 9,
     "APDC": 1,
+    "ATCSMAC": 2,
     "IAC": 34,
     "SID": 38,
-    "STAR": 23,
+    "STAR": 21,
     "VAC": 4
   },
   "linkCheck": "6/6"

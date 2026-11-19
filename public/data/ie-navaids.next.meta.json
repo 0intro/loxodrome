@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-11-19T17:32:39.600Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-11-26-AIRAC ENR 4.1 ENR 4.4",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "cycleLag": 0,
+  "confirmed": false,
+  "lang": "en-IE",
+  "navaidCount": 206,
+  "counts": {
+    "DME": 4,
+    "NDB": 6,
+    "VFR_REPORTING_POINT": 22,
+    "VOR-DME": 6,
+    "WAYPOINT": 168
+  },
+  "tables": 2,
+  "skippedNoPosition": 0,
+  "bbox": [
+    -15,
+    48.576,
+    -5.5,
+    57
+  ]
+}

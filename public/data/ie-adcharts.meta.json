@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-08T01:26:22.807Z",
-  "source": "AirNav Ireland eAIP AIRAC/2026-10-29-AIRAC",
+  "generatedAt": "2026-11-19T17:30:39.454Z",
+  "source": "AirNav Ireland eAIP AIRAC_OCT_2026_2/2026-10-29-AIRAC",
   "effective": "2026-10-29T00:00:00.000Z",
-  "edition": "AIRAC/2026-10-29-AIRAC",
-  "base": "https://www.airnav.ie/AIRAC/2026-10-29-AIRAC/",
+  "edition": "AIRAC_OCT_2026_2/2026-10-29-AIRAC",
+  "base": "https://www.airnav.ie/AIRAC_OCT_2026_2/2026-10-29-AIRAC/",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",
