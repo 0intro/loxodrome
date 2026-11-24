@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-11-08T01:25:09.818Z",
+  "source": "LFV Digital AIM WFS",
+  "sourceSha256": "6c0d21d6cd8a8c13cc2e884f197099b6167f071fba1edac2a2d77020283b7db0",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "obstacleCount": 5843,
+  "litCount": 5745,
+  "skippedNonBaseline": 0,
+  "multiPartObstacles": 0,
+  "skippedTooShort": 0,
+  "unknownTypes": [
+    "Mine hoist"
+  ],
+  "counts": {
+    "bridge": 3,
+    "building": 17,
+    "chimney": 81,
+    "crane": 9,
+    "mast": 332,
+    "other": 1,
+    "pylon": 6,
+    "silo": 2,
+    "tower": 27,
+    "windturbine": 5365
+  },
+  "bbox": [
+    11.185,
+    54.919,
+    23.73,
+    68.405
+  ],
+  "noPosition": 0
+}

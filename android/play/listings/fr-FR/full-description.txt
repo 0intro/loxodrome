@@ -1,0 +1,50 @@
+Loxodrome est une application de préparation du vol et de navigation en vol pour l’aviation générale, bâtie sur les AIP nationales d’Europe et des États-Unis. Elle est libre et gratuite, sans publicité.
+
+APPLICATION NON GOUVERNEMENTALE
+Loxodrome est une application indépendante, réalisée par un particulier. Elle ne représente aucun gouvernement, autorité de l’aviation civile, prestataire de services de navigation aérienne ou service météorologique, et n’est ni affiliée à eux ni approuvée par eux. Ce n’est pas un service d’information aéronautique, et elle n’a aucune approbation opérationnelle ni de navigabilité. Elle redessine ce que ces organismes publient, et leurs propres publications, listées ci-dessous, seules font foi : elle ne remplace ni l’AIP, ni le bulletin d’information prévol, ni la documentation météorologique des États survolés. Le commandant de bord reste responsable de la conduite du vol.
+
+CARTE ET BRIEFING
+Espaces aériens, aérodromes, aides de radionavigation, obstacles et zones protégées dessinés selon les conventions de l’OACI et du SIA, mis à jour à chaque cycle AIRAC, avec les cartes aéronautiques officielles en superposition. NOTAM collés ou récupérés pour la route ou un aérodrome, chacun relié à ce qu’il concerne. METAR, TAF, SIGMET, vents en altitude, radar de précipitations, cartes des fronts, TEMSI et WINTEM.
+
+PRÉPARATION
+Route sur la carte avec niveaux de croisière, log de navigation corrigé du vent et profil vertical du relief et des espaces traversés. Carburant, masse et centrage, distances de décollage et d’atterrissage calculés d’après le manuel de vol.
+
+EN VOL
+Loxodrome enregistre le vol. Elle suit l’aéronef sur la carte, indique la fréquence à afficher et alerte avant l’entrée dans un espace interdit. Elle alerte du relief et des obstacles à venir, une aide à la conscience de la situation, et non un TAWS certifié. L’enregistrement se poursuit écran éteint ou application en arrière-plan.
+
+HORS LIGNE ET COMPTE
+L’application fonctionne hors ligne, jeux de données inclus, cartes en paquets hors ligne. Un compte facultatif, hébergé dans l’Union européenne, synchronise vos plans de vol, vols et aéronefs entre vos appareils. Sans compte, ils restent sur l’appareil.
+
+SOURCES OFFICIELLES
+France : SIA https://sia.aviation-civile.gouv.fr, DGAC SOFIA-Briefing https://sofia-briefing.aviation-civile.gouv.fr, Météo-France https://meteofrance.com, IGN https://cartes.gouv.fr
+Royaume-Uni : NATS https://www.aurora.nats.co.uk
+Espagne : ENAIRE https://aip.enaire.es
+Allemagne : DFS https://aip.dfs.de, DWD https://dwd.de
+Autriche : Austro Control https://austrocontrol.at, BEV https://bev.gv.at
+Belgique et Luxembourg : skeyes https://ops.skeyes.be
+Pays-Bas : LVNL https://lvnl.nl
+Suisse : OFAC https://bazl.admin.ch
+Suède : LFV https://aro.lfv.se
+Danemark : Naviair https://aim.naviair.dk
+Norvège : Avinor https://ais.avinor.no
+Finlande : Fintraffic ANS https://ais.fi
+Islande : Avians https://eaip.avians.is
+Irlande : AirNav Ireland https://airnav.ie, IAA https://iaa.ie
+Pologne : PANSA https://ais.pansa.pl
+Tchéquie : ANS CR https://aim.rlp.cz
+Slovaquie : LPS SR https://www.lps.sk
+Hongrie : HungaroControl https://ais.hungarocontrol.hu
+Slovénie : Slovenia Control https://sloveniacontrol.si
+Estonie : EANS https://aim.eans.ee
+Lettonie : LGS https://ais.lgs.lv
+Portugal : NAV Portugal https://ais.nav.pt
+Roumanie : ROMATSA https://aisro.ro
+Serbie et Monténégro : SMATSA https://smatsa.rs
+Kosovo : KANS https://kans-ks.org
+Bosnie-Herzégovine : BHANSA https://bhansa.gov.ba
+Géorgie : Sakaeronavigatsia https://ais.airnav.ge
+États-Unis : FAA https://faa.gov, NOAA https://aviationweather.gov et https://ncei.noaa.gov, NASA https://earthdata.nasa.gov, NGA https://earth-info.nga.mil
+Europe : EUROCONTROL https://eurocontrol.int, EUMETNET https://eumetnet.eu, Copernicus https://copernicus.eu
+
+Code source : https://github.com/0intro/loxodrome
+Fond de carte © contributeurs d’OpenStreetMap.

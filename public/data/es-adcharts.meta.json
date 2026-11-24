@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-11-08T01:27:54.177Z",
+  "source": "ENAIRE AIP Spain viewer, AIRAC 10/26 and AMDT 412/26",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "edition": "AIRAC 10/26 and AMDT 412/26",
+  "base": "https://aip.enaire.es/AIP/",
+  "aerodromes": 61,
+  "heliports": 10,
+  "withCharts": 71,
+  "withVac": 63,
+  "charts": 1238,
+  "byFamily": {
+    "ADC": 71,
+    "AOC": 136,
+    "APDC": 53,
+    "ATCSMAC": 10,
+    "GMC": 30,
+    "IAC": 562,
+    "MISC": 36,
+    "PATC": 17,
+    "SID": 144,
+    "STAR": 107,
+    "VAC": 72
+  },
+  "linkCheck": "6/6",
+  "outsideSeries": [
+    "GSAI",
+    "LXGB",
+    "GSVO"
+  ]
+}

@@ -1,0 +1,160 @@
+name: Refresh FAA US datasets
+
+# Regenerates the US datasets from the FAA AIS hub:
+#   faa-airspaces.json  Boundary_Airspace + Special_Use_Airspace + Class_Airspace
+#   faa-navaids.json    NAVAIDSystem + the edition's NASR NAV_BASE.csv (the
+#                       radio navaids' frequencies, channels, elevations and
+#                       statuses) + NavaidComponent + DesignatedPoints
+#   faa-airports.json   US_Airport + Runways
+#   faa-obstacles.json  Digital_Obstacle_File, >= 500 ft AGL
+#   us-adcharts.json    the d-TPP chart metafile
+#
+# Each dataset builds and commits in steps of its own, each build running
+# whatever became of the ones before it (`!cancelled()`) and each commit
+# only after its own build succeeded: a failure leaves the others
+# refreshed and the run red. The navaids fail on purpose when their NASR
+# register cannot be read, leaving the committed file standing rather than
+# writing the 2016 component frequencies over it.
+#
+# The airspace FeatureServers are not AIRAC-keyed; they serve "what's
+# current", so a weekly Thursday fire catches every chart-cycle drift and
+# the diff gate makes non-update weeks free no-ops. The navaid datasets
+# DO carry an AIRAC effective date, taken from the APRA edition API, and
+# write the .next slot when the hub's Pending_* layers are genuinely
+# ahead of the current edition (see cmd/faa/edition.go).
+
+on:
+  schedule:
+    # Same Thursday slot as pruatlas; runs are independent (different
+    # paths to diff) so they don't race.
+    - cron: '0 4 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      # The d-TPP chart dataset is two quick metafile fetches; build and
+      # commit it first, so a later failure of the slow airspace fetch
+      # (Class_Airspace can take ~30 min) never holds up the chart update.
+      - name: Build us-adcharts.json
+        id: adcharts
+        run: go run ./cmd/faa -only adcharts
+
+      - name: Commit chart links if changed
+        if: ${{ !cancelled() && steps.adcharts.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time us-adcharts.next.json, untracked,
+          # also triggers; metas excluded from the gate (generatedAt
+          # changes every run) but committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/us-adcharts*.json' ':(exclude)public/data/us-adcharts*.meta.json')" ]; then
+            echo "No chart changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/us-adcharts*.json'
+            git commit -m "update FAA d-TPP aerodrome chart links"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then echo "push failed after $n attempts"; exit 1; fi
+              git pull --rebase
+            done
+          fi
+
+      # The point datasets are separate fetches from the slow airspace
+      # one; build and commit them first so a Class_Airspace timeout never
+      # holds them up.
+      - name: Build faa-airports.json and faa-obstacles.json
+        id: points
+        if: ${{ !cancelled() }}
+        run: go run ./cmd/faa -only airports,obstacles
+
+      - name: Commit airports and obstacles if changed
+        if: ${{ !cancelled() && steps.points.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time faa-airports.next.json, untracked,
+          # also triggers; metas excluded from the gate (generatedAt
+          # changes every run) but committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/faa-airports*.json' 'public/data/faa-obstacles*.json' ':(exclude)public/data/faa-*.meta.json')" ]; then
+            echo "No airport / obstacle changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/faa-airports*.json' 'public/data/faa-obstacles*.json'
+            git commit -m "update FAA airports and obstacles"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then echo "push failed after $n attempts"; exit 1; fi
+              git pull --rebase
+            done
+          fi
+
+      - name: Build faa-navaids.json
+        id: navaids
+        if: ${{ !cancelled() }}
+        run: go run ./cmd/faa -only navaids
+
+      - name: Commit navaids if changed
+        if: ${{ !cancelled() && steps.navaids.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- 'public/data/faa-navaids*.json' ':(exclude)public/data/faa-*.meta.json')" ]; then
+            echo "No navaid changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/faa-navaids*.json'
+            git commit -m "update FAA navaids"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then echo "push failed after $n attempts"; exit 1; fi
+              git pull --rebase
+            done
+          fi
+
+      - name: Build faa-airspaces.json
+        id: airspaces
+        if: ${{ !cancelled() }}
+        run: go run ./cmd/faa -only airspaces
+
+      - name: Commit if changed
+        if: ${{ !cancelled() && steps.airspaces.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/data/faa-airspaces.json; then
+            echo "No data changes."
+          else
+            # FAA isn't AIRAC-keyed; the commit message stays plain.
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add public/data/faa-airspaces.json public/data/faa-airspaces.meta.json
+            git commit -m "update FAA airspaces"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

@@ -1,0 +1,55 @@
+       AIS-ESPAÑA
+                                               ESPAÑA                                                     AIP-ESPAÑA
+
+
+ Dirección AFTN: LEANZXTA                             ENAIRE                                               SUP 152/20
+  Teléfono: +34 913 213 363         DIVISIÓN DE INFORMACIÓN AERONÁUTICA
+    E-mail: ais@enaire.es                   Avda. Aragón, 330. EDIFICIO 2                                  31-DEC-20
+    Web: www.enaire.es
+                                         P.E. Las Mercedes - 28022 MADRID
+
+                                                            ENR
+
+CANCELAR: 126/19.                                               CANCEL: 126/19.
+
+SUP 152/20                           31DEC20/31DEC21EST         SUP 152/20                             31DEC20/31DEC21EST
+NOTA: SUP EST, sólo se cancelará por NOTAM, SUP o               NOTE: EST SUP will only be cancelled by NOTAM, SUP or
+      enmienda al AIP.                                                AIP amendment.
+
+MADRID FIR.- Corredor de Tránsito establecido.                  MADRID FIR.- Transit Corridor established.
+
+Hasta el 31 de diciembre de 2021 estimado, se establece un      Until 31 December 2021 (estimated), a transit corridor will be
+corredor de tránsito en las siguientes coordenadas:             established in the following coordinates:
+  404130N 0043655W,                                               404130N 0043655W,
+  403327N 0042905W,                                               403327N 0042905W,
+  392731N 0062207W,                                               392731N 0062207W,
+  393526N 0063003W.                                               393526N 0063003W.
+Límites verticales: FL145 - FL245.                              Vertical limits: FL145 - FL245.
+
+Observaciones:                                                  Remarks:
+El corredor es solamente utilizable por aeronaves con el Plan   The corridor is only usable by aircraft with approved IFR Flight
+de Vuelo IFR aprobado.                                          Plan.
+
+
+
+
+                                                      – 1 SUP 152/20 –
+                                           C O
+                                         N
+                                         A
+                                       L
+                                      B K
+                                  EN LAN
+                              T E B
+                           E N LY
+                       M      A L
+                    D A N
+                  A   T I O
+                N
+              O E   N
+            I
+           C NT
+       E N    I
+     T
+IN
+

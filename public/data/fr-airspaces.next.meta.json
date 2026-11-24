@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-11-18T05:31:02.691Z",
+  "source": "AIXM4.5_all_FR_OM_2026-11-26.xml",
+  "sourceSha256": "80d9b8f1732e09754917dfc750601dd1b1edb89621996352539bb258accf0b69",
+  "effective": "2026-11-26T00:00:00.000+01:00",
+  "airspaceCount": 3834,
+  "skippedNoBoundary": 127,
+  "skippedNoClassify": 0,
+  "sameExtentCount": 90,
+  "borderStitched": 410,
+  "borderChords": 1,
+  "borderSpikes": 1,
+  "pointRings": {
+    "AEROBATIC": 290,
+    "BALLOON": 7,
+    "D": 1,
+    "GLIDER": 57,
+    "MODEL": 1167,
+    "PARACHUTE": 172,
+    "PARAGLIDER": 78,
+    "R": 1,
+    "UAS": 38
+  },
+  "axisRings": {
+    "AEROBATIC": 9
+  },
+  "withRadio": 675,
+  "siaSectorMappedCount": 250,
+  "siaSectorInjectCount": 6,
+  "siaTMASectorCount": 189,
+  "siaActiviteFilled": 9,
+  "siaActiviteNarrowed": 29,
+  "siaActiviteRefused": 0,
+  "counts": {
+    "AEROBATIC": 300,
+    "BALLOON": 7,
+    "CTA": 80,
+    "CTR": 117,
+    "D": 130,
+    "DLG-ATS": 120,
+    "FBZ": 110,
+    "FIC": 8,
+    "FIR": 10,
+    "FRA": 9,
+    "GLIDER": 57,
+    "LTA": 19,
+    "MODEL": 1176,
+    "OCA": 3,
+    "P": 116,
+    "PARACHUTE": 174,
+    "PARAGLIDER": 82,
+    "R": 628,
+    "RMZ": 23,
+    "SIV": 102,
+    "TMA": 462,
+    "TMZ": 8,
+    "TMZ-RMZ": 1,
+    "TRA": 45,
+    "UAS": 38,
+    "UIR": 4,
+    "UTA": 5
+  },
+  "bbox": [
+    -157,
+    -30,
+    170.5,
+    53
+  ],
+  "bboxes": [
+    [
+      -157,
+      -30,
+      -120,
+      3.5
+    ],
+    [
+      -65,
+      2.113,
+      -35,
+      22.3
+    ],
+    [
+      -62.417,
+      44.666,
+      -51,
+      53
+    ],
+    [
+      -8.75,
+      39,
+      10.7,
+      51.117
+    ],
+    [
+      40,
+      -30,
+      57,
+      -10
+    ],
+    [
+      161.25,
+      -24.005,
+      170.5,
+      -14
+    ]
+  ]
+}

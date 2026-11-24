@@ -1,0 +1,50 @@
+Loxodrome is a flight-preparation and in-flight navigation application for general aviation, built on the national AIPs of Europe and the United States. It is free and open source, with no advertising.
+
+NOT A GOVERNMENT APPLICATION
+Loxodrome is an independent application by a private individual. It does not represent, and is not affiliated with or endorsed by, any government, civil aviation authority, air navigation service provider or meteorological service. It is not an aeronautical information service and carries no operational or airworthiness approval. It redraws what these bodies publish, and their own publications, listed below, alone are authoritative: it does not replace the AIP, the pre-flight information bulletin or the meteorological documentation of the States flown over. The pilot in command remains responsible for the conduct of the flight.
+
+CHART AND BRIEFING
+Airspaces, aerodromes, navaids, obstacles and protected zones drawn to the ICAO and SIA chart conventions, refreshed by AIRAC cycle, with official aeronautical charts as overlays. NOTAMs pasted or fetched for the route or one aerodrome, each linked to what it affects. METAR, TAF, SIGMET, winds aloft, precipitation radar, front charts, TEMSI and WINTEM.
+
+FLIGHT PLAN
+Route on the map with cruising levels, a wind-corrected navigation log and a vertical profile of the terrain and the airspaces crossed. Fuel, mass and balance, takeoff and landing distances computed from the flight manual.
+
+IN THE COCKPIT
+Loxodrome records the flight. It follows the aircraft on the chart, tells you which frequency to be on, and warns you before you enter an airspace you must not. It warns of terrain and obstacles ahead, an aid to situational awareness, not a certified TAWS. The recording continues with the screen off or the application in the background.
+
+OFFLINE AND ACCOUNT
+The application works offline, datasets included, charts as offline packs. An optional account, hosted in the European Union, syncs your flight plans, flights and aircraft between your devices. Without one, they stay on the device.
+
+OFFICIAL SOURCES
+France: SIA https://sia.aviation-civile.gouv.fr, DGAC SOFIA-Briefing https://sofia-briefing.aviation-civile.gouv.fr, Météo-France https://meteofrance.com, IGN https://cartes.gouv.fr
+United Kingdom: NATS https://www.aurora.nats.co.uk
+Spain: ENAIRE https://aip.enaire.es
+Germany: DFS https://aip.dfs.de, DWD https://dwd.de
+Austria: Austro Control https://austrocontrol.at, BEV https://bev.gv.at
+Belgium and Luxembourg: skeyes https://ops.skeyes.be
+Netherlands: LVNL https://lvnl.nl
+Switzerland: FOCA https://bazl.admin.ch
+Sweden: LFV https://aro.lfv.se
+Denmark: Naviair https://aim.naviair.dk
+Norway: Avinor https://ais.avinor.no
+Finland: Fintraffic ANS https://ais.fi
+Iceland: Avians https://eaip.avians.is
+Ireland: AirNav Ireland https://airnav.ie, IAA https://iaa.ie
+Poland: PANSA https://ais.pansa.pl
+Czechia: ANS CR https://aim.rlp.cz
+Slovakia: LPS SR https://www.lps.sk
+Hungary: HungaroControl https://ais.hungarocontrol.hu
+Slovenia: Slovenia Control https://sloveniacontrol.si
+Estonia: EANS https://aim.eans.ee
+Latvia: LGS https://ais.lgs.lv
+Portugal: NAV Portugal https://ais.nav.pt
+Romania: ROMATSA https://aisro.ro
+Serbia and Montenegro: SMATSA https://smatsa.rs
+Kosovo: KANS https://kans-ks.org
+Bosnia and Herzegovina: BHANSA https://bhansa.gov.ba
+Georgia: Sakaeronavigatsia https://ais.airnav.ge
+United States: FAA https://faa.gov, NOAA https://aviationweather.gov and https://ncei.noaa.gov, NASA https://earthdata.nasa.gov, NGA https://earth-info.nga.mil
+Europe: EUROCONTROL https://eurocontrol.int, EUMETNET https://eumetnet.eu, Copernicus https://copernicus.eu
+
+Open source: https://github.com/0intro/loxodrome
+Base map © OpenStreetMap contributors.

@@ -1,0 +1,55 @@
+name: Refresh French ZSM zones
+
+# Regenerates public/data/fr-zsm.json from the STAC's page on the large
+# raptors' zones of major sensitivity
+# (https://www.stac.aviation-civile.gouv.fr/fr/zsm), which links the KML
+# edition in force. The zones switch off through the breeding season as
+# each pair settles (docs/zsm-study.md), so the run is daily, and it
+# commits only when the file changes.
+
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build fr-zsm.json
+        run: go run ./cmd/zsm
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- public/data/fr-zsm.json)" ]; then
+            echo "No data changes."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add --all -- 'public/data/fr-zsm.json' 'public/data/fr-zsm.meta.json'
+            git commit -m "update French ZSM zones"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here: replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

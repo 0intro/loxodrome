@@ -1,0 +1,70 @@
+62/210 PIA PUS
+Datedepublication:29JAN2026
+Internet: www.sia.aviation-civile.gouv.fr
+Objet: Cr�ationdunezoner�glement�etemporaire�ZRTALBI-GAILLAC�dansleTarn(81)
+Envigueur: Dulundi16f�vrierauvendredi31juillet2026
+Lieu : FIR: BordeauxLFBB
+CALLIAG-IBLA TRZ
+Extraitcarte1/250000SIA-�dition2-2025
+ACTIVIT�
+Volda�ronefssans�quipage�bordenlongue�longation
+DATESETHEURESD'ACTIVIT�
+ZRTALBI-GAILLAC
+Du16f�vrier2026au31juillet2026de0900�1600 touslesjourssaufSamedi,Dimancheetjoursf�ri�s -
+0900-1600(ETE-1HR)
+FR
+Page1/3 �SIA
+SUPAIP012/26 Datedepublication:29JAN2026
+INFORMATIONDESUSAGERS
+TOULOUSEINFO: 121,250MHz
+GESTIONNAIRES
+Directeurdesvols
+STATUT
+Zoner�glement�etemporairequisesubstitueauxportionsdespacesa�riensaveclesquelleselleinterf�re.
+CONDITIONSDEP�N�TRATION
+CAGetCAM :contournementobligatoiresaufpour:
+-Lesa�ronefsayantre�uunaccorddudirecteurdesvols
+-lesa�ronefse�ectuantdesactivit�smilitaires,dedouane,depolice,derechercheetsauvetage,deluttecontreles
+incendies,dutransportm�dicalayant�intervenirdanslecadredelex�cutiondeleursmissionsetlorsquecelles-ci
+nepermettentpaslecontournementdelazoneapr�scontactavec ledirecteurdesvols.
+SERVICESRENDUS
+CAM/CAG: InformationdevoletAlerte
+LIMITESLATERALESETVERTICALES
+ZRTALBI-GAILLAC
+LIMITESLAT�RALES
+043�53'57''N,001�52'39''E
+043�54'31''N,001�51'50''E
+043�55'13''N,001�51'23''E
+043�55'48''N,001�51'40''E
+043�56'23''N,001�53'07''E
+043�58'26''N,001�55'34''E
+043�58'54''N,001�59'07''E
+043�58'04''N,001�59'51''E
+043�58'22''N,002�03'36''E
+043�57'52''N,002�06'39''E
+043�56'50''N,002�07'35''E
+043�56'17''N,002�07'59''E
+043�55'53''N,002�07'45''E
+043�55'53''N,002�06'55''E
+043�56'07''N,002�06'46''E
+043�57'07''N,002�05'56''E
+043�57'29''N,002�03'00''E
+043�57'07''N,001�59'35''E
+043�57'57''N,001�58'18''E
+043�57'35''N,001�56'10''E
+043�55'37''N,001�53'57''E
+043�55'13''N,001�52'38''E
+043�54'11''N,001�53'26''E
+043�53'57''N,001�52'39''E
+LIMITESVERTICALES
+SFC / 400ftASFC
+FR
+Page2/3 �SIA
+SUPAIP012/26 Datedepublication:29JAN2026
+ORGANISMESACONTACTER
+Directeurdesvols:
+T�l�phone:0609454235
+Adjointdirecteurdesvols:
+T�l�phone:0631303722
+FR
+Page3/3 �SIA

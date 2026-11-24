@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-11-08T01:26:08.887Z",
+  "source": "skeyes eAIP 2026-11-26",
+  "sourceSha256": "48d2367773fc78187dfa11ab9a73996a7408a503725ccacaf2cb5c8ca65b3558",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "aerodromeCount": 165,
+  "heliportCount": 113,
+  "skippedNotes": 0,
+  "counts": {
+    "arrivalRoutes": 108,
+    "dimensions": 151,
+    "email": 123,
+    "fax": 47,
+    "operator": 165,
+    "phone": 140,
+    "powerSupply": 8,
+    "remark": 153,
+    "slope": 87,
+    "strength": 110,
+    "surface": 121
+  }
+}

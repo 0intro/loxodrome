@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-23T11:37:13.532Z",
+  "source": "skeyes eAIP 2026-10-29",
+  "sourceSha256": "ef8ccabe09412883b1f5de05e9d56a3180d189af9a71bc98bd6dad30567abfcd",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "airspaceCount": 325,
+  "skippedNoBoundary": 0,
+  "skippedNoProjection": 0,
+  "skippedNoType": 0,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "unresolvedGeometryXlinks": 0,
+  "multiComponentAirspaces": 0,
+  "counts": {
+    "ACTIVITY": 55,
+    "ATZ": 5,
+    "CBA": 4,
+    "CTA": 15,
+    "CTR": 14,
+    "D": 5,
+    "FBZ": 6,
+    "R": 71,
+    "TMA": 50,
+    "TMZ-RMZ": 1,
+    "TRA": 37,
+    "TSA": 48,
+    "UTA": 3,
+    "W": 11
+  },
+  "bbox": [
+    1.74,
+    49.394,
+    6.593,
+    51.638
+  ],
+  "pages": 177,
+  "arcs": 98,
+  "circles": 58,
+  "borderStitched": 126,
+  "borderChords": 40,
+  "multiRowTables": 1,
+  "skippedTables": {
+    "AIRWAYS": 1,
+    "BRUSSELS-FIR": 1,
+    "BRUSSELS-UIR": 1
+  }
+}

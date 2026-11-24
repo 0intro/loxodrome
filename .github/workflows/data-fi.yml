@@ -1,0 +1,78 @@
+name: Refresh Fintraffic ANS Finland obstacles
+
+# Regenerates public/data/fi-obstacles.json from the Finnish Area 1
+# obstacle register: the whole territory at or above 100 m AGL, about
+# 2700 obstacles, four in five of them wind turbines.
+#
+# Obstacles only, deliberately: the Finnish AIP is published as PDF
+# sections, with no AIXM data set and no generated eAIP package to read.
+# See docs/fi-aip.md.
+#
+# Licence: Fintraffic ANS grants the data "for further refining and
+# research without a separate fee or agreement", reserving only the
+# resale of its products as such. Refining the register into this repo's
+# schema is the permitted act.
+#
+# Both AIRAC slots come free here, unlike every other publisher but the
+# FAA: the index carries the cycle in force and the pre-release side by
+# side, so -target picks the release as well as the output slot.
+#
+# Weekly Thursday plus the git-diff gate, like the other data jobs: the
+# register moves on the AIRAC grid, so three weeks in four are a free
+# no-op, and a publisher running late is caught the week it posts.
+
+on:
+  schedule:
+    # Stagger past the eAIP cohort (08:30), the last of the existing jobs.
+    - cron: '0 9 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build fi-obstacles.json
+        run: go run ./cmd/fi
+
+      # The pre-release, where one is posted. A cycle whose successor is
+      # not up yet writes nothing and exits clean, so this needs no
+      # continue-on-error.
+      - name: Build the pre-release slot
+        run: go run ./cmd/fi -target next
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/fi-obstacles*.json' ':(exclude)public/data/fi-obstacles*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/fi-obstacles.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/fi-obstacles*.json'
+            git commit -m "update Fintraffic ANS Finland obstacles, AIRAC ${EFFECTIVE}"
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

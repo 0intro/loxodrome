@@ -1,0 +1,130 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Piper PA-28-181 Archer II from its Pilot's Operating
+# Handbook alone, no airframe's weighing: report VB-1120 (issued 2 July 1979,
+# revision 17 of 1 April 2019), which Piper's Flight Manual Index gives for
+# s/n 28-8090001 to 28-8690062 and 2890001 to 2890205. Pages and figures
+# below are VB-1120's. Converted from the POH's lb, in, US gal and ft:
+# 1 lb = 0.45359237 kg, 1 in = 0.0254 m, 1 US gal = 3.785411784 L,
+# 1 ft = 0.3048 m.
+version: 1
+
+aircraft:
+  type: PA28-181
+  icaoType: P28A
+  name: Piper PA-28-181 Archer II, s/n 28-8090001 to 28-8690062 and 2890001 to 2890205
+  generic: pa28-181-archer2
+
+fuel:
+  # 2.21 and 7.13: two 25 US gal tanks, 24 usable each (50.0 total, 48.0
+  # usable). Approved grades (2.7, the filler placards of 2.25) 100 and 100LL,
+  # or 100/130; 100 is not one of the app's grades.
+  capacityL: 189.3
+  usableL: 181.7
+  types: [100LL]
+  consumptionLph: 39.7
+  # Each tank to the bottom of its filler neck indicator tab: 17 US gal
+  # usable (7.13 and the filler placard of 2.25), 34 in all.
+  presets:
+    - { name: tabs, litres: 128.7 }
+
+cruise:
+  speedKt: 120
+  name: '75 % best power'
+  # The speed power charts (Figure 5-21 performance cruise, best power
+  # mixture; Figure 5-23 economy cruise, best economy mixture; both revised
+  # 5 July 1985: 2550 lb, wheel fairings installed, 8 kt less without them)
+  # read at 3000 ft ISA, speeds rounded down; flows from the Figure 5-19
+  # table (best power 10.5, 9.0 and 7.8 US gal/h at 75, 65 and 55 %; best
+  # economy 7.6 and 6.3 at 65 and 55 %), to 0.1 L/h. 75 % best power:
+  # 120.6 kt. The table's 75 % best economy flow (8.8 US gal/h) has no
+  # labelled line on the revised Figure 5-23, so no setting.
+  settings:
+    - { name: '65 % best power', speedKt: 111, consumptionLph: 34.1 }
+    - { name: '55 % best power', speedKt: 98, consumptionLph: 29.5 }
+    - { name: '65 % best economy', speedKt: 111, consumptionLph: 28.8 }
+    - { name: '55 % best economy', speedKt: 97, consumptionLph: 23.8 }
+
+climb: # Figure 5-15: 2550 lb, flaps up, full throttle, 76 KIAS; at sea level ISA two tracings read 737 and 742 ft/min (its example, 3600 ft at -1 C, reads 622 for the printed 620), rounded down
+  speedKt: 76
+  rateFtMin: 735
+
+massAndBalance:
+  # Empty mass and arm: the POH's sample loading problem (Figure 6-9,
+  # revised 20 July 1983), 1590.0 lb at 87.5 in (moment 139125 lb-in); the
+  # mass rounded down to 0.1 kg, so that example at 2550 lb stays inside the
+  # envelope.
+  emptyMassKg: 721.2
+  emptyArmM: 2.2225
+  stations:
+    # Figures 6-9 and 6-11: front seats 80.5 in, rear seats 118.1, baggage
+    # 142.8 (200 lb maximum, 2.11), usable fuel 95.0.
+    - { label: Front seats, armM: 2.0447, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 2.9997, defaultMassKg: 0 }
+    - { label: Baggage, armM: 3.6271, defaultMassKg: 0, maxMassKg: 90.7 }
+  fuelArmM: 2.413
+  # Normal category, 2.13: forward 82.0 in at 2050 lb and less, then straight
+  # to 88.6 in at 2550 lb; aft 93.0 in. The limit lines run to the foot of the
+  # C.G. range and weight chart (Figure 6-15) at 1200 lb. Maximum take-off
+  # and landing weight 2550 lb (2.11); the 2558 lb ramp weight allows 8 lb of
+  # fuel for start, taxi and run-up.
+  envelope:
+    - { armM: 2.0828, massKg: 544.32 }
+    - { armM: 2.0828, massKg: 929.86 }
+    - { armM: 2.2505, massKg: 1156.66 }
+    - { armM: 2.3622, massKg: 1156.66 }
+    - { armM: 2.3622, massKg: 544.32 }
+
+performance:
+  kind: closed-form
+  marginFactor: 1.3
+  # Grass and wet: the POH gives no factor (5.1: the effect of a soft or grass
+  # surface is for the pilot to evaluate), the app's defaults. It publishes no
+  # flapless landing distance, so no flapless check.
+  grassFactor: 1.15
+  wetFactor: 1.15
+  massReferenceLb: 2550
+  # distanceM = ((a*PA + b) * tempC + (c*PA + d))
+  #             * (massKg * 2.20462 / massReferenceLb)^massExponent
+  #             * (1 - headwindPerKt * kt) or (1 + tailwindPerKt * kt);
+  # coefficients are [a, b, c, d].
+  # Fitted on the POH's six charts (take-off Figures 5-7, 5-9, 5-11 and 5-13,
+  # landing 5-35 and 5-37; 5-37 revised 29 June 1984): every pressure altitude
+  # line traced from sea level to 7000 ft and sampled each degree from ISA-15
+  # to its drawn end on the 2550 lb reference line, then least squares on the
+  # relative error, never more than 0.8 % below the chart. A straight-line
+  # model cannot follow the take-off charts' curvature, so it overstates them:
+  # Figure 5-7 by up to 11 % (between 2000 and 5000 ft), 5-9 by up to 8 %,
+  # 5-11 and 5-13 by 5 % at most; landing by 1.5 % at most. Mass exponent, per
+  # configuration, the smaller of its two charts' weight guides rounded down
+  # (5-7 2.35 to 2.71 and 5-11 2.01 to 2.26; 5-9 1.88 to 2.29 and 5-13 1.84 to
+  # 2.03; 5-35 0.46 to 0.68 and 5-37 0.88 to 1.05). Wind, per chart: the least
+  # headwind credit and the largest tailwind penalty its guides show. The
+  # printed worked examples come out 4 to 15 % long. The take-off charts are
+  # drawn for full throttle before brake release (their stated conditions).
+  configs:
+    - phase: takeoff
+      flapsDeg: 0
+      procedure: normal # 4.23: the normal take-off, flaps up
+      massExponent: 2
+      distance15m: { coefficients: [0.000921, 9.15, 0.121, 419.4], headwindPerKt: 0.0106, tailwindPerKt: 0.046 } # Figure 5-7
+      groundRoll: { coefficients: [0.000267, 5.119, 0.05838, 227.0], headwindPerKt: 0.0145, tailwindPerKt: 0.072 } # Figure 5-11
+    - phase: takeoff
+      flapsDeg: 25
+      procedure: short-field # 4.23: the short field (or soft field) take-off, flaps 25 degrees
+      massExponent: 1.8
+      distance15m: { coefficients: [0.000539, 7.187, 0.09888, 394.8], headwindPerKt: 0.0126, tailwindPerKt: 0.051 } # Figure 5-9
+      groundRoll: { coefficients: [0.000203, 5.068, 0.05476, 180.2], headwindPerKt: 0.0146, tailwindPerKt: 0.066 } # Figure 5-13
+    - phase: landing
+      flapsDeg: 40
+      default: true
+      massExponent: 0.45
+      distance15m: { coefficients: [0.000054, 0.9179, 0.01095, 411.0], headwindPerKt: 0.0119, tailwindPerKt: 0.057 } # Figure 5-35
+      groundRoll: { coefficients: [0.0000379, 1.002, 0.01112, 262.7], headwindPerKt: 0.0145, tailwindPerKt: 0.06 } # Figure 5-37
+
+notes: Generic sheet. Empty mass and arm from the POH's sample loading problem
+  (1590.0 lb at 87.5 in), not an aircraft's weighing.
+source: Piper PA-28-181 Archer II Pilot's Operating Handbook, report VB-1120
+  (issued 2 July 1979, revision 17 of 1 April 2019), for s/n 28-8090001 to
+  28-8690062 and 2890001 to 2890205.

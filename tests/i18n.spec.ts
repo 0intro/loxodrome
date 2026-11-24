@@ -1,0 +1,198 @@
+import { describe, expect, it } from 'vitest';
+import { en } from '$lib/i18n/en';
+import { fr } from '$lib/i18n/fr';
+import { plural as pluralEn } from '$lib/i18n/en/plural';
+import { plural as pluralFr } from '$lib/i18n/fr/plural';
+
+/* Runtime guard behind the compile-time `satisfies` contract: the two
+ * catalogs stay structurally identical (svelte-check already fails on a
+ * missing key; this spec also catches a key whose KIND diverges after a
+ * type widening) and every leaf renders non-empty in both languages. */
+
+type Node = Record<string, unknown>;
+
+interface Leaf {
+	path: string;
+	en: unknown;
+	fr: unknown;
+}
+
+function collectLeaves(a: Node, b: Node, path: string, out: Leaf[]): void {
+	const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+	for (const key of keys) {
+		const pa = a[key];
+		const pb = b[key];
+		const here = path === '' ? key : `${path}.${key}`;
+		expect(key in a, `fr has extra key ${here}`).toBe(true);
+		expect(key in b, `fr misses key ${here}`).toBe(true);
+		if (
+			typeof pa === 'object' &&
+			pa !== null &&
+			typeof pb === 'object' &&
+			pb !== null
+		) {
+			collectLeaves(pa as Node, pb as Node, here, out);
+		} else {
+			out.push({ path: here, en: pa, fr: pb });
+		}
+	}
+}
+
+/** A stand-in for any message parameter: interpolates as a number and hands
+ *  back another stand-in for any property access or call, so every message
+ *  function can be smoke-called without knowing its signature. */
+function chameleon(): unknown {
+	const target = function () {
+		/* callable shell for the proxy */
+	};
+	const proxy: unknown = new Proxy(target, {
+		get(_t, prop) {
+			if (prop === Symbol.toPrimitive) {
+				return () => 2;
+			}
+			return proxy;
+		},
+		apply() {
+			return proxy;
+		},
+	});
+	return proxy;
+}
+
+describe('i18n catalogs', () => {
+	const leaves: Leaf[] = [];
+	collectLeaves(en, fr, '', leaves);
+
+	it('has leaves', () => {
+		expect(leaves.length).toBeGreaterThan(0);
+	});
+
+	it('keeps every leaf the same kind in both languages', () => {
+		for (const leaf of leaves) {
+			expect(typeof leaf.fr, leaf.path).toBe(typeof leaf.en);
+		}
+	});
+
+	it('renders every string leaf non-empty', () => {
+		for (const leaf of leaves) {
+			if (typeof leaf.en === 'string') {
+				expect(leaf.en.trim(), `en ${leaf.path}`).not.toBe('');
+				expect((leaf.fr as string).trim(), `fr ${leaf.path}`).not.toBe('');
+			}
+		}
+	});
+
+	// weather.wx renders a parsed WeatherGroup (present-weather decode), not
+	// string / number message params, so the chameleon stand-in cannot drive
+	// it; it is pinned with real inputs in both languages in weather.spec.ts.
+	const SMOKE_SKIP = new Set(['weather.wx']);
+
+	it('smoke-calls every message function in both languages', () => {
+		const arg = chameleon();
+		for (const leaf of leaves) {
+			if (SMOKE_SKIP.has(leaf.path)) {
+				continue;
+			}
+			if (typeof leaf.en === 'function') {
+				for (const [lang, fn] of [
+					['en', leaf.en],
+					['fr', leaf.fr],
+				] as const) {
+					const result: unknown = (
+						fn as (...args: unknown[]) => unknown
+					)(arg, arg, arg);
+					expect(typeof result, `${lang} ${leaf.path}`).toBe('string');
+					expect((result as string).trim(), `${lang} ${leaf.path}`).not.toBe('');
+				}
+			}
+		}
+	});
+
+	// Belt-and-braces behind fr/qcode.ts's `satisfies Messages['qcode']`: the
+	// decode tables carry one entry per ICAO code on both sides, as key SETS.
+	it('keeps the Q-code decode tables key-equal across languages', () => {
+		expect(new Set(Object.keys(fr.qcode.subjects))).toEqual(
+			new Set(Object.keys(en.qcode.subjects)),
+		);
+		expect(new Set(Object.keys(fr.qcode.conditions))).toEqual(
+			new Set(Object.keys(en.qcode.conditions)),
+		);
+	});
+
+	// The glossary's one French word for each: the toolbar's level band is a
+	// "bande" (its own control reads "Limiter à une bande de niveaux"), and
+	// the replay of a trace is a "rejeu", as the Navigation tab says it. A
+	// second word for either sent the reader looking for a control that
+	// does not exist under that name.
+	it('keeps one French word for the level band and for a replay', () => {
+		const texts: string[] = [];
+		for (const leaf of leaves) {
+			if (typeof leaf.fr === 'string') {
+				texts.push(`${leaf.path}: ${leaf.fr}`);
+			} else if (typeof leaf.fr === 'function') {
+				const arg = chameleon();
+				texts.push(`${leaf.path}: ${String((leaf.fr as (...a: unknown[]) => unknown)(arg, arg, arg))}`);
+			}
+		}
+		expect(texts.filter((x) => /tranches? de niveaux/i.test(x))).toEqual([]);
+		expect(texts.filter((x) => /relecture/i.test(x))).toEqual([]);
+	});
+
+	// One verb for keeping a flight plan: it is SAVED, « enregistré », and
+	// opened and closed, as SkyDemon says it. The catalog's old words (Store,
+	// Activate, « mémoriser ») must not come back beside it, and a bare
+	// « Enregistrement… » reads as the GPS recording.
+	it('keeps one verb for a saved plan', () => {
+		// The leaves of these domains whose TEXT matches, named by their path.
+		const matching = (lang: 'en' | 'fr', domains: string[], re: RegExp): string[] => {
+			const out: string[] = [];
+			for (const leaf of leaves) {
+				if (!domains.some((d) => leaf.path.startsWith(`${d}.`))) {
+					continue;
+				}
+				const v = leaf[lang];
+				const arg = chameleon();
+				const text =
+					typeof v === 'function' ? String((v as (...a: unknown[]) => unknown)(arg, arg, arg)) : v;
+				if (typeof text === 'string' && re.test(text)) {
+					out.push(`${leaf.path}: ${text}`);
+				}
+			}
+			return out;
+		};
+		const plans = ['route', 'flights', 'account', 'plan'];
+		expect(matching('fr', plans, /mémoris/i)).toEqual([]);
+		expect(matching('en', plans, /\b(un)?stor(e|ed|ing) (as|flight|plans?|copy|entry|changes|it)\b/i)).toEqual([]);
+		expect(matching('en', ['flights'], /\bactivat/i)).toEqual([]);
+		expect(matching('fr', Object.keys(fr), /^Enregistrement…/)).toEqual([]);
+	});
+
+	// The nomogram's caption names the sheet's own margin, as the grid's
+	// "Required (+15%)" rows under it do: a fixed +30% contradicted a sheet
+	// whose margin the editor changed.
+	it('words the nomogram caption with the sheet’s margin', () => {
+		expect(en.flightprep.dryPavedNote(15)).toBe('Dry paved figure. Surface factors and the +15% margin are table rows.');
+		expect(fr.flightprep.dryPavedNote(15)).toContain('+15 %');
+		expect(en.flightprep.dryPavedNote(50)).toContain('+50%');
+	});
+
+	// A table's temperature limit is its own columns: ISA - 20 to ISA + 20
+	// on most Robin sheets, ISA + 30 on the DR400/155CDI, ISA to ISA + 20 on
+	// the Elixir, the printed outside air temperatures on the Cessna sheets,
+	// the DA 40 NG and the Seneca.
+	it('words the temperature extrapolation by the table’s columns, as the mass one', () => {
+		expect(en.flightprep.flagTemp).toBe('temperature outside the POH columns');
+		expect(fr.flightprep.flagTemp).toBe('température hors des colonnes du manuel');
+		expect(en.flightprep.flagMass).toBe('mass outside the POH columns');
+		expect(fr.flightprep.flagMass).toBe('masse hors des colonnes du manuel');
+	});
+
+	it('applies each plural rule correctly (0 is singular in French only)', () => {
+		expect(pluralEn(0, 'day', 'days')).toBe('days');
+		expect(pluralEn(1, 'day', 'days')).toBe('day');
+		expect(pluralEn(2, 'day', 'days')).toBe('days');
+		expect(pluralFr(0, 'jour', 'jours')).toBe('jour');
+		expect(pluralFr(1, 'jour', 'jours')).toBe('jour');
+		expect(pluralFr(2, 'jour', 'jours')).toBe('jours');
+	});
+});

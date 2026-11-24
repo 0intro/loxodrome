@@ -1,0 +1,5 @@
+DE.02	Bavaria	Bavaria	2951839
+FR.11	Île-de-France	Ile-de-France	3012874
+US.AK	Alaska	Alaska	5879092
+US.HI	Hawaii	Hawaii	5855797
+US.TX	Texas	Texas	4736286

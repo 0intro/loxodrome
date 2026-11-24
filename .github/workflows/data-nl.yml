@@ -1,0 +1,61 @@
+name: Refresh LVNL Netherlands datasets
+
+# Regenerates public/data/nl-{airspaces,airports,navaids}.json from the
+# LVNL ArcGIS FeatureServers, which publish the Dutch AIP's spatial data
+# under CC BY 4.0 with no registration.
+#
+# Weekly Thursday rather than a 28-day cron: publishers drift off the
+# nominal AIRAC date, and the git-diff gate makes a non-update week a
+# free no-op. LVNL publishes no pre-release, so there is no next slot to
+# build; -target auto files each dataset by its own effective date.
+
+on:
+  schedule:
+    - cron: '0 7 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build nl-* datasets
+        run: go run ./cmd/nl
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          # Porcelain so a first-time untracked file also triggers; metas
+          # excluded from the gate (generatedAt changes every run) but
+          # committed alongside.
+          if [ -z "$(git status --porcelain -- 'public/data/nl-*.json' ':(exclude)public/data/nl-*.meta.json')" ]; then
+            echo "No data changes."
+          else
+            EFFECTIVE=$(sed -n 's/.*"effective": "\([0-9-]*\)T.*/\1/p' public/data/nl-airspaces.meta.json | head -n1)
+            git config user.name 'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add 'public/data/nl-*.json'
+            git commit -m "update LVNL Netherlands datasets, AIRAC ${EFFECTIVE}"
+            # Another data workflow (or a manual push) may have landed on
+            # main between checkout and here; replay on top and retry.
+            n=0
+            until git push; do
+              n=$((n+1))
+              if [ "$n" -ge 3 ]; then
+                echo "push failed after $n attempts"
+                exit 1
+              fi
+              git pull --rebase
+            done
+          fi

@@ -1,0 +1,140 @@
+# Aircraft data sheet (Loxodrome). Units in the field names: kg, m, L, kt,
+# ft, deg C; distances in metres. Verify against the aircraft flight manual.
+#
+# GENERIC sheet: the Robin DR400/160 from its flight manual alone, no
+# airframe's weighing: Manuel de vol DR400/160, document 1002519, edition 10
+# of November 1993, revision 7 of May 2012 (EASA AFM approval 10040706 of 23
+# July 2012), "applicable à partir du n/s 2220 inclus"; CEAPR's Service
+# Letter 6 gives s/n 2669 and on their own manual (1002832, the DR401/160).
+# Lycoming O-320-D2A, 160 hp. Revision 7 changed sections 1 and 7 only: the
+# limits, procedures, performance and loading pages below read as in
+# revision 6 (1999). Pages below are the manual's.
+version: 1
+
+aircraft:
+  type: DR400/160
+  icaoType: DR40
+  name: Robin DR400/160 (1993 manual), s/n 2220 to 2668
+  generic: dr400-160-sn2220
+
+fuel:
+  # 1.08: 190 L in all, 189 usable, 1 L unusable. The placards and gauges
+  # (2.09): the main tank, 110 L, 109 usable (1.09: "réservoir principal
+  # (arrière)"), and two wing tanks of 40 L. An optional 50 L tank gives 239
+  # usable (1.08), not counted. AVGAS 100LL, octane 100 minimum (other
+  # grades: Lycoming Service Instruction 1070).
+  capacityL: 190
+  usableL: 189
+  types: [100LL]
+  consumptionLph: 38
+
+cruise:
+  speedKt: 129
+  name: '75 %'
+  # 5.06 (revision 4, December 1995), "Performances en palier", 1050 kg,
+  # standard atmosphere, the mixture at its optimal setting ("réglage
+  # mixture optimal"), at 3000 ft between its 2500 and 4500 ft rows: 75 %
+  # (2625 to 2660 rpm) 239.25 km/h, 129.2 kt rounded down, 38 l/h. The
+  # column is "Vitesse propre": true airspeed. Read in km/h, which its
+  # range column confirms; its knots column would give 128 (130 kt beside
+  # 243 km/h, 131.2 kt, at 4500 ft).
+  settings:
+    - { name: '65 %', speedKt: 118, consumptionLph: 33 }
+
+climb: # 5.04: 1050 kg, flaps up, full throttle, standard atmosphere, best rate 160 km/h (86 kt): 4.25 m/s (837 ft/min) at sea level, rounded down
+  speedKt: 86
+  rateFtMin: 835
+
+massAndBalance:
+  # Empty mass and arm: the manual's example (6.03), 620 kg and 200 m.kg
+  # ("à titre indicatif"); with it, 150 kg in front, 90 behind, 90 L in the
+  # main tank and 68 L in the wings, 17 kg of baggage: 991 kg inside the
+  # envelope (no total moment printed: the centrogram's dotted path, 6.02).
+  emptyMassKg: 620.0
+  emptyArmM: 0.3226
+  stations:
+    # 2.05, the loading plan: front seats 2 x 77 kg at 0.36 to 0.46 m (0.41,
+    # as on the other DR400 sheets), rear seats 2 x 77 kg at 1.19 m (the
+    # maximum its note sets for more than two passengers), baggage at 1.9 m;
+    # 2.07: baggage 40 kg at most (the centrogram of 6.02 runs to 60, the
+    # DR400/180's).
+    - { label: Front seats, armM: 0.41, defaultMassKg: 80 }
+    - { label: Rear seats, armM: 1.19, defaultMassKg: 0, maxMassKg: 154 }
+    - { label: Baggage, armM: 1.90, defaultMassKg: 0, maxMassKg: 40 }
+  # 2.05: the main tank's fuel at 1.12 m (78 kg; its "(159)" lb, 72 kg, is
+  # the centrogram's figure at 109 L, 6.02), the wing tanks' at 0.10 m
+  # (57.6 kg); the app weighs the litres at the grade's density, 0.72 kg/L
+  # for 100LL. 4.09 and 4.12 select the fullest tank for take-off and
+  # landing (4.11 says so too); which tank is used between is the pilot's.
+  # Listed main tank first: filled first and burnt last, so the wing fuel
+  # goes first and the CG moves aft as it does, the split the aft limit
+  # bites in.
+  fuelTanks:
+    - { label: Main tank, armM: 1.12, capacityL: 110, usableL: 109 }
+    - { label: Wing tanks, armM: 0.10, capacityL: 80 }
+  # 2.04, category N: forward 0.205 m at 750 kg and below, then straight to
+  # 0.428 m at 1050 kg; aft 0.564 m. Maximum take-off mass 1050 kg, landing
+  # 1045 kg (950 kg in category U). The centrogram (6.02) starts near
+  # 650 kg; the limits run down to the axis of 2.04, and the floor sits at
+  # 500 kg, below the empty mass.
+  envelope:
+    - { armM: 0.205, massKg: 500 }
+    - { armM: 0.205, massKg: 750 }
+    - { armM: 0.428, massKg: 1050 }
+    - { armM: 0.564, massKg: 1050 }
+    - { armM: 0.564, massKg: 500 }
+  maxLandingMassKg: 1045
+
+performance:
+  kind: table
+  marginFactor: 1.3
+  # Dry grass + 15 % at take-off and landing (5.03, 5.07). Wet: no factor
+  # printed, the app's default. No flapless landing figure, so no flapless
+  # check.
+  grassFactor: 1.15
+  wetFactor: 1.15
+  massMaxKg: 1050
+  massMinKg: 850
+  # Take-off 5.03: flaps first notch, full throttle, lift-off 100 km/h,
+  # 130 km/h at 15 m: the normal take-off of 4.09 (the short one, brakes
+  # held, climbs at 120 km/h). Landing 5.07: flaps second notch, power
+  # off, 120 km/h at 15 m, the final approach speed of 4.12 (the short
+  # landing approaches at 115 km/h); its text says the maximum landing
+  # mass, 1045 kg, its column 1050 kg. Flap angles are not printed.
+  takeoffProcedure: normal
+  wind:
+    # 5.03 and 5.07: x0.85 / 0.65 / 0.55 for 10 / 20 / 30 kt of headwind,
+    # + 10 % per 2 kt of tailwind.
+    takeoffHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    landingHeadwind: [[0, 1.0], [10, 0.85], [20, 0.65], [30, 0.55]]
+    tailwindPctPer2Kt: 10
+  # Distances as printed (metres, each read against its feet), cells
+  # [ground roll, distance over 15 m] at 1050 kg / 850 kg: take-off 5.03,
+  # landing 5.07, paved dry level runway. Their temperatures are ISA - 20 /
+  # ISA / ISA + 20 at 0, 4000 and 8000 ft.
+  takeoff:
+    - { altFt: 0, isaOffsetC: -20, massMax: [265, 530], massMin: [170, 340] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [295, 590], massMin: [185, 375] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [330, 655], massMin: [205, 415] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [355, 710], massMin: [220, 445] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [400, 800], massMin: [260, 500] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [450, 890], massMin: [275, 550] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [485, 980], massMin: [300, 605] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [550, 1105], massMin: [340, 675] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [620, 1250], massMin: [380, 750] }
+  landing:
+    - { altFt: 0, isaOffsetC: -20, massMax: [230, 510], massMin: [190, 435] }
+    - { altFt: 0, isaOffsetC: 0, massMax: [250, 545], massMin: [205, 460] }
+    - { altFt: 0, isaOffsetC: 20, massMax: [270, 575], massMin: [215, 485] }
+    - { altFt: 4000, isaOffsetC: -20, massMax: [260, 565], massMin: [210, 475] }
+    - { altFt: 4000, isaOffsetC: 0, massMax: [280, 600], massMin: [230, 505] }
+    - { altFt: 4000, isaOffsetC: 20, massMax: [300, 635], massMin: [245, 535] }
+    - { altFt: 8000, isaOffsetC: -20, massMax: [295, 620], massMin: [240, 520] }
+    - { altFt: 8000, isaOffsetC: 0, massMax: [320, 660], massMin: [260, 555] }
+    - { altFt: 8000, isaOffsetC: 20, massMax: [340, 700], massMin: [275, 585] }
+
+notes: Generic sheet. Empty mass and arm from the flight manual's loading
+  example (620 kg, 200 m.kg), not an aircraft's weighing.
+source: Manuel de vol DR400/160, document 1002519, edition 10 (November 1993)
+  revision 7 (EASA AFM approval 10040706, 23 July 2012), for s/n 2220 to
+  2668.

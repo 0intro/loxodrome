@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-11-23T11:44:13.986Z",
+  "source": "https://www.stac.aviation-civile.gouv.fr/sites/default/files/zsm_tampon__kml__11__2026__gbeut.kml",
+  "sourceSha256": "077bf43dc9b2d6e66e8282527d3052519760b5bdfbc884faffadae94570b68f6",
+  "edition": "2026-11-01",
+  "zoneCount": 234,
+  "activeCount": 234,
+  "species": {
+    "Gypaète barbu": 234
+  },
+  "bbox": [
+    -1.179,
+    41.825,
+    9.27,
+    46.196
+  ]
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="NOTAM Viewer">
+	<!-- The NOTAM Viewer's social card, src/notam/public/og.png.
+	     NOT generated, and the odd one in this directory for that reason: every
+	     other master here is built by scripts/gen-brand.js out of the spiral's
+	     own constants, while this app's mark is DRAWN (src/notam/public/
+	     favicon.svg says why) and there is nothing to compute.
+	     Rasterise with the command in docs/brand.md.
+
+	     Loxodrome's card sets its mark INSIDE the wordmark, the spiral standing
+	     in for the O of LOXODROME. That idiom is not available here: this mark
+	     is a tile, not a letter form, and NOTAM Viewer's own O is a letter the
+	     hexagon would not read as. So the tile sits beside the name, which is
+	     also how the app presents itself on a phone bar and a home screen. -->
+	<rect width="1200" height="630" fill="#fff"/>
+	<rect width="1200" height="10" fill="#1f5fbf"/>
+
+	<!-- The mark, on its own tile at the favicon's proportions. -->
+	<g transform="translate(96 196)">
+		<rect width="132" height="132" rx="26" fill="#1f5fbf"/>
+		<g transform="translate(6 6) scale(3.75)">
+			<defs>
+				<clipPath id="ogzone">
+					<path d="M6 14 11 6 22 7 26 16 19 26 9 23Z"/>
+				</clipPath>
+			</defs>
+			<g clip-path="url(#ogzone)" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+				<path d="M22 2 2 22M28 2 2 28M34 2 2 34M40 2 2 40"/>
+			</g>
+			<path d="M6 14 11 6 22 7 26 16 19 26 9 23Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+		</g>
+	</g>
+
+	<text x="264" y="262" font-family="Inter Display, Inter, system-ui, sans-serif" font-weight="800" font-size="92" letter-spacing="-1" fill="#111418" dominant-baseline="central">NOTAM Viewer</text>
+
+	<text x="96" y="392" font-family="Inter, system-ui, sans-serif" font-size="34" fill="#5a6472">Paste a NOTAM briefing and see it on an aeronautical</text>
+	<text x="96" y="440" font-family="Inter, system-ui, sans-serif" font-size="34" fill="#5a6472">chart, with the airspaces and supplements it concerns.</text>
+	<text x="96" y="524" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="32" fill="#1f5fbf">notam-viewer.net</text>
+</svg>

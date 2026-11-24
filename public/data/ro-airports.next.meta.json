@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-11-08T01:24:41.495Z",
+  "source": "ROMATSA AIP Romania 2026-11-26 AD 2, AD 3",
+  "sourceSha256": "d7072f4623f1d86e3a13553f0a4c5f6cfcbeb186624315daa6c3e510d907bd74",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "ahpCount": 39,
+  "runwayCount": 37,
+  "militaryCount": 0,
+  "radioCount": 87,
+  "transitionAltCount": 17,
+  "counts": {
+    "heliport": 4,
+    "large_airport": 11,
+    "medium_airport": 7,
+    "small_airport": 17
+  },
+  "bbox": [
+    21.261,
+    43.984,
+    28.715,
+    47.704
+  ],
+  "edition": "2026-11-26"
+}

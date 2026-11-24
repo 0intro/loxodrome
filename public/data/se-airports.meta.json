@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-11-08T01:25:09.348Z",
+  "source": "LFV Digital AIM WFS",
+  "sourceSha256": "9b5c1872fd1a9c2a6ad22fac4cf1f0870474ef586867825fd1def9353957d00c",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "ahpCount": 181,
+  "runwayCount": 0,
+  "militaryCount": 0,
+  "radioCount": 0,
+  "transitionAltCount": 0,
+  "counts": {
+    "heliport": 42,
+    "small_airport": 139
+  },
+  "bbox": [
+    11.315,
+    55.024,
+    23.069,
+    67.851
+  ]
+}

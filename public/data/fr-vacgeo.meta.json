@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-11-18T15:52:33.014Z",
+  "effective": "2026-10-29",
+  "source": {
+    "site": "https://www.sia.aviation-civile.gouv.fr",
+    "dataset": "fr-adcharts.json",
+    "plates": "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_29_OCT_2026/Atlas-VAC/"
+  },
+  "plates": 656,
+  "panels": 890,
+  "aerodromes": 628,
+  "byKind": {
+    "APP": 333,
+    "ATT": 524,
+    "GMC": 33
+  },
+  "byMethod": {
+    "graticule": 752,
+    "helipad": 80,
+    "override": 9,
+    "runway": 49
+  },
+  "byAxes": {
+    "conformal": 118,
+    "stretched": 23
+  },
+  "overrides": 9,
+  "noGraticule": 182,
+  "gateRejected": 4,
+  "missingPlate": 0,
+  "byReason": {
+    "assign": 4,
+    "gate": 4,
+    "helipad:multi-pad": 1,
+    "helipad:no-mark": 8,
+    "helipad:no-north": 23,
+    "helipad:no-square": 2,
+    "helipad:pad-bar": 4,
+    "helipad:pad-one-size": 16,
+    "helipad:pad-one-square": 39,
+    "helipad:pad-ratio": 13,
+    "helipad:two-marks": 6,
+    "labels": 38,
+    "runway:cross": 3,
+    "runway:neatline": 2,
+    "runway:no-match": 18,
+    "runway:no-quad": 4,
+    "runway:scale-bar": 1
+  },
+  "bbox": [
+    -5.064,
+    41.501,
+    9.487,
+    51.041
+  ],
+  "parserVersion": 18
+}

@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-18T12:00:00.000Z",
+  "placeCount": 13,
+  "sources": {
+    "ign": {
+      "name": "IGN ADMIN EXPRESS COG",
+      "url": "https://data.geopf.fr/wfs/ows",
+      "licence": "Licence Ouverte 2.0",
+      "licenceUrl": "https://www.data.gouv.fr/pages/legal/licences/etalab-2.0",
+      "sha256": "72bf793d43ab30df8241f2f0ed4a95ad945da23309d93435abdb879b5a327b62"
+    },
+    "geonames": {
+      "name": "GeoNames",
+      "url": "https://www.geonames.org/",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sha256": "4f7a174f75dbf923f2b15259c7f88e1ba5a682fbc6988334c906e360813949ee",
+      "date": "2026-10-18"
+    }
+  },
+  "countries": {
+    "de": {
+      "source": "geonames",
+      "rows": 3,
+      "minPop": 1000,
+      "bbox": [
+        11.1,
+        48.137,
+        11.575,
+        48.6
+      ]
+    },
+    "fr": {
+      "source": "ign",
+      "rows": 6,
+      "minPop": 0,
+      "bbox": [
+        -0.277,
+        41.919,
+        8.739,
+        48.435
+      ]
+    },
+    "gp": {
+      "source": "ign",
+      "rows": 1,
+      "minPop": 0,
+      "bbox": [
+        -61.505,
+        16.271,
+        -61.505,
+        16.271
+      ]
+    },
+    "us": {
+      "source": "geonames",
+      "rows": 3,
+      "minPop": 1000,
+      "bbox": [
+        -157.858,
+        21.307,
+        -95.556,
+        61.218
+      ],
+      "bboxes": [
+        [
+          -157.858,
+          21.307,
+          -157.858,
+          21.307
+        ],
+        [
+          -149.9,
+          61.218,
+          -149.9,
+          61.218
+        ],
+        [
+          -95.556,
+          33.661,
+          -95.556,
+          33.661
+        ]
+      ]
+    }
+  },
+  "dropped": {
+    "ign": {
+      "collectivity": 1,
+      "noPosition": 1
+    },
+    "geonames": {
+      "belowFloor": 1,
+      "duplicate": 1,
+      "historical": 1,
+      "noPosition": 1,
+      "notPopulated": 0,
+      "section": 1
+    }
+  }
+}

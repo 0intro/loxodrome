@@ -1,0 +1,77 @@
+# The Play store listing of android/play/listings, by hand: Actions >
+# Publish listing > Run workflow, on main. It fetches every link the full
+# descriptions give, since Play wants each official source's link to work,
+# then compares the tree with the store. With push, it sends the titles and
+# the descriptions in one edit, which Play reviews. After a rejection the API
+# refuses to send for review itself: push with not_sent_for_review, then
+# send the changes from Publishing overview in Play Console.
+#
+# A link that fails warns and leaves the push to go on: the publishers' sites
+# go down and come back, and a site may refuse GitHub's runners. Read the
+# links step before a push that adds a source. The icon, the feature graphic
+# and the screenshots stay in Play Console.
+#
+# It needs one secret, PLAY_SERVICE_ACCOUNT_JSON, the release environment's,
+# which main alone reaches: the Play service account's key, which holds the
+# store presence permission. The job runs this repository's own script
+# alone.
+
+name: Publish listing
+
+on:
+  workflow_dispatch:
+    inputs:
+      push:
+        description: send the listing to Play
+        type: boolean
+        default: false
+      not_sent_for_review:
+        description: with push, commit for Publishing overview to send (after a rejection)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-listing
+  cancel-in-progress: false
+
+jobs:
+  listing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: release
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: the links
+        id: links
+        continue-on-error: true
+        run: node scripts/play-listing.js links
+      - if: steps.links.outcome == 'failure'
+        run: echo "::warning::a link of the store listing failed, see the links step"
+
+      - name: the listing, against the store or to it
+        env:
+          KEY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          PUSH: ${{ inputs.push }}
+          NOT_SENT: ${{ inputs.not_sent_for_review }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "publish-listing: no PLAY_SERVICE_ACCOUNT_JSON secret. See the comment at the top of this workflow."
+            exit 1
+          fi
+          trap 'rm -f "$RUNNER_TEMP/play.json"' EXIT
+          (umask 077 && printf '%s' "$KEY" > "$RUNNER_TEMP/play.json")
+          node scripts/play-listing.js diff --key "$RUNNER_TEMP/play.json"
+          if [ "$PUSH" = true ]; then
+            flags=()
+            if [ "$NOT_SENT" = true ]; then
+              flags+=(--not-sent-for-review)
+            fi
+            node scripts/play-listing.js put --key "$RUNNER_TEMP/play.json" "${flags[@]}"
+          fi

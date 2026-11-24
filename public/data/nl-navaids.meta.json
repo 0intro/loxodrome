@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-11-08T01:28:03.449Z",
+  "source": "LVNL Navaid + Waypoints FeatureServers",
+  "sourceSha256": "11c13933fb57aeddc5e1833874ef595de4910d929df6cd0947c22dcb131f7557",
+  "effective": "2026-10-29T00:00:00.000Z",
+  "navaidCount": 493,
+  "skippedNonBaseline": 0,
+  "unresolvedXlinks": 0,
+  "counts": {
+    "DME": 7,
+    "ILS-DME": 26,
+    "NDB": 1,
+    "TACAN": 6,
+    "VFR_REPORTING_POINT": 72,
+    "VOR-DME": 4,
+    "WAYPOINT": 377
+  },
+  "bbox": [
+    3.903,
+    50.777,
+    7.064,
+    53.48
+  ]
+}

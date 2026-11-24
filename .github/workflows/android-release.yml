@@ -1,0 +1,256 @@
+# The Android app for Google Play, by hand: Actions > Android release > Run
+# workflow, on main. The build job runs the gates npm run android:bundle runs,
+# builds the bundle and the APK, signs both with the upload key and checks
+# them. The publish job then hands the bundle to Play as the run's upload
+# input says:
+#
+#   dry run                       Play keeps its tracks as they were and lists them
+#   internal                      internal testing, at once
+#   internal and closed testing   both in one edit, closed testing once Play's
+#                                 review passes
+#
+# The APK stays on the run's page for 7 days, for a phone that installs the
+# app from outside Play: Android updates an app only from a package signed
+# with the same key, and Play signs its own build with Google's key.
+#
+# It needs these secrets, and its first step names the ones missing:
+#
+#   ANDROID_UPLOAD_KEYSTORE_B64   the upload keystore, base64
+#   ANDROID_STORE_PASSWORD        its password, as keystore.properties writes it
+#   ANDROID_KEY_ALIAS             the upload key's alias
+#   ANDROID_KEY_PASSWORD          that key's password, written the same way
+#   PLAY_SERVICE_ACCOUNT_JSON     the Play service account's key
+#
+# They are the release environment's, which main alone reaches. The upload
+# key reaches the Gradle step alone. The Play key reaches the publish job
+# alone, a fresh runner that runs this repository's own script: a process an
+# npm package or a Gradle plugin starts can outlive its step until its job
+# ends.
+#
+# Play takes a versionCode once: a release raises versionCode and versionName
+# in android/app/build.gradle, with package.json's version, and rewrites
+# android/release-notes.txt, in one commit.
+
+name: Android release
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: what goes to Play
+        type: choice
+        options:
+          - dry run
+          - internal
+          - internal and closed testing
+        default: dry run
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-release
+  cancel-in-progress: false
+
+env:
+  # The upload certificate's SHA-256, the one Play Console lists under App
+  # integrity.
+  UPLOAD_CERT_SHA256: b2612d51f48e28f89159ee7af36e03aae852817090bd9436957b564467d692c4
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment: release
+    outputs:
+      code: ${{ steps.version.outputs.code }}
+      name: ${{ steps.version.outputs.name }}
+      until: ${{ steps.horizon.outputs.until }}
+    steps:
+      - name: secrets
+        env:
+          ANDROID_UPLOAD_KEYSTORE_B64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_B64 }}
+          ANDROID_STORE_PASSWORD: ${{ secrets.ANDROID_STORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          missing=
+          for v in ANDROID_UPLOAD_KEYSTORE_B64 ANDROID_STORE_PASSWORD ANDROID_KEY_ALIAS \
+            ANDROID_KEY_PASSWORD PLAY_SERVICE_ACCOUNT_JSON; do
+            [ -n "${!v:-}" ] || missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "android-release: missing secrets:$missing. See the comment at the top of this workflow."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+
+      - name: version
+        id: version
+        run: |
+          code=$(sed -n 's/^ *versionCode \([0-9]*\)$/\1/p' android/app/build.gradle)
+          name=$(sed -n 's/^ *versionName "\(.*\)"$/\1/p' android/app/build.gradle)
+          echo "Loxodrome $name, versionCode $code"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      # npm run android:bundle, a step at a time, so that the upload key is
+      # written for Gradle's step alone.
+      - run: npm run lint
+      - run: npm run lint:i18n
+      - run: npm run check
+      - run: npm test
+      - run: npm run android:sync
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      # The build reads keystore.properties in android/, and resolves a
+      # relative storeFile there, an absolute one as it is.
+      - name: bundle and APK, signed with the upload key
+        env:
+          ANDROID_UPLOAD_KEYSTORE_B64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_B64 }}
+          ANDROID_STORE_PASSWORD: ${{ secrets.ANDROID_STORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          trap 'rm -f "$RUNNER_TEMP/upload.jks" android/keystore.properties' EXIT
+          (umask 077 && printf '%s' "$ANDROID_UPLOAD_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/upload.jks")
+          (umask 077 && printf '%s\n' "storeFile=$RUNNER_TEMP/upload.jks" "storePassword=$ANDROID_STORE_PASSWORD" \
+            "keyAlias=$ANDROID_KEY_ALIAS" "keyPassword=$ANDROID_KEY_PASSWORD" > android/keystore.properties)
+          (cd android && ./gradlew --no-daemon bundleRelease assembleRelease)
+
+      - name: both carry the upload key
+        run: |
+          aab=$(keytool -printcert -jarfile android/app/build/outputs/bundle/release/app-release.aab |
+            sed -n 's/^[[:space:]]*SHA256: //p' | tr -d : | tr A-F a-f)
+          tools=("$ANDROID_HOME"/build-tools/*/)
+          apksigner=$(printf '%s\n' "${tools[@]}" | sort -V | tail -n 1)apksigner
+          apk=$("$apksigner" verify --print-certs android/app/build/outputs/apk/release/app-release.apk |
+            sed -n 's/.*certificate SHA-256 digest: //p' | sort -u)
+          echo "bundle: $aab"
+          echo "APK:    $apk"
+          if [ "$aab" != "$UPLOAD_CERT_SHA256" ] || [ "$apk" != "$UPLOAD_CERT_SHA256" ]; then
+            echo "android-release: the upload certificate is $UPLOAD_CERT_SHA256"
+            exit 1
+          fi
+
+      - name: the bundle declares the manifest's permissions
+        run: scripts/check-aab.sh android/app/build/outputs/bundle/release/app-release.aab
+
+      - name: the datasets' horizon
+        id: horizon
+        run: |
+          until=$(node -e "import('./vite.shared.ts').then((m) => console.log(m.dataValidUntil ?? ''))")
+          echo "until=$until" >> "$GITHUB_OUTPUT"
+          if [ -z "$until" ]; then
+            echo "::warning::the datasets carry no effective date the app can read"
+            exit 0
+          fi
+          days=$(( ($(date -d "$until" +%s) - $(date +%s)) / 86400 ))
+          echo "the datasets are current until $until, $days days from now"
+          if [ "$days" -lt 28 ]; then
+            echo "::warning::the datasets are current until $until, $days days from now: France's next AIRAC slot is probably missing"
+          fi
+
+      - name: the artifact
+        env:
+          NAME: ${{ steps.version.outputs.name }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/out"
+          cp android/app/build/outputs/bundle/release/app-release.aab "$RUNNER_TEMP/out/loxodrome-$NAME.aab"
+          cp android/app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/out/loxodrome-$NAME.apk"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: loxodrome-${{ steps.version.outputs.name }}-${{ steps.version.outputs.code }}
+          path: ${{ runner.temp }}/out/
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: error
+
+  # A job of its own: the Play key reaches a runner where only this
+  # repository's script runs, and a failed upload re-runs alone, against the
+  # artifact the build left.
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: release
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - if: inputs.upload != 'dry run'
+        uses: actions/download-artifact@v8
+        with:
+          name: loxodrome-${{ needs.build.outputs.name }}-${{ needs.build.outputs.code }}
+          path: ${{ runner.temp }}/out
+
+      # One edit for every track: a run that fails leaves Play as it was.
+      - name: Play
+        env:
+          KEY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          UPLOAD: ${{ inputs.upload }}
+          NAME: ${{ needs.build.outputs.name }}
+        run: |
+          trap 'rm -f "$RUNNER_TEMP/play.json"' EXIT
+          (umask 077 && printf '%s' "$KEY" > "$RUNNER_TEMP/play.json")
+          case $UPLOAD in
+          'dry run')
+            npm run play:release -- --key "$RUNNER_TEMP/play.json" --dry-run
+            exit
+            ;;
+          internal)
+            tracks=(--track internal)
+            ;;
+          'internal and closed testing')
+            tracks=(--track internal --track alpha)
+            ;;
+          *)
+            echo "android-release: upload is '$UPLOAD', none of the choices"
+            exit 1
+            ;;
+          esac
+          npm run play:release -- --key "$RUNNER_TEMP/play.json" --aab "$RUNNER_TEMP/out/loxodrome-$NAME.aab" \
+            "${tracks[@]}" --notes android/release-notes.txt
+
+      - name: summary
+        env:
+          UPLOAD: ${{ inputs.upload }}
+          NAME: ${{ needs.build.outputs.name }}
+          CODE: ${{ needs.build.outputs.code }}
+          UNTIL: ${{ needs.build.outputs.until }}
+        run: |
+          {
+            case $UPLOAD in
+            'dry run')
+              echo "Dry run: Loxodrome $NAME ($CODE) was built, signed and checked, and Play answered its key. Play keeps its tracks as they were."
+              ;;
+            internal)
+              echo "Loxodrome $NAME ($CODE) is on internal testing."
+              ;;
+            *)
+              echo "Loxodrome $NAME ($CODE) is on internal testing, and goes to closed testing once Play's review passes."
+              ;;
+            esac
+            if [ -n "$UNTIL" ]; then
+              echo
+              echo "Its datasets are current until ${UNTIL%%T*}."
+            fi
+            echo
+            echo "The bundle and the APK signed with the upload key are the run's artifact for 7 days."
+          } >> "$GITHUB_STEP_SUMMARY"

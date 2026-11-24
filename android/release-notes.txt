@@ -1,0 +1,6 @@
+<en-US>
+The NOTAM briefing fetches itself for the planned flight, stays with the plan and judges the flight and each aerodrome. Each zone reads active, may be active or later in the period, from its NOTAMs and schedule. Raptor sensitivity zones (ZSM) on the map. The print button prints the whole flight dossier, NOTAMs included. Plans save and open from one menu. One search for everything. Data for AIRAC 2026-11-26. Report a problem at https://github.com/0intro/loxodrome/issues
+</en-US>
+<fr-FR>
+Le briefing NOTAM se récupère seul pour le vol prévu, reste avec le plan et juge le vol et chaque aérodrome. Chaque zone se lit active, activable ou plus tard sur la période, d’après ses NOTAM et son horaire. Zones de sensibilité majeure (ZSM) sur la carte. L’impression donne tout le dossier de vol, NOTAM compris. Les plans s’enregistrent et s’ouvrent depuis un seul menu. Une seule recherche pour tout. Données AIRAC 2026-11-26. Signalez un problème : https://github.com/0intro/loxodrome/issues
+</fr-FR>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic AIXM 5.1 fixture for cmd/uk tests, in the NATS AIP dataset's
+     shape (not an extract): one aerodrome, its control zone and the three
+     services working them, with Gatwick's published channels. A service
+     links every channel it works, guard last, and the tower service carries
+     its delivery and ground call signs without saying which channel is
+     whose. -->
+<message:AIXMBasicMessage xmlns:aixm="http://www.aixm.aero/schema/5.1"
+                          xmlns:gco="http://www.isotc211.org/2005/gco"
+                          xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                          xmlns:gml="http://www.opengis.net/gml/3.2"
+                          xmlns:message="http://www.aixm.aero/schema/5.1/message"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          gml:id="id100">
+   <aixm:messageMetadata>
+      <gmd:MD_Metadata>
+         <gmd:dateStamp>
+            <gco:DateTime>2026-09-03T00:00:00Z</gco:DateTime>
+         </gmd:dateStamp>
+      </gmd:MD_Metadata>
+   </aixm:messageMetadata>
+   <message:hasMember xlink:type="simple">
+      <aixm:AirportHeliport gml:id="id101">
+         <gml:identifier codeSpace="urn:uuid:">afe7275f-0000-4000-8000-000000000001</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:AirportHeliportTimeSlice gml:id="id102">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:designator>EGKK</aixm:designator>
+               <aixm:name>LONDON GATWICK</aixm:name>
+               <aixm:locationIndicatorICAO>EGKK</aixm:locationIndicatorICAO>
+               <aixm:type>AD</aixm:type>
+               <aixm:controlType>CIVIL</aixm:controlType>
+               <aixm:ARP>
+                  <aixm:ElevatedPoint gml:id="id103">
+                     <gml:pos>51.14805556 -0.19027778</gml:pos>
+                     <aixm:elevation uom="FT">203</aixm:elevation>
+                  </aixm:ElevatedPoint>
+               </aixm:ARP>
+            </aixm:AirportHeliportTimeSlice>
+         </aixm:timeSlice>
+      </aixm:AirportHeliport>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:Airspace gml:id="id104">
+         <gml:identifier codeSpace="urn:uuid:">d4a29f37-0000-4000-8000-000000000002</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:AirspaceTimeSlice gml:id="id105">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:type>CTR</aixm:type>
+               <aixm:designator>EGKK001</aixm:designator>
+               <aixm:name>LONDON GATWICK CTR</aixm:name>
+               <aixm:geometryComponent>
+                  <aixm:AirspaceGeometryComponent gml:id="id106">
+                     <aixm:theAirspaceVolume>
+                        <aixm:AirspaceVolume gml:id="id107">
+                           <aixm:horizontalProjection>
+                              <aixm:Surface gml:id="id108">
+                                 <gml:patches>
+                                    <gml:PolygonPatch>
+                                       <gml:exterior>
+                                          <gml:Ring>
+                                             <gml:curveMember>
+                                                <gml:Curve gml:id="id109">
+                                                   <gml:segments>
+                                                      <gml:GeodesicString>
+                                                         <gml:posList>51.0 -0.4 51.0 0.0 51.3 0.0 51.3 -0.4 51.0 -0.4</gml:posList>
+                                                      </gml:GeodesicString>
+                                                   </gml:segments>
+                                                </gml:Curve>
+                                             </gml:curveMember>
+                                          </gml:Ring>
+                                       </gml:exterior>
+                                    </gml:PolygonPatch>
+                                 </gml:patches>
+                              </aixm:Surface>
+                           </aixm:horizontalProjection>
+                        </aixm:AirspaceVolume>
+                     </aixm:theAirspaceVolume>
+                  </aixm:AirspaceGeometryComponent>
+               </aixm:geometryComponent>
+            </aixm:AirspaceTimeSlice>
+         </aixm:timeSlice>
+      </aixm:Airspace>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:AirTrafficControlService gml:id="id110">
+         <gml:identifier codeSpace="urn:uuid:">98001f97-0000-4000-8000-000000000110</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:AirTrafficControlServiceTimeSlice gml:id="id111">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:call-sign>
+                  <aixm:CallsignDetail gml:id="id112">
+                     <aixm:callSign>GATWICK DIRECTOR</aixm:callSign>
+                     <aixm:language>eng</aixm:language>
+                  </aixm:CallsignDetail>
+               </aixm:call-sign>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000001"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000002"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000003"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000004"/>
+               <aixm:type>APP</aixm:type>
+               <aixm:clientAirport xlink:type="simple" xlink:href="urn:uuid:afe7275f-0000-4000-8000-000000000001"/>
+               <aixm:clientAirspace xlink:type="simple" xlink:href="urn:uuid:d4a29f37-0000-4000-8000-000000000002"/>
+            </aixm:AirTrafficControlServiceTimeSlice>
+         </aixm:timeSlice>
+      </aixm:AirTrafficControlService>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:AirTrafficControlService gml:id="id113">
+         <gml:identifier codeSpace="urn:uuid:">98001f97-0000-4000-8000-000000000113</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:AirTrafficControlServiceTimeSlice gml:id="id114">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:call-sign>
+                  <aixm:CallsignDetail gml:id="id115">
+                     <aixm:callSign>GATWICK TOWER</aixm:callSign>
+                     <aixm:language>eng</aixm:language>
+                  </aixm:CallsignDetail>
+               </aixm:call-sign>
+               <aixm:call-sign>
+                  <aixm:CallsignDetail gml:id="id116">
+                     <aixm:callSign>GATWICK DELIVERY</aixm:callSign>
+                     <aixm:language>eng</aixm:language>
+                  </aixm:CallsignDetail>
+               </aixm:call-sign>
+               <aixm:call-sign>
+                  <aixm:CallsignDetail gml:id="id117">
+                     <aixm:callSign>GATWICK GROUND</aixm:callSign>
+                     <aixm:language>eng</aixm:language>
+                  </aixm:CallsignDetail>
+               </aixm:call-sign>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000005"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000006"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000007"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000008"/>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000004"/>
+               <aixm:type>TWR</aixm:type>
+               <aixm:clientAirport xlink:type="simple" xlink:href="urn:uuid:afe7275f-0000-4000-8000-000000000001"/>
+            </aixm:AirTrafficControlServiceTimeSlice>
+         </aixm:timeSlice>
+      </aixm:AirTrafficControlService>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:InformationService gml:id="id118">
+         <gml:identifier codeSpace="urn:uuid:">98001f97-0000-4000-8000-000000000118</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:InformationServiceTimeSlice gml:id="id119">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:call-sign>
+                  <aixm:CallsignDetail gml:id="id120">
+                     <aixm:callSign>GATWICK INFORMATION</aixm:callSign>
+                     <aixm:language>eng</aixm:language>
+                  </aixm:CallsignDetail>
+               </aixm:call-sign>
+               <aixm:radioCommunication xlink:type="simple" xlink:href="urn:uuid:37eb8eae-0000-4000-8000-000000000009"/>
+               <aixm:type>ATIS</aixm:type>
+               <aixm:clientAirport xlink:type="simple" xlink:href="urn:uuid:afe7275f-0000-4000-8000-000000000001"/>
+            </aixm:InformationServiceTimeSlice>
+         </aixm:timeSlice>
+      </aixm:InformationService>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id121">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000001</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id122">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">126.825</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id123">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000002</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id124">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">118.950</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id125">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000003</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id126">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">129.025</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id127">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000004</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id128">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">121.500</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id129">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000005</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id130">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">124.230</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id131">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000006</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id132">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">134.230</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id133">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000007</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id134">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">121.955</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id135">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000008</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id136">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">121.805</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+   <message:hasMember xlink:type="simple">
+      <aixm:RadioCommunicationChannel gml:id="id137">
+         <gml:identifier codeSpace="urn:uuid:">37eb8eae-0000-4000-8000-000000000009</gml:identifier>
+         <aixm:timeSlice>
+            <aixm:RadioCommunicationChannelTimeSlice gml:id="id138">
+               <aixm:interpretation>BASELINE</aixm:interpretation>
+               <aixm:mode>VHF_833</aixm:mode>
+               <aixm:frequencyTransmission uom="MHZ">136.525</aixm:frequencyTransmission>
+            </aixm:RadioCommunicationChannelTimeSlice>
+         </aixm:timeSlice>
+      </aixm:RadioCommunicationChannel>
+   </message:hasMember>
+</message:AIXMBasicMessage>

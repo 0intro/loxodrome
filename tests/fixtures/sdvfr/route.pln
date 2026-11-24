@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <FlightPlan.FlightPlan>
+        <Title>ChateauxdePicardie</Title>
+        <FPType>VFR</FPType>
+        <CruisingAlt>2500</CruisingAlt>
+        <DepartureID>LFPL</DepartureID>
+        <DepartureLLA>N48° 49' 19.00",E002° 37' 22.00",+001500.00</DepartureLLA>
+        <DestinationID>LFPL</DestinationID>
+        <DestinationLLA>N48° 49' 19.00",E002° 37' 22.00",+000000.00</DestinationLLA>
+        <Descr>LFPL, LFPL</Descr>
+        <DeparturePosition></DeparturePosition>
+        <DepartureName>LOGNES EMERAINVILLE</DepartureName>
+        <DestinationName>LOGNES EMERAINVILLE</DestinationName>
+        <AppVersion>
+            <AppVersionMajor>10</AppVersionMajor>
+            <AppVersionBuild>61637</AppVersionBuild>
+        </AppVersion>
+        <ATCWaypoint id="LFPL">
+            <ATCWaypointType>Airport</ATCWaypointType>
+            <WorldPosition>N48° 49' 19.00",E002° 37' 22.00",+001500.00</WorldPosition>
+            <ICAO>
+                <ICAOIdent>LFPL</ICAOIdent>
+            </ICAO>
+        </ATCWaypoint>
+		        <ATCWaypoint id="LFPLLOGNES">
+            <ATCWaypointType>User</ATCWaypointType>
+            <WorldPosition>N48° 49' 19.00",E002° 37' 22.00",+001500.00</WorldPosition>
+        </ATCWaypoint>
+		        <ATCWaypoint id="LOBELISQUE">
+            <ATCWaypointType>User</ATCWaypointType>
+            <WorldPosition>N48° 47' 29.76",E002° 52' 9.02",+002000.00</WorldPosition>
+        </ATCWaypoint>
+		        <ATCWaypoint id="LFPLLOGNES">
+            <ATCWaypointType>User</ATCWaypointType>
+            <WorldPosition>N48° 49' 19.00",E002° 37' 22.00",+000000.00</WorldPosition>
+        </ATCWaypoint>
+
+        <ATCWaypoint id="LFPL">
+            <ATCWaypointType>Airport</ATCWaypointType>
+            <WorldPosition>N48° 49' 19.00",E002° 37' 22.00",+000000.00</WorldPosition>
+            <ICAO>
+                <ICAOIdent>LFPL</ICAOIdent>
+            </ICAO>
+        </ATCWaypoint>
+    </FlightPlan.FlightPlan>
+</SimBase.Document>
