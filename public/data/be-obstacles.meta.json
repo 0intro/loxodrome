@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-08T01:25:24.363Z",
-  "source": "skeyes eAIP 2026-10-29",
-  "sourceSha256": "ac0762613b3ba2a781bfe6743d75eff49acb06b58c6bcef2278702eca36acf1c",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "obstacleCount": 144,
+  "generatedAt": "2026-11-26T16:38:25.606Z",
+  "source": "skeyes eAIP 2026-11-26",
+  "sourceSha256": "5ec8d20b7e09d007887c27f7525d225dc9c3abd28601ae20a3a6e4bcb3120e32",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "obstacleCount": 149,
   "litCount": 0,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
@@ -13,7 +13,7 @@
     "building": 3,
     "mast": 4,
     "tower": 4,
-    "windturbine": 133
+    "windturbine": 138
   },
   "bbox": [
     3.386,

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:26:08.909Z",
-  "source": "skeyes eAIP 2026-11-26",
-  "sourceSha256": "48d2367773fc78187dfa11ab9a73996a7408a503725ccacaf2cb5c8ca65b3558",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "generatedAt": "2026-11-26T16:39:10.278Z",
+  "source": "skeyes eAIP 2026-12-24",
+  "sourceSha256": "21b094f1ddcffdd8fabf3bc0f71f1946b9e13dff0b33f7d08fe65e9a4c428f14",
+  "effective": "2026-12-24T00:00:00.000Z",
   "zoneCount": 18,
   "counts": {
     "BIRD": 18

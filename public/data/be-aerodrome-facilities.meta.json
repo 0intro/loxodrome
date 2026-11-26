@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:25:24.282Z",
-  "source": "skeyes eAIP 2026-10-29",
-  "sourceSha256": "ac0762613b3ba2a781bfe6743d75eff49acb06b58c6bcef2278702eca36acf1c",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-11-26T16:38:25.587Z",
+  "source": "skeyes eAIP 2026-11-26",
+  "sourceSha256": "5ec8d20b7e09d007887c27f7525d225dc9c3abd28601ae20a3a6e4bcb3120e32",
+  "effective": "2026-11-26T00:00:00.000Z",
   "aerodromeCount": 165,
   "heliportCount": 113,
   "skippedNotes": 0,
