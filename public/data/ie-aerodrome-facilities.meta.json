@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:26:23.062Z",
-  "source": "AirNav Ireland eAIP AIRAC/2026-10-29-AIRAC",
+  "generatedAt": "2026-11-26T18:32:24.918Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-11-26-AIRAC",
   "sourceSha256": "92dc050c4905fbf7e0d3afb775fde3522d0a00a8f9751d87bd7b5ee3de275376",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "effective": "2026-11-26T00:00:00.000Z",
   "aerodromeCount": 21,
   "heliportCount": 0,
   "skippedNotes": 0,

@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-11-18T05:33:04.044Z",
-  "source": "SMATSA Serbia and Montenegro eAIP 29-Oct-2026-A/2026-10-29-AIRAC",
-  "sourceSha256": "dc031a9a33a4e09d65aab1f6890cd0702adff7eb131f6cc5dd6f27241dcbae04",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:32:42.124Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 26-Nov-2026-A/2026-11-26-AIRAC",
+  "sourceSha256": "3c81e155242fa18b56fc4b99e2be23ffef66df1b7c38147718fc7d359610f853",
+  "effective": "2026-11-26T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "path templates, confirmed by the publisher pointer",
   "lang": "en-GB",
-  "airspaceCount": 313,
+  "airspaceCount": 255,
   "sectionCounts": {
     "AD 2.17": 9,
     "ENR 2.1": 10,
     "ENR 2.2": 30,
     "ENR 5.1": 28,
-    "ENR 5.2": 212,
+    "ENR 5.2": 154,
     "ENR 5.5": 24
   },
   "tables": 9,
@@ -33,10 +33,9 @@
   "adRepublished": 0,
   "adInferredCtr": 0,
   "refsResolved": 0,
-  "bufferColumns": 54,
+  "bufferColumns": 1,
   "skippedTypes": {
     "AREA REPRESENTED BY": 1,
-    "CORRIDOR CENTRE LINE": 62,
     "NO GEOMETRY": 5,
     "NO NAME": 6
   },
@@ -49,8 +48,8 @@
     "R": 3,
     "RMZ": 9,
     "TMA": 9,
-    "TRA": 197,
-    "TSA": 14
+    "TRA": 145,
+    "TSA": 8
   },
   "bbox": [
     17.615,

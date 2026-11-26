@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-08T01:26:20.779Z",
+  "generatedAt": "2026-11-26T18:32:12.479Z",
   "source": "ANS CR Czechia eAIP ",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "effective": "2026-11-26T00:00:00.000Z",
   "edition": "",
   "base": "https://aim.rlp.cz/eaip/",
   "cycleLag": 0,
@@ -12,15 +12,15 @@
   "heliports": 74,
   "withCharts": 168,
   "withVac": 167,
-  "charts": 322,
+  "charts": 326,
   "byFamily": {
     "ADC": 11,
     "AOC": 6,
     "APDC": 11,
     "ATCSMAC": 10,
-    "DEP": 6,
+    "DEP": 7,
     "GMC": 6,
-    "IAC": 53,
+    "IAC": 56,
     "MISC": 7,
     "PATC": 3,
     "SID": 22,
@@ -35,6 +35,6 @@
   ],
   "linkCheck": "6/6",
   "alsoRead": [
-    "ANS CR VFR Manual 29 OCT 2026 (1)"
+    "ANS CR VFR Manual 26 NOV 2026 (1)"
   ]
 }

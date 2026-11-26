@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:27:23.805Z",
-  "source": "Fintraffic ANS Finland eAIP 006-2026_2026_11_26",
+  "generatedAt": "2026-11-26T18:35:41.965Z",
+  "source": "Fintraffic ANS Finland eAIP 007-2026_2026_12_24",
   "sourceSha256": "29fba79d862441c23659d6146ae105e4e446b3149b8f976d203e4057a6b16aed",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "effective": "2026-12-24T00:00:00.000Z",
   "ahpCount": 96,
   "runwayCount": 97,
   "militaryCount": 0,

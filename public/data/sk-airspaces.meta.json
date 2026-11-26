@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-23T11:37:59.425Z",
-  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_29OCT2026_amdt",
-  "sourceSha256": "10b18806e319dd8f172bf8bd94b93d6817d8a5dec653562c3ca1959f5080502d",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:32:17.544Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_26NOV2026_amdt",
+  "sourceSha256": "3268878477d3eb85b33b1ad3e5e9507bed627fad4ec39c62fee1ad82880f323c",
+  "effective": "2026-11-26T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "path templates, confirmed by the publisher pointer",

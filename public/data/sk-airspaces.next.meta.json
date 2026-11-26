@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-23T11:38:00.634Z",
-  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_26NOV2026_amdt",
-  "sourceSha256": "10b18806e319dd8f172bf8bd94b93d6817d8a5dec653562c3ca1959f5080502d",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:35:00.171Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_24DEC2026",
+  "sourceSha256": "35fe4a55c002090b5f3b01eef8f4031950801b200bc8576f9eb65827d5e4cc11",
+  "effective": "2026-12-24T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": false,
   "lang": "en-SK",

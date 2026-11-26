@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-08T01:27:35.206Z",
-  "source": "Avians Iceland eAIP A_11-2026_2026_11_26 ENR 5.4",
+  "generatedAt": "2026-11-26T18:36:05.060Z",
+  "source": "Avians Iceland eAIP A_01-2027_2027_01_21 ENR 5.4",
   "sourceSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "effective": "2026-11-26T00:00:00.000Z",
-  "obstacleCount": 5,
-  "litCount": 4,
+  "effective": "2027-01-21T00:00:00.000Z",
+  "obstacleCount": 6,
+  "litCount": 5,
   "skippedNonBaseline": 0,
   "multiPartObstacles": 0,
   "skippedTooShort": 0,
@@ -12,7 +12,7 @@
   "counts": {
     "antenna": 3,
     "building": 1,
-    "mast": 1
+    "mast": 2
   },
   "bbox": [
     -23.923,

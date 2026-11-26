@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-18T05:34:13.715Z",
-  "source": "Avians Iceland eAIP A_11-2026_2026_11_26",
-  "sourceSha256": "bea725eafdc3bd0a4315b0346b471aa3f8666d5d569be0f11616d5f5f96cc077",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:36:05.062Z",
+  "source": "Avians Iceland eAIP A_01-2027_2027_01_21",
+  "sourceSha256": "6011527fcec136a18aa0ff848d94afa0e7ae52550e17cfd2d439ec9c6f3ca290",
+  "effective": "2027-01-21T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": false,
   "lang": "en-GB",

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-08T02:06:04.473Z",
-  "source": "SMATSA Serbia and Montenegro eAIP 29-Oct-2026-A/2026-10-29-AIRAC",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "edition": "29-Oct-2026-A/2026-10-29-AIRAC",
-  "base": "https://smatsa.rs/upload/aip/published/29-Oct-2026-A/2026-10-29-AIRAC/",
+  "generatedAt": "2026-11-26T18:32:40.471Z",
+  "source": "SMATSA Serbia and Montenegro eAIP 26-Nov-2026-A/2026-11-26-AIRAC",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "edition": "26-Nov-2026-A/2026-11-26-AIRAC",
+  "base": "https://smatsa.rs/upload/aip/published/26-Nov-2026-A/2026-11-26-AIRAC/",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "path templates, confirmed by the publisher pointer",
@@ -12,7 +12,7 @@
   "heliports": 0,
   "withCharts": 9,
   "withVac": 7,
-  "charts": 159,
+  "charts": 152,
   "byFamily": {
     "ADC": 9,
     "AOC": 15,
@@ -21,7 +21,7 @@
     "IAC": 46,
     "MISC": 3,
     "PATC": 2,
-    "SID": 43,
+    "SID": 36,
     "STAR": 25,
     "VAC": 9
   },

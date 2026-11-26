@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-08T01:26:23.506Z",
-  "source": "AirNav Ireland eAIP AIRAC/2026-10-29-AIRAC ENR 4.1 ENR 4.4",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:32:26.909Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-11-26-AIRAC ENR 4.1 ENR 4.4",
+  "effective": "2026-11-26T00:00:00.000Z",
   "cycleLag": 0,
   "confirmed": true,
   "resolvedBy": "cycle index, confirmed by the cycle index",

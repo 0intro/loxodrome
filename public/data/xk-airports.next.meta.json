@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:27:17.008Z",
-  "source": "KANS Kosovo eAIP AIRAC AMDT 12-2026_2026_11_26",
+  "generatedAt": "2026-11-26T18:35:17.844Z",
+  "source": "KANS Kosovo eAIP AIRAC AMDT 13-2026_2026_12_24",
   "sourceSha256": "769d3c65d1174594a1666e5e163b844d76bbaed3412845082a6ed6580078de49",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "effective": "2026-12-24T00:00:00.000Z",
   "ahpCount": 1,
   "runwayCount": 1,
   "militaryCount": 0,

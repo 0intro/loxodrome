@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:27:14.222Z",
-  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_26NOV2026",
+  "generatedAt": "2026-11-26T18:34:58.584Z",
+  "source": "LPS SR Slovakia eAIP AIP_SR_EFF_24DEC2026",
   "sourceSha256": "568804ef5eb3dadb787aebd3e0b279669fd7546d22d34e36f127561ef4b1fc07",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "effective": "2026-12-24T00:00:00.000Z",
   "aerodromeCount": 5,
   "heliportCount": 0,
   "skippedNotes": 0,

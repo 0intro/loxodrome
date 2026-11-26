@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-18T15:52:34.613Z",
-  "source": "AirNav Ireland eAIP AIRAC_OCT_2026_2/2026-10-29-AIRAC",
+  "generatedAt": "2026-11-26T18:32:24.917Z",
+  "source": "AirNav Ireland eAIP AIRAC/2026-11-26-AIRAC",
   "sourceSha256": "bcb72a84f79eb0e50c2f5003945d64507901cc42b81dc0226e2084f70885f7fe",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "effective": "2026-11-26T00:00:00.000Z",
   "ahpCount": 21,
-  "runwayCount": 25,
+  "runwayCount": 24,
   "militaryCount": 0,
   "radioCount": 66,
   "transitionAltCount": 10,
   "counts": {
     "large_airport": 3,
-    "medium_airport": 4,
-    "small_airport": 14
+    "medium_airport": 3,
+    "small_airport": 15
   },
   "bbox": [
     -9.654,
