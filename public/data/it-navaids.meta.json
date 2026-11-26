@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-18T05:34:27.011Z",
+  "generatedAt": "2026-11-26T18:01:24.045Z",
   "source": "open flightmaps OFMX LI",
-  "sourceSha256": "f94f1881d6827d842b46b2c3ea7b804b873253fcb3eee8d9049564bc6b4fe57b",
-  "effective": "2026-10-23T00:00:00.000Z",
+  "sourceSha256": "04fd4a09d6525ac8e87e877f4601a2b72e7911c599f78dd25854398a37af74dd",
+  "effective": "2026-11-23T00:00:00.000Z",
   "navaidCount": 596,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 0,
