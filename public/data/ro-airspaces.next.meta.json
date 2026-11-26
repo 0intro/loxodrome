@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:24:41.490Z",
-  "source": "ROMATSA AIP Romania 2026-11-26 ENR 2.1, ENR 5.1, ENR 5.2, AD 2.17",
+  "generatedAt": "2026-11-26T18:53:37.087Z",
+  "source": "ROMATSA AIP Romania 2026-12-24 ENR 2.1, ENR 5.1, ENR 5.2, AD 2.17",
   "sourceSha256": "4d591b7df19a54943da31ba05b2eb61bea6e39dbc8f86d0ae7fc0ef993962562",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "effective": "2026-12-24T00:00:00.000Z",
   "airspaceCount": 511,
   "skippedNoBoundary": 0,
   "skippedNoProjection": 0,
@@ -28,7 +28,7 @@
     30.534,
     48.251
   ],
-  "edition": "2026-11-26",
+  "edition": "2026-12-24",
   "adZones": 18,
   "adRepublished": 0,
   "sectionCounts": {
@@ -52,8 +52,8 @@
   "skippedTypes": {
     "AD 2.17 NO GEOMETRY": 23,
     "BUCUREŞTI FIR": 1,
-    "NO GEOMETRY": 2,
-    "NOTE: IN CASE": 1,
+    "CORRIDOR CENTRE LINE": 1,
+    "NO GEOMETRY": 3,
     "SECTOR ARGEŞ (SECTOR": 1,
     "SECTOR BACĂU": 1,
     "SECTOR BUDOP (SECTOR": 1,
@@ -62,7 +62,6 @@
     "SECTOR LOMOS (SECTOR": 1,
     "SECTOR MOPUG (SECTOR": 1,
     "SECTOR NAPOC (SECTOR": 1,
-    "SECTOR NERDI (SECTOR": 1,
-    "SECTORS WITHIN BUCUREŞTI": 1
+    "SECTOR NERDI (SECTOR": 1
   }
 }

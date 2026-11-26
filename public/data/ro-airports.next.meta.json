@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:24:41.495Z",
-  "source": "ROMATSA AIP Romania 2026-11-26 AD 2, AD 3",
-  "sourceSha256": "d7072f4623f1d86e3a13553f0a4c5f6cfcbeb186624315daa6c3e510d907bd74",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "generatedAt": "2026-11-26T18:53:37.098Z",
+  "source": "ROMATSA AIP Romania 2026-12-24 AD 2, AD 3",
+  "sourceSha256": "74b5824e72a8e295dbd11f83f41e1a7d05e0b857ae328bf6f45b945a9a5f339d",
+  "effective": "2026-12-24T00:00:00.000Z",
   "ahpCount": 39,
   "runwayCount": 37,
   "militaryCount": 0,
@@ -20,5 +20,5 @@
     28.715,
     47.704
   ],
-  "edition": "2026-11-26"
+  "edition": "2026-12-24"
 }
