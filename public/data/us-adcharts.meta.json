@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-18T05:30:56.478Z",
-  "effective": "2026-10-29",
-  "source": "https://aeronav.faa.gov/d-tpp/2611/xml_data/d-TPP_Metafile.xml",
-  "cycle": "2611",
-  "base": "https://aeronav.faa.gov/d-tpp/2611/",
+  "generatedAt": "2026-11-26T13:33:59.689Z",
+  "effective": "2026-11-26",
+  "source": "https://aeronav.faa.gov/d-tpp/2612/xml_data/d-TPP_Metafile.xml",
+  "cycle": "2612",
+  "base": "https://aeronav.faa.gov/d-tpp/2612/",
   "airports": 3195,
-  "charts": 24012,
+  "charts": 24013,
   "byFamily": {
     "ADC": 925,
     "IAC": 11049,
-    "MISC": 5765,
+    "MISC": 5766,
     "SID": 3244,
     "STAR": 3029
   }
