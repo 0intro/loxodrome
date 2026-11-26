@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-11-18T05:31:03.494Z",
-  "source": "ED_Airspace_StrokedBorders_2026-10-01_2026-10-29_revision.xml+ED_AirportHeliport_2026-10-01_2026-10-29_revision.xml+ED_Runway_2026-10-01_2026-10-29_revision.xml (+4 more)",
-  "sourceSha256": "bd7b9b13dad01ce353bfc0ee312e3892e8d0495158a2b345e0f72ed71d7b0ccd",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "obstacleCount": 26154,
-  "litCount": 25545,
+  "generatedAt": "2026-11-26T17:13:29.883Z",
+  "source": "ED_Airspace_StrokedBorders_2026-10-29_2026-11-26_revision.xml+ED_AirportHeliport_2026-10-29_2026-11-26_revision.xml+ED_Runway_2026-10-29_2026-11-26_revision.xml (+4 more)",
+  "sourceSha256": "39ad719110c0d305d1dfa72f2ff4e6ee63f22223180d488e95f2e9ad06c0e1de",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "obstacleCount": 26255,
+  "litCount": 25649,
   "skippedNonBaseline": 0,
-  "multiPartObstacles": 4366,
+  "multiPartObstacles": 4385,
   "skippedTooShort": 0,
   "unknownTypes": [
     "OTHER:CABLE_ABOVE_VALLEY_BOTTOM",
     "OTHER:DUMP"
   ],
   "counts": {
-    "antenna": 242,
+    "antenna": 243,
     "bridge": 5,
-    "building": 251,
+    "building": 250,
     "cable": 367,
-    "chimney": 308,
-    "crane": 44,
+    "chimney": 306,
+    "crane": 45,
     "other": 74,
     "pylon": 39,
     "silo": 2,
     "tower": 234,
-    "windturbine": 24588
+    "windturbine": 24690
   },
   "bbox": [
     5.744,
