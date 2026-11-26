@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-18T05:31:02.507Z",
-  "source": "EG_AIP_DS_FULL_20261126.xml",
-  "sourceSha256": "313bdcf54ce80823b0cc6526a0bc3ab3926f5744d84289fefc7dc07bfa4a27a0",
-  "effective": "2026-11-26T00:00:00.000Z",
+  "generatedAt": "2026-11-26T14:08:21.474Z",
+  "source": "EG_AIP_DS_FULL_20261224.xml",
+  "sourceSha256": "098eb8a97bb7f8627657b73669078c42265474edd7afdb20a136e24b4870c465",
+  "effective": "2026-12-24T00:00:00.000Z",
   "navaidCount": 1702,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 426,
