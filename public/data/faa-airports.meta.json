@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-08T01:25:20.657Z",
+  "generatedAt": "2026-11-26T13:34:22.556Z",
   "source": "FAA AIS US_Airport + Runways",
-  "sourceSha256": "7fa5413301b3d1f73aa7e765216400966fcf8e60ca0c7ae9384f50e3d2a86a59",
+  "sourceSha256": "e302f34d08859b1e8d34fa78d95996bfa43ed632b8a81be38d538b6b077983f3",
   "effective": "2026-10-29T00:00:00.000Z",
   "ahpCount": 19352,
   "runwayCount": 23069,
