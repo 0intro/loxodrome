@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-11-18T05:31:14.401Z",
+  "generatedAt": "2026-11-26T19:13:45.985Z",
   "source": "LFV Digital AIM WFS",
-  "sourceSha256": "3399a02e1c21fe75b70af9aff43d4be666d956b993e69223ada6ef765cdc4e09",
-  "effective": "2026-10-29T00:00:00.000Z",
-  "navaidCount": 1905,
+  "sourceSha256": "843ec430530dbc3e348ae8db20d90571f1c2cb14d9e48a63bcdb738df2f267c0",
+  "effective": "2026-11-26T00:00:00.000Z",
+  "navaidCount": 1917,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 0,
   "counts": {
     "DME": 78,
-    "NDB": 55,
+    "NDB": 53,
     "VFR_REPORTING_POINT": 290,
     "VOR": 1,
     "VOR-DME": 22,
-    "WAYPOINT": 1459
+    "WAYPOINT": 1473
   },
   "bbox": [
     10.566,

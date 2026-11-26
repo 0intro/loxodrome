@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-18T05:31:13.291Z",
+  "generatedAt": "2026-11-26T19:13:44.291Z",
   "source": "LFV Digital AIM WFS",
-  "sourceSha256": "3c82026cbb274e6d61685c008083a02cccf47b69d19e089c582b6844922a5f7a",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "sourceSha256": "a0363ca91c2821e495e17e25a4e560de6af3ce701e9ed4c77c9350a08c0b0db2",
+  "effective": "2026-11-26T00:00:00.000Z",
   "airspaceCount": 406,
   "skippedNoBoundary": 0,
   "skippedNoProjection": 0,
@@ -15,11 +15,11 @@
     "ATZ": 2,
     "CBA": 1,
     "CTR": 43,
-    "D": 21,
+    "D": 20,
     "DLG-ATS": 28,
     "R": 170,
     "RMZ": 28,
-    "TMA": 103,
+    "TMA": 104,
     "TRA": 10
   },
   "bbox": [
@@ -28,7 +28,7 @@
     24.779,
     69.06
   ],
-  "eaip": "AIRAC AIP AMDT 6-2026_2026_10_29",
+  "eaip": "AIRAC AIP AMDT 7-2026_2026_11_26",
   "noGeometry": 0,
   "datumFromEaip": 4
 }
