@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-18T05:34:32.408Z",
+  "generatedAt": "2026-11-26T17:37:25.259Z",
   "source": "LVNL Airspaces_data FeatureServer",
-  "sourceSha256": "afa442671a02da9235260d3c59f2deff391de0092a1896afa2a7c8ea5c9d8caf",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "sourceSha256": "9eaed92ac97cda1b6595887bc942f50867b932645204dac6aefea6edbef8587b",
+  "effective": "2026-11-26T00:00:00.000Z",
   "airspaceCount": 360,
   "layerCounts": {
     "ACC sector": 7,

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-08T01:28:03.449Z",
+  "generatedAt": "2026-11-26T17:37:42.169Z",
   "source": "LVNL Navaid + Waypoints FeatureServers",
-  "sourceSha256": "11c13933fb57aeddc5e1833874ef595de4910d929df6cd0947c22dcb131f7557",
-  "effective": "2026-10-29T00:00:00.000Z",
+  "sourceSha256": "5bb5f95fb032d6cd72babf593ed6d2c2fd0021baa263e83728fad1c6d381960d",
+  "effective": "2026-11-26T00:00:00.000Z",
   "navaidCount": 493,
   "skippedNonBaseline": 0,
   "unresolvedXlinks": 0,
